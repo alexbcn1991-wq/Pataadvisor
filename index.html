@@ -77,7 +77,8 @@
   .hero-right{display:grid;grid-template-columns:1fr 1fr;gap:12px}
   .hcard{background:var(--white);border:1px solid var(--sand-200);border-radius:var(--r-lg);padding:18px;transition:transform .3s,box-shadow .3s;cursor:pointer}
   .hcard:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.08)}
-  .hcard:first-child{grid-column:1/-1;display:flex;align-items:center;gap:16px;background:var(--green-900);border-color:transparent}
+  .hcard-featured{grid-column:1/-1 !important;display:flex !important;align-items:center !important;gap:16px !important;background:var(--green-900) !important;border-color:transparent !important}
+  .hcard-featured .hc-icon{font-size:40px}
   .hcard:first-child .hc-icon{font-size:40px}
   .hc-tl .hc-badge{color:var(--green-100);font-size:11px;margin-bottom:4px}
   .hc-tl .hc-title{font-family:var(--font-display);font-size:16px;font-weight:400;color:var(--white);letter-spacing:-.02em}
@@ -907,7 +908,15 @@
       </div>
     </div>
     <div class="hero-right">
-      <div class="hcard" onclick="window.location='articulos.html#pienso-perro'">
+      <!-- Badge actualizado hoy -->
+      <div style="grid-column:1/-1;display:flex;align-items:center;justify-content:center;padding:10px 0 4px">
+        <div style="display:inline-flex;align-items:center;gap:10px;background:var(--white);border:1px solid var(--sand-200);border-radius:100px;padding:8px 18px;box-shadow:0 2px 8px rgba(0,0,0,.05)">
+          <span style="width:8px;height:8px;border-radius:50%;background:#16A34A;flex-shrink:0;box-shadow:0 0 0 3px rgba(22,163,74,.15);animation:pulse 2s infinite"></span>
+          <span style="font-size:13px;font-weight:500;color:var(--sand-800)">Contenido actualizado</span>
+          <span style="font-size:12px;color:var(--sand-400)">· Abril 2026</span>
+        </div>
+      </div>
+      <div class="hcard hcard-featured" onclick="window.location='articulos.html#pienso-perro'">
         <div class="hc-icon">🏆</div>
         <div class="hc-tl">
           <div class="hc-badge">Mejor pienso 2026</div>
