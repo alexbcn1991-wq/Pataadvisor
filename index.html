@@ -1,0 +1,1502 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PataAdvisor — Recomendaciones honestas para tu mascota</title>
+<meta name="description" content="Comparativas reales, análisis de ingredientes y rankings actualizados de productos para mascotas. Sin publicidad encubierta.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-50: #E1F5EE;
+    --green-100: #9FE1CB;
+    --green-300: #1D9E75;
+    --green-500: #0F6E56;
+    --green-700: #085041;
+    --green-900: #04342C;
+    --amber-50: #FAEEDA;
+    --amber-300: #EF9F27;
+    --amber-500: #BA7517;
+    --sand-50: #F9F7F2;
+    --sand-100: #F0EDE4;
+    --sand-200: #E2DDD1;
+    --sand-400: #A89F8E;
+    --sand-600: #6B6358;
+    --sand-800: #2E2A24;
+    --sand-900: #1A1714;
+    --white: #FFFFFF;
+    --font-display: 'Fraunces', serif;
+    --font-body: 'DM Sans', sans-serif;
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--sand-50);
+    color: var(--sand-800);
+    font-size: 15px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAVBAR ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(249,247,242,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--sand-200);
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+  }
+
+  .logo {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--sand-900);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    letter-spacing: -0.02em;
+  }
+
+  .logo-mark {
+    width: 28px; height: 28px;
+    background: var(--green-300);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .logo-mark svg { width: 14px; height: 14px; fill: var(--white); }
+
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--sand-600);
+    text-decoration: none;
+    transition: color 0.2s;
+    letter-spacing: 0.01em;
+  }
+
+  .nav-links a:hover { color: var(--sand-900); }
+
+  .nav-right { display: flex; align-items: center; gap: 12px; }
+
+  .btn-outline {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--green-500);
+    background: transparent;
+    border: 1px solid var(--green-300);
+    border-radius: 100px;
+    padding: 7px 18px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+    display: inline-block;
+  }
+
+  .btn-outline:hover {
+    background: var(--green-50);
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+    background: none;
+    border: none;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background: var(--sand-800);
+    transition: all 0.3s;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 80px 32px 64px;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .hero-left {}
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--green-500);
+    background: var(--green-50);
+    border: 1px solid var(--green-100);
+    border-radius: 100px;
+    padding: 5px 14px;
+    margin-bottom: 20px;
+    letter-spacing: 0.03em;
+  }
+
+  .hero-badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--green-300);
+    flex-shrink: 0;
+  }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 4vw, 46px);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--sand-900);
+    letter-spacing: -0.03em;
+    margin-bottom: 20px;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--green-500);
+  }
+
+  .hero-desc {
+    font-size: 15px;
+    color: var(--sand-600);
+    line-height: 1.7;
+    margin-bottom: 32px;
+    max-width: 420px;
+  }
+
+  .search-wrap {
+    display: flex;
+    background: var(--white);
+    border: 1px solid var(--sand-200);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    max-width: 460px;
+  }
+
+  .search-wrap input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 13px 20px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--sand-800);
+    background: transparent;
+  }
+
+  .search-wrap input::placeholder { color: var(--sand-400); }
+
+  .search-wrap button {
+    background: var(--green-300);
+    color: var(--white);
+    border: none;
+    padding: 13px 22px;
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+
+  .search-wrap button:hover { background: var(--green-500); }
+
+  .hero-stats {
+    display: flex;
+    gap: 28px;
+    margin-top: 28px;
+  }
+
+  .stat { text-align: left; }
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--sand-900);
+    letter-spacing: -0.03em;
+  }
+  .stat-label {
+    font-size: 12px;
+    color: var(--sand-400);
+    margin-top: 1px;
+  }
+  .stat-divider {
+    width: 1px;
+    background: var(--sand-200);
+    align-self: stretch;
+  }
+
+  .hero-right {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 12px;
+  }
+
+  .hero-card {
+    background: var(--white);
+    border: 1px solid var(--sand-200);
+    border-radius: var(--radius-lg);
+    padding: 18px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+  }
+
+  .hero-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  }
+
+  .hero-card:first-child {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: var(--green-900);
+    border-color: transparent;
+  }
+
+  .hero-card:first-child .hc-icon { font-size: 40px; }
+
+  .hc-text-light .hc-badge { color: var(--green-100); font-size: 11px; margin-bottom: 4px; }
+  .hc-text-light .hc-title {
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--white);
+    letter-spacing: -0.02em;
+  }
+  .hc-text-light .hc-meta { font-size: 12px; color: var(--green-100); margin-top: 3px; }
+
+  .hc-icon-sm { font-size: 32px; margin-bottom: 10px; }
+
+  .hc-badge {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--sand-400);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 6px;
+  }
+
+  .hc-title {
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--sand-900);
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+  }
+
+  .hc-score {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--green-500);
+    background: var(--green-50);
+    padding: 2px 8px;
+    border-radius: 100px;
+  }
+
+  /* ── CATEGORIES ── */
+  .cats-section {
+    padding: 0 32px 48px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .cats-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .cat-pill {
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: var(--sand-600);
+    background: var(--white);
+    border: 1px solid var(--sand-200);
+    border-radius: 100px;
+    padding: 7px 18px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .cat-pill:hover, .cat-pill.active {
+    background: var(--green-50);
+    border-color: var(--green-100);
+    color: var(--green-500);
+  }
+
+  /* ── SECTION HEADER ── */
+  .section {
+    padding: 0 32px 56px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .sec-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--sand-200);
+    padding-bottom: 14px;
+  }
+
+  .sec-title {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--sand-900);
+    letter-spacing: -0.03em;
+  }
+
+  .sec-link {
+    font-size: 13px;
+    color: var(--green-300);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .sec-link:hover { color: var(--green-500); }
+
+  /* ── PRODUCT CARDS ── */
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .product-card {
+    background: var(--white);
+    border: 1px solid var(--sand-200);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: transform 0.25s, box-shadow 0.25s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.09);
+  }
+
+  .product-card.featured {
+    border-color: var(--green-300);
+    position: relative;
+  }
+
+  .featured-label {
+    position: absolute;
+    top: 12px; left: 12px;
+    font-size: 11px;
+    font-weight: 500;
+    background: var(--green-300);
+    color: var(--white);
+    padding: 3px 10px;
+    border-radius: 100px;
+    z-index: 2;
+  }
+
+  .product-img-wrap {
+    background: var(--sand-100);
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 56px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .product-body { padding: 16px; flex: 1; display: flex; flex-direction: column; }
+
+  .product-tag {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--sand-400);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 6px;
+  }
+
+  .product-name {
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--sand-900);
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+    margin-bottom: 6px;
+  }
+
+  .product-desc {
+    font-size: 12px;
+    color: var(--sand-400);
+    line-height: 1.5;
+    margin-bottom: 12px;
+    flex: 1;
+  }
+
+  .product-rating {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 12px;
+  }
+
+  .stars { color: var(--amber-300); font-size: 12px; letter-spacing: 1px; }
+
+  .rating-num {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--sand-800);
+  }
+
+  .rating-count { font-size: 11px; color: var(--sand-400); }
+
+  .product-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 12px;
+    border-top: 1px solid var(--sand-100);
+    margin-top: auto;
+  }
+
+  .price {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--sand-900);
+    letter-spacing: -0.03em;
+  }
+
+  .price small {
+    font-family: var(--font-body);
+    font-size: 11px;
+    color: var(--sand-400);
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+
+  .btn-amazon {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--green-500);
+    background: var(--green-50);
+    border: 1px solid var(--green-100);
+    border-radius: 100px;
+    padding: 6px 14px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s, border-color 0.2s;
+    white-space: nowrap;
+    display: inline-block;
+  }
+
+  .btn-amazon:hover {
+    background: var(--green-100);
+    border-color: var(--green-300);
+  }
+
+  /* ── COMPARE TABLE ── */
+  .compare-wrap {
+    background: var(--white);
+    border: 1px solid var(--sand-200);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+
+  .compare-table th {
+    padding: 14px 20px;
+    text-align: left;
+    background: var(--sand-100);
+    font-weight: 500;
+    font-size: 12px;
+    color: var(--sand-600);
+    border-bottom: 1px solid var(--sand-200);
+  }
+
+  .compare-table th.col-winner {
+    background: var(--green-50);
+    color: var(--green-500);
+  }
+
+  .compare-table th .winner-badge {
+    display: block;
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--green-300);
+    margin-top: 2px;
+  }
+
+  .compare-table td {
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--sand-100);
+    color: var(--sand-800);
+    vertical-align: middle;
+  }
+
+  .compare-table tr:last-child td { border-bottom: none; }
+
+  .compare-table td:first-child {
+    font-size: 12px;
+    color: var(--sand-400);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    width: 160px;
+  }
+
+  .compare-table td.col-winner {
+    background: rgba(225,245,238,0.3);
+  }
+
+  .check-yes {
+    display: inline-flex;
+    width: 20px; height: 20px;
+    background: var(--green-50);
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    color: var(--green-500);
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  .check-no {
+    display: inline-flex;
+    width: 20px; height: 20px;
+    background: #FEF2F2;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    color: #E53E3E;
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  .compare-link {
+    font-size: 12px;
+    color: var(--green-300);
+    text-decoration: none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .compare-link:hover { color: var(--green-500); }
+
+  /* ── ARTICLES ── */
+  .articles-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .article-card {
+    background: var(--white);
+    border: 1px solid var(--sand-200);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    display: flex;
+    gap: 16px;
+    cursor: pointer;
+    transition: transform 0.25s, box-shadow 0.25s;
+    text-decoration: none;
+  }
+
+  .article-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.07);
+  }
+
+  .article-icon {
+    width: 48px; height: 48px;
+    min-width: 48px;
+    background: var(--sand-100);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+  }
+
+  .article-body {}
+
+  .article-tag {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--green-300);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 5px;
+  }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--sand-900);
+    letter-spacing: -0.02em;
+    line-height: 1.4;
+  }
+
+  .article-meta {
+    font-size: 11px;
+    color: var(--sand-400);
+    margin-top: 6px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .article-meta span::before { content: '·'; margin-right: 10px; }
+  .article-meta span:first-child::before { content: ''; margin: 0; }
+
+  /* ── NEWSLETTER ── */
+  .newsletter-section {
+    padding: 0 32px 56px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .newsletter-box {
+    background: var(--green-900);
+    border-radius: var(--radius-xl);
+    padding: 56px 64px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .newsletter-box::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 240px; height: 240px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.03);
+  }
+
+  .newsletter-box::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; right: 80px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.03);
+  }
+
+  .nl-left {}
+
+  .nl-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--green-100);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 12px;
+  }
+
+  .nl-title {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--white);
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+
+  .nl-title em { font-style: italic; color: var(--green-100); }
+
+  .nl-desc {
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.6;
+  }
+
+  .nl-right {}
+
+  .nl-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .nl-form input {
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--sand-800);
+    background: var(--white);
+    border: 1px solid transparent;
+    border-radius: var(--radius-md);
+    padding: 12px 16px;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+
+  .nl-form input:focus { border-color: var(--green-300); }
+  .nl-form input::placeholder { color: var(--sand-400); }
+
+  .nl-form button {
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--green-900);
+    background: var(--green-100);
+    border: none;
+    border-radius: var(--radius-md);
+    padding: 13px;
+    cursor: pointer;
+    transition: background 0.2s;
+    width: 100%;
+  }
+
+  .nl-form button:hover { background: var(--white); }
+
+  .nl-trust {
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .nl-trust::before {
+    content: '';
+    width: 12px; height: 12px;
+    border: 1.5px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: inline-block;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--sand-200);
+    padding: 40px 32px;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+  }
+
+  .footer-brand {}
+
+  .footer-logo {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--sand-900);
+    letter-spacing: -0.03em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    text-decoration: none;
+  }
+
+  .footer-logo-dot {
+    width: 22px; height: 22px;
+    background: var(--green-300);
+    border-radius: 50%;
+  }
+
+  .footer-desc {
+    font-size: 13px;
+    color: var(--sand-400);
+    line-height: 1.6;
+    max-width: 220px;
+  }
+
+  .footer-disclaimer {
+    font-size: 11px;
+    color: var(--sand-400);
+    margin-top: 14px;
+    line-height: 1.5;
+  }
+
+  .footer-col h4 {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--sand-600);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 14px;
+  }
+
+  .footer-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .footer-col a {
+    font-size: 13px;
+    color: var(--sand-400);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-col a:hover { color: var(--sand-800); }
+
+  .footer-bottom {
+    border-top: 1px solid var(--sand-200);
+    padding: 20px 32px;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: var(--sand-400);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .anim-1 { animation: fadeUp 0.5s ease both; }
+  .anim-2 { animation: fadeUp 0.5s 0.1s ease both; }
+  .anim-3 { animation: fadeUp 0.5s 0.2s ease both; }
+  .anim-4 { animation: fadeUp 0.5s 0.3s ease both; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .btn-outline { display: none; }
+
+    .hero {
+      grid-template-columns: 1fr;
+      padding: 40px 20px 32px;
+      gap: 32px;
+    }
+
+    .hero-right { display: none; }
+
+    .cats-section, .section, .newsletter-section { padding-left: 20px; padding-right: 20px; }
+
+    .products-grid { grid-template-columns: 1fr 1fr; }
+
+    .articles-grid { grid-template-columns: 1fr; }
+
+    .newsletter-box {
+      grid-template-columns: 1fr;
+      padding: 36px 28px;
+      gap: 28px;
+    }
+
+    footer {
+      grid-template-columns: 1fr 1fr;
+      padding: 32px 20px;
+      gap: 28px;
+    }
+
+    .footer-brand { grid-column: 1 / -1; }
+
+    .footer-bottom { padding: 16px 20px; flex-direction: column; gap: 8px; text-align: center; }
+
+    .compare-wrap { overflow-x: auto; }
+  }
+
+  @media (max-width: 580px) {
+    .products-grid { grid-template-columns: 1fr; }
+    .hero-stats { gap: 16px; }
+    footer { grid-template-columns: 1fr; }
+  }
+
+  /* ── MOBILE MENU ── */
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: var(--sand-50);
+    z-index: 200;
+    padding: 24px;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .mobile-menu.open { display: flex; }
+
+  .mobile-menu-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+  }
+
+  .mobile-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--sand-800);
+    padding: 4px;
+  }
+
+  .mobile-menu a {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 300;
+    color: var(--sand-900);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--sand-200);
+    display: block;
+    transition: color 0.2s;
+  }
+
+  .mobile-menu a:hover { color: var(--green-500); }
+</style>
+</head>
+<body>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-top">
+    <a href="#" class="logo">
+      <div class="logo-mark"><svg viewBox="0 0 14 14"><path d="M7 1C3.69 1 1 3.69 1 7s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm-.5 8.5L3.5 6.5l1.06-1.06L6.5 7.38l3.44-3.44L11 5l-4.5 4.5z"/></svg></div>
+      PataAdvisor
+    </a>
+    <button class="mobile-close" onclick="document.getElementById('mobileMenu').classList.remove('open')">✕</button>
+  </div>
+  <a href="#perros">Perros</a>
+  <a href="#gatos">Gatos</a>
+  <a href="#comparativas">Comparativas</a>
+  <a href="#guias">Guías</a>
+  <a href="#newsletter">Newsletter</a>
+</div>
+
+<!-- NAVBAR -->
+<nav>
+  <a href="#" class="logo">
+    <div class="logo-mark">
+      <svg viewBox="0 0 14 14"><path d="M7 1C3.69 1 1 3.69 1 7s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm-.5 8.5L3.5 6.5l1.06-1.06L6.5 7.38l3.44-3.44L11 5l-4.5 4.5z"/></svg>
+    </div>
+    PataAdvisor
+  </a>
+  <ul class="nav-links">
+    <li><a href="#perros">Perros</a></li>
+    <li><a href="#gatos">Gatos</a></li>
+    <li><a href="#comparativas">Comparativas</a></li>
+    <li><a href="#guias">Guías</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="#newsletter" class="btn-outline">Newsletter</a>
+    <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.add('open')" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-badge anim-1">Recomendaciones honestas, sin publicidad encubierta</div>
+    <h1 class="anim-2">Los mejores productos para tu <em>mascota</em>, analizados de verdad</h1>
+    <p class="hero-desc anim-3">Comparamos ingredientes, leemos la letra pequeña y probamos los productos para que tú no tengas que hacerlo. Más de 400 análisis publicados.</p>
+    <div class="search-wrap anim-4">
+      <input type="text" placeholder="Busca pienso, antiparasitarios, juguetes..." />
+      <button>Buscar →</button>
+    </div>
+    <div class="hero-stats anim-4">
+      <div class="stat">
+        <div class="stat-num">400+</div>
+        <div class="stat-label">Productos analizados</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <div class="stat-num">4.200</div>
+        <div class="stat-label">Suscriptores</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Opiniones reales</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-card">
+      <div class="hc-icon">🏆</div>
+      <div class="hc-text-light">
+        <div class="hc-badge">Mejor pienso 2026</div>
+        <div class="hc-title">Royal Canin Medium Adult — análisis completo</div>
+        <div class="hc-meta">Actualizado este mes · Perros</div>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hc-icon-sm">💊</div>
+      <div class="hc-badge">Salud</div>
+      <div class="hc-title">Antiparasitarios sin receta: ranking 2026</div>
+      <div class="hc-score">★ 4.8 / 5</div>
+    </div>
+    <div class="hero-card">
+      <div class="hc-icon-sm">✈️</div>
+      <div class="hc-badge">Viajes</div>
+      <div class="hc-title">Transportines homologados para volar</div>
+      <div class="hc-score">★ 4.6 / 5</div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<div class="cats-section">
+  <div class="cats-row">
+    <button class="cat-pill active">Todo</button>
+    <button class="cat-pill">Alimentación</button>
+    <button class="cat-pill">Salud</button>
+    <button class="cat-pill">Juguetes</button>
+    <button class="cat-pill">Accesorios</button>
+    <button class="cat-pill">Higiene</button>
+    <button class="cat-pill">Viajes</button>
+    <button class="cat-pill">Cachorros</button>
+  </div>
+</div>
+
+<!-- PRODUCTS: PERROS -->
+<section class="section" id="perros">
+  <div class="sec-header">
+    <h2 class="sec-title">Lo mejor para perros</h2>
+    <a href="#" class="sec-link">Ver todos los productos →</a>
+  </div>
+  <div class="products-grid">
+    <div class="product-card featured">
+      <div class="featured-label">Mejor valorado</div>
+      <div class="product-img-wrap">🐕</div>
+      <div class="product-body">
+        <div class="product-tag">Pienso · Adulto</div>
+        <div class="product-name">Royal Canin Medium Adult 15kg</div>
+        <div class="product-desc">Formula equilibrada con prebióticos para razas medianas de 1 a 7 años. Alta digestibilidad comprobada.</div>
+        <div class="product-rating">
+          <span class="stars">★★★★★</span>
+          <span class="rating-num">4.9</span>
+          <span class="rating-count">(312 análisis)</span>
+        </div>
+        <div class="product-footer">
+          <div class="price">54,90€ <small>/ 15kg</small></div>
+          <a href="https://www.amazon.es" target="_blank" class="btn-amazon">Amazon →</a>
+        </div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img-wrap">🦴</div>
+      <div class="product-body">
+        <div class="product-tag">Pienso · Sin cereales</div>
+        <div class="product-name">Orijen Original 11.4kg</div>
+        <div class="product-desc">Alta proporción de proteína animal (85%). Sin cereales ni rellenos artificiales. Gama premium.</div>
+        <div class="product-rating">
+          <span class="stars">★★★★★</span>
+          <span class="rating-num">4.8</span>
+          <span class="rating-count">(187 análisis)</span>
+        </div>
+        <div class="product-footer">
+          <div class="price">89,90€ <small>/ 11.4kg</small></div>
+          <a href="https://www.amazon.es" target="_blank" class="btn-amazon">Amazon →</a>
+        </div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img-wrap">🎾</div>
+      <div class="product-body">
+        <div class="product-tag">Juguete · Interactivo</div>
+        <div class="product-name">Kong Classic talla L</div>
+        <div class="product-desc">El clásico dispensador de premios. Resistente para masticadores intensos. Apto para lavavajillas.</div>
+        <div class="product-rating">
+          <span class="stars">★★★★☆</span>
+          <span class="rating-num">4.6</span>
+          <span class="rating-count">(524 análisis)</span>
+        </div>
+        <div class="product-footer">
+          <div class="price">13,95€</div>
+          <a href="https://www.amazon.es" target="_blank" class="btn-amazon">Amazon →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS: GATOS -->
+<section class="section" id="gatos">
+  <div class="sec-header">
+    <h2 class="sec-title">Lo mejor para gatos</h2>
+    <a href="#" class="sec-link">Ver todos los productos →</a>
+  </div>
+  <div class="products-grid">
+    <div class="product-card featured">
+      <div class="featured-label">Mejor relación calidad/precio</div>
+      <div class="product-img-wrap">🐱</div>
+      <div class="product-body">
+        <div class="product-tag">Pienso · Esterilizados</div>
+        <div class="product-name">Purina Pro Plan Sterilised 10kg</div>
+        <div class="product-desc">Formulado para gatos esterilizados con control de peso. Alto contenido en proteínas de pollo.</div>
+        <div class="product-rating">
+          <span class="stars">★★★★★</span>
+          <span class="rating-num">4.8</span>
+          <span class="rating-count">(445 análisis)</span>
+        </div>
+        <div class="product-footer">
+          <div class="price">38,50€ <small>/ 10kg</small></div>
+          <a href="https://www.amazon.es" target="_blank" class="btn-amazon">Amazon →</a>
+        </div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img-wrap">🐟</div>
+      <div class="product-body">
+        <div class="product-tag">Comida húmeda · Grain-free</div>
+        <div class="product-name">Schesir Tuna Natural 24x85g</div>
+        <div class="product-desc">Atún en su jugo natural, sin conservantes ni colorantes. Ingrediente único para gatos sensibles.</div>
+        <div class="product-rating">
+          <span class="stars">★★★★☆</span>
+          <span class="rating-num">4.5</span>
+          <span class="rating-count">(289 análisis)</span>
+        </div>
+        <div class="product-footer">
+          <div class="price">24,90€ <small>/ 24 latas</small></div>
+          <a href="https://www.amazon.es" target="_blank" class="btn-amazon">Amazon →</a>
+        </div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img-wrap">🪷</div>
+      <div class="product-body">
+        <div class="product-tag">Arena · Aglomerante</div>
+        <div class="product-name">Catsan Hygiene Plus 20L</div>
+        <div class="product-desc">Arena de sílice con control de olores de hasta 7 días. Sin polvo, baja dispersión fuera del arenero.</div>
+        <div class="product-rating">
+          <span class="stars">★★★★☆</span>
+          <span class="rating-num">4.4</span>
+          <span class="rating-count">(731 análisis)</span>
+        </div>
+        <div class="product-footer">
+          <div class="price">18,70€ <small>/ 20L</small></div>
+          <a href="https://www.amazon.es" target="_blank" class="btn-amazon">Amazon →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARE TABLE -->
+<section class="section" id="comparativas">
+  <div class="sec-header">
+    <h2 class="sec-title">Comparativa destacada: piensos para perro adulto</h2>
+    <a href="#" class="sec-link">Ver todas las comparativas →</a>
+  </div>
+  <div class="compare-wrap">
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Característica</th>
+          <th>Hills Science Diet</th>
+          <th class="col-winner">Royal Canin Medium <span class="winner-badge">⭐ Nuestra elección</span></th>
+          <th>Advance Veterinary</th>
+          <th>Eukanuba Adult</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Proteína bruta</td>
+          <td>24%</td>
+          <td class="col-winner">26%</td>
+          <td>23%</td>
+          <td>25%</td>
+        </tr>
+        <tr>
+          <td>Sin colorantes</td>
+          <td><span class="check-yes">✓</span></td>
+          <td class="col-winner"><span class="check-yes">✓</span></td>
+          <td><span class="check-no">✗</span></td>
+          <td><span class="check-yes">✓</span></td>
+        </tr>
+        <tr>
+          <td>Razas específicas</td>
+          <td><span class="check-no">✗</span></td>
+          <td class="col-winner"><span class="check-yes">✓</span></td>
+          <td><span class="check-no">✗</span></td>
+          <td><span class="check-no">✗</span></td>
+        </tr>
+        <tr>
+          <td>Prebióticos</td>
+          <td><span class="check-yes">✓</span></td>
+          <td class="col-winner"><span class="check-yes">✓</span></td>
+          <td><span class="check-yes">✓</span></td>
+          <td><span class="check-no">✗</span></td>
+        </tr>
+        <tr>
+          <td>Precio / kg</td>
+          <td>4,20€</td>
+          <td class="col-winner">3,65€</td>
+          <td>3,90€</td>
+          <td>4,05€</td>
+        </tr>
+        <tr>
+          <td>Ver en Amazon</td>
+          <td><a href="https://www.amazon.es" target="_blank" class="compare-link">Ver oferta →</a></td>
+          <td class="col-winner"><a href="https://www.amazon.es" target="_blank" class="compare-link">Ver oferta →</a></td>
+          <td><a href="https://www.amazon.es" target="_blank" class="compare-link">Ver oferta →</a></td>
+          <td><a href="https://www.amazon.es" target="_blank" class="compare-link">Ver oferta →</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ARTICLES -->
+<section class="section" id="guias">
+  <div class="sec-header">
+    <h2 class="sec-title">Últimas guías</h2>
+    <a href="#" class="sec-link">Ver todas las guías →</a>
+  </div>
+  <div class="articles-grid">
+    <a href="#" class="article-card">
+      <div class="article-icon">💊</div>
+      <div class="article-body">
+        <div class="article-tag">Salud · Perros</div>
+        <div class="article-title">Los 7 mejores antiparasitarios de 2026 según veterinarios</div>
+        <div class="article-meta">
+          <span>hace 2 días</span>
+          <span>8 min de lectura</span>
+        </div>
+      </div>
+    </a>
+    <a href="#" class="article-card">
+      <div class="article-icon">✈️</div>
+      <div class="article-body">
+        <div class="article-tag">Viajes</div>
+        <div class="article-title">Transportines homologados: qué comprar antes de volar con tu perro</div>
+        <div class="article-meta">
+          <span>hace 5 días</span>
+          <span>6 min de lectura</span>
+        </div>
+      </div>
+    </a>
+    <a href="#" class="article-card">
+      <div class="article-icon">🥩</div>
+      <div class="article-body">
+        <div class="article-tag">Alimentación · Gatos</div>
+        <div class="article-title">Comida húmeda vs seca para gatos: qué dice la ciencia en 2026</div>
+        <div class="article-meta">
+          <span>hace 1 semana</span>
+          <span>10 min de lectura</span>
+        </div>
+      </div>
+    </a>
+    <a href="#" class="article-card">
+      <div class="article-icon">🦴</div>
+      <div class="article-body">
+        <div class="article-tag">Salud · Perros mayores</div>
+        <div class="article-title">Suplementos articulares para perros mayores: ranking completo</div>
+        <div class="article-meta">
+          <span>hace 1 semana</span>
+          <span>7 min de lectura</span>
+        </div>
+      </div>
+    </a>
+    <a href="#" class="article-card">
+      <div class="article-icon">🐾</div>
+      <div class="article-body">
+        <div class="article-tag">Cachorros</div>
+        <div class="article-title">Guía completa para el primer mes con un cachorro: qué necesitas comprar</div>
+        <div class="article-meta">
+          <span>hace 2 semanas</span>
+          <span>12 min de lectura</span>
+        </div>
+      </div>
+    </a>
+    <a href="#" class="article-card">
+      <div class="article-icon">🪮</div>
+      <div class="article-body">
+        <div class="article-tag">Higiene</div>
+        <div class="article-title">Las mejores cepillos para perros de pelo largo: análisis de 12 modelos</div>
+        <div class="article-meta">
+          <span>hace 2 semanas</span>
+          <span>5 min de lectura</span>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter-section" id="newsletter">
+  <div class="newsletter-box">
+    <div class="nl-left">
+      <div class="nl-eyebrow">Newsletter semanal</div>
+      <h2 class="nl-title">Las mejores ofertas, <em>solo cuando importan</em></h2>
+      <p class="nl-desc">Cada semana seleccionamos las mejores bajadas de precio en productos que ya hemos analizado. Sin spam, sin patrocinios, sin letra pequeña.</p>
+    </div>
+    <div class="nl-right">
+      <form class="nl-form" onsubmit="handleSubscribe(event)">
+        <input type="text" placeholder="Tu nombre" id="nlName" />
+        <input type="email" placeholder="tu@email.com" id="nlEmail" required />
+        <button type="submit" id="nlBtn">Suscribirme gratis →</button>
+        <div class="nl-trust">Sin spam. Puedes darte de baja cuando quieras.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <a href="#" class="footer-logo">
+      <div class="footer-logo-dot"></div>
+      PataAdvisor
+    </a>
+    <p class="footer-desc">Comparativas y análisis de productos para mascotas. Actualizamos el contenido regularmente para que siempre tengas la mejor información.</p>
+    <p class="footer-disclaimer">* PataAdvisor es participante del Programa de Afiliados de Amazon EU, un programa de publicidad para afiliados diseñado para ofrecer a sitios web un modo de obtener comisiones por publicidad, publicitando e incluyendo enlaces a Amazon.es.</p>
+  </div>
+  <div class="footer-col">
+    <h4>Perros</h4>
+    <ul>
+      <li><a href="#">Pienso</a></li>
+      <li><a href="#">Salud</a></li>
+      <li><a href="#">Juguetes</a></li>
+      <li><a href="#">Accesorios</a></li>
+      <li><a href="#">Cachorros</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Gatos</h4>
+    <ul>
+      <li><a href="#">Pienso</a></li>
+      <li><a href="#">Comida húmeda</a></li>
+      <li><a href="#">Arena</a></li>
+      <li><a href="#">Juguetes</a></li>
+      <li><a href="#">Esterilizados</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Sobre nosotros</h4>
+    <ul>
+      <li><a href="#">Cómo analizamos</a></li>
+      <li><a href="#">Política de afiliados</a></li>
+      <li><a href="#">Contacto</a></li>
+      <li><a href="#">Aviso legal</a></li>
+      <li><a href="#">Privacidad</a></li>
+    </ul>
+  </div>
+</footer>
+
+<div class="footer-bottom">
+  <span>© 2026 PataAdvisor. Todos los derechos reservados.</span>
+  <span>Hecho con cariño para dueños de mascotas</span>
+</div>
+
+<script>
+  // Category pills
+  document.querySelectorAll('.cat-pill').forEach(pill => {
+    pill.addEventListener('click', function() {
+      document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+
+  // Newsletter
+  function handleSubscribe(e) {
+    e.preventDefault();
+    const btn = document.getElementById('nlBtn');
+    const name = document.getElementById('nlName').value;
+    btn.textContent = name ? `¡Listo, ${name}! Te hemos apuntado ✓` : '¡Suscripción confirmada! ✓';
+    btn.style.background = '#9FE1CB';
+    btn.style.color = '#04342C';
+    btn.disabled = true;
+  }
+
+  // Scroll animation
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.product-card, .article-card, .hero-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(16px)';
+    el.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+    observer.observe(el);
+  });
+
+  // Search
+  document.querySelector('.search-wrap input').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter' && this.value.trim()) {
+      alert(`Buscando: "${this.value}" — conecta aquí tu motor de búsqueda o CMS`);
+    }
+  });
+</script>
+</body>
+</html>
