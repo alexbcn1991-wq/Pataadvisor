@@ -207,7 +207,80 @@
   .footer-col a:hover{color:var(--sand-800)}
   .footer-bottom{border-top:1px solid var(--sand-200);padding:20px 32px;max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;font-size:14px;color:var(--sand-400)}
 
-  /* OFERTA DEL DÍA */
+  /* ── MODO OSCURO ─────────────────────────── */
+  html.dark {
+    --sand-50:#141210;--sand-100:#1E1B18;--sand-200:#2A2520;
+    --sand-400:#7A7168;--sand-600:#A89F8E;--sand-800:#D4C9BC;--sand-900:#F0EDE4;
+    --white:#1E1B18;
+  }
+  html.dark body{background:var(--sand-50)}
+  html.dark nav{background:rgba(20,18,16,.95)}
+  html.dark .oferta-bar,html.dark .ticker-wrap{background:transparent}
+  html.dark .ticker-wrap{background:#1A1714;border-color:#2A2520}
+  html.dark .product-card,html.dark .hcard:not(:first-child),html.dark .how-card,html.dark .compare-wrap,html.dark .related-card{background:#1E1B18;border-color:#2A2520}
+  html.dark .compare-table th{background:#2A2520}
+  html.dark .compare-table td.winner-col{background:rgba(29,158,117,.08)}
+  html.dark .trust-bar{background:#1A1714;border-color:#2A2520}
+  html.dark .quick-panel{background:#1E1B18}
+  html.dark .quick-score-item{background:#2A2520}
+  html.dark .quick-score-bar-wrap{background:#3A332C}
+  html.dark .cat-pill{background:#1E1B18;border-color:#2A2520;color:var(--sand-400)}
+  html.dark .search-wrap{background:#1E1B18;border-color:#2A2520}
+  html.dark .search-wrap input{color:var(--sand-800)}
+
+  /* toggle */
+  .dark-toggle{width:40px;height:22px;border-radius:100px;background:var(--sand-200);border:none;cursor:pointer;position:relative;transition:background .3s;flex-shrink:0}
+  .dark-toggle::after{content:'';position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:white;transition:transform .3s}
+  html.dark .dark-toggle{background:var(--green-500)}
+  html.dark .dark-toggle::after{transform:translateX(18px)}
+  .dark-toggle-wrap{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--sand-400)}
+
+  /* ── FILTRO PERRO/GATO ──────────────────── */
+  .pet-filter{display:flex;gap:10px;padding:0 32px 24px;max-width:1100px;margin:0 auto}
+  .pf-btn{display:flex;align-items:center;gap:8px;font-family:var(--font-body);font-size:14px;font-weight:500;color:var(--sand-600);background:var(--white);border:2px solid var(--sand-200);border-radius:100px;padding:10px 22px;cursor:pointer;transition:all .25s}
+  .pf-btn:hover{border-color:var(--green-100);color:var(--green-500)}
+  .pf-btn.active{background:var(--green-50);border-color:var(--green-300);color:var(--green-500)}
+  .pf-btn .pf-icon{font-size:18px}
+  html.dark .pf-btn{background:#1E1B18;border-color:#2A2520;color:var(--sand-600)}
+  html.dark .pf-btn.active{background:rgba(29,158,117,.12);border-color:var(--green-300)}
+
+  /* ── CALCULADORA ────────────────────────── */
+  .calc-section{padding:0 32px 56px;max-width:1100px;margin:0 auto}
+  .calc-box{background:var(--white);border:1px solid var(--sand-200);border-radius:var(--r-xl);padding:40px 48px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  html.dark .calc-box{background:#1E1B18;border-color:#2A2520}
+  .calc-eyebrow{font-size:11px;font-weight:500;color:var(--green-300);text-transform:uppercase;letter-spacing:.12em;margin-bottom:10px}
+  .calc-title{font-family:var(--font-display);font-size:26px;font-weight:300;color:var(--sand-900);letter-spacing:-.02em;line-height:1.2;margin-bottom:8px}
+  .calc-title em{font-style:italic;color:var(--green-500)}
+  .calc-desc{font-size:14px;color:var(--sand-400);line-height:1.6}
+  .calc-fields{display:flex;flex-direction:column;gap:16px}
+  .calc-field label{display:block;font-size:12px;font-weight:500;color:var(--sand-600);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
+  .calc-field input,.calc-field select{width:100%;font-family:var(--font-body);font-size:15px;color:var(--sand-800);background:var(--sand-50);border:1px solid var(--sand-200);border-radius:var(--r-md);padding:11px 14px;outline:none;transition:border-color .2s;appearance:none}
+  html.dark .calc-field input,html.dark .calc-field select{background:#141210;border-color:#2A2520;color:var(--sand-800)}
+  .calc-field input:focus,.calc-field select:focus{border-color:var(--green-300)}
+  .calc-result{background:var(--green-50);border:1px solid var(--green-100);border-radius:var(--r-lg);padding:24px;margin-top:16px;display:none}
+  html.dark .calc-result{background:rgba(29,158,117,.08);border-color:rgba(29,158,117,.2)}
+  .calc-result.show{display:block;animation:fadeUp .3s ease}
+  .calc-result-row{display:flex;justify-content:space-between;align-items:baseline;padding:8px 0;border-bottom:1px solid var(--green-100)}
+  html.dark .calc-result-row{border-color:rgba(29,158,117,.15)}
+  .calc-result-row:last-of-type{border:none}
+  .calc-result-label{font-size:13px;color:var(--green-700)}
+  .calc-result-val{font-family:var(--font-display);font-size:22px;font-weight:400;color:var(--green-900);letter-spacing:-.02em}
+  html.dark .calc-result-val{color:var(--green-100)}
+  .calc-result-note{font-size:12px;color:var(--green-500);margin-top:12px;line-height:1.6}
+  .calc-btn{width:100%;font-family:var(--font-body);font-size:15px;font-weight:500;color:white;background:var(--green-300);border:none;border-radius:var(--r-md);padding:13px;cursor:pointer;transition:background .2s;margin-top:4px}
+  .calc-btn:hover{background:var(--green-500)}
+
+  /* ── BOTÓN COMPARTIR ────────────────────── */
+  .share-bar{display:flex;align-items:center;gap:12px;padding:20px 0;border-top:1px solid var(--sand-200);margin-top:8px;flex-wrap:wrap}
+  .share-label{font-size:13px;color:var(--sand-400);font-weight:500}
+  .share-btn{display:inline-flex;align-items:center;gap:7px;font-family:var(--font-body);font-size:13px;font-weight:500;padding:8px 16px;border-radius:100px;border:none;cursor:pointer;text-decoration:none;transition:all .2s}
+  .share-wa{background:#25D366;color:white}.share-wa:hover{background:#1da851}
+  .share-tg{background:#229ED9;color:white}.share-tg:hover{background:#1a7fad}
+  .share-copy{background:var(--sand-100);color:var(--sand-800)}.share-copy:hover{background:var(--sand-200)}
+  html.dark .share-copy{background:#2A2520;color:var(--sand-800)}
+  html.dark .share-bar{border-color:#2A2520}
+
+
   .oferta-bar{background:var(--green-900);padding:0 32px}
   .oferta-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:24px;padding:18px 0;flex-wrap:wrap}
   .oferta-badge{font-family:var(--font-body);font-size:10px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;background:var(--green-300);color:var(--white);padding:4px 12px;border-radius:100px;white-space:nowrap;animation:pulse 2s infinite}
@@ -535,6 +608,10 @@
     <li><a onclick="showPage('home')">Comparativas</a></li>
     <li><a onclick="showPage('como-analizamos')">Cómo analizamos</a></li>
   </ul>
+  <div class="dark-toggle-wrap" title="Modo oscuro">
+    <span>🌙</span>
+    <button class="dark-toggle" id="darkToggle" onclick="toggleDark()" aria-label="Modo oscuro"></button>
+  </div>
   <div class="nav-right">
     <span class="btn-outline" onclick="showPage('home');setTimeout(()=>document.getElementById('nl').scrollIntoView({behavior:'smooth'}),100)">Newsletter</span>
     <button class="hamburger" onclick="document.getElementById('mobMenu').classList.add('open')"><span></span><span></span><span></span></button>
@@ -660,7 +737,14 @@
     </div>
   </div>
 
-  <section class="section">
+  <div class="pet-filter">
+    <button class="pf-btn active" onclick="setPetFilter('all',this)"><span class="pf-icon">🐾</span> Ver todo</button>
+    <button class="pf-btn" onclick="setPetFilter('dog',this)"><span class="pf-icon">🐕</span> Tengo perro</button>
+    <button class="pf-btn" onclick="setPetFilter('cat',this)"><span class="pf-icon">🐱</span> Tengo gato</button>
+    <button class="pf-btn" onclick="setPetFilter('both',this)"><span class="pf-icon">🐕🐱</span> Tengo los dos</button>
+  </div>
+
+  <section class="section" data-pet="dog" id="sec-dogs">
     <div class="sec-header"><h2 class="sec-title">Lo mejor para perros</h2><span class="sec-link" onclick="window.location='articulos.html#pienso-perro'">Ver análisis completo →</span></div>
     <div class="products-grid">
       <div class="product-card featured">
@@ -697,7 +781,7 @@
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" data-pet="cat" id="sec-cats">
     <div class="sec-header"><h2 class="sec-title">Lo mejor para gatos</h2><span class="sec-link" onclick="window.location='articulos.html#pienso-gato'">Ver análisis completo →</span></div>
     <div class="products-grid">
       <div class="product-card featured">
@@ -830,6 +914,45 @@
     </div>
   </section>
 
+  <!-- CALCULADORA -->
+  <section class="calc-section">
+    <div class="calc-box">
+      <div>
+        <div class="calc-eyebrow">Herramienta gratuita</div>
+        <div class="calc-title">¿Cuánto te cuesta <em>alimentar a tu perro</em> al mes?</div>
+        <div class="calc-desc">Introduce el peso de tu perro y el pienso que usas — te decimos exactamente cuánto gastas al día, al mes y al año, y si hay una opción más económica de calidad similar.</div>
+      </div>
+      <div class="calc-fields">
+        <div class="calc-field">
+          <label>Peso del perro (kg)</label>
+          <input type="number" id="calcWeight" placeholder="Ej: 15" min="1" max="90" oninput="calcRun()">
+        </div>
+        <div class="calc-field">
+          <label>Pienso actual</label>
+          <select id="calcFood" onchange="calcRun()">
+            <option value="">— Elige pienso —</option>
+            <option value="rc_medium" data-price="54.90" data-kg="15">Royal Canin Medium Adult 15kg</option>
+            <option value="orijen" data-price="54.90" data-kg="6">Orijen Original 6kg</option>
+            <option value="purina_pro" data-price="62.00" data-kg="14">Purina Pro Plan Adult 14kg</option>
+            <option value="hills" data-price="55.00" data-kg="12">Hills Science Diet Adult 12kg</option>
+            <option value="advance" data-price="38.00" data-kg="12">Advance Adult Medium 12kg</option>
+            <option value="otro" data-price="40" data-kg="10">Otro (estimado)</option>
+          </select>
+        </div>
+        <div class="calc-field">
+          <label>Actividad del perro</label>
+          <select id="calcActivity" onchange="calcRun()">
+            <option value="1">Normal (paseos diarios)</option>
+            <option value="1.2">Activo (ejercicio frecuente)</option>
+            <option value="0.8">Sedentario / esterilizado</option>
+          </select>
+        </div>
+        <button class="calc-btn" onclick="calcRun()">Calcular</button>
+        <div class="calc-result" id="calcResult"></div>
+      </div>
+    </div>
+  </section>
+
   <!-- QUIZ -->
   <section class="quiz-section">
     <div class="quiz-box" id="quizBox">
@@ -862,6 +985,25 @@
       </a>
     </div>
   </section>
+
+  <!-- COMPARTIR -->
+  <div style="padding:0 32px;max-width:1100px;margin:0 auto 8px">
+    <div class="share-bar">
+      <span class="share-label">¿Te ha sido útil? Comparte:</span>
+      <a class="share-btn share-wa" href="https://wa.me/?text=Mira%20PataAdvisor%2C%20comparativas%20honestas%20de%20productos%20para%20mascotas%3A%20https%3A%2F%2Fpataadvisor.es" target="_blank" rel="nofollow noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
+      <a class="share-btn share-tg" href="https://t.me/share/url?url=https%3A%2F%2Fpataadvisor.es&text=Comparativas%20honestas%20de%20productos%20para%20mascotas" target="_blank" rel="nofollow noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+        Telegram
+      </a>
+      <button class="share-btn share-copy" onclick="copyLink(this)">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        Copiar link
+      </button>
+    </div>
+  </div>
 
   <section class="newsletter-section" id="nl">
     <div class="newsletter-box">
@@ -1057,7 +1199,85 @@
     el.innerHTML = '<div class="season-inner"><a class="season-strip" href="'+s.link+'" style="background:'+s.bg+'"><span class="season-text" style="color:'+s.color+'">'+s.text+'</span><span class="season-cta" style="color:'+s.color+'">Ver guía →</span></a></div>';
   })();
 
-  // ── QUIZ ─────────────────────────────────────────────────
+  // ── MODO OSCURO ──────────────────────────────────────────
+  function toggleDark(){
+    var isDark = document.documentElement.classList.toggle('dark');
+    localStorage.setItem('pa_dark', isDark ? '1' : '0');
+  }
+  window.toggleDark = toggleDark;
+  if(localStorage.getItem('pa_dark') === '1') document.documentElement.classList.add('dark');
+
+  // ── FILTRO PERRO / GATO ──────────────────────────────────
+  function setPetFilter(type, btn){
+    document.querySelectorAll('.pf-btn').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    var dogSec  = document.getElementById('sec-dogs');
+    var catSec  = document.getElementById('sec-cats');
+    var compare = document.querySelector('[data-pet="compare"]');
+    var guideSec = document.querySelector('.articles-grid') ? document.querySelector('.articles-grid').closest('.section') : null;
+    function show(el){ if(el){ el.style.display=''; el.style.animation='fadeUp .4s ease both'; } }
+    function hide(el){ if(el){ el.style.display='none'; } }
+    if(type === 'dog'){
+      show(dogSec); hide(catSec);
+    } else if(type === 'cat'){
+      hide(dogSec); show(catSec);
+    } else {
+      show(dogSec); show(catSec);
+    }
+  }
+  window.setPetFilter = setPetFilter;
+
+  // ── CALCULADORA ──────────────────────────────────────────
+  // Raciones estándar por kg de peso corporal (g/día) × factor actividad
+  // Basado en tablas FEDIAF: ~20-22g por kg de peso para adulto mediano
+  var rationTable = {rc_medium:20, orijen:16, purina_pro:19, hills:20, advance:21, otro:20};
+  function calcRun(){
+    var weight   = parseFloat(document.getElementById('calcWeight').value);
+    var foodSel  = document.getElementById('calcFood');
+    var foodKey  = foodSel.value;
+    var activity = parseFloat(document.getElementById('calcActivity').value);
+    var res      = document.getElementById('calcResult');
+    if(!weight || !foodKey){ res.classList.remove('show'); return; }
+    var opt      = foodSel.options[foodSel.selectedIndex];
+    var priceKg  = parseFloat(opt.dataset.price);
+    var bagKg    = parseFloat(opt.dataset.kg);
+    var pricePerG= priceKg / (bagKg * 1000);
+    var dailyG   = (rationTable[foodKey] || 20) * weight * activity;
+    var dailyCost= dailyG * pricePerG;
+    var monthlyCost = dailyCost * 30;
+    var yearlyCost  = dailyCost * 365;
+    // Alternativa económica
+    var altMsg = '';
+    if(foodKey === 'orijen' || foodKey === 'hills'){
+      altMsg = '💡 <strong>Ahorro posible:</strong> Royal Canin Medium Adult cuesta aprox. <strong>'+(monthlyCost * 0.72).toFixed(2)+'€/mes</strong> para tu perro — un ahorro de <strong>'+(monthlyCost * 0.28).toFixed(2)+'€</strong> al mes con calidad similar.';
+    } else if(foodKey === 'rc_medium' || foodKey === 'purina_pro'){
+      altMsg = '✅ <strong>Buena elección:</strong> Este pienso tiene una excelente relación calidad-precio para el peso de tu perro.';
+    } else {
+      altMsg = '🔍 <strong>¿Sabías que</strong> Royal Canin o Purina Pro Plan podrían salirte por un precio similar con mejor perfil nutricional?';
+    }
+    res.innerHTML =
+      '<div class="calc-result-row"><span class="calc-result-label">Ración diaria</span><span class="calc-result-val">'+Math.round(dailyG)+'g / día</span></div>'+
+      '<div class="calc-result-row"><span class="calc-result-label">Coste diario</span><span class="calc-result-val">'+dailyCost.toFixed(2)+'€</span></div>'+
+      '<div class="calc-result-row"><span class="calc-result-label">Coste mensual</span><span class="calc-result-val">'+monthlyCost.toFixed(2)+'€</span></div>'+
+      '<div class="calc-result-row"><span class="calc-result-label">Coste anual</span><span class="calc-result-val">'+yearlyCost.toFixed(0)+'€</span></div>'+
+      '<div class="calc-result-note">'+altMsg+'</div>';
+    res.classList.add('show');
+  }
+  window.calcRun = calcRun;
+
+  // ── BOTÓN COMPARTIR ──────────────────────────────────────
+  function copyLink(btn){
+    navigator.clipboard.writeText(window.location.href).then(function(){
+      var orig = btn.innerHTML;
+      btn.textContent = '✓ Copiado';
+      btn.style.background = 'var(--green-50)';
+      btn.style.color = 'var(--green-500)';
+      setTimeout(function(){ btn.innerHTML = orig; btn.style.background=''; btn.style.color=''; }, 2000);
+    });
+  }
+  window.copyLink = copyLink;
+
+  // ── COUNTDOWN OFERTA ────────────────────────────────────
   var quizData = {
     questions: [
       { id:'size', q:'¿Cuál es el tamaño adulto de tu perro?', opts:[
