@@ -247,6 +247,55 @@
   .hcard{transition:transform .3s cubic-bezier(.34,1.56,.64,1),box-shadow .3s}
   .hcard:not(:first-child):hover{transform:translateY(-4px) scale(1.02);box-shadow:0 12px 28px rgba(0,0,0,.1)}
 
+  /* ── RANKING MENSUAL ─────────────────────── */
+  .ranking-section{padding:0 32px 56px;max-width:1100px;margin:0 auto}
+  .ranking-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:20px;border-bottom:1px solid var(--sand-200);padding-bottom:14px}
+  .ranking-updated{font-size:12px;color:var(--sand-400)}
+  .ranking-list{display:flex;flex-direction:column;gap:10px}
+  .rk-item{background:var(--white);border:1px solid var(--sand-200);border-radius:var(--r-lg);padding:16px 20px;display:grid;grid-template-columns:44px 1fr auto auto;align-items:center;gap:16px;transition:transform .2s,box-shadow .2s;cursor:default}
+  .rk-item:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.06)}
+  .rk-item.rk-gold{border-color:var(--amber-300);background:linear-gradient(90deg,#FFFBF0,var(--white))}
+  html.dark .rk-item{background:#1E1B18;border-color:#2A2520}
+  html.dark .rk-item.rk-gold{background:linear-gradient(90deg,#1E1A10,#1E1B18)}
+  .rk-pos{font-family:var(--font-display);font-size:22px;font-weight:300;color:var(--sand-200);letter-spacing:-.03em;text-align:center}
+  .rk-item.rk-gold .rk-pos{color:var(--amber-300)}
+  .rk-info{}
+  .rk-tag{font-size:10px;font-weight:500;color:var(--green-300);text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px}
+  .rk-name{font-family:var(--font-display);font-size:17px;font-weight:400;color:var(--sand-900);letter-spacing:-.01em}
+  .rk-why{font-size:12px;color:var(--sand-400);margin-top:2px}
+  .rk-trend{display:flex;flex-direction:column;align-items:center;gap:2px;min-width:32px}
+  .rk-arrow{font-size:14px;font-weight:700}
+  .rk-arrow.up{color:#16A34A}.rk-arrow.same{color:var(--sand-400)}.rk-arrow.down{color:#DC2626}
+  .rk-trend-label{font-size:9px;color:var(--sand-400);text-transform:uppercase;letter-spacing:.06em}
+  .rk-btn{font-family:var(--font-body);font-size:12px;font-weight:500;color:var(--green-500);background:var(--green-50);border:1px solid var(--green-100);border-radius:100px;padding:6px 14px;text-decoration:none;white-space:nowrap;transition:all .2s}
+  .rk-btn:hover{background:var(--green-100);border-color:var(--green-300)}
+  .rk-new-badge{font-size:9px;font-weight:600;color:white;background:var(--green-300);padding:2px 7px;border-radius:100px;text-transform:uppercase;letter-spacing:.08em;margin-left:8px;vertical-align:middle}
+
+  /* ── CALCULADORA EDAD PERRO ─────────────── */
+  .age-calc-section{padding:0 32px 56px;max-width:1100px;margin:0 auto}
+  .age-calc-box{background:var(--green-900);border-radius:var(--r-xl);padding:48px 56px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;position:relative;overflow:hidden}
+  .age-calc-box::before{content:'🐾';font-size:120px;position:absolute;right:40%;top:-10px;opacity:.04;pointer-events:none;line-height:1}
+  html.dark .age-calc-box{background:#0D1512}
+  .age-eyebrow{font-size:11px;font-weight:500;color:var(--green-100);text-transform:uppercase;letter-spacing:.12em;margin-bottom:10px}
+  .age-title{font-family:var(--font-display);font-size:28px;font-weight:300;color:var(--white);letter-spacing:-.02em;line-height:1.2;margin-bottom:8px}
+  .age-title em{font-style:italic;color:var(--green-100)}
+  .age-desc{font-size:14px;color:rgba(255,255,255,.5);line-height:1.6;margin-bottom:4px}
+  .age-note{font-size:12px;color:rgba(255,255,255,.3);font-style:italic}
+  .age-fields{display:flex;flex-direction:column;gap:14px}
+  .age-field label{display:block;font-size:11px;font-weight:500;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px}
+  .age-field input,.age-field select{width:100%;font-family:var(--font-body);font-size:16px;color:var(--sand-800);background:rgba(255,255,255,.95);border:1px solid transparent;border-radius:var(--r-md);padding:12px 16px;outline:none;transition:border-color .2s}
+  .age-field input:focus,.age-field select:focus{border-color:var(--green-100)}
+  .age-btn{width:100%;font-family:var(--font-body);font-size:15px;font-weight:500;color:var(--green-900);background:var(--green-100);border:none;border-radius:var(--r-md);padding:13px;cursor:pointer;transition:background .2s}
+  .age-btn:hover{background:white}
+  .age-result{display:none;margin-top:4px;animation:fadeUp .35s ease both}
+  .age-result.show{display:block}
+  .age-result-main{font-family:var(--font-display);font-size:52px;font-weight:300;color:white;letter-spacing:-.04em;line-height:1;margin-bottom:4px}
+  .age-result-main span{font-size:22px;color:var(--green-100);vertical-align:super;font-style:italic}
+  .age-result-sub{font-size:14px;color:rgba(255,255,255,.55);line-height:1.6;margin-bottom:16px}
+  .age-result-stage{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border-radius:var(--r-md);padding:10px 16px;font-size:13px;color:rgba(255,255,255,.8)}
+  .age-result-stage-icon{font-size:20px}
+  @media(max-width:700px){.age-calc-box,.calc-box{grid-template-columns:1fr;padding:32px 24px;gap:28px}}
+
   /* ── MODO OSCURO ─────────────────────────── */
   html.dark {
     --sand-50:#141210;--sand-100:#1E1B18;--sand-200:#2A2520;
@@ -647,7 +696,7 @@
   <ul class="nav-links">
     <li><a onclick="showPage('home')">Perros</a></li>
     <li><a onclick="showPage('home')">Gatos</a></li>
-    <li><a onclick="showPage('home')">Comparativas</a></li>
+    <li><a href="razas.html">Razas</a></li>
     <li><a onclick="showPage('como-analizamos')">Cómo analizamos</a></li>
   </ul>
   <div class="nav-tools">
@@ -1016,6 +1065,95 @@
     </div>
   </section>
 
+  <!-- RANKING MENSUAL -->
+  <section class="ranking-section">
+    <div class="ranking-header">
+      <h2 class="sec-title">Ranking del mes <span style="font-size:16px;font-weight:300;color:var(--sand-400);letter-spacing:0">· Abril 2026</span></h2>
+      <span class="ranking-updated">🔄 Actualizado el 1 de abril</span>
+    </div>
+    <div class="ranking-list">
+      <div class="rk-item rk-gold">
+        <div class="rk-pos">1</div>
+        <div class="rk-info">
+          <div class="rk-tag">Pienso · Perro adulto</div>
+          <div class="rk-name">Royal Canin Medium Adult 15kg <span class="rk-new-badge">TOP</span></div>
+          <div class="rk-why">Mejor equilibrio ingredientes / precio del mercado. Más de 2.000 valoraciones positivas en Amazon.es.</div>
+        </div>
+        <div class="rk-trend"><span class="rk-arrow same">→</span><span class="rk-trend-label">Estable</span></div>
+        <a href="articulos.html#pienso-perro" class="rk-btn">Ver análisis →</a>
+      </div>
+      <div class="rk-item">
+        <div class="rk-pos">2</div>
+        <div class="rk-info">
+          <div class="rk-tag">Pienso · Premium sin cereales</div>
+          <div class="rk-name">Orijen Original 6kg</div>
+          <div class="rk-why">85% proteína animal. La opción premium más valorada. Sube por nueva bajada de precio este mes.</div>
+        </div>
+        <div class="rk-trend"><span class="rk-arrow up">↑</span><span class="rk-trend-label">+1</span></div>
+        <a href="articulos.html#pienso-perro" class="rk-btn">Ver análisis →</a>
+      </div>
+      <div class="rk-item">
+        <div class="rk-pos">3</div>
+        <div class="rk-info">
+          <div class="rk-tag">Antiparasitario · Pipeta</div>
+          <div class="rk-name">Frontline Tri-Act <span class="rk-new-badge" style="background:var(--green-300)">Nuevo</span></div>
+          <div class="rk-why">Entra en el ranking esta primavera. Triple acción: pulgas, garrapatas y mosquitos. Recomendado por veterinarios.</div>
+        </div>
+        <div class="rk-trend"><span class="rk-arrow up">↑</span><span class="rk-trend-label">Nuevo</span></div>
+        <a href="articulos2.html#antiparasitarios" class="rk-btn">Ver análisis →</a>
+      </div>
+      <div class="rk-item">
+        <div class="rk-pos">4</div>
+        <div class="rk-info">
+          <div class="rk-tag">Pienso · Gato esterilizado</div>
+          <div class="rk-name">Purina Pro Plan Sterilised 10kg</div>
+          <div class="rk-why">El favorito de los veterinarios en España para gatos esterilizados. Control de peso y pH urinario.</div>
+        </div>
+        <div class="rk-trend"><span class="rk-arrow same">→</span><span class="rk-trend-label">Estable</span></div>
+        <a href="articulos.html#pienso-gato" class="rk-btn">Ver análisis →</a>
+      </div>
+      <div class="rk-item">
+        <div class="rk-pos">5</div>
+        <div class="rk-info">
+          <div class="rk-tag">Juguete · Perro</div>
+          <div class="rk-name">Kong Classic talla L</div>
+          <div class="rk-why">El juguete más vendido del mundo para perros. Imprescindible para reducir ansiedad y estimulación cognitiva.</div>
+        </div>
+        <div class="rk-trend"><span class="rk-arrow down">↓</span><span class="rk-trend-label">−1</span></div>
+        <a href="https://www.amazon.es/dp/B0002AR0I8?tag=primepick03f9-21" target="_blank" rel="nofollow sponsored" class="rk-btn">Ver en Amazon →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALCULADORA EDAD PERRO -->
+  <section class="age-calc-section">
+    <div class="age-calc-box">
+      <div>
+        <div class="age-eyebrow">Calculadora gratuita</div>
+        <div class="age-title">¿Cuántos años humanos tiene <em>tu perro</em>?</div>
+        <div class="age-desc">La fórmula "1 año de perro = 7 humanos" es un mito. La ciencia dice otra cosa — y cambia según el tamaño de tu perro.</div>
+        <div class="age-note">Basado en el estudio de la Universidad de California, 2020</div>
+      </div>
+      <div class="age-fields">
+        <div class="age-field">
+          <label>Edad de tu perro (años)</label>
+          <input type="number" id="ageYears" placeholder="Ej: 5" min="0" max="25" step="0.5" oninput="calcAge()">
+        </div>
+        <div class="age-field">
+          <label>Tamaño del perro</label>
+          <select id="ageSize" onchange="calcAge()">
+            <option value="">— Elige tamaño —</option>
+            <option value="small">Pequeño (menos de 10 kg)</option>
+            <option value="medium">Mediano (10-25 kg)</option>
+            <option value="large">Grande (más de 25 kg)</option>
+          </select>
+        </div>
+        <button class="age-btn" onclick="calcAge()">Calcular edad</button>
+        <div class="age-result" id="ageResult"></div>
+      </div>
+    </div>
+  </section>
+
   <!-- CALCULADORA -->
   <section class="calc-section">
     <div class="calc-box">
@@ -1077,9 +1215,9 @@
         <div class="related-icon">💊</div>
         <div><div class="related-tag">Salud</div><div class="related-title">Los 7 mejores antiparasitarios de 2026</div><div class="related-time">8 min · hace 2 días</div></div>
       </a>
-      <a href="articulos2.html#guia-cachorro" class="related-card">
-        <div class="related-icon">🐶</div>
-        <div><div class="related-tag">Cachorros</div><div class="related-title">Guía completa primer mes con un cachorro</div><div class="related-time">12 min · hace 3 días</div></div>
+      <a href="razas.html" class="related-card">
+        <div class="related-icon">🦮</div>
+        <div><div class="related-tag">Por raza</div><div class="related-title">Guías de pienso por raza: Golden, Bulldog, Labrador...</div><div class="related-time">5 razas analizadas</div></div>
       </a>
       <a href="articulos.html#transportines" class="related-card">
         <div class="related-icon">✈️</div>
@@ -1355,7 +1493,50 @@
   }
   window.setPetFilter = setPetFilter;
 
-  // ── CALCULADORA ──────────────────────────────────────────
+  // ── CALCULADORA EDAD PERRO ───────────────────────────────
+  // Basado en fórmula logarítmica UCSD 2020 + ajuste por tamaño
+  // human_age = 16 * ln(dog_age) + 31 (razas medianas)
+  // Ajuste: razas pequeñas envejecen más despacio, grandes más rápido
+  function calcAge(){
+    var years = parseFloat(document.getElementById('ageYears').value);
+    var size  = document.getElementById('ageSize').value;
+    var res   = document.getElementById('ageResult');
+    if(!years || years <= 0 || !size){ res.classList.remove('show'); return; }
+    // Factor de ajuste por tamaño
+    var factor = {small: 0.88, medium: 1.0, large: 1.13}[size];
+    var humanAge;
+    if(years < 1){
+      // Primer año: desarrollo muy acelerado
+      humanAge = Math.round(15 * years * factor);
+    } else {
+      // Fórmula logarítmica a partir del año 1
+      humanAge = Math.round((16 * Math.log(years) + 31) * factor);
+    }
+    humanAge = Math.max(1, humanAge);
+    // Etapa vital
+    var stage, icon, advice;
+    if(humanAge < 18){
+      stage='Cachorro / Juvenil'; icon='🐶';
+      advice='Necesita más proteína para el crecimiento y mucha estimulación cognitiva. Prioriza un pienso específico para cachorros.';
+    } else if(humanAge < 40){
+      stage='Adulto joven'; icon='🌟';
+      advice='Etapa de máxima energía y salud. Un buen pienso adulto con alta proteína y ejercicio regular es todo lo que necesita.';
+    } else if(humanAge < 60){
+      stage='Adulto maduro'; icon='🧓';
+      advice='Puede que empiece a necesitar suplementos para articulaciones. Vigilar el peso y considerar pienso senior pronto.';
+    } else {
+      stage='Senior'; icon='🦽';
+      advice='Merece especial atención: pienso senior con glucosamina, revisiones veterinarias más frecuentes y ejercicio moderado.';
+    }
+    res.innerHTML =
+      '<div class="age-result-main">'+humanAge+'<span> años humanos</span></div>'+
+      '<div class="age-result-sub">Tu perro de '+years+' años equivale a una persona de <strong style="color:white">'+humanAge+' años</strong> en términos de envejecimiento biológico.</div>'+
+      '<div class="age-result-stage"><span class="age-result-stage-icon">'+icon+'</span><div><strong style="color:white">'+stage+'</strong><br><span style="font-size:12px;color:rgba(255,255,255,.5)">'+advice+'</span></div></div>';
+    res.classList.add('show');
+  }
+  window.calcAge = calcAge;
+
+  // ── CALCULADORA COSTE MENSUAL ────────────────────────────
   // Raciones estándar por kg de peso corporal (g/día) × factor actividad
   // Basado en tablas FEDIAF: ~20-22g por kg de peso para adulto mediano
   var rationTable = {rc_medium:20, orijen:16, purina_pro:19, hills:20, advance:21, otro:20};

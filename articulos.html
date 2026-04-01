@@ -20,6 +20,20 @@
 html{scroll-behavior:smooth}
 body{font-family:var(--font-body);background:var(--sand-50);color:var(--sand-800);font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased}
 
+/* FAQ */
+.faq-section{margin:40px 0 0}
+.faq-section h2{font-family:var(--font-display);font-size:24px;font-weight:400;color:var(--sand-900);letter-spacing:-.02em;margin-bottom:20px}
+.faq-list{display:flex;flex-direction:column;gap:0;border:1px solid var(--sand-200);border-radius:var(--r-lg);overflow:hidden}
+.faq-item{border-bottom:1px solid var(--sand-200)}
+.faq-item:last-child{border-bottom:none}
+.faq-q{width:100%;background:var(--white);border:none;padding:18px 20px;font-family:var(--font-body);font-size:15px;font-weight:500;color:var(--sand-900);text-align:left;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;transition:background .2s}
+.faq-q:hover{background:var(--sand-50)}
+.faq-q.open{background:var(--green-50);color:var(--green-700,#085041)}
+.faq-icon{font-size:20px;font-weight:300;flex-shrink:0;transition:transform .25s;color:var(--green-300)}
+.faq-q.open .faq-icon{transform:rotate(45deg)}
+.faq-a{display:none;padding:0 20px 18px;font-size:14px;color:var(--sand-600);line-height:1.75;background:var(--green-50)}
+.faq-a.open{display:block;animation:fadeUp .2s ease}
+
 /* TOC flotante */
 .toc-wrap{position:fixed;top:120px;left:calc(50% - 460px);width:180px;display:none}
 @media(min-width:1200px){.toc-wrap{display:block}}
@@ -323,6 +337,33 @@ body{font-family:var(--font-body);background:var(--sand-50);color:var(--sand-800
     <div class="conclusion-box">
       <h3>Nuestra recomendación final</h3>
       <p>Para la mayoría de perros adultos de raza mediana, <strong>Royal Canin Medium Adult</strong> es la opción más equilibrada: buena proteína, prebióticos, croqueta adaptada y el mejor precio por kilo de nuestra selección. Si tu perro tiene digestión muy sensible, sube un escalón a <strong>Purina Pro Plan</strong>. Si el presupuesto es lo primero, <strong>Advance Adult</strong> es una opción sólida.</p>
+    </div>
+
+    <!-- FAQ -->
+    <div class="faq-section">
+      <h2>Preguntas frecuentes sobre el pienso para perros</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">¿Cada cuánto tiempo hay que cambiar el pienso de un perro? <span class="faq-icon">+</span></button>
+          <div class="faq-a">No hay una regla fija, pero se recomienda revisar el pienso al menos una vez al año. Si tu perro cambia de etapa vital (cachorro a adulto, adulto a senior), si esterilizan o si desarrolla alguna condición de salud, hay que cambiar de fórmula. Los cambios deben hacerse gradualmente en 7-10 días mezclando el pienso antiguo con el nuevo para evitar problemas digestivos.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">¿Es mejor el pienso sin cereales para perros? <span class="faq-icon">+</span></button>
+          <div class="faq-a">No necesariamente. Los perros pueden digerir perfectamente los cereales de calidad como el arroz o la avena. El grain-free solo tiene ventaja real en perros con intolerancias diagnosticadas por un veterinario. Lo importante es que la fuente proteica principal sea carne real, no que no tenga cereales. Algunos estudios han relacionado las dietas grain-free con problemas cardíacos en ciertas razas — consulta con tu veterinario antes de decidirte.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">¿Cuánto pienso debe comer un perro al día? <span class="faq-icon">+</span></button>
+          <div class="faq-a">Depende del peso, la edad y la actividad. Como referencia general para razas medianas: aproximadamente 20g por kg de peso corporal al día para perros adultos de actividad normal. Siempre consulta la tabla de raciones del fabricante y ajusta según si tu perro tiende a engordar o adelgazar. Es mejor pesar el pienso con una báscula que usar el medidor del bote.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">¿Puede un perro adulto comer pienso de cachorro? <span class="faq-icon">+</span></button>
+          <div class="faq-a">No es recomendable de forma continuada. El pienso de cachorro tiene más calorías, más calcio y más proteína de la que necesita un adulto, lo que puede llevar a sobrepeso y problemas articulares. Puntualmente no pasa nada, pero el pienso debe ser siempre el adecuado a la etapa vital.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">¿Royal Canin es realmente bueno o es solo marketing? <span class="faq-icon">+</span></button>
+          <div class="faq-a">Royal Canin es un pienso sólido respaldado por décadas de investigación veterinaria. No es la opción con los ingredientes más "limpios" del mercado (usa subproductos de ave), pero tiene una digestibilidad muy alta y resultados clínicos probados. Su relación calidad-precio es buena. Si buscas ingredientes más naturales con menos subproductos, Purina Pro Plan u Orijen son mejores opciones en ese aspecto.</div>
+        </div>
+      </div>
     </div>
 
   </div>
@@ -664,6 +705,18 @@ body{font-family:var(--font-body);background:var(--sand-50);color:var(--sand-800
 </article>
 
 <script>
+// FAQ toggle
+function toggleFaq(btn){
+  var answer = btn.nextElementSibling;
+  var isOpen = btn.classList.contains('open');
+  document.querySelectorAll('.faq-q.open').forEach(function(b){
+    b.classList.remove('open');
+    b.nextElementSibling.classList.remove('open');
+  });
+  if(!isOpen){ btn.classList.add('open'); answer.classList.add('open'); }
+}
+window.toggleFaq = toggleFaq;
+
 var tocLinks = document.querySelectorAll('.toc-list a');
 var sections = ['pienso-perro','pienso-gato','transportines'].map(function(id){return document.getElementById(id);});
 window.addEventListener('scroll',function(){
@@ -675,5 +728,10 @@ window.addEventListener('scroll',function(){
   });
 });
 </script>
+
+<!-- Schema FAQ -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Cada cuánto tiempo hay que cambiar el pienso de un perro?","acceptedAnswer":{"@type":"Answer","text":"Se recomienda revisar el pienso al menos una vez al año y siempre que cambie la etapa vital del perro."}},{"@type":"Question","name":"¿Es mejor el pienso sin cereales para perros?","acceptedAnswer":{"@type":"Answer","text":"No necesariamente. El grain-free solo tiene ventaja real en perros con intolerancias diagnosticadas. Lo importante es que la fuente proteica principal sea carne real."}},{"@type":"Question","name":"¿Cuánto pienso debe comer un perro al día?","acceptedAnswer":{"@type":"Answer","text":"Para razas medianas, aproximadamente 20g por kg de peso corporal al día para adultos de actividad normal. Consulta siempre la tabla de raciones del fabricante."}}]}
+<\/script>
 </body>
 </html>

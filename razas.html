@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mejor pienso por raza de perro 2026 — PataAdvisor</title>
+<meta name="description" content="Guías de alimentación específicas por raza: Golden Retriever, Bulldog Francés, Yorkshire, Labrador, Pastor Alemán. Qué pienso necesita cada raza según sus características.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green-50:#E1F5EE;--green-100:#9FE1CB;--green-300:#1D9E75;--green-500:#0F6E56;--green-700:#085041;--green-900:#04342C;
+  --amber-300:#EF9F27;--amber-50:#FAEEDA;--amber-600:#854F0B;
+  --sand-50:#F9F7F2;--sand-100:#F0EDE4;--sand-200:#E2DDD1;--sand-400:#A89F8E;--sand-600:#6B6358;--sand-800:#2E2A24;--sand-900:#1A1714;
+  --white:#FFFFFF;
+  --font-display:'Fraunces',serif;--font-body:'DM Sans',sans-serif;
+  --r-md:10px;--r-lg:16px;--r-xl:24px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--sand-50);color:var(--sand-800);font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased}
+
+/* NAV */
+.article-nav{background:rgba(249,247,242,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--sand-200);padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:68px;position:sticky;top:0;z-index:100}
+.nav-back{font-size:13px;color:var(--sand-400);text-decoration:none;display:flex;align-items:center;gap:6px;transition:color .2s}
+.nav-back:hover{color:var(--sand-800)}
+
+/* HERO RAZAS */
+.razas-hero{background:var(--green-900);padding:64px 32px;text-align:center;position:relative;overflow:hidden}
+.razas-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 60% 50%,rgba(29,158,117,.15) 0%,transparent 70%)}
+.razas-hero-eyebrow{font-size:11px;font-weight:500;color:var(--green-100);text-transform:uppercase;letter-spacing:.14em;margin-bottom:14px}
+.razas-hero-title{font-family:var(--font-display);font-size:clamp(32px,5vw,52px);font-weight:300;color:var(--white);letter-spacing:-.03em;line-height:1.15;margin-bottom:16px}
+.razas-hero-title em{font-style:italic;color:var(--green-100)}
+.razas-hero-desc{font-size:16px;color:rgba(255,255,255,.55);max-width:560px;margin:0 auto 32px;line-height:1.7}
+.razas-pills{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.razas-pill{font-size:13px;font-weight:500;color:rgba(255,255,255,.7);background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:100px;padding:6px 16px;text-decoration:none;transition:all .2s;cursor:pointer}
+.razas-pill:hover,.razas-pill.active{background:var(--green-300);border-color:var(--green-300);color:white}
+
+/* RAZA INDEX */
+.razas-index{max-width:1100px;margin:0 auto;padding:48px 32px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.raza-card{background:var(--white);border:1px solid var(--sand-200);border-radius:var(--r-xl);padding:28px;text-decoration:none;transition:transform .25s,box-shadow .25s;display:flex;flex-direction:column;gap:12px;position:relative;overflow:hidden}
+.raza-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--green-300);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.raza-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.08)}
+.raza-card:hover::before{transform:scaleX(1)}
+.raza-emoji{font-size:48px;line-height:1}
+.raza-name{font-family:var(--font-display);font-size:22px;font-weight:400;color:var(--sand-900);letter-spacing:-.02em}
+.raza-tags{display:flex;gap:6px;flex-wrap:wrap}
+.raza-tag{font-size:10px;font-weight:500;color:var(--green-500);background:var(--green-50);border-radius:100px;padding:2px 10px;text-transform:uppercase;letter-spacing:.06em}
+.raza-snippet{font-size:13px;color:var(--sand-400);line-height:1.6}
+.raza-cta{font-size:13px;font-weight:500;color:var(--green-500);display:flex;align-items:center;gap:4px;margin-top:auto}
+
+/* GUÍA INDIVIDUAL */
+.raza-guide{max-width:760px;margin:0 auto;padding:48px 32px 80px;display:none}
+.raza-guide.active{display:block;animation:fadeUp .4s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.raza-guide-header{margin-bottom:40px}
+.raza-guide-back{font-size:13px;color:var(--sand-400);background:none;border:none;cursor:pointer;font-family:var(--font-body);display:flex;align-items:center;gap:6px;margin-bottom:24px;padding:0;transition:color .2s}
+.raza-guide-back:hover{color:var(--sand-800)}
+.raza-guide-emoji{font-size:56px;margin-bottom:16px;display:block}
+.raza-guide-cat{font-size:11px;font-weight:500;color:var(--green-300);text-transform:uppercase;letter-spacing:.12em;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.raza-guide-cat::before{content:'';width:20px;height:1px;background:var(--green-300)}
+.raza-guide-title{font-family:var(--font-display);font-size:clamp(28px,4vw,40px);font-weight:300;line-height:1.15;color:var(--sand-900);letter-spacing:-.02em;margin-bottom:16px}
+.raza-guide-title em{font-style:italic;color:var(--green-500)}
+.raza-guide-intro{font-size:17px;color:var(--sand-600);line-height:1.7;border-left:3px solid var(--green-300);padding-left:20px;margin-bottom:32px}
+
+/* CARACTERÍSTICAS */
+.raza-chars{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:32px}
+.raza-char{background:var(--sand-100);border-radius:var(--r-lg);padding:16px 18px}
+.raza-char-label{font-size:10px;font-weight:500;color:var(--sand-400);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px}
+.raza-char-val{font-family:var(--font-display);font-size:17px;font-weight:400;color:var(--sand-900)}
+
+/* NECESIDADES */
+.need-box{background:var(--amber-50);border:1px solid #FAC775;border-radius:var(--r-lg);padding:20px 24px;margin-bottom:28px}
+.need-box h3{font-family:var(--font-display);font-size:18px;font-weight:400;color:var(--amber-600);margin-bottom:12px}
+.need-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.need-list li{font-size:14px;color:var(--amber-600);padding-left:20px;position:relative}
+.need-list li::before{content:'⚠';position:absolute;left:0;font-size:12px}
+
+/* ARTÍCULO BODY */
+.raza-guide h2{font-family:var(--font-display);font-size:24px;font-weight:400;color:var(--sand-900);letter-spacing:-.02em;margin:36px 0 14px}
+.raza-guide p{margin-bottom:16px;color:var(--sand-700,#4A4540)}
+.raza-guide ul{padding-left:20px;margin-bottom:16px}
+.raza-guide li{margin-bottom:8px;color:var(--sand-700,#4A4540);font-size:15px}
+
+/* PRODUCTO RECOMENDADO */
+.rec-product{background:var(--green-900);border-radius:var(--r-xl);padding:28px 32px;margin:28px 0;display:flex;gap:20px;align-items:flex-start}
+.rec-label{font-size:10px;font-weight:500;color:var(--green-100);text-transform:uppercase;letter-spacing:.12em;margin-bottom:6px}
+.rec-icon{font-size:32px;flex-shrink:0}
+.rec-name{font-family:var(--font-display);font-size:20px;font-weight:400;color:var(--white);letter-spacing:-.01em;font-style:italic;margin-bottom:6px}
+.rec-why{font-size:13px;color:rgba(255,255,255,.6);line-height:1.6;margin-bottom:14px}
+.rec-btn{display:inline-block;font-family:var(--font-body);font-size:13px;font-weight:500;background:var(--green-300);color:var(--white);border-radius:100px;padding:10px 22px;text-decoration:none;transition:background .2s}
+.rec-btn:hover{background:#25B888}
+
+/* FAQ */
+.faq-section{margin:40px 0 0}
+.faq-section h2{font-family:var(--font-display);font-size:22px;font-weight:400;color:var(--sand-900);letter-spacing:-.02em;margin-bottom:18px}
+.faq-list{border:1px solid var(--sand-200);border-radius:var(--r-lg);overflow:hidden}
+.faq-item{border-bottom:1px solid var(--sand-200)}
+.faq-item:last-child{border-bottom:none}
+.faq-q{width:100%;background:var(--white);border:none;padding:16px 20px;font-family:var(--font-body);font-size:14px;font-weight:500;color:var(--sand-900);text-align:left;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;transition:background .2s}
+.faq-q:hover{background:var(--sand-50)}
+.faq-q.open{background:var(--green-50);color:var(--green-700)}
+.faq-icon{font-size:18px;font-weight:300;flex-shrink:0;transition:transform .25s;color:var(--green-300)}
+.faq-q.open .faq-icon{transform:rotate(45deg)}
+.faq-a{display:none;padding:0 20px 16px;font-size:14px;color:var(--sand-600);line-height:1.75;background:var(--green-50)}
+.faq-a.open{display:block}
+
+.affil-notice{background:var(--amber-50);border:1px solid #FAC775;border-radius:var(--r-md);padding:14px 18px;margin-bottom:28px;font-size:13px;color:#633806;line-height:1.6}
+.conclusion-box{background:var(--green-50);border:1px solid var(--green-100);border-radius:var(--r-lg);padding:24px 28px;margin:28px 0}
+.conclusion-box h3{font-family:var(--font-display);font-size:18px;font-weight:400;color:var(--green-900);margin-bottom:10px}
+.conclusion-box p{font-size:14px;color:var(--green-700);line-height:1.7;margin:0}
+
+@media(max-width:700px){
+  .razas-index{grid-template-columns:1fr;padding:32px 20px}
+  .raza-chars{grid-template-columns:1fr}
+  .raza-guide{padding:32px 20px 60px}
+  .article-nav{padding:0 20px}
+  .rec-product{flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<nav class="article-nav">
+  <a href="index.html" style="text-decoration:none;display:flex;align-items:center;gap:8px">
+    <svg width="110" height="30" viewBox="0 0 280 72" xmlns="http://www.w3.org/2000/svg">
+      <g fill="#1D9E75"><ellipse cx="28" cy="46" rx="14" ry="10"/><circle cx="28" cy="29" r="11"/><ellipse cx="18" cy="25" rx="5" ry="8" transform="rotate(-10 18 25)"/><ellipse cx="38" cy="25" rx="5" ry="8" transform="rotate(10 38 25)"/><path d="M42 42 Q54 32 51 22" stroke="#1D9E75" stroke-width="5" fill="none" stroke-linecap="round"/></g>
+      <circle cx="24" cy="27" r="2" fill="white"/><circle cx="32" cy="27" r="2" fill="white"/>
+      <ellipse cx="28" cy="33" rx="3" ry="2" fill="#0F6E56"/>
+      <rect x="18" y="54" width="6" height="8" rx="3" fill="#1D9E75"/><rect x="27" y="55" width="6" height="7" rx="3" fill="#1D9E75"/>
+      <line x1="60" y1="20" x2="60" y2="58" stroke="#E2DDD1" stroke-width="1.5"/>
+      <g fill="#0F6E56"><ellipse cx="80" cy="46" rx="12" ry="9"/><circle cx="80" cy="30" r="10"/><polygon points="71,24 74,12 80,23"/><polygon points="80,23 86,12 89,24"/><path d="M92 44 Q104 36 100 24" stroke="#0F6E56" stroke-width="4.5" fill="none" stroke-linecap="round"/></g>
+      <ellipse cx="76" cy="29" rx="2" ry="2.5" fill="white"/><ellipse cx="84" cy="29" rx="2" ry="2.5" fill="white"/>
+      <polygon points="80,34 78,32 82,32" fill="#085041"/>
+      <text x="116" y="35" font-family="'Fraunces',Georgia,serif" font-size="24" font-weight="400" font-style="italic" fill="#1A1714">Pata</text>
+      <text x="163" y="35" font-family="'Fraunces',Georgia,serif" font-size="24" font-weight="300" font-style="italic" fill="#1D9E75">Advisor</text>
+    </svg>
+  </a>
+  <a href="index.html" class="nav-back">← Volver al inicio</a>
+</nav>
+
+<!-- HERO -->
+<div class="razas-hero">
+  <div class="razas-hero-eyebrow">Guías por raza</div>
+  <h1 class="razas-hero-title">El mejor pienso para tu <em>raza de perro</em></h1>
+  <p class="razas-hero-desc">Cada raza tiene necesidades nutricionales distintas. Hemos analizado las 5 razas más populares en España con recomendaciones específicas y honestas.</p>
+  <div class="razas-pills">
+    <span class="razas-pill active" onclick="showIndex()">Ver todas las razas</span>
+    <span class="razas-pill" onclick="showGuide('golden')">Golden Retriever</span>
+    <span class="razas-pill" onclick="showGuide('bulldog')">Bulldog Francés</span>
+    <span class="razas-pill" onclick="showGuide('yorkshire')">Yorkshire Terrier</span>
+    <span class="razas-pill" onclick="showGuide('labrador')">Labrador</span>
+    <span class="razas-pill" onclick="showGuide('pastor')">Pastor Alemán</span>
+  </div>
+</div>
+
+<!-- ÍNDICE DE RAZAS -->
+<div class="razas-index" id="razasIndex">
+  <a class="raza-card" onclick="showGuide('golden')" href="#golden">
+    <span class="raza-emoji">🦮</span>
+    <div class="raza-name">Golden Retriever</div>
+    <div class="raza-tags"><span class="raza-tag">Raza grande</span><span class="raza-tag">Articulaciones</span><span class="raza-tag">Peso</span></div>
+    <div class="raza-snippet">Tendencia a la displasia de cadera y al sobrepeso. Necesita pienso con glucosamina y control calórico.</div>
+    <div class="raza-cta">Ver guía completa →</div>
+  </a>
+  <a class="raza-card" onclick="showGuide('bulldog')" href="#bulldog">
+    <span class="raza-emoji">🐶</span>
+    <div class="raza-name">Bulldog Francés</div>
+    <div class="raza-tags"><span class="raza-tag">Razas braquicéfalas</span><span class="raza-tag">Digestión</span><span class="raza-tag">Alergias</span></div>
+    <div class="raza-snippet">Digestión delicada y alta predisposición a alergias alimentarias. Croqueta pequeña específica para su mandíbula.</div>
+    <div class="raza-cta">Ver guía completa →</div>
+  </a>
+  <a class="raza-card" onclick="showGuide('yorkshire')" href="#yorkshire">
+    <span class="raza-emoji">🐕</span>
+    <div class="raza-name">Yorkshire Terrier</div>
+    <div class="raza-tags"><span class="raza-tag">Raza pequeña</span><span class="raza-tag">Pelo largo</span><span class="raza-tag">Dental</span></div>
+    <div class="raza-snippet">Propenso a problemas dentales y necesita nutrientes especiales para su pelo largo y brillante.</div>
+    <div class="raza-cta">Ver guía completa →</div>
+  </a>
+  <a class="raza-card" onclick="showGuide('labrador')" href="#labrador">
+    <span class="raza-emoji">🦴</span>
+    <div class="raza-name">Labrador Retriever</div>
+    <div class="raza-tags"><span class="raza-tag">Raza grande</span><span class="raza-tag">Obesidad</span><span class="raza-tag">Activo</span></div>
+    <div class="raza-snippet">El comedero más voraz de todas las razas. Control estricto de raciones y pienso de baja densidad calórica.</div>
+    <div class="raza-cta">Ver guía completa →</div>
+  </a>
+  <a class="raza-card" onclick="showGuide('pastor')" href="#pastor">
+    <span class="raza-emoji">🐕‍🦺</span>
+    <div class="raza-name">Pastor Alemán</div>
+    <div class="raza-tags"><span class="raza-tag">Raza grande</span><span class="raza-tag">Digestión sensible</span><span class="raza-tag">Articulaciones</span></div>
+    <div class="raza-snippet">Digestión especialmente sensible y alta predisposición a displasia de cadera. Proteína alta y fácil digestibilidad.</div>
+    <div class="raza-cta">Ver guía completa →</div>
+  </a>
+</div>
+
+<!-- ══ GUÍA GOLDEN RETRIEVER ══ -->
+<div class="raza-guide" id="guide-golden">
+  <div class="raza-guide-header">
+    <button class="raza-guide-back" onclick="showIndex()">← Volver a todas las razas</button>
+    <span class="raza-guide-emoji">🦮</span>
+    <div class="raza-guide-cat">Guía de alimentación · Raza grande</div>
+    <h1 class="raza-guide-title">Mejor pienso para <em>Golden Retriever</em> 2026</h1>
+    <p class="raza-guide-intro">El Golden es una raza de trabajo con alta energía pero también con una marcada tendencia al sobrepeso y a la displasia de cadera. Su alimentación debe equilibrar proteína de calidad, control calórico y soporte articular desde joven.</p>
+  </div>
+  <div class="affil-notice"><strong>Transparencia:</strong> algunos enlaces son de afiliado (Amazon Associates). Si compras a través de ellos recibimos una pequeña comisión sin coste adicional.</div>
+  <div class="raza-chars">
+    <div class="raza-char"><div class="raza-char-label">Peso adulto</div><div class="raza-char-val">25-34 kg</div></div>
+    <div class="raza-char"><div class="raza-char-label">Esperanza de vida</div><div class="raza-char-val">10-12 años</div></div>
+    <div class="raza-char"><div class="raza-char-label">Nivel de actividad</div><div class="raza-char-val">Alto</div></div>
+    <div class="raza-char"><div class="raza-char-label">Predisposición principal</div><div class="raza-char-val">Displasia cadera, obesidad</div></div>
+  </div>
+  <div class="need-box">
+    <h3>⚠ Necesidades específicas del Golden</h3>
+    <ul class="need-list">
+      <li>Glucosamina y condroitina para proteger las articulaciones desde joven</li>
+      <li>Omega-3 (EPA/DHA) para el pelo, la piel y la inflamación articular</li>
+      <li>Control calórico — engorda muy fácilmente si come ad libitum</li>
+      <li>Croqueta grande que obligue a masticar y ralentice la ingesta</li>
+      <li>Antioxidantes (vitamina E, C, luteína) por su predisposición a tumores</li>
+    </ul>
+  </div>
+  <h2>Qué pienso recomendamos</h2>
+  <p>Para Goldens adultos buscamos piensos con alta proteína animal (mínimo 28%), baja densidad calórica para controlar el peso, y que incluyan fuentes de omega-3 y soporte articular. Los piensos específicos para razas grandes o para Golden son los más completos en este sentido.</p>
+  <div class="rec-product">
+    <span class="rec-icon">🏆</span>
+    <div>
+      <div class="rec-label">Nuestra elección para Golden Retriever adulto</div>
+      <div class="rec-name">Royal Canin Golden Retriever Adult</div>
+      <div class="rec-why">Formulado específicamente para esta raza: croqueta en forma de hueso para ralentizar la ingesta, EPA y DHA del aceite de pescado, ingredientes que apoyan el corazón y las articulaciones. La opción más completa del mercado para esta raza.</div>
+      <a href="https://www.amazon.es/s?k=Royal+Canin+Golden+Retriever+Adult&tag=primepick03f9-21" target="_blank" rel="nofollow sponsored" class="rec-btn">Ver en Amazon →</a>
+    </div>
+  </div>
+  <p>Si prefieres un pienso más genérico de alta calidad sin gastar en la versión raza específica, <strong>Purina Pro Plan Large Adult</strong> es la mejor alternativa: 29% de proteína de pollo, glucosamina incluida y un precio más competitivo por kilo.</p>
+  <div class="faq-section">
+    <h2>Preguntas frecuentes</h2>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿Cuándo pasar de pienso de cachorro a adulto con un Golden? <span class="faq-icon">+</span></button><div class="faq-a">Los Goldens son razas grandes que maduran más despacio. El cambio a pienso adulto debe hacerse alrededor de los 15-18 meses, no antes. Un cachorro de raza grande que come pienso adulto antes de tiempo puede tener un desarrollo óseo inadecuado.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿Cuántas veces al día debe comer un Golden adulto? <span class="faq-icon">+</span></button><div class="faq-a">Dos veces al día — mañana y noche. Nunca dejes comida disponible todo el día (ad libitum) con un Golden: esta raza come todo lo que encuentra y es muy propensa a la obesidad y al síndrome de dilatación gástrica.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿Necesita un Golden suplementos de glucosamina adicionales? <span class="faq-icon">+</span></button><div class="faq-a">Si usa un pienso de calidad específico para la raza, generalmente no es necesario suplementar aparte. Si usa un pienso genérico, puede ser recomendable añadir un suplemento articular, especialmente a partir de los 6-7 años o si tiene antecedentes familiares de displasia.</div></div>
+    </div>
+  </div>
+  <div class="conclusion-box"><h3>En resumen</h3><p>El Golden necesita control calórico estricto, soporte articular desde joven y omega-3 abundante. Royal Canin Golden Retriever Adult es la opción más completa. Pesa el pienso siempre — nunca uses el medidor del bote.</p></div>
+</div>
+
+<!-- ══ GUÍA BULLDOG FRANCÉS ══ -->
+<div class="raza-guide" id="guide-bulldog">
+  <div class="raza-guide-header">
+    <button class="raza-guide-back" onclick="showIndex()">← Volver a todas las razas</button>
+    <span class="raza-guide-emoji">🐶</span>
+    <div class="raza-guide-cat">Guía de alimentación · Braquicéfalo</div>
+    <h1 class="raza-guide-title">Mejor pienso para <em>Bulldog Francés</em> 2026</h1>
+    <p class="raza-guide-intro">El Bulldog Francés tiene una mandíbula corta y una digestión extremadamente delicada. Flatulencias, regurgitaciones y alergias alimentarias son problemas habituales en esta raza que muchas veces se solucionan simplemente cambiando el pienso.</p>
+  </div>
+  <div class="affil-notice"><strong>Transparencia:</strong> algunos enlaces son de afiliado (Amazon Associates).</div>
+  <div class="raza-chars">
+    <div class="raza-char"><div class="raza-char-label">Peso adulto</div><div class="raza-char-val">8-14 kg</div></div>
+    <div class="raza-char"><div class="raza-char-label">Esperanza de vida</div><div class="raza-char-val">10-12 años</div></div>
+    <div class="raza-char"><div class="raza-char-label">Nivel de actividad</div><div class="raza-char-val">Moderado</div></div>
+    <div class="raza-char"><div class="raza-char-label">Predisposición principal</div><div class="raza-char-val">Alergias, problemas digestivos</div></div>
+  </div>
+  <div class="need-box">
+    <h3>⚠ Necesidades específicas del Bulldog Francés</h3>
+    <ul class="need-list">
+      <li>Croqueta pequeña y plana adaptada a su mandíbula corta</li>
+      <li>Proteína de fuente única si hay alergias (monoproteica)</li>
+      <li>Sin colorantes ni aromas artificiales que disparen las alergias</li>
+      <li>Prebióticos y probióticos para la digestión sensible</li>
+      <li>Omega-3 para la piel y el pelaje, frecuentemente afectados por alergias</li>
+    </ul>
+  </div>
+  <h2>Qué pienso recomendamos</h2>
+  <p>Para Bulldogs Franceses hay dos escenarios: sin alergias conocidas y con alergias. En el primer caso, un pienso específico para la raza es la mejor opción. Si hay alergias confirmadas, hay que ir a piensos monoproteicos o hipoalergénicos.</p>
+  <div class="rec-product">
+    <span class="rec-icon">🏆</span>
+    <div>
+      <div class="rec-label">Nuestra elección · Sin alergias</div>
+      <div class="rec-name">Royal Canin Bulldog Francés Adult</div>
+      <div class="rec-why">Croqueta en forma específica para mandíbula braquicéfala, prebióticos para reducir las flatulencias, y fórmula para mantener la piel sana. El pienso de referencia para esta raza.</div>
+      <a href="https://www.amazon.es/s?k=Royal+Canin+Bulldog+Frances+Adult&tag=primepick03f9-21" target="_blank" rel="nofollow sponsored" class="rec-btn">Ver en Amazon →</a>
+    </div>
+  </div>
+  <div class="rec-product" style="background:#1A2A4A">
+    <span class="rec-icon">🌿</span>
+    <div>
+      <div class="rec-label">Nuestra elección · Con alergias</div>
+      <div class="rec-name">Hills Science Diet Sensitive Stomach & Skin</div>
+      <div class="rec-why">Proteína de salmón como fuente única, sin ingredientes alergénicos comunes. Desarrollado por veterinarios específicamente para perros con digestión sensible y problemas cutáneos.</div>
+      <a href="https://www.amazon.es/s?k=Hills+Science+Sensitive+Stomach+perro&tag=primepick03f9-21" target="_blank" rel="nofollow sponsored" class="rec-btn">Ver en Amazon →</a>
+    </div>
+  </div>
+  <div class="faq-section">
+    <h2>Preguntas frecuentes</h2>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿Por qué mi Bulldog Francés tiene tantos gases? <span class="faq-icon">+</span></button><div class="faq-a">Los Bulldogs Franceses tragan mucho aire al comer por su mandíbula corta, lo que produce flatulencias. Además, muchos tienen digestión sensible. Usar un comedero antiengulle, dar pienso de alta digestibilidad sin cereales inflamatorios (maíz, soja) y fraccionar en 2-3 tomas pequeñas ayuda mucho.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿Cómo sé si mi Bulldog Francés tiene alergia alimentaria? <span class="faq-icon">+</span></button><div class="faq-a">Los signos más comunes son: picor crónico (especialmente en patas, orejas y pliegues), enrojecimiento de la piel, otitis repetitivas y problemas digestivos frecuentes. Si sospechas alergia, lo más eficaz es una dieta de eliminación con proteína nueva durante 8-12 semanas bajo supervisión veterinaria.</div></div>
+    </div>
+  </div>
+  <div class="conclusion-box"><h3>En resumen</h3><p>El Bulldog Francés necesita croqueta adaptada a su mandíbula, alta digestibilidad y, si hay alergias, proteína de fuente única. Cambiar el pienso soluciona el 60% de los problemas de digestión y piel en esta raza.</p></div>
+</div>
+
+<!-- ══ GUÍA YORKSHIRE ══ -->
+<div class="raza-guide" id="guide-yorkshire">
+  <div class="raza-guide-header">
+    <button class="raza-guide-back" onclick="showIndex()">← Volver a todas las razas</button>
+    <span class="raza-guide-emoji">🐕</span>
+    <div class="raza-guide-cat">Guía de alimentación · Raza pequeña</div>
+    <h1 class="raza-guide-title">Mejor pienso para <em>Yorkshire Terrier</em> 2026</h1>
+    <p class="raza-guide-intro">El Yorkshire es una raza pequeña con metabolismo rápido, pelo sedoso que necesita nutrición específica y una predisposición notable a los problemas dentales. Su pienso debe cubrir estas tres necesidades.</p>
+  </div>
+  <div class="affil-notice"><strong>Transparencia:</strong> algunos enlaces son de afiliado (Amazon Associates).</div>
+  <div class="raza-chars">
+    <div class="raza-char"><div class="raza-char-label">Peso adulto</div><div class="raza-char-val">2-3 kg</div></div>
+    <div class="raza-char"><div class="raza-char-label">Esperanza de vida</div><div class="raza-char-val">13-16 años</div></div>
+    <div class="raza-char"><div class="raza-char-label">Nivel de actividad</div><div class="raza-char-val">Alto</div></div>
+    <div class="raza-char"><div class="raza-char-label">Predisposición principal</div><div class="raza-char-val">Sarro, problemas dentales, pelo</div></div>
+  </div>
+  <div class="need-box">
+    <h3>⚠ Necesidades específicas del Yorkshire</h3>
+    <ul class="need-list">
+      <li>Croqueta muy pequeña adaptada a mandíbula mini</li>
+      <li>Alta densidad nutricional — comen poco y necesitan mucho por gramo</li>
+      <li>Biotina, zinc y omega-3 para el pelo largo y sedoso</li>
+      <li>Textura de croqueta que ayude a limpiar el sarro mecánicamente</li>
+      <li>Alta proteína para mantener músculo en una raza de metabolismo rápido</li>
+    </ul>
+  </div>
+  <div class="rec-product">
+    <span class="rec-icon">🏆</span>
+    <div>
+      <div class="rec-label">Nuestra elección para Yorkshire Terrier</div>
+      <div class="rec-name">Royal Canin Yorkshire Terrier Adult</div>
+      <div class="rec-why">Formulado específicamente para Yorkshire: croqueta mini dentada que ayuda a reducir el sarro, biotina y ácidos grasos esenciales para el pelo sedoso, y alta densidad nutricional para su pequeño estómago.</div>
+      <a href="https://www.amazon.es/s?k=Royal+Canin+Yorkshire+Terrier+Adult&tag=primepick03f9-21" target="_blank" rel="nofollow sponsored" class="rec-btn">Ver en Amazon →</a>
+    </div>
+  </div>
+  <div class="conclusion-box"><h3>En resumen</h3><p>El Yorkshire necesita una croqueta muy pequeña, alta en proteína y con nutrientes específicos para el pelo. El pienso de raza específico vale la diferencia en esta raza — el pelo lo nota en semanas.</p></div>
+</div>
+
+<!-- ══ GUÍA LABRADOR ══ -->
+<div class="raza-guide" id="guide-labrador">
+  <div class="raza-guide-header">
+    <button class="raza-guide-back" onclick="showIndex()">← Volver a todas las razas</button>
+    <span class="raza-guide-emoji">🦴</span>
+    <div class="raza-guide-cat">Guía de alimentación · Raza grande</div>
+    <h1 class="raza-guide-title">Mejor pienso para <em>Labrador Retriever</em> 2026</h1>
+    <p class="raza-guide-intro">El Labrador tiene una mutación genética real (gen POMC) que afecta a la sensación de saciedad: literalmente no sabe cuándo está lleno. Es la raza con mayor tasa de obesidad canina en el mundo y necesita control de raciones estricto.</p>
+  </div>
+  <div class="affil-notice"><strong>Transparencia:</strong> algunos enlaces son de afiliado (Amazon Associates).</div>
+  <div class="raza-chars">
+    <div class="raza-char"><div class="raza-char-label">Peso adulto</div><div class="raza-char-val">25-36 kg</div></div>
+    <div class="raza-char"><div class="raza-char-label">Esperanza de vida</div><div class="raza-char-val">10-12 años</div></div>
+    <div class="raza-char"><div class="raza-char-label">Nivel de actividad</div><div class="raza-char-val">Muy alto</div></div>
+    <div class="raza-char"><div class="raza-char-label">Predisposición principal</div><div class="raza-char-val">Obesidad, displasia cadera</div></div>
+  </div>
+  <div class="need-box">
+    <h3>⚠ Necesidades específicas del Labrador</h3>
+    <ul class="need-list">
+      <li>Baja densidad calórica — comen demasiado rápido y demasiado</li>
+      <li>Alta fibra para dar saciedad sin añadir calorías</li>
+      <li>Glucosamina y condroitina para articulaciones de raza grande</li>
+      <li>Comedero antiengulle — tragan sin masticar y pueden sufrir torsión gástrica</li>
+      <li>Nunca dejar comida disponible — solo raciones medidas dos veces al día</li>
+    </ul>
+  </div>
+  <div class="rec-product">
+    <span class="rec-icon">🏆</span>
+    <div>
+      <div class="rec-label">Nuestra elección para Labrador adulto</div>
+      <div class="rec-name">Royal Canin Labrador Retriever Adult</div>
+      <div class="rec-why">Fórmula con fibras de alta saciedad (psyllium, celulosa), baja densidad calórica y soporte articular. La croqueta grande obliga a masticar y ralentiza la ingesta. Específico para esta raza con sus necesidades únicas.</div>
+      <a href="https://www.amazon.es/s?k=Royal+Canin+Labrador+Retriever+Adult&tag=primepick03f9-21" target="_blank" rel="nofollow sponsored" class="rec-btn">Ver en Amazon →</a>
+    </div>
+  </div>
+  <div class="conclusion-box"><h3>En resumen</h3><p>El Labrador necesita control de raciones estricto, comedero antiengulle y pienso de alta saciedad y baja densidad calórica. Nunca al libre — siempre raciones medidas con báscula.</p></div>
+</div>
+
+<!-- ══ GUÍA PASTOR ALEMÁN ══ -->
+<div class="raza-guide" id="guide-pastor">
+  <div class="raza-guide-header">
+    <button class="raza-guide-back" onclick="showIndex()">← Volver a todas las razas</button>
+    <span class="raza-guide-emoji">🐕‍🦺</span>
+    <div class="raza-guide-cat">Guía de alimentación · Raza grande</div>
+    <h1 class="raza-guide-title">Mejor pienso para <em>Pastor Alemán</em> 2026</h1>
+    <p class="raza-guide-intro">El Pastor Alemán tiene una digestión especialmente sensible y una predisposición genética a la displasia de cadera entre las más altas del mundo canino. Su alimentación debe priorizar la digestibilidad y el soporte articular.</p>
+  </div>
+  <div class="affil-notice"><strong>Transparencia:</strong> algunos enlaces son de afiliado (Amazon Associates).</div>
+  <div class="raza-chars">
+    <div class="raza-char"><div class="raza-char-label">Peso adulto</div><div class="raza-char-val">22-40 kg</div></div>
+    <div class="raza-char"><div class="raza-char-label">Esperanza de vida</div><div class="raza-char-val">9-13 años</div></div>
+    <div class="raza-char"><div class="raza-char-label">Nivel de actividad</div><div class="raza-char-val">Muy alto</div></div>
+    <div class="raza-char"><div class="raza-char-label">Predisposición principal</div><div class="raza-char-val">Displasia cadera, intestino sensible</div></div>
+  </div>
+  <div class="need-box">
+    <h3>⚠ Necesidades específicas del Pastor Alemán</h3>
+    <ul class="need-list">
+      <li>Alta digestibilidad — propenso a heces blandas y problemas intestinales</li>
+      <li>Proteína de alta calidad mínimo 28-30% para masa muscular</li>
+      <li>Glucosamina y condroitina — displasia entre las más frecuentes en la raza</li>
+      <li>Sin maíz, soja ni subproductos que irriten el intestino sensible</li>
+      <li>Omega-3 para pelaje denso y apoyo antiinflamatorio articular</li>
+    </ul>
+  </div>
+  <div class="rec-product">
+    <span class="rec-icon">🏆</span>
+    <div>
+      <div class="rec-label">Nuestra elección para Pastor Alemán adulto</div>
+      <div class="rec-name">Royal Canin German Shepherd Adult</div>
+      <div class="rec-why">Formulado específicamente: prebióticos exclusivos para la flora intestinal de la raza, EPA y DHA para las articulaciones, croqueta larga que promueve la masticación y reduce la ingesta de aire. La opción más probada en esta raza.</div>
+      <a href="https://www.amazon.es/s?k=Royal+Canin+German+Shepherd+Adult+pastor+aleman&tag=primepick03f9-21" target="_blank" rel="nofollow sponsored" class="rec-btn">Ver en Amazon →</a>
+    </div>
+  </div>
+  <div class="conclusion-box"><h3>En resumen</h3><p>El Pastor Alemán necesita alta digestibilidad, soporte articular desde joven y proteína de alta calidad. Fracciona en dos tomas y evita el ejercicio intenso justo después de comer para prevenir la torsión gástrica.</p></div>
+</div>
+
+<!-- Schema BreadcrumbList + ItemList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Guías de alimentación por raza de perro",
+  "description": "Guías específicas de nutrición para las razas de perro más populares en España",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Mejor pienso para Golden Retriever 2026","url":"https://pataadvisor.es/razas.html#golden"},
+    {"@type":"ListItem","position":2,"name":"Mejor pienso para Bulldog Francés 2026","url":"https://pataadvisor.es/razas.html#bulldog"},
+    {"@type":"ListItem","position":3,"name":"Mejor pienso para Yorkshire Terrier 2026","url":"https://pataadvisor.es/razas.html#yorkshire"},
+    {"@type":"ListItem","position":4,"name":"Mejor pienso para Labrador Retriever 2026","url":"https://pataadvisor.es/razas.html#labrador"},
+    {"@type":"ListItem","position":5,"name":"Mejor pienso para Pastor Alemán 2026","url":"https://pataadvisor.es/razas.html#pastor"}
+  ]
+}
+</script>
+
+<script>
+var indexEl = document.getElementById('razasIndex');
+var guides  = document.querySelectorAll('.raza-guide');
+var pills   = document.querySelectorAll('.razas-pill');
+
+function showIndex(){
+  indexEl.style.display = 'grid';
+  guides.forEach(function(g){ g.classList.remove('active'); });
+  pills.forEach(function(p,i){ p.classList.toggle('active', i===0); });
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+function showGuide(id){
+  indexEl.style.display = 'none';
+  guides.forEach(function(g){ g.classList.remove('active'); });
+  var guide = document.getElementById('guide-'+id);
+  if(guide){ guide.classList.add('active'); }
+  pills.forEach(function(p){ p.classList.remove('active'); });
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+function toggleFaq(btn){
+  var answer = btn.nextElementSibling;
+  var isOpen = btn.classList.contains('open');
+  document.querySelectorAll('.faq-q.open').forEach(function(b){
+    b.classList.remove('open');
+    b.nextElementSibling.classList.remove('open');
+  });
+  if(!isOpen){ btn.classList.add('open'); answer.classList.add('open'); }
+}
+
+// Handle hash on load
+var hash = window.location.hash.replace('#','');
+if(hash && hash !== 'golden' && document.getElementById('guide-'+hash)){
+  showGuide(hash);
+} else if(hash === 'golden'){
+  showGuide('golden');
+}
+</script>
+</body>
+</html>
