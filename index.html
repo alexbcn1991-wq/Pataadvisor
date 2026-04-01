@@ -37,9 +37,7 @@
 
   /* NAV */
   nav{position:sticky;top:0;z-index:100;background:rgba(249,247,242,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--sand-200);padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:60px}
-  .logo{font-family:var(--font-display);font-size:20px;font-weight:400;color:var(--sand-900);display:flex;align-items:center;gap:10px;text-decoration:none;letter-spacing:-.02em;cursor:pointer}
-  .logo-mark{width:28px;height:28px;background:var(--green-300);border-radius:50%;display:flex;align-items:center;justify-content:center}
-  .logo-mark svg{width:14px;height:14px;fill:var(--white)}
+  .logo{display:flex;align-items:center;cursor:pointer;text-decoration:none;line-height:1}
   .nav-links{display:flex;gap:28px;list-style:none}
   .nav-links a{font-size:13px;font-weight:400;color:var(--sand-600);text-decoration:none;transition:color .2s;letter-spacing:.01em;cursor:pointer}
   .nav-links a:hover{color:var(--sand-900)}
@@ -199,8 +197,7 @@
 
   /* FOOTER */
   footer{border-top:1px solid var(--sand-200);padding:40px 32px;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
-  .footer-logo{font-family:var(--font-display);font-size:18px;font-weight:400;color:var(--sand-900);letter-spacing:-.03em;display:flex;align-items:center;gap:8px;margin-bottom:12px;text-decoration:none;cursor:pointer}
-  .footer-logo-dot{width:22px;height:22px;background:var(--green-300);border-radius:50%}
+  .footer-logo{display:flex;align-items:center;margin-bottom:12px;cursor:pointer}
   .footer-desc{font-size:13px;color:var(--sand-400);line-height:1.6;max-width:220px}
   .footer-disclaimer{font-size:11px;color:var(--sand-400);margin-top:14px;line-height:1.5}
   .footer-col h4{font-size:12px;font-weight:500;color:var(--sand-600);text-transform:uppercase;letter-spacing:.06em;margin-bottom:14px}
@@ -263,8 +260,20 @@
 <div class="mob-menu" id="mobMenu">
   <div class="mob-top">
     <span class="logo" onclick="showPage('home');closeMob()">
-      <div class="logo-mark"><svg viewBox="0 0 14 14"><path d="M7 1C3.69 1 1 3.69 1 7s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm-.5 8.5L3.5 6.5l1.06-1.06L6.5 7.38l3.44-3.44L11 5l-4.5 4.5z"/></svg></div>
-      PataAdvisor
+      <svg width="112" height="36" viewBox="0 0 280 72" xmlns="http://www.w3.org/2000/svg">
+        <g fill="#1D9E75"><ellipse cx="28" cy="46" rx="14" ry="10"/><circle cx="28" cy="29" r="11"/><ellipse cx="18" cy="25" rx="5" ry="8" transform="rotate(-10 18 25)"/><ellipse cx="38" cy="25" rx="5" ry="8" transform="rotate(10 38 25)"/><path d="M42 42 Q54 32 51 22" stroke="#1D9E75" stroke-width="5" fill="none" stroke-linecap="round"/></g>
+        <circle cx="24" cy="27" r="2" fill="white"/><circle cx="32" cy="27" r="2" fill="white"/>
+        <ellipse cx="28" cy="33" rx="3" ry="2" fill="#0F6E56"/>
+        <rect x="18" y="54" width="6" height="8" rx="3" fill="#1D9E75"/><rect x="27" y="55" width="6" height="7" rx="3" fill="#1D9E75"/>
+        <line x1="60" y1="20" x2="60" y2="58" stroke="#E2DDD1" stroke-width="1.5"/>
+        <g fill="#0F6E56"><ellipse cx="80" cy="46" rx="12" ry="9"/><circle cx="80" cy="30" r="10"/><polygon points="71,24 74,12 80,23"/><polygon points="80,23 86,12 89,24"/><path d="M92 44 Q104 36 100 24" stroke="#0F6E56" stroke-width="4.5" fill="none" stroke-linecap="round"/></g>
+        <ellipse cx="76" cy="29" rx="2" ry="2.5" fill="white"/><ellipse cx="84" cy="29" rx="2" ry="2.5" fill="white"/>
+        <polygon points="80,34 78,32 82,32" fill="#085041"/>
+        <rect x="72" y="53" width="6" height="7" rx="3" fill="#0F6E56"/><rect x="81" y="54" width="6" height="6" rx="3" fill="#0F6E56"/>
+        <text x="116" y="35" font-family="'Fraunces',Georgia,serif" font-size="24" font-weight="400" font-style="italic" fill="#1A1714">Pata</text>
+        <text x="163" y="35" font-family="'Fraunces',Georgia,serif" font-size="24" font-weight="300" font-style="italic" fill="#1D9E75">Advisor</text>
+        <text x="116" y="53" font-family="'DM Sans',sans-serif" font-size="9.5" font-weight="400" fill="#A89F8E" letter-spacing="1.8">BIENESTAR ANIMAL</text>
+      </svg>
     </span>
     <button class="mob-close" onclick="closeMob()">✕</button>
   </div>
@@ -278,8 +287,20 @@
 <!-- NAVBAR -->
 <nav>
   <span class="logo" onclick="showPage('home')">
-    <div class="logo-mark"><svg viewBox="0 0 14 14"><path d="M7 1C3.69 1 1 3.69 1 7s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm-.5 8.5L3.5 6.5l1.06-1.06L6.5 7.38l3.44-3.44L11 5l-4.5 4.5z"/></svg></div>
-    PataAdvisor
+    <svg width="140" height="40" viewBox="0 0 280 72" xmlns="http://www.w3.org/2000/svg">
+      <g fill="#1D9E75"><ellipse cx="28" cy="46" rx="14" ry="10"/><circle cx="28" cy="29" r="11"/><ellipse cx="18" cy="25" rx="5" ry="8" transform="rotate(-10 18 25)"/><ellipse cx="38" cy="25" rx="5" ry="8" transform="rotate(10 38 25)"/><path d="M42 42 Q54 32 51 22" stroke="#1D9E75" stroke-width="5" fill="none" stroke-linecap="round"/></g>
+      <circle cx="24" cy="27" r="2" fill="white"/><circle cx="32" cy="27" r="2" fill="white"/>
+      <ellipse cx="28" cy="33" rx="3" ry="2" fill="#0F6E56"/>
+      <rect x="18" y="54" width="6" height="8" rx="3" fill="#1D9E75"/><rect x="27" y="55" width="6" height="7" rx="3" fill="#1D9E75"/>
+      <line x1="60" y1="20" x2="60" y2="58" stroke="#E2DDD1" stroke-width="1.5"/>
+      <g fill="#0F6E56"><ellipse cx="80" cy="46" rx="12" ry="9"/><circle cx="80" cy="30" r="10"/><polygon points="71,24 74,12 80,23"/><polygon points="80,23 86,12 89,24"/><path d="M92 44 Q104 36 100 24" stroke="#0F6E56" stroke-width="4.5" fill="none" stroke-linecap="round"/></g>
+      <ellipse cx="76" cy="29" rx="2" ry="2.5" fill="white"/><ellipse cx="84" cy="29" rx="2" ry="2.5" fill="white"/>
+      <polygon points="80,34 78,32 82,32" fill="#085041"/>
+      <rect x="72" y="53" width="6" height="7" rx="3" fill="#0F6E56"/><rect x="81" y="54" width="6" height="6" rx="3" fill="#0F6E56"/>
+      <text x="116" y="35" font-family="'Fraunces',Georgia,serif" font-size="24" font-weight="400" font-style="italic" fill="#1A1714">Pata</text>
+      <text x="163" y="35" font-family="'Fraunces',Georgia,serif" font-size="24" font-weight="300" font-style="italic" fill="#1D9E75">Advisor</text>
+      <text x="116" y="53" font-family="'DM Sans',sans-serif" font-size="9.5" font-weight="400" fill="#A89F8E" letter-spacing="1.8">BIENESTAR ANIMAL</text>
+    </svg>
   </span>
   <ul class="nav-links">
     <li><a onclick="showPage('home')">Perros</a></li>
@@ -538,7 +559,7 @@
     <span class="updated">Última actualización: abril de 2026</span>
     <p>En PataAdvisor nos tomamos muy en serio la privacidad de nuestros usuarios. Esta política explica qué datos recopilamos, cómo los usamos y qué derechos tienes, de conformidad con el RGPD y la LOPDGDD.</p>
     <h2>1. Responsable del tratamiento</h2>
-    <p>El responsable del tratamiento es el titular de PataAdvisor. Contacto de privacidad: <strong>privacidad@pataadvisor.es</strong> (sustituye por tu email real).</p>
+    <p>El responsable del tratamiento es el titular de PataAdvisor. Contacto de privacidad: <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b8c8cad1ced9dbd1dcd9dcf8c8d9ccd9d9dcced1cbd7ca96ddcb">[email&#160;protected]</a></strong> (sustituye por tu email real).</p>
     <h2>2. Datos que recopilamos</h2>
     <ul>
       <li><strong>Newsletter:</strong> nombre y email, facilitados voluntariamente al suscribirse.</li>
@@ -554,7 +575,7 @@
     <h2>4. Conservación de datos</h2>
     <p>Los datos de suscripción se conservan mientras la suscripción esté activa. Los datos de navegación un máximo de 14 meses. Puedes darte de baja en cualquier momento desde cualquier email.</p>
     <h2>5. Tus derechos</h2>
-    <p>Tienes derecho a acceder, rectificar, suprimir, limitar, oponerte y a la portabilidad de tus datos. Escríbenos a <strong>privacidad@pataadvisor.es</strong> o presenta una reclamación ante la AEPD (aepd.es).</p>
+    <p>Tienes derecho a acceder, rectificar, suprimir, limitar, oponerte y a la portabilidad de tus datos. Escríbenos a <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="19696b706f787a707d787d5969786d78787d6f706a766b377c6a">[email&#160;protected]</a></strong> o presenta una reclamación ante la AEPD (aepd.es).</p>
     <h2>6. Cookies</h2>
     <p>Usamos cookies técnicas (necesarias) y analíticas (Google Analytics, solo con consentimiento). Puedes gestionar tu elección desde el aviso de cookies.</p>
     <h2>7. Terceros</h2>
@@ -573,7 +594,7 @@
     <h1>Aviso legal</h1>
     <span class="updated">Última actualización: abril de 2026</span>
     <h2>Titular del sitio web</h2>
-    <p>El presente sitio web es titularidad de su propietario/a (introduce aquí tu nombre o razón social, NIF/CIF y domicilio). Email: <strong>hola@pataadvisor.es</strong></p>
+    <p>El presente sitio web es titularidad de su propietario/a (introduce aquí tu nombre o razón social, NIF/CIF y domicilio). Email: <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="aec6c1c2cfeedecfdacfcfcad8c7ddc1dc80cbdd">[email&#160;protected]</a></strong></p>
     <h2>Objeto y condiciones de uso</h2>
     <p>PataAdvisor es un sitio web editorial que ofrece recomendaciones, comparativas y análisis de productos para mascotas. El acceso es gratuito y está sujeto a estas condiciones.</p>
     <h2>Propiedad intelectual</h2>
@@ -591,7 +612,22 @@
 <!-- FOOTER -->
 <footer>
   <div>
-    <span class="footer-logo" onclick="showPage('home')"><div class="footer-logo-dot"></div>PataAdvisor</span>
+    <span class="footer-logo" onclick="showPage('home')">
+      <svg width="130" height="34" viewBox="0 0 280 72" xmlns="http://www.w3.org/2000/svg">
+        <g fill="#1D9E75"><ellipse cx="28" cy="46" rx="14" ry="10"/><circle cx="28" cy="29" r="11"/><ellipse cx="18" cy="25" rx="5" ry="8" transform="rotate(-10 18 25)"/><ellipse cx="38" cy="25" rx="5" ry="8" transform="rotate(10 38 25)"/><path d="M42 42 Q54 32 51 22" stroke="#1D9E75" stroke-width="5" fill="none" stroke-linecap="round"/></g>
+        <circle cx="24" cy="27" r="2" fill="white"/><circle cx="32" cy="27" r="2" fill="white"/>
+        <ellipse cx="28" cy="33" rx="3" ry="2" fill="#0F6E56"/>
+        <rect x="18" y="54" width="6" height="8" rx="3" fill="#1D9E75"/><rect x="27" y="55" width="6" height="7" rx="3" fill="#1D9E75"/>
+        <line x1="60" y1="20" x2="60" y2="58" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+        <g fill="#9FE1CB"><ellipse cx="80" cy="46" rx="12" ry="9"/><circle cx="80" cy="30" r="10"/><polygon points="71,24 74,12 80,23"/><polygon points="80,23 86,12 89,24"/><path d="M92 44 Q104 36 100 24" stroke="#9FE1CB" stroke-width="4.5" fill="none" stroke-linecap="round"/></g>
+        <ellipse cx="76" cy="29" rx="2" ry="2.5" fill="rgba(4,52,44,0.5)"/><ellipse cx="84" cy="29" rx="2" ry="2.5" fill="rgba(4,52,44,0.5)"/>
+        <polygon points="80,34 78,32 82,32" fill="#085041"/>
+        <rect x="72" y="53" width="6" height="7" rx="3" fill="#9FE1CB"/><rect x="81" y="54" width="6" height="6" rx="3" fill="#9FE1CB"/>
+        <text x="116" y="35" font-family="'Fraunces',Georgia,serif" font-size="24" font-weight="400" font-style="italic" fill="rgba(250,247,242,0.9)">Pata</text>
+        <text x="163" y="35" font-family="'Fraunces',Georgia,serif" font-size="24" font-weight="300" font-style="italic" fill="#9FE1CB">Advisor</text>
+        <text x="116" y="53" font-family="'DM Sans',sans-serif" font-size="9.5" font-weight="400" fill="rgba(255,255,255,0.3)" letter-spacing="1.8">BIENESTAR ANIMAL</text>
+      </svg>
+    </span>
     <p class="footer-desc">Comparativas y análisis de productos para mascotas. Independencia editorial total desde 2026.</p>
     <p class="footer-disclaimer">* Afiliado de Amazon EU. Las comisiones no influyen en nuestras recomendaciones.</p>
   </div>
@@ -609,7 +645,7 @@
       <li><a onclick="showPage('como-analizamos')">Cómo analizamos</a></li>
       <li><a onclick="showPage('privacidad')">Política de privacidad</a></li>
       <li><a onclick="showPage('aviso-legal')">Aviso legal</a></li>
-      <li><a href="mailto:hola@pataadvisor.es">Contacto</a></li>
+      <li><a href="/cdn-cgi/l/email-protection#e0888f8c81a09081948181849689938f92ce8593">Contacto</a></li>
     </ul>
   </div>
 </footer>
@@ -618,7 +654,7 @@
   <span>Hecho con cariño para dueños de mascotas 🐾</span>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   function showPage(id){
     document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
     const t=document.getElementById('page-'+id);
@@ -639,15 +675,4 @@
     btn.style.background='#9FE1CB';btn.style.color='#04342C';btn.disabled=true;
   }
   function handleSearch(){const q=document.getElementById('searchInput').value.trim();if(q)alert(`Búsqueda: "${q}"\n\nConecta aquí tu CMS o motor de búsqueda.`)}
-  document.getElementById('searchInput').addEventListener('keypress',e=>{if(e.key==='Enter')handleSearch()});
-  const obs=new IntersectionObserver(entries=>{
-    entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';obs.unobserve(e.target)}})
-  },{threshold:.08});
-  document.querySelectorAll('.product-card,.article-card,.hcard,.how-card,.trust-item').forEach(el=>{
-    el.style.opacity='0';el.style.transform='translateY(14px)';
-    el.style.transition='opacity .4s ease,transform .4s ease,box-shadow .25s,border-color .25s';
-    obs.observe(el);
-  });
-</script>
-</body>
-</html>
+  document.getElementById('searchInput').addEventListener('keypress',e=>{if(e.key==='Enter')handleSearch()})
