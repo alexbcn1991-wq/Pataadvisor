@@ -246,6 +246,25 @@
   .hero-bg-deco{position:absolute;right:-40px;top:-20px;width:55%;height:110%;pointer-events:none;z-index:0;opacity:1}
   .hero > div,.hero-right{position:relative;z-index:1}
 
+  /* FEATURED ARTICLE BANNERS */
+  .featured-banners{display:grid;grid-template-columns:1fr 1fr;gap:0;border-bottom:1px solid rgba(255,255,255,.06)}
+  .feat-banner{display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:24px;padding:20px 32px;text-decoration:none;transition:filter .2s;border-right:1px solid rgba(255,255,255,.06)}
+  .feat-banner:last-child{border-right:none}
+  .feat-banner:hover{filter:brightness(1.08)}
+  .feat-tech{background:linear-gradient(135deg,#0A2540 0%,#1A3A5C 100%)}
+  .feat-gadgets{background:linear-gradient(135deg,#2D1B4E 0%,#4A2D7A 100%)}
+  .feat-banner-eyebrow{font-size:10px;font-weight:500;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:.14em;margin-bottom:5px}
+  .feat-banner-title{font-family:var(--font-display);font-size:18px;font-weight:400;color:var(--white);letter-spacing:-.01em;font-style:italic;margin-bottom:5px}
+  .feat-banner-desc{font-size:12px;color:rgba(255,255,255,.45);line-height:1.5;max-width:260px}
+  .feat-banner-items{display:flex;gap:8px;flex-shrink:0}
+  .feat-item{display:flex;flex-direction:column;align-items:center;gap:3px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:var(--r-md);padding:8px 12px;min-width:72px}
+  .feat-item>:first-child{font-size:18px}
+  .feat-item span{font-size:9px;color:rgba(255,255,255,.5);text-align:center;white-space:nowrap;font-weight:500;letter-spacing:.04em}
+  .feat-banner-cta{font-size:12px;font-weight:600;color:rgba(255,255,255,.8);background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:100px;padding:8px 16px;white-space:nowrap;flex-shrink:0;transition:background .2s}
+  .feat-banner:hover .feat-banner-cta{background:rgba(255,255,255,.2)}
+  @media(max-width:900px){.featured-banners{grid-template-columns:1fr}.feat-banner{border-right:none;border-bottom:1px solid rgba(255,255,255,.06)}.feat-banner-items{display:none}}
+  @media(max-width:600px){.feat-banner{grid-template-columns:1fr auto;gap:12px;padding:16px 20px}.feat-banner-items{display:none}}
+
   /* FEATURE PILLS */
   .feature-pills-wrap{background:var(--green-900);border-bottom:1px solid rgba(255,255,255,.06);overflow:hidden}
   .feature-pills{max-width:1100px;margin:0 auto;padding:0 32px;display:flex;align-items:center;gap:0;height:48px;overflow:hidden}
@@ -810,19 +829,34 @@
 <!-- BANNER TEMPORADA -->
 <div class="season-banner" id="seasonBanner"></div>
 
-<!-- FEATURE PILLS -->
-<div class="feature-pills-wrap">
-  <div class="feature-pills">
-    <div class="fp"><span class="fp-icon">🔬</span> Ingredientes analizados al detalle</div>
-    <div class="fp-sep"></div>
-    <div class="fp"><span class="fp-icon">🏅</span> Top productos actualizados mensualmente</div>
-    <div class="fp-sep"></div>
-    <div class="fp"><span class="fp-icon">🐾</span> +400 análisis publicados</div>
-    <div class="fp-sep"></div>
-    <div class="fp"><span class="fp-icon">💚</span> Sin publicidad encubierta</div>
-    <div class="fp-sep"></div>
-    <div class="fp"><span class="fp-icon">⚡</span> Precios verificados hoy</div>
-  </div>
+<!-- BANNERS ARTÍCULOS DESTACADOS -->
+<div class="featured-banners">
+  <a href="articulos2.html#tecnologia-mascotas" class="feat-banner feat-tech">
+    <div class="feat-banner-left">
+      <div class="feat-banner-eyebrow">📊 Comparativa completa · 2026</div>
+      <div class="feat-banner-title">Tecnología para mascotas</div>
+      <div class="feat-banner-desc">Comederos WiFi con cámara, GPS, bebederos inteligentes. Los más vendidos de Amazon, analizados.</div>
+    </div>
+    <div class="feat-banner-items">
+      <div class="feat-item">📷<span>Comedero + Cámara</span></div>
+      <div class="feat-item">📍<span>GPS Tractive</span></div>
+      <div class="feat-item">💧<span>Bebedero smart</span></div>
+    </div>
+    <div class="feat-banner-cta">Ver comparativa →</div>
+  </a>
+  <a href="articulos2.html#gadgets-mascotas" class="feat-banner feat-gadgets">
+    <div class="feat-banner-left">
+      <div class="feat-banner-eyebrow">✨ Los más virales · 10 productos</div>
+      <div class="feat-banner-title">Gadgets que no sabías que necesitabas</div>
+      <div class="feat-banner-desc">Lick mats, slow feeders, limpiapatas y más. Pequeñas inversiones, gran diferencia en el día a día.</div>
+    </div>
+    <div class="feat-banner-items">
+      <div class="feat-item">🧩<span>Lick mat</span></div>
+      <div class="feat-item">💧<span>Botella paseo</span></div>
+      <div class="feat-item">🌿<span>Tapete olfativo</span></div>
+    </div>
+    <div class="feat-banner-cta">Ver los 10 →</div>
+  </a>
 </div>
 
 <!-- ═══ HOME ═══ -->
@@ -1112,27 +1146,27 @@
     <div class="articles-grid">
       <a href="articulos.html#pienso-perro" class="article-card">
         <div class="article-card-bg">🦴</div><div class="article-card-overlay"></div>
-        <div class="article-card-body"><div class="article-tag">Alimentación · Perros</div><div class="article-title">El mejor pienso para perro adulto en 2026: comparativa completa</div><div class="article-meta"><span>hace 2 días</span><span class="article-meta-dot"></span><span>8 min</span></div></div>
+        <div class="article-card-body"><div class="article-tag">Alimentación · Perros</div><div class="article-title">El mejor pienso para perro adulto en 2026</div><div class="article-meta"><span>hace 1 semana</span><span class="article-meta-dot"></span><span>8 min</span></div></div>
       </a>
-      <a href="articulos.html#transportines" class="article-card">
-        <div class="article-card-bg">✈️</div><div class="article-card-overlay"></div>
-        <div class="article-card-body"><div class="article-tag">Viajes</div><div class="article-title">Transportines homologados IATA: cuál comprar antes de volar</div><div class="article-meta"><span>hace 3 días</span><span class="article-meta-dot"></span><span>10 min</span></div></div>
+      <a href="articulos2.html#tecnologia-mascotas" class="article-card">
+        <div class="article-card-bg">📱</div><div class="article-card-overlay"></div>
+        <div class="article-card-body"><div class="article-tag">Tecnología</div><div class="article-title">Tech para mascotas: comederos WiFi, GPS y más</div><div class="article-meta"><span>hace 2 días</span><span class="article-meta-dot"></span><span>9 min</span></div></div>
       </a>
-      <a href="articulos.html#pienso-gato" class="article-card">
-        <div class="article-card-bg">🐱</div><div class="article-card-overlay"></div>
-        <div class="article-card-body"><div class="article-tag">Alimentación · Gatos</div><div class="article-title">El mejor pienso para gato esterilizado en 2026</div><div class="article-meta"><span>hace 5 días</span><span class="article-meta-dot"></span><span>7 min</span></div></div>
+      <a href="articulos2.html#gadgets-mascotas" class="article-card">
+        <div class="article-card-bg">🧩</div><div class="article-card-overlay"></div>
+        <div class="article-card-body"><div class="article-tag">Gadgets · Top 10</div><div class="article-title">10 gadgets que no sabías que necesitabas</div><div class="article-meta"><span>hace 3 días</span><span class="article-meta-dot"></span><span>7 min</span></div></div>
       </a>
       <a href="articulos2.html#antiparasitarios" class="article-card">
         <div class="article-card-bg">💊</div><div class="article-card-overlay"></div>
-        <div class="article-card-body"><div class="article-tag">Salud · Perros</div><div class="article-title">Los 7 mejores antiparasitarios de 2026 según veterinarios</div><div class="article-meta"><span>hace 2 días</span><span class="article-meta-dot"></span><span>8 min</span></div></div>
+        <div class="article-card-body"><div class="article-tag">Salud · Perros</div><div class="article-title">Los 7 mejores antiparasitarios de 2026</div><div class="article-meta"><span>hace 2 días</span><span class="article-meta-dot"></span><span>8 min</span></div></div>
       </a>
       <a href="articulos2.html#guia-cachorro" class="article-card">
         <div class="article-card-bg">🐶</div><div class="article-card-overlay"></div>
-        <div class="article-card-body"><div class="article-tag">Cachorros</div><div class="article-title">Guía completa para el primer mes con un cachorro: qué comprar</div><div class="article-meta"><span>hace 3 días</span><span class="article-meta-dot"></span><span>12 min</span></div></div>
+        <div class="article-card-body"><div class="article-tag">Cachorros</div><div class="article-title">Guía completa para el primer mes con un cachorro</div><div class="article-meta"><span>hace 3 días</span><span class="article-meta-dot"></span><span>12 min</span></div></div>
       </a>
-      <a href="articulos2.html#cepillos-perro" class="article-card">
-        <div class="article-card-bg">✂️</div><div class="article-card-overlay"></div>
-        <div class="article-card-body"><div class="article-tag">Higiene</div><div class="article-title">Mejores cepillos para perros de pelo largo: 12 modelos analizados</div><div class="article-meta"><span>hace 4 días</span><span class="article-meta-dot"></span><span>6 min</span></div></div>
+      <a href="articulos.html#transportines" class="article-card">
+        <div class="article-card-bg">✈️</div><div class="article-card-overlay"></div>
+        <div class="article-card-body"><div class="article-tag">Viajes</div><div class="article-title">Transportines homologados IATA para volar</div><div class="article-meta"><span>hace 1 semana</span><span class="article-meta-dot"></span><span>10 min</span></div></div>
       </a>
     </div>
   </section>
