@@ -835,6 +835,8 @@
     });
   },{threshold:0.3});
   document.querySelectorAll('.product-card').forEach(function(el){rcObs.observe(el);});
+
+  function showPage(id){
     document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
     var t=document.getElementById('page-'+id);
     if(t){t.classList.add('active');window.scrollTo({top:0,behavior:'smooth'});}
