@@ -206,6 +206,54 @@
   .footer-col a:hover{color:var(--sand-800)}
   .footer-bottom{border-top:1px solid var(--sand-200);padding:20px 32px;max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;font-size:14px;color:var(--sand-400)}
 
+  /* OFERTA DEL DÍA */
+  .oferta-bar{background:var(--green-900);padding:0 32px}
+  .oferta-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:24px;padding:18px 0;flex-wrap:wrap}
+  .oferta-badge{font-family:var(--font-body);font-size:10px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;background:var(--green-300);color:var(--white);padding:4px 12px;border-radius:100px;white-space:nowrap;animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.7}}
+  .oferta-countdown{font-family:var(--font-body);font-size:12px;color:var(--green-100);white-space:nowrap;display:flex;align-items:center;gap:6px}
+  .oferta-countdown strong{font-size:15px;font-weight:500;color:var(--white);font-family:monospace;letter-spacing:.05em}
+  .oferta-product{flex:1;min-width:0}
+  .oferta-name{font-family:var(--font-display);font-size:17px;font-weight:400;color:var(--white);letter-spacing:-.01em;font-style:italic;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .oferta-prices{display:flex;align-items:center;gap:10px;margin-top:3px}
+  .oferta-old{font-size:13px;color:rgba(255,255,255,.4);text-decoration:line-through}
+  .oferta-new{font-family:var(--font-display);font-size:22px;font-weight:400;color:var(--green-100);letter-spacing:-.02em}
+  .oferta-save{font-size:11px;font-weight:500;background:rgba(29,158,117,.3);color:var(--green-100);padding:2px 8px;border-radius:100px}
+  .oferta-btn{font-family:var(--font-body);font-size:12px;font-weight:500;background:var(--green-300);color:var(--white);border:none;border-radius:100px;padding:10px 22px;cursor:pointer;text-decoration:none;white-space:nowrap;transition:background .2s;display:inline-block}
+  .oferta-btn:hover{background:#25B888}
+
+  /* RATING CIRCLES */
+  .rating-circle{display:inline-flex;align-items:center;gap:8px;margin-bottom:12px}
+  .rc-svg{flex-shrink:0}
+  .rc-label{font-size:12px;color:var(--sand-400)}
+
+  /* TICKER */
+  .ticker-wrap{background:var(--white);border-top:1px solid var(--sand-200);border-bottom:1px solid var(--sand-200);overflow:hidden;padding:0 32px}
+  .ticker-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:0;height:44px}
+  .ticker-label{font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--green-300);white-space:nowrap;padding-right:20px;border-right:1px solid var(--sand-200);margin-right:20px;flex-shrink:0}
+  .ticker-track-wrap{flex:1;overflow:hidden;position:relative}
+  .ticker-track{display:flex;gap:0;animation:ticker 22s linear infinite;width:max-content}
+  @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+  .ticker-item{display:flex;align-items:center;gap:8px;padding:0 28px;font-size:13px;color:var(--sand-600);white-space:nowrap;border-right:1px solid var(--sand-200)}
+  .ticker-item a{color:var(--green-500);text-decoration:none;font-weight:500}
+  .ticker-dot{width:5px;height:5px;border-radius:50%;background:var(--green-300);flex-shrink:0}
+
+  /* MAGAZINE ARTICLE CARDS */
+  .articles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .article-card{border-radius:var(--r-lg);cursor:pointer;transition:transform .25s,box-shadow .25s;text-decoration:none;overflow:hidden;display:flex;flex-direction:column;min-height:220px;position:relative;background:var(--sand-800)}
+  .article-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.15)}
+  .article-card-bg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:80px;background:linear-gradient(135deg,var(--sand-800) 0%,var(--sand-600) 100%);opacity:.9}
+  .article-card-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,8,6,.92) 0%,rgba(10,8,6,.4) 60%,rgba(10,8,6,.1) 100%)}
+  .article-card-body{position:relative;z-index:2;padding:20px;margin-top:auto}
+  .article-tag{font-size:10px;font-weight:500;color:var(--green-100);text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px}
+  .article-title{font-family:var(--font-display);font-size:17px;font-weight:400;color:var(--white);letter-spacing:-.01em;line-height:1.35;font-style:italic}
+  .article-meta{font-size:11px;color:rgba(255,255,255,.45);margin-top:8px;display:flex;gap:8px;align-items:center}
+  .article-meta-dot{width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,.3)}
+
+  /* TYPEWRITER hero */
+  @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+  .cursor{display:inline-block;width:2px;height:.85em;background:var(--green-500);margin-left:2px;vertical-align:middle;animation:blink 1s step-end infinite}
+
   /* ANIMATIONS */
   @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
   .a1{animation:fadeUp .5s ease both}
@@ -224,6 +272,9 @@
     .cats-section,.section,.newsletter-section{padding-left:20px;padding-right:20px}
     .products-grid{grid-template-columns:1fr 1fr}
     .articles-grid{grid-template-columns:1fr}
+    .oferta-inner{gap:12px}
+    .oferta-name{font-size:14px}
+    .ticker-wrap{display:none}
     .how-grid{grid-template-columns:1fr 1fr}
     .about-intro{grid-template-columns:1fr;gap:20px}
     .newsletter-box{grid-template-columns:1fr;padding:36px 28px;gap:28px}
@@ -314,13 +365,56 @@
   </div>
 </nav>
 
+<!-- OFERTA DEL DÍA -->
+<div class="oferta-bar">
+  <div class="oferta-inner">
+    <span class="oferta-badge">Oferta del día</span>
+    <div class="oferta-countdown">
+      Termina en <strong id="countdown">07:42:18</strong>
+    </div>
+    <div class="oferta-product">
+      <div class="oferta-name">Royal Canin Medium Adult 15kg</div>
+      <div class="oferta-prices">
+        <span class="oferta-old">62,90€</span>
+        <span class="oferta-new">54,90€</span>
+        <span class="oferta-save">−13%</span>
+      </div>
+    </div>
+    <a href="https://www.amazon.es/dp/B000VJW2GA?tag=primepick03f9-21" target="_blank" rel="nofollow sponsored" class="oferta-btn">Ver oferta →</a>
+  </div>
+</div>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-inner">
+    <div class="ticker-label">Recién actualizado</div>
+    <div class="ticker-track-wrap">
+      <div class="ticker-track">
+        <div class="ticker-item"><span class="ticker-dot"></span><a href="articulos2.html#antiparasitarios">7 mejores antiparasitarios 2026</a> · hace 2 días</div>
+        <div class="ticker-item"><span class="ticker-dot"></span><a href="articulos2.html#guia-cachorro">Guía primer mes con cachorro</a> · hace 3 días</div>
+        <div class="ticker-item"><span class="ticker-dot"></span><a href="articulos.html#pienso-perro">Mejor pienso perro adulto</a> · hace 5 días</div>
+        <div class="ticker-item"><span class="ticker-dot"></span><a href="articulos.html#transportines">Transportines IATA homologados</a> · hace 1 semana</div>
+        <div class="ticker-item"><span class="ticker-dot"></span><a href="articulos.html#pienso-gato">Mejor pienso gato esterilizado</a> · hace 1 semana</div>
+        <div class="ticker-item"><span class="ticker-dot"></span><a href="articulos2.html#cepillos-perro">Cepillos pelo largo: 12 modelos</a> · hace 4 días</div>
+        <!-- duplicado para loop -->
+        <div class="ticker-item"><span class="ticker-dot"></span><a href="articulos2.html#antiparasitarios">7 mejores antiparasitarios 2026</a> · hace 2 días</div>
+        <div class="ticker-item"><span class="ticker-dot"></span><a href="articulos2.html#guia-cachorro">Guía primer mes con cachorro</a> · hace 3 días</div>
+        <div class="ticker-item"><span class="ticker-dot"></span><a href="articulos.html#pienso-perro">Mejor pienso perro adulto</a> · hace 5 días</div>
+        <div class="ticker-item"><span class="ticker-dot"></span><a href="articulos.html#transportines">Transportines IATA homologados</a> · hace 1 semana</div>
+        <div class="ticker-item"><span class="ticker-dot"></span><a href="articulos.html#pienso-gato">Mejor pienso gato esterilizado</a> · hace 1 semana</div>
+        <div class="ticker-item"><span class="ticker-dot"></span><a href="articulos2.html#cepillos-perro">Cepillos pelo largo: 12 modelos</a> · hace 4 días</div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ═══ HOME ═══ -->
 <div id="page-home" class="page active">
 
   <section class="hero">
     <div>
       <div class="hero-badge a1">Recomendaciones honestas, sin publicidad encubierta</div>
-      <h1 class="a2">Los mejores productos para tu <em>mascota</em>, analizados de verdad</h1>
+      <h1 class="a2" id="heroTitle">Los mejores productos para tu <em>mascota</em>, analizados de verdad<span class="cursor"></span></h1>
       <p class="hero-desc a3">Comparamos ingredientes, leemos la letra pequeña y probamos los productos para que tú no tengas que hacerlo. Más de 400 análisis publicados.</p>
       <div class="search-wrap a4">
         <input type="text" placeholder="Busca pienso, antiparasitarios, juguetes..." id="searchInput"/>
@@ -397,7 +491,7 @@
           <div class="product-tag">Pienso · Adulto · Razas medianas</div>
           <div class="product-name">Royal Canin Medium Adult 15kg</div>
           <div class="product-desc">La mejor opción para razas medianas (11-25 kg) de 1 a 7 años. Prebióticos, vitaminas C y E, croqueta adaptada al tamaño de mandíbula y alta digestibilidad comprobada. Sin colorantes artificiales.</div>
-          <div class="product-rating"><span class="stars">★★★★★</span><span class="rating-num">4.9</span><span class="rating-count">(+2.000 valoraciones)</span></div>
+          <div class="rating-circle"><svg class="rc-svg" width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="16" fill="none" stroke="#E2DDD1" stroke-width="3"/><circle cx="20" cy="20" r="16" fill="none" stroke="#1D9E75" stroke-width="3" stroke-dasharray="97 100" stroke-dashoffset="25" stroke-linecap="round" transform="rotate(-90 20 20)"/><text x="20" y="24" text-anchor="middle" font-family="'Fraunces',serif" font-size="10" font-weight="400" fill="#1A1714">9.8</text></svg><span class="rc-label">+2.000 valoraciones</span></div>
           <div class="product-footer"><div class="price">54,90€ <small>/ 15kg</small></div><a href="https://www.amazon.es/dp/B000VJW2GA?tag=primepick03f9-21" target="_blank" rel="nofollow sponsored" class="btn-amz">Ver en Amazon →</a></div>
         </div>
       </div>
@@ -407,7 +501,7 @@
           <div class="product-tag">Pienso · Premium · Sin cereales</div>
           <div class="product-name">Orijen Original 6kg</div>
           <div class="product-desc">85% proteína animal de alta calidad. Sin cereales, sin rellenos. Pollo, pavo, arenque y caballa frescos como ingredientes principales. Ideal para perros con sensibilidades o para quienes buscan lo mejor.</div>
-          <div class="product-rating"><span class="stars">★★★★★</span><span class="rating-num">4.8</span><span class="rating-count">(+1.500 valoraciones)</span></div>
+          <div class="rating-circle"><svg class="rc-svg" width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="16" fill="none" stroke="#E2DDD1" stroke-width="3"/><circle cx="20" cy="20" r="16" fill="none" stroke="#1D9E75" stroke-width="3" stroke-dasharray="96 100" stroke-dashoffset="25" stroke-linecap="round" transform="rotate(-90 20 20)"/><text x="20" y="24" text-anchor="middle" font-family="'Fraunces',serif" font-size="10" font-weight="400" fill="#1A1714">9.6</text></svg><span class="rc-label">+1.500 valoraciones</span></div>
           <div class="product-footer"><div class="price">54,90€ <small>/ 6kg</small></div><a href="https://www.amazon.es/dp/B06XFG1823?tag=primepick03f9-21" target="_blank" rel="nofollow sponsored" class="btn-amz">Ver en Amazon →</a></div>
         </div>
       </div>
@@ -417,7 +511,7 @@
           <div class="product-tag">Juguete · Interactivo</div>
           <div class="product-name">Kong Classic talla L</div>
           <div class="product-desc">El juguete más vendido del mundo para perros. Dispensador de premios con rebote impredecible que estimula el instinto de caza. Goma natural resistente, apto para lavavajillas.</div>
-          <div class="product-rating"><span class="stars">★★★★☆</span><span class="rating-num">4.7</span><span class="rating-count">(+8.000 valoraciones)</span></div>
+          <div class="rating-circle"><svg class="rc-svg" width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="16" fill="none" stroke="#E2DDD1" stroke-width="3"/><circle cx="20" cy="20" r="16" fill="none" stroke="#1D9E75" stroke-width="3" stroke-dasharray="94 100" stroke-dashoffset="25" stroke-linecap="round" transform="rotate(-90 20 20)"/><text x="20" y="24" text-anchor="middle" font-family="'Fraunces',serif" font-size="10" font-weight="400" fill="#1A1714">9.4</text></svg><span class="rc-label">+8.000 valoraciones</span></div>
           <div class="product-footer"><div class="price">13,95€</div><a href="https://www.amazon.es/dp/B0002AR0I8?tag=primepick03f9-21" target="_blank" rel="nofollow sponsored" class="btn-amz">Ver en Amazon →</a></div>
         </div>
       </div>
@@ -434,7 +528,7 @@
           <div class="product-tag">Pienso · Esterilizados · Control de peso</div>
           <div class="product-name">Purina Pro Plan Sterilised 10kg</div>
           <div class="product-desc">41% de proteína, fórmula con dos fuentes proteicas que reduce la ingesta voluntaria hasta un 10%. pH urinario controlado (6.3-6.6) para prevenir cálculos. El favorito de veterinarios en España.</div>
-          <div class="product-rating"><span class="stars">★★★★★</span><span class="rating-num">4.8</span><span class="rating-count">(+3.000 valoraciones)</span></div>
+          <div class="rating-circle"><svg class="rc-svg" width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="16" fill="none" stroke="#E2DDD1" stroke-width="3"/><circle cx="20" cy="20" r="16" fill="none" stroke="#1D9E75" stroke-width="3" stroke-dasharray="96 100" stroke-dashoffset="25" stroke-linecap="round" transform="rotate(-90 20 20)"/><text x="20" y="24" text-anchor="middle" font-family="'Fraunces',serif" font-size="10" font-weight="400" fill="#1A1714">9.6</text></svg><span class="rc-label">+3.000 valoraciones</span></div>
           <div class="product-footer"><div class="price">55,45€ <small>/ 10kg</small></div><a href="https://www.amazon.es/dp/B009FYKI54?tag=primepick03f9-21" target="_blank" rel="nofollow sponsored" class="btn-amz">Ver en Amazon →</a></div>
         </div>
       </div>
@@ -444,7 +538,7 @@
           <div class="product-tag">Comida húmeda · Grain-free · Natural</div>
           <div class="product-name">Schesir Tuna Natural 24×85g</div>
           <div class="product-desc">Atún en su propio jugo como único ingrediente proteico. Sin conservantes, colorantes ni cereales. Perfecto para complementar el pienso seco o para gatos con digestión muy sensible.</div>
-          <div class="product-rating"><span class="stars">★★★★☆</span><span class="rating-num">4.5</span><span class="rating-count">(+1.200 valoraciones)</span></div>
+          <div class="rating-circle"><svg class="rc-svg" width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="16" fill="none" stroke="#E2DDD1" stroke-width="3"/><circle cx="20" cy="20" r="16" fill="none" stroke="#1D9E75" stroke-width="3" stroke-dasharray="90 100" stroke-dashoffset="25" stroke-linecap="round" transform="rotate(-90 20 20)"/><text x="20" y="24" text-anchor="middle" font-family="'Fraunces',serif" font-size="10" font-weight="400" fill="#1A1714">9.0</text></svg><span class="rc-label">+1.200 valoraciones</span></div>
           <div class="product-footer"><div class="price">24,90€ <small>/ 24 latas</small></div><a href="https://www.amazon.es/s?k=schesir+tuna+natural+gato+85g+24&tag=primepick03f9-21" target="_blank" rel="nofollow sponsored" class="btn-amz">Ver en Amazon →</a></div>
         </div>
       </div>
@@ -489,7 +583,7 @@
           <div class="product-tag">Arena · Aglomerante · Control de olor</div>
           <div class="product-name">Catsan Hygiene Plus 20L</div>
           <div class="product-desc">Arena de sílice con control de olores garantizado hasta 7 días. Sin polvo, baja dispersión. Una de las más vendidas en España con más de 5.000 valoraciones positivas.</div>
-          <div class="product-rating"><span class="stars">★★★★☆</span><span class="rating-num">4.4</span><span class="rating-count">(+5.000 valoraciones)</span></div>
+          <div class="rating-circle"><svg class="rc-svg" width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="16" fill="none" stroke="#E2DDD1" stroke-width="3"/><circle cx="20" cy="20" r="16" fill="none" stroke="#1D9E75" stroke-width="3" stroke-dasharray="88 100" stroke-dashoffset="25" stroke-linecap="round" transform="rotate(-90 20 20)"/><text x="20" y="24" text-anchor="middle" font-family="'Fraunces',serif" font-size="10" font-weight="400" fill="#1A1714">8.8</text></svg><span class="rc-label">+5.000 valoraciones</span></div>
           <div class="product-footer"><div class="price">18,70€ <small>/ 20L</small></div><a href="https://www.amazon.es/s?k=catsan+hygiene+plus+20l&tag=primepick03f9-21" target="_blank" rel="nofollow sponsored" class="btn-amz">Ver en Amazon →</a></div>
         </div>
       </div>
@@ -530,12 +624,30 @@
   <section class="section">
     <div class="sec-header"><h2 class="sec-title">Últimas guías</h2><span class="sec-link">Ver todas →</span></div>
     <div class="articles-grid">
-      <a href="articulos.html#pienso-perro" class="article-card"><div class="article-icon">🦴</div><div><div class="article-tag">Alimentación · Perros</div><div class="article-title">El mejor pienso para perro adulto en 2026: comparativa completa</div><div class="article-meta"><span>hace 2 días</span><span>8 min</span></div></div></a>
-      <a href="articulos.html#transportines" class="article-card"><div class="article-icon">✈️</div><div><div class="article-tag">Viajes</div><div class="article-title">Transportines homologados IATA: cuál comprar antes de volar</div><div class="article-meta"><span>hace 3 días</span><span>10 min</span></div></div></a>
-      <a href="articulos.html#pienso-gato" class="article-card"><div class="article-icon">🐱</div><div><div class="article-tag">Alimentación · Gatos</div><div class="article-title">El mejor pienso para gato esterilizado en 2026</div><div class="article-meta"><span>hace 5 días</span><span>7 min</span></div></div></a>
-      <a href="articulos2.html#antiparasitarios" class="article-card"><div class="article-icon">💊</div><div><div class="article-tag">Salud · Perros</div><div class="article-title">Los 7 mejores antiparasitarios de 2026 según veterinarios</div><div class="article-meta"><span>hace 2 días</span><span>8 min</span></div></div></a>
-      <a href="articulos2.html#guia-cachorro" class="article-card"><div class="article-icon">🐶</div><div><div class="article-tag">Cachorros</div><div class="article-title">Guía completa para el primer mes con un cachorro: qué comprar</div><div class="article-meta"><span>hace 3 días</span><span>12 min</span></div></div></a>
-      <a href="articulos2.html#cepillos-perro" class="article-card"><div class="article-icon">✂️</div><div><div class="article-tag">Higiene</div><div class="article-title">Los mejores cepillos para perros de pelo largo: análisis de 12 modelos</div><div class="article-meta"><span>hace 4 días</span><span>6 min</span></div></div></a>
+      <a href="articulos.html#pienso-perro" class="article-card">
+        <div class="article-card-bg">🦴</div><div class="article-card-overlay"></div>
+        <div class="article-card-body"><div class="article-tag">Alimentación · Perros</div><div class="article-title">El mejor pienso para perro adulto en 2026: comparativa completa</div><div class="article-meta"><span>hace 2 días</span><span class="article-meta-dot"></span><span>8 min</span></div></div>
+      </a>
+      <a href="articulos.html#transportines" class="article-card">
+        <div class="article-card-bg">✈️</div><div class="article-card-overlay"></div>
+        <div class="article-card-body"><div class="article-tag">Viajes</div><div class="article-title">Transportines homologados IATA: cuál comprar antes de volar</div><div class="article-meta"><span>hace 3 días</span><span class="article-meta-dot"></span><span>10 min</span></div></div>
+      </a>
+      <a href="articulos.html#pienso-gato" class="article-card">
+        <div class="article-card-bg">🐱</div><div class="article-card-overlay"></div>
+        <div class="article-card-body"><div class="article-tag">Alimentación · Gatos</div><div class="article-title">El mejor pienso para gato esterilizado en 2026</div><div class="article-meta"><span>hace 5 días</span><span class="article-meta-dot"></span><span>7 min</span></div></div>
+      </a>
+      <a href="articulos2.html#antiparasitarios" class="article-card">
+        <div class="article-card-bg">💊</div><div class="article-card-overlay"></div>
+        <div class="article-card-body"><div class="article-tag">Salud · Perros</div><div class="article-title">Los 7 mejores antiparasitarios de 2026 según veterinarios</div><div class="article-meta"><span>hace 2 días</span><span class="article-meta-dot"></span><span>8 min</span></div></div>
+      </a>
+      <a href="articulos2.html#guia-cachorro" class="article-card">
+        <div class="article-card-bg">🐶</div><div class="article-card-overlay"></div>
+        <div class="article-card-body"><div class="article-tag">Cachorros</div><div class="article-title">Guía completa para el primer mes con un cachorro: qué comprar</div><div class="article-meta"><span>hace 3 días</span><span class="article-meta-dot"></span><span>12 min</span></div></div>
+      </a>
+      <a href="articulos2.html#cepillos-perro" class="article-card">
+        <div class="article-card-bg">✂️</div><div class="article-card-overlay"></div>
+        <div class="article-card-body"><div class="article-tag">Higiene</div><div class="article-title">Mejores cepillos para perros de pelo largo: 12 modelos analizados</div><div class="article-meta"><span>hace 4 días</span><span class="article-meta-dot"></span><span>6 min</span></div></div>
+      </a>
     </div>
   </section>
 
@@ -690,7 +802,39 @@
 </div>
 
 <script>
-  function showPage(id){
+  // Countdown oferta
+  (function(){
+    var end = new Date();
+    end.setHours(23,59,59,0);
+    function tick(){
+      var now = new Date();
+      var diff = Math.max(0, end - now);
+      var h = Math.floor(diff/3600000);
+      var m = Math.floor((diff%3600000)/60000);
+      var s = Math.floor((diff%60000)/1000);
+      var el = document.getElementById('countdown');
+      if(el) el.textContent = String(h).padStart(2,'0')+':'+String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');
+    }
+    tick(); setInterval(tick, 1000);
+  })();
+  // Rating circle animation on scroll
+  var rcObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var circles = e.target.querySelectorAll('.rc-svg circle:last-child');
+        circles.forEach(function(c){
+          var da = c.getAttribute('stroke-dasharray');
+          c.setAttribute('stroke-dasharray','0 100');
+          setTimeout(function(){
+            c.style.transition='stroke-dasharray .8s cubic-bezier(.25,.46,.45,.94)';
+            c.setAttribute('stroke-dasharray', da);
+          }, 100);
+        });
+        rcObs.unobserve(e.target);
+      }
+    });
+  },{threshold:0.3});
+  document.querySelectorAll('.product-card').forEach(function(el){rcObs.observe(el);});
     document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
     var t=document.getElementById('page-'+id);
     if(t){t.classList.add('active');window.scrollTo({top:0,behavior:'smooth'});}
