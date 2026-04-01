@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crea el kit perfecto para tu mascota — PataAdvisor</title>
+<meta name="description" content="Construye el kit ideal para tu perro o gato: pienso, antiparasitario, juguete e higiene. Te calculamos el coste mensual y te llevamos directo a Amazon.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green-50:#E1F5EE;--green-100:#9FE1CB;--green-300:#1D9E75;--green-500:#0F6E56;--green-700:#085041;--green-900:#04342C;
+  --amber-300:#EF9F27;--amber-50:#FAEEDA;--amber-600:#854F0B;
+  --sand-50:#F9F7F2;--sand-100:#F0EDE4;--sand-200:#E2DDD1;--sand-400:#A89F8E;--sand-600:#6B6358;--sand-800:#2E2A24;--sand-900:#1A1714;
+  --white:#FFFFFF;
+  --font-display:'Fraunces',serif;--font-body:'DM Sans',sans-serif;
+  --r-md:10px;--r-lg:16px;--r-xl:24px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--sand-50);color:var(--sand-800);-webkit-font-smoothing:antialiased}
+
+/* NAV */
+nav{background:rgba(249,247,242,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--sand-200);padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:68px;position:sticky;top:0;z-index:100}
+.nav-back{font-size:13px;color:var(--sand-400);text-decoration:none;display:flex;align-items:center;gap:6px;transition:color .2s}
+.nav-back:hover{color:var(--sand-800)}
+
+/* HERO */
+.kit-hero{background:var(--green-900);padding:56px 32px 64px;text-align:center;position:relative;overflow:hidden}
+.kit-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(29,158,117,.2),transparent 60%),radial-gradient(ellipse at 70% 50%,rgba(15,110,86,.15),transparent 60%)}
+.kit-hero-eyebrow{font-size:11px;font-weight:500;color:var(--green-100);text-transform:uppercase;letter-spacing:.14em;margin-bottom:14px;position:relative}
+.kit-hero-title{font-family:var(--font-display);font-size:clamp(32px,5vw,52px);font-weight:300;color:var(--white);letter-spacing:-.03em;line-height:1.15;margin-bottom:14px;position:relative}
+.kit-hero-title em{font-style:italic;color:var(--green-100)}
+.kit-hero-desc{font-size:16px;color:rgba(255,255,255,.55);max-width:500px;margin:0 auto 36px;line-height:1.7;position:relative}
+
+/* STEPS */
+.kit-steps{display:flex;align-items:center;justify-content:center;gap:0;margin-bottom:0;position:relative}
+.kit-step{display:flex;align-items:center;gap:10px;padding:10px 20px;border-radius:100px;font-size:13px;font-weight:500;color:rgba(255,255,255,.4);transition:all .3s;cursor:pointer}
+.kit-step.active{background:rgba(255,255,255,.12);color:white}
+.kit-step.done{color:var(--green-100)}
+.kit-step-num{width:24px;height:24px;border-radius:50%;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;flex-shrink:0;transition:all .3s}
+.kit-step.active .kit-step-num{background:var(--green-300);color:white}
+.kit-step.done .kit-step-num{background:var(--green-300);color:white}
+.kit-step.done .kit-step-num::after{content:'✓'}
+.kit-step-sep{width:32px;height:1px;background:rgba(255,255,255,.12)}
+
+/* MAIN LAYOUT */
+.kit-main{max-width:1100px;margin:0 auto;padding:48px 32px;display:grid;grid-template-columns:1fr 360px;gap:40px;align-items:start}
+
+/* PRODUCT PANEL */
+.kit-panel{background:var(--white);border:1px solid var(--sand-200);border-radius:var(--r-xl);overflow:hidden}
+.kit-panel-header{padding:24px 28px;border-bottom:1px solid var(--sand-100);display:flex;align-items:center;gap:14px}
+.kit-panel-icon{width:44px;height:44px;border-radius:var(--r-md);background:var(--green-50);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.kit-panel-title{font-family:var(--font-display);font-size:20px;font-weight:400;color:var(--sand-900);letter-spacing:-.02em}
+.kit-panel-sub{font-size:12px;color:var(--sand-400);margin-top:2px}
+
+/* PET TOGGLE */
+.pet-toggle{display:flex;gap:8px;padding:20px 28px;border-bottom:1px solid var(--sand-100)}
+.pet-tog-btn{flex:1;font-family:var(--font-body);font-size:13px;font-weight:500;padding:9px;border-radius:var(--r-md);border:1.5px solid var(--sand-200);background:transparent;cursor:pointer;transition:all .2s;color:var(--sand-600)}
+.pet-tog-btn.active{background:var(--green-50);border-color:var(--green-300);color:var(--green-500)}
+
+/* PRODUCT GRID */
+.kit-products{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:20px 28px}
+.kit-prod{border:2px solid var(--sand-200);border-radius:var(--r-lg);padding:16px;cursor:pointer;transition:all .2s;position:relative;display:flex;flex-direction:column;gap:8px}
+.kit-prod:hover{border-color:var(--green-100);background:var(--green-50)}
+.kit-prod.selected{border-color:var(--green-300);background:var(--green-50)}
+.kit-prod.selected::after{content:'✓';position:absolute;top:10px;right:12px;width:22px;height:22px;background:var(--green-300);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;line-height:22px;text-align:center}
+.kit-prod-emoji{font-size:28px;line-height:1}
+.kit-prod-name{font-family:var(--font-display);font-size:14px;font-weight:400;color:var(--sand-900);letter-spacing:-.01em;line-height:1.3}
+.kit-prod-tag{font-size:10px;font-weight:500;color:var(--green-300);text-transform:uppercase;letter-spacing:.08em}
+.kit-prod-price{font-size:13px;font-weight:500;color:var(--sand-800);margin-top:auto}
+.kit-prod-freq{font-size:10px;color:var(--sand-400)}
+
+/* NAV BUTTONS */
+.kit-nav-btns{display:flex;gap:10px;padding:20px 28px;border-top:1px solid var(--sand-100)}
+.kit-btn-back{flex:1;font-family:var(--font-body);font-size:14px;font-weight:500;color:var(--sand-600);background:transparent;border:1.5px solid var(--sand-200);border-radius:100px;padding:12px;cursor:pointer;transition:all .2s}
+.kit-btn-back:hover{border-color:var(--sand-400);color:var(--sand-800)}
+.kit-btn-next{flex:2;font-family:var(--font-body);font-size:14px;font-weight:500;color:white;background:var(--green-300);border:none;border-radius:100px;padding:12px;cursor:pointer;transition:all .2s}
+.kit-btn-next:hover{background:var(--green-500)}
+.kit-btn-next:disabled{background:var(--sand-200);color:var(--sand-400);cursor:not-allowed}
+
+/* SUMMARY PANEL */
+.kit-summary{background:var(--white);border:1px solid var(--sand-200);border-radius:var(--r-xl);padding:28px;position:sticky;top:88px}
+.kit-summary-title{font-family:var(--font-display);font-size:20px;font-weight:400;color:var(--sand-900);letter-spacing:-.02em;margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.kit-summary-empty{text-align:center;padding:32px 0;color:var(--sand-400);font-size:14px}
+.kit-summary-items{display:flex;flex-direction:column;gap:12px;margin-bottom:20px;min-height:60px}
+.kit-sum-item{display:flex;align-items:center;gap:12px;padding:12px;background:var(--sand-50);border-radius:var(--r-md);animation:fadeUp .3s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.kit-sum-icon{font-size:22px;flex-shrink:0}
+.kit-sum-info{flex:1;min-width:0}
+.kit-sum-name{font-size:13px;font-weight:500;color:var(--sand-900);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.kit-sum-cat{font-size:11px;color:var(--sand-400)}
+.kit-sum-price{font-size:13px;font-weight:500;color:var(--sand-800);flex-shrink:0}
+.kit-sum-remove{background:none;border:none;color:var(--sand-400);cursor:pointer;font-size:16px;padding:0 4px;flex-shrink:0;transition:color .2s}
+.kit-sum-remove:hover{color:var(--sand-900)}
+
+/* COST BOX */
+.kit-cost-box{background:var(--green-50);border:1px solid var(--green-100);border-radius:var(--r-lg);padding:18px;margin-bottom:16px}
+.kit-cost-row{display:flex;justify-content:space-between;align-items:baseline;padding:5px 0}
+.kit-cost-label{font-size:12px;color:var(--green-700)}
+.kit-cost-val{font-size:14px;font-weight:500;color:var(--green-900)}
+.kit-cost-total-row{display:flex;justify-content:space-between;align-items:baseline;padding:10px 0 0;border-top:1px solid var(--green-100);margin-top:6px}
+.kit-cost-total-label{font-size:13px;font-weight:500;color:var(--green-700)}
+.kit-cost-total-val{font-family:var(--font-display);font-size:26px;font-weight:300;color:var(--green-900);letter-spacing:-.03em}
+
+/* ACTION BTNS */
+.kit-actions{display:flex;flex-direction:column;gap:8px}
+.kit-amz-btn{display:flex;align-items:center;justify-content:center;gap:8px;font-family:var(--font-body);font-size:13px;font-weight:500;background:var(--green-300);color:white;border:none;border-radius:var(--r-md);padding:12px;cursor:pointer;text-decoration:none;transition:background .2s}
+.kit-amz-btn:hover{background:var(--green-500)}
+.kit-share-btn{display:flex;align-items:center;justify-content:center;gap:8px;font-family:var(--font-body);font-size:13px;font-weight:500;background:transparent;color:var(--sand-600);border:1.5px solid var(--sand-200);border-radius:var(--r-md);padding:11px;cursor:pointer;transition:all .2s}
+.kit-share-btn:hover{border-color:var(--sand-400);color:var(--sand-800)}
+
+/* COMPLETED STATE */
+.kit-complete{text-align:center;padding:40px 28px;display:none}
+.kit-complete.show{display:block;animation:fadeUp .4s ease}
+.kit-complete-icon{font-size:64px;margin-bottom:16px}
+.kit-complete-title{font-family:var(--font-display);font-size:26px;font-weight:300;color:var(--sand-900);letter-spacing:-.02em;margin-bottom:8px}
+.kit-complete-desc{font-size:14px;color:var(--sand-400);line-height:1.6;margin-bottom:24px}
+
+/* AFFIL */
+.affil-notice{background:var(--amber-50);border:1px solid #FAC775;border-radius:var(--r-md);padding:12px 16px;margin:16px 28px;font-size:12px;color:#633806;line-height:1.5}
+
+@media(max-width:900px){
+  .kit-main{grid-template-columns:1fr}
+  .kit-summary{position:static}
+  nav{padding:0 20px}
+  .kit-hero{padding:40px 20px 48px}
+  .kit-steps{flex-wrap:wrap;gap:4px}
+  .kit-step-sep{display:none}
+}
+@media(max-width:500px){
+  .kit-products{grid-template-columns:1fr}
+  .kit-main{padding:24px 20px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" style="text-decoration:none;display:flex;align-items:center">
+    <svg width="110" height="30" viewBox="0 0 280 72" xmlns="http://www.w3.org/2000/svg">
+      <g fill="#1D9E75"><ellipse cx="28" cy="46" rx="14" ry="10"/><circle cx="28" cy="29" r="11"/><ellipse cx="18" cy="25" rx="5" ry="8" transform="rotate(-10 18 25)"/><ellipse cx="38" cy="25" rx="5" ry="8" transform="rotate(10 38 25)"/><path d="M42 42 Q54 32 51 22" stroke="#1D9E75" stroke-width="5" fill="none" stroke-linecap="round"/></g>
+      <circle cx="24" cy="27" r="2" fill="white"/><circle cx="32" cy="27" r="2" fill="white"/>
+      <ellipse cx="28" cy="33" rx="3" ry="2" fill="#0F6E56"/>
+      <line x1="60" y1="20" x2="60" y2="58" stroke="#E2DDD1" stroke-width="1.5"/>
+      <g fill="#0F6E56"><ellipse cx="80" cy="46" rx="12" ry="9"/><circle cx="80" cy="30" r="10"/><polygon points="71,24 74,12 80,23"/><polygon points="80,23 86,12 89,24"/></g>
+      <ellipse cx="76" cy="29" rx="2" ry="2.5" fill="white"/><ellipse cx="84" cy="29" rx="2" ry="2.5" fill="white"/>
+      <text x="116" y="35" font-family="'Fraunces',Georgia,serif" font-size="24" font-weight="400" font-style="italic" fill="#1A1714">Pata</text>
+      <text x="163" y="35" font-family="'Fraunces',Georgia,serif" font-size="24" font-weight="300" font-style="italic" fill="#1D9E75">Advisor</text>
+    </svg>
+  </a>
+  <a href="index.html" class="nav-back">← Volver al inicio</a>
+</nav>
+
+<!-- HERO -->
+<div class="kit-hero">
+  <div class="kit-hero-eyebrow">Herramienta exclusiva · Gratis</div>
+  <h1 class="kit-hero-title">Crea el kit <em>perfecto</em> para tu mascota</h1>
+  <p class="kit-hero-desc">Elige en 4 pasos los mejores productos para tu perro o gato. Te calculamos el coste mensual total y te llevamos directo a Amazon.</p>
+  <div class="kit-steps" id="kitSteps">
+    <div class="kit-step active" id="step-ind-0"><div class="kit-step-num">1</div><span>Alimentación</span></div>
+    <div class="kit-step-sep"></div>
+    <div class="kit-step" id="step-ind-1"><div class="kit-step-num">2</div><span>Salud</span></div>
+    <div class="kit-step-sep"></div>
+    <div class="kit-step" id="step-ind-2"><div class="kit-step-num">3</div><span>Juguetes</span></div>
+    <div class="kit-step-sep"></div>
+    <div class="kit-step" id="step-ind-3"><div class="kit-step-num">4</div><span>Higiene</span></div>
+  </div>
+</div>
+
+<div class="kit-main">
+  <!-- LEFT: PRODUCT SELECTOR -->
+  <div>
+    <div class="kit-panel" id="kitPanel">
+      <div class="kit-panel-header">
+        <div class="kit-panel-icon" id="panelIcon">🥩</div>
+        <div>
+          <div class="kit-panel-title" id="panelTitle">Alimentación</div>
+          <div class="kit-panel-sub" id="panelSub">Elige el pienso para tu mascota</div>
+        </div>
+      </div>
+      <div class="pet-toggle" id="petToggle">
+        <button class="pet-tog-btn active" onclick="setPet('dog',this)">🐕 Para mi perro</button>
+        <button class="pet-tog-btn" onclick="setPet('cat',this)">🐱 Para mi gato</button>
+      </div>
+      <div class="affil-notice">🔗 Los enlaces son de afiliado Amazon (tag: primepick03f9-21). Sin coste adicional para ti.</div>
+      <div class="kit-products" id="kitProducts"></div>
+      <div class="kit-nav-btns">
+        <button class="kit-btn-back" id="btnBack" onclick="kitBack()" style="display:none">← Atrás</button>
+        <button class="kit-btn-next" id="btnNext" onclick="kitNext()" disabled>Siguiente paso →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT: SUMMARY -->
+  <div>
+    <div class="kit-summary">
+      <div class="kit-summary-title">🛒 Tu kit <span id="kitCount" style="font-size:13px;color:var(--sand-400);font-family:var(--font-body);font-weight:400">(0/4)</span></div>
+      <div class="kit-summary-items" id="kitSummaryItems">
+        <div class="kit-summary-empty" id="summaryEmpty">Empieza seleccionando productos →</div>
+      </div>
+      <div class="kit-cost-box" id="kitCostBox" style="display:none">
+        <div class="kit-cost-row"><span class="kit-cost-label">Coste mensual estimado</span></div>
+        <div id="kitCostRows"></div>
+        <div class="kit-cost-total-row">
+          <span class="kit-cost-total-label">Total al mes</span>
+          <span class="kit-cost-total-val" id="kitTotalVal">0€</span>
+        </div>
+      </div>
+      <div class="kit-actions" id="kitActions" style="display:none">
+        <div style="font-size:11px;color:var(--sand-400);text-align:center;margin-bottom:4px">Ir a Amazon por cada producto:</div>
+        <div id="kitAmazonBtns"></div>
+        <button class="kit-share-btn" onclick="shareKit()">📤 Compartir mi kit por WhatsApp</button>
+      </div>
+      <div class="kit-complete" id="kitComplete">
+        <div class="kit-complete-icon">🎉</div>
+        <div class="kit-complete-title">¡Kit completado!</div>
+        <div class="kit-complete-desc">Tienes todo lo que necesita tu mascota. Haz clic en cada producto para comprarlo en Amazon.</div>
+        <button class="kit-btn-back" style="width:100%;margin-top:8px" onclick="resetKit()">🔄 Crear un kit nuevo</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── DATOS DE PRODUCTOS ────────────────────────────────────────
+var products = {
+  food: {
+    dog: [
+      {id:'rc-med', emoji:'🏆', name:'Royal Canin Medium Adult', tag:'Adulto · Razas medianas', price:54.90, freq:'cada 2 meses', monthly:27.45, link:'https://www.amazon.es/dp/B000VJW2GA?tag=primepick03f9-21'},
+      {id:'orijen', emoji:'💎', name:'Orijen Original 6kg', tag:'Premium · Sin cereales', price:54.90, freq:'mensual', monthly:54.90, link:'https://www.amazon.es/dp/B06XFG1823?tag=primepick03f9-21'},
+      {id:'purina-l', emoji:'🥇', name:'Purina Pro Plan Large', tag:'Adulto · Razas grandes', price:62.00, freq:'cada 2 meses', monthly:31.00, link:'https://www.amazon.es/s?k=Purina+Pro+Plan+Large+Adult&tag=primepick03f9-21'},
+      {id:'rc-puppy', emoji:'🐶', name:'Royal Canin Medium Puppy', tag:'Cachorro · Razas medianas', price:39.00, freq:'mensual', monthly:39.00, link:'https://www.amazon.es/s?k=Royal+Canin+Medium+Puppy&tag=primepick03f9-21'},
+      {id:'hills-d', emoji:'🌿', name:'Hills Science Diet Adult', tag:'Digestión sensible', price:55.00, freq:'cada 2 meses', monthly:27.50, link:'https://www.amazon.es/s?k=Hills+Science+Diet+Adult+perro&tag=primepick03f9-21'},
+      {id:'advance', emoji:'💰', name:'Advance Adult Medium', tag:'Calidad / precio', price:38.00, freq:'cada 2 meses', monthly:19.00, link:'https://www.amazon.es/s?k=Advance+Adult+Medium+perro&tag=primepick03f9-21'},
+    ],
+    cat: [
+      {id:'purina-cat', emoji:'🏆', name:'Purina Pro Plan Sterilised', tag:'Gatos esterilizados · 10kg', price:55.45, freq:'cada 3 meses', monthly:18.48, link:'https://www.amazon.es/dp/B009FYKI54?tag=primepick03f9-21'},
+      {id:'rc-cat', emoji:'🥇', name:'Royal Canin Sterilised 37', tag:'Gatos esterilizados · 10kg', price:48.00, freq:'cada 3 meses', monthly:16.00, link:'https://www.amazon.es/s?k=Royal+Canin+Sterilised+37+10kg&tag=primepick03f9-21'},
+      {id:'hills-c', emoji:'🌿', name:'Hills Science Diet Gato', tag:'Digestión sensible', price:42.00, freq:'cada 3 meses', monthly:14.00, link:'https://www.amazon.es/s?k=Hills+Science+Diet+gato&tag=primepick03f9-21'},
+      {id:'schesir', emoji:'🐟', name:'Schesir Tuna Natural 24×85g', tag:'Comida húmeda · Natural', price:24.90, freq:'mensual', monthly:24.90, link:'https://www.amazon.es/s?k=schesir+tuna+natural+gato&tag=primepick03f9-21'},
+      {id:'advance-c', emoji:'💰', name:'Advance Adult Sterilised', tag:'Calidad / precio', price:32.00, freq:'cada 3 meses', monthly:10.67, link:'https://www.amazon.es/s?k=Advance+Sterilised+gato&tag=primepick03f9-21'},
+      {id:'orijen-c', emoji:'💎', name:'Orijen Cat & Kitten', tag:'Premium · Sin cereales', price:52.00, freq:'cada 2 meses', monthly:26.00, link:'https://www.amazon.es/s?k=Orijen+Cat+Kitten+gato&tag=primepick03f9-21'},
+    ]
+  },
+  health: {
+    dog: [
+      {id:'triact', emoji:'💊', name:'Frontline Tri-Act 3 pipetas', tag:'Pipeta · Pulgas + mosquitos', price:22.00, freq:'cada 3 meses', monthly:7.33, link:'https://www.amazon.es/s?k=Frontline+Tri-Act+pipetas+perro&tag=primepick03f9-21'},
+      {id:'seresto-d', emoji:'🔵', name:'Seresto Collar perro', tag:'Collar · 8 meses protección', price:35.00, freq:'cada 8 meses', monthly:4.38, link:'https://www.amazon.es/s?k=Seresto+collar+antiparasitario+perro&tag=primepick03f9-21'},
+      {id:'scalibor', emoji:'🟢', name:'Scalibor Collar 65cm', tag:'Collar · Anti-leishmaniosis', price:23.00, freq:'cada 6 meses', monthly:3.83, link:'https://www.amazon.es/s?k=Scalibor+collar+65cm+perro&tag=primepick03f9-21'},
+      {id:'advantix', emoji:'💉', name:'Advantix Pipetas perro', tag:'Pipeta · Triple acción', price:16.00, freq:'cada 2 meses', monthly:8.00, link:'https://www.amazon.es/s?k=Advantix+pipetas+antiparasitario+perro&tag=primepick03f9-21'},
+      {id:'frontpro', emoji:'🍖', name:'Frontpro Comprimidos', tag:'Comprimido · Sin restricción baño', price:25.00, freq:'cada 3 meses', monthly:8.33, link:'https://www.amazon.es/s?k=Frontpro+comprimidos+masticables+perro&tag=primepick03f9-21'},
+      {id:'prevendog', emoji:'🟡', name:'Prevendog Collar Virbac', tag:'Collar · Económico · 5 meses', price:17.00, freq:'cada 5 meses', monthly:3.40, link:'https://www.amazon.es/s?k=Virbac+Prevendog+collar+perro&tag=primepick03f9-21'},
+    ],
+    cat: [
+      {id:'frontline-c', emoji:'💊', name:'Frontline Combo Gato 3 pip.', tag:'Pipeta · Pulgas + garrapatas', price:18.00, freq:'cada 3 meses', monthly:6.00, link:'https://www.amazon.es/s?k=Frontline+Combo+pipetas+gato&tag=primepick03f9-21'},
+      {id:'seresto-c', emoji:'🔵', name:'Seresto Collar gato', tag:'Collar · 8 meses protección', price:32.00, freq:'cada 8 meses', monthly:4.00, link:'https://www.amazon.es/s?k=Seresto+collar+antiparasitario+gato&tag=primepick03f9-21'},
+      {id:'effipro-c', emoji:'💉', name:'Effipro Pipetas gato', tag:'Pipeta · Pulgas y garrapatas', price:14.00, freq:'cada 2 meses', monthly:7.00, link:'https://www.amazon.es/s?k=Effipro+pipetas+antiparasitario+gato&tag=primepick03f9-21'},
+      {id:'stronghold', emoji:'🌿', name:'Stronghold Plus Gato', tag:'Pipeta · Ácaros + parásitos internos', price:28.00, freq:'cada 3 meses', monthly:9.33, link:'https://www.amazon.es/s?k=Stronghold+Plus+gato&tag=primepick03f9-21'},
+    ]
+  },
+  toy: {
+    dog: [
+      {id:'kong-l', emoji:'🎾', name:'Kong Classic talla L', tag:'Dispensador premios · Goma', price:13.95, freq:'único', monthly:0.97, link:'https://www.amazon.es/dp/B0002AR0I8?tag=primepick03f9-21'},
+      {id:'kong-m', emoji:'🎾', name:'Kong Classic talla M', tag:'Dispensador premios · Goma', price:11.95, freq:'único', monthly:0.83, link:'https://www.amazon.es/s?k=Kong+Classic+talla+M+perro&tag=primepick03f9-21'},
+      {id:'kong-puppy', emoji:'🐶', name:'Kong Puppy talla S', tag:'Cachorro · Goma rosa suave', price:9.95, freq:'único', monthly:0.69, link:'https://www.amazon.es/s?k=Kong+Puppy+cachorro&tag=primepick03f9-21'},
+      {id:'rope', emoji:'🪢', name:'Juguete cuerda resistente', tag:'Masticador · Resistente', price:8.99, freq:'cada 3 meses', monthly:3.00, link:'https://www.amazon.es/s?k=juguete+cuerda+perro+resistente&tag=primepick03f9-21'},
+      {id:'snuffle', emoji:'🌿', name:'Tapete olfativo snuffle', tag:'Estimulación mental · Fieltro', price:18.00, freq:'único', monthly:1.25, link:'https://www.amazon.es/s?k=tapete+olfativo+snuffle+perro&tag=primepick03f9-21'},
+      {id:'feeder', emoji:'🧩', name:'Comedero puzzle interactivo', tag:'Antiengullido · Estimulación', price:15.00, freq:'único', monthly:1.04, link:'https://www.amazon.es/s?k=comedero+puzzle+interactivo+perro&tag=primepick03f9-21'},
+    ],
+    cat: [
+      {id:'yarn-cat', emoji:'🧶', name:'Set juguetes con plumas', tag:'Pack 5 piezas · Interactivo', price:9.99, freq:'cada 2 meses', monthly:5.00, link:'https://www.amazon.es/s?k=juguetes+gato+plumas+set&tag=primepick03f9-21'},
+      {id:'laser', emoji:'🔴', name:'Puntero láser automático', tag:'Automático · Rotación 360°', price:14.99, freq:'único', monthly:1.04, link:'https://www.amazon.es/s?k=puntero+laser+automatico+gato&tag=primepick03f9-21'},
+      {id:'tunnel', emoji:'🕳️', name:'Túnel de juego plegable', tag:'Plegable · Con crinkle', price:12.00, freq:'único', monthly:0.83, link:'https://www.amazon.es/s?k=tunel+juego+gato+plegable&tag=primepick03f9-21'},
+      {id:'rascador', emoji:'🗼', name:'Árbol rascador con plataforma', tag:'Rascador + cama + juego', price:35.00, freq:'único', monthly:2.43, link:'https://www.amazon.es/s?k=arbol+rascador+gato+plataforma&tag=primepick03f9-21'},
+      {id:'pelota-cat', emoji:'⚽', name:'Pelotas interactivas LED', tag:'Pack 3 · Con LED interior', price:8.99, freq:'cada 3 meses', monthly:3.00, link:'https://www.amazon.es/s?k=pelotas+interactivas+LED+gato&tag=primepick03f9-21'},
+    ]
+  },
+  hygiene: {
+    dog: [
+      {id:'furminator', emoji:'✂️', name:'FURminator pelo largo perro', tag:'Deslanador · Reduce muda 90%', price:28.00, freq:'único', monthly:1.94, link:'https://www.amazon.es/s?k=FURminator+deslanador+pelo+largo+perro&tag=primepick03f9-21'},
+      {id:'champu-d', emoji:'🛁', name:'Champú perros sin lágrimas', tag:'Hipoalergénico · pH neutro', price:9.99, freq:'cada 2 meses', monthly:5.00, link:'https://www.amazon.es/s?k=champu+perro+hipoalergenico+sin+lagrimas&tag=primepick03f9-21'},
+      {id:'toallitas', emoji:'🧻', name:'Toallitas húmedas mascotas', tag:'Pack 100 · Aloe vera', price:7.99, freq:'mensual', monthly:7.99, link:'https://www.amazon.es/s?k=toallitas+húmedas+perro+aloe+vera&tag=primepick03f9-21'},
+      {id:'cortaunas', emoji:'✂️', name:'Cortaúñas profesional', tag:'Inoxidable · Con tope seguro', price:12.99, freq:'único', monthly:0.90, link:'https://www.amazon.es/s?k=cortaunas+perro+profesional+inoxidable&tag=primepick03f9-21'},
+      {id:'dental', emoji:'🦷', name:'Kit dental perros', tag:'Cepillo + pasta · Menta', price:10.99, freq:'cada 3 meses', monthly:3.66, link:'https://www.amazon.es/s?k=kit+dental+cepillo+perro+pasta&tag=primepick03f9-21'},
+      {id:'empapadores', emoji:'📄', name:'Empapadores 100 uds.', tag:'Absorción máxima · Carbón activo', price:18.00, freq:'mensual', monthly:18.00, link:'https://www.amazon.es/s?k=empapadores+perro+100+absorcion&tag=primepick03f9-21'},
+    ],
+    cat: [
+      {id:'arena', emoji:'🪣', name:'Catsan Hygiene Plus 20L', tag:'Arena · Control olor 7 días', price:18.70, freq:'mensual', monthly:18.70, link:'https://www.amazon.es/s?k=catsan+hygiene+plus+20l&tag=primepick03f9-21'},
+      {id:'arena-agl', emoji:'⚫', name:'Arenas aglomerante natural', tag:'Natural · Sin polvo · 10L', price:14.00, freq:'mensual', monthly:14.00, link:'https://www.amazon.es/s?k=arena+aglomerante+natural+gato+sin+polvo&tag=primepick03f9-21'},
+      {id:'champu-c', emoji:'🛁', name:'Champú gato sin aclarado', tag:'Seco · Sin estrés · Aloe', price:8.99, freq:'cada 3 meses', monthly:3.00, link:'https://www.amazon.es/s?k=champu+gato+sin+aclarado+seco&tag=primepick03f9-21'},
+      {id:'cepillo-c', emoji:'🪮', name:'Guante cepillo masaje', tag:'Silicona · Elimina pelo suelto', price:9.99, freq:'único', monthly:0.69, link:'https://www.amazon.es/s?k=guante+cepillo+masaje+gato+silicona&tag=primepick03f9-21'},
+      {id:'pala', emoji:'🥄', name:'Pala arenero con filtro', tag:'Con malla · Higiénico', price:6.99, freq:'único', monthly:0.48, link:'https://www.amazon.es/s?k=pala+arenero+gato+con+malla&tag=primepick03f9-21'},
+    ]
+  }
+};
+
+var steps = ['food','health','toy','hygiene'];
+var stepLabels = {food:'Alimentación', health:'Salud', toy:'Juguetes', hygiene:'Higiene'};
+var stepIcons  = {food:'🥩', health:'💊', toy:'🎾', hygiene:'🛁'};
+var stepSubs   = {food:'Elige el pienso para tu mascota', health:'Elige el antiparasitario', toy:'Elige un juguete o accesorio', hygiene:'Elige productos de higiene'};
+
+var state = { step:0, pet:'dog', kit:{} };
+
+function setPet(p, btn){
+  state.pet = p;
+  document.querySelectorAll('.pet-tog-btn').forEach(function(b){ b.classList.remove('active'); });
+  btn.classList.add('active');
+  renderProducts();
+}
+
+function renderProducts(){
+  var cat = steps[state.step];
+  var prods = products[cat][state.pet] || products[cat]['dog'];
+  var selected = state.kit[cat] ? state.kit[cat].id : null;
+  var html = '';
+  prods.forEach(function(p){
+    var sel = p.id === selected ? ' selected' : '';
+    html += '<div class="kit-prod'+sel+'" onclick="selectProd(\''+cat+'\',\''+p.id+'\')">'
+      + '<div class="kit-prod-emoji">'+p.emoji+'</div>'
+      + '<div class="kit-prod-tag">'+p.tag+'</div>'
+      + '<div class="kit-prod-name">'+p.name+'</div>'
+      + '<div class="kit-prod-price">'+p.price.toFixed(2).replace('.',',')+'€ <span class="kit-prod-freq">'+p.freq+'</span></div>'
+      + '</div>';
+  });
+  document.getElementById('kitProducts').innerHTML = html;
+  document.getElementById('btnNext').disabled = !state.kit[cat];
+}
+
+function renderStep(){
+  var cat = steps[state.step];
+  document.getElementById('panelIcon').textContent  = stepIcons[cat];
+  document.getElementById('panelTitle').textContent = stepLabels[cat];
+  document.getElementById('panelSub').textContent   = stepSubs[cat];
+  // pet toggle only for food (health differs for cat)
+  document.getElementById('petToggle').style.display = '';
+  // step indicators
+  steps.forEach(function(_,i){
+    var el = document.getElementById('step-ind-'+i);
+    el.classList.remove('active','done');
+    if(i < state.step) el.classList.add('done');
+    else if(i === state.step) el.classList.add('active');
+    var num = el.querySelector('.kit-step-num');
+    num.textContent = i < state.step ? '' : (i+1);
+  });
+  document.getElementById('btnBack').style.display = state.step > 0 ? '' : 'none';
+  document.getElementById('btnNext').textContent = state.step < steps.length-1 ? 'Siguiente paso →' : '¡Completar kit! 🎉';
+  renderProducts();
+}
+
+function selectProd(cat, id){
+  var prods = products[cat][state.pet] || products[cat]['dog'];
+  var prod = prods.find(function(p){ return p.id === id; });
+  if(!prod) return;
+  state.kit[cat] = prod;
+  renderProducts();
+  renderSummary();
+}
+
+function renderSummary(){
+  var cats = Object.keys(state.kit);
+  var empty = document.getElementById('summaryEmpty');
+  var items = document.getElementById('kitSummaryItems');
+  var costBox = document.getElementById('kitCostBox');
+  var actions = document.getElementById('kitActions');
+  document.getElementById('kitCount').textContent = '('+cats.length+'/4)';
+  if(cats.length === 0){
+    empty.style.display = '';
+    costBox.style.display = 'none';
+    actions.style.display = 'none';
+    return;
+  }
+  empty.style.display = 'none';
+  // Items
+  var itemsHtml = '';
+  var total = 0;
+  var costRows = '';
+  var btnHtml = '';
+  steps.forEach(function(cat){
+    if(!state.kit[cat]) return;
+    var p = state.kit[cat];
+    total += p.monthly;
+    itemsHtml += '<div class="kit-sum-item">'
+      + '<span class="kit-sum-icon">'+p.emoji+'</span>'
+      + '<div class="kit-sum-info"><div class="kit-sum-name">'+p.name+'</div><div class="kit-sum-cat">'+stepLabels[cat]+'</div></div>'
+      + '<span class="kit-sum-price">'+p.monthly.toFixed(2).replace('.',',')+'€/mes</span>'
+      + '<button class="kit-sum-remove" onclick="removeItem(\''+cat+'\')">×</button>'
+      + '</div>';
+    costRows += '<div class="kit-cost-row"><span class="kit-cost-label">'+p.name+'</span><span class="kit-cost-val">'+p.monthly.toFixed(2).replace('.',',')+'€/mes</span></div>';
+    btnHtml += '<a class="kit-amz-btn" href="'+p.link+'" target="_blank" rel="nofollow sponsored" style="margin-bottom:6px">'+p.emoji+' '+p.name+' →</a>';
+  });
+  items.innerHTML = itemsHtml;
+  document.getElementById('kitCostRows').innerHTML = costRows;
+  document.getElementById('kitTotalVal').textContent = total.toFixed(2).replace('.',',')+'€';
+  document.getElementById('kitAmazonBtns').innerHTML = btnHtml;
+  costBox.style.display = '';
+  actions.style.display = cats.length > 0 ? '' : 'none';
+}
+
+function removeItem(cat){
+  delete state.kit[cat];
+  // reset step indicator
+  var stepIdx = steps.indexOf(cat);
+  var el = document.getElementById('step-ind-'+stepIdx);
+  if(el){ el.classList.remove('done'); }
+  renderSummary();
+  renderProducts();
+}
+
+function kitNext(){
+  if(state.step < steps.length-1){
+    state.step++;
+    renderStep();
+    window.scrollTo({top:0, behavior:'smooth'});
+  } else {
+    // Complete
+    document.getElementById('kitPanel').style.display = 'none';
+    document.getElementById('kitComplete').classList.add('show');
+    steps.forEach(function(_,i){
+      var el = document.getElementById('step-ind-'+i);
+      el.classList.remove('active');
+      el.classList.add('done');
+      el.querySelector('.kit-step-num').textContent = '';
+    });
+  }
+}
+
+function kitBack(){
+  if(state.step > 0){
+    state.step--;
+    renderStep();
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+}
+
+function resetKit(){
+  state = { step:0, pet:'dog', kit:{} };
+  document.getElementById('kitPanel').style.display = '';
+  document.getElementById('kitComplete').classList.remove('show');
+  renderStep();
+  renderSummary();
+}
+
+function shareKit(){
+  var lines = ['🐾 Mi kit de mascota (PataAdvisor):'];
+  steps.forEach(function(cat){
+    if(state.kit[cat]){
+      var p = state.kit[cat];
+      lines.push('• '+p.name+' → '+p.link);
+    }
+  });
+  lines.push('Crea el tuyo en pataadvisor.es/kit.html');
+  var text = encodeURIComponent(lines.join('\n'));
+  window.open('https://wa.me/?text='+text, '_blank');
+}
+
+// Init
+renderStep();
+renderSummary();
+</script>
+</body>
+</html>

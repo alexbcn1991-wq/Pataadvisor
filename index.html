@@ -247,6 +247,23 @@
   .hcard{transition:transform .3s cubic-bezier(.34,1.56,.64,1),box-shadow .3s}
   .hcard:not(:first-child):hover{transform:translateY(-4px) scale(1.02);box-shadow:0 12px 28px rgba(0,0,0,.1)}
 
+  /* ── BANNER KIT ──────────────────────────── */
+  .kit-banner-wrap{padding:0 32px;max-width:1100px;margin:0 auto 8px}
+  .kit-banner{background:linear-gradient(135deg,var(--green-900) 0%,#0A5E42 100%);border-radius:var(--r-xl);padding:28px 36px;display:grid;grid-template-columns:1fr auto auto;gap:32px;align-items:center;position:relative;overflow:hidden;text-decoration:none}
+  .kit-banner::before{content:'🐾';position:absolute;right:320px;top:-10px;font-size:100px;opacity:.06;pointer-events:none;line-height:1}
+  .kit-banner-eyebrow{font-size:10px;font-weight:500;color:var(--green-100);text-transform:uppercase;letter-spacing:.16em;margin-bottom:6px}
+  .kit-banner-title{font-family:var(--font-display);font-size:22px;font-weight:400;color:var(--white);letter-spacing:-.02em;font-style:italic;margin-bottom:6px}
+  .kit-banner-desc{font-size:13px;color:rgba(255,255,255,.5);line-height:1.5;max-width:320px}
+  .kit-banner-items{display:flex;align-items:center;gap:10px;flex-shrink:0}
+  .kit-banner-item{display:flex;flex-direction:column;align-items:center;gap:4px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--r-md);padding:10px 14px;min-width:64px}
+  .kit-banner-item span{font-size:10px;color:rgba(255,255,255,.55);font-weight:500;letter-spacing:.04em}
+  .kit-banner-item>:first-child{font-size:22px}
+  .kit-banner-arrow{font-size:18px;color:rgba(255,255,255,.25);font-weight:300}
+  .kit-banner-btn{background:var(--green-100);color:var(--green-900);font-family:var(--font-body);font-size:14px;font-weight:600;padding:14px 28px;border-radius:100px;text-decoration:none;white-space:nowrap;transition:all .2s;flex-shrink:0;display:inline-block}
+  .kit-banner-btn:hover{background:white;transform:translateY(-1px);box-shadow:0 8px 20px rgba(0,0,0,.2)}
+  @media(max-width:900px){.kit-banner{grid-template-columns:1fr auto}.kit-banner-items{display:none}}
+  @media(max-width:600px){.kit-banner{grid-template-columns:1fr;gap:16px;padding:24px}.kit-banner-btn{text-align:center}}
+
   /* ── RANKING MENSUAL ─────────────────────── */
   .ranking-section{padding:0 32px 56px;max-width:1100px;margin:0 auto}
   .ranking-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:20px;border-bottom:1px solid var(--sand-200);padding-bottom:14px}
@@ -697,6 +714,7 @@
     <li><a onclick="showPage('home')">Perros</a></li>
     <li><a onclick="showPage('home')">Gatos</a></li>
     <li><a href="razas.html">Razas</a></li>
+    <li><a href="kit.html">🎁 Kit mascota</a></li>
     <li><a onclick="showPage('como-analizamos')">Cómo analizamos</a></li>
   </ul>
   <div class="nav-tools">
@@ -865,6 +883,27 @@
       <div class="trust-item"><div class="trust-icon">💬</div><div><strong>Sin patrocinios ocultos</strong><span>Independencia editorial total</span></div></div>
       <div class="trust-item"><div class="trust-icon">🔄</div><div><strong>Actualizaciones mensuales</strong><span>Precios y disponibilidad reales</span></div></div>
       <div class="trust-item"><div class="trust-icon">⭐</div><div><strong>4.200 dueños confían en nosotros</strong><span>Newsletter semanal gratuita</span></div></div>
+    </div>
+  </div>
+
+  <!-- BANNER KIT -->
+  <div class="kit-banner-wrap">
+    <div class="kit-banner">
+      <div class="kit-banner-left">
+        <div class="kit-banner-eyebrow">✨ Herramienta exclusiva</div>
+        <div class="kit-banner-title">Crea el kit perfecto para tu mascota</div>
+        <div class="kit-banner-desc">Elige pienso, antiparasitario, juguete e higiene. Te calculamos el coste mensual y te llevamos directo a Amazon.</div>
+      </div>
+      <div class="kit-banner-items">
+        <div class="kit-banner-item">🥩<span>Alimentación</span></div>
+        <div class="kit-banner-arrow">+</div>
+        <div class="kit-banner-item">💊<span>Salud</span></div>
+        <div class="kit-banner-arrow">+</div>
+        <div class="kit-banner-item">🎾<span>Juguetes</span></div>
+        <div class="kit-banner-arrow">+</div>
+        <div class="kit-banner-item">🛁<span>Higiene</span></div>
+      </div>
+      <a href="kit.html" class="kit-banner-btn">Crear mi kit →</a>
     </div>
   </div>
 
