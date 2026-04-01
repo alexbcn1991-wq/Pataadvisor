@@ -463,10 +463,11 @@ function toggleFaq(btn){
 
 // Handle hash on load
 var hash = window.location.hash.replace('#','');
-if(hash && hash !== 'golden' && document.getElementById('guide-'+hash)){
+var validGuides = ['golden','bulldog','yorkshire','labrador','pastor'];
+if(hash && validGuides.indexOf(hash) !== -1){
   showGuide(hash);
-} else if(hash === 'golden'){
-  showGuide('golden');
+} else {
+  showIndex();
 }
 </script>
 </body>

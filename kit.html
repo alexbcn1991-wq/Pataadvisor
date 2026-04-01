@@ -173,7 +173,7 @@ nav{background:rgba(249,247,242,.95);backdrop-filter:blur(12px);border-bottom:1p
   <!-- LEFT: PRODUCT SELECTOR -->
   <div>
     <div class="kit-panel" id="kitPanel">
-      <div class="kit-panel-header">
+      <div class="kit-panel-header" id="kitPanelHeader">
         <div class="kit-panel-icon" id="panelIcon">🥩</div>
         <div>
           <div class="kit-panel-title" id="panelTitle">Alimentación</div>
@@ -186,11 +186,17 @@ nav{background:rgba(249,247,242,.95);backdrop-filter:blur(12px);border-bottom:1p
       </div>
       <div class="affil-notice">🔗 Los enlaces son de afiliado Amazon (tag: primepick03f9-21). Sin coste adicional para ti.</div>
       <div class="kit-products" id="kitProducts"></div>
-      <div class="kit-nav-btns">
+      <div class="kit-nav-btns" id="kitNavBtns">
         <button class="kit-btn-back" id="btnBack" onclick="kitBack()" style="display:none">← Atrás</button>
         <button class="kit-btn-next" id="btnNext" onclick="kitNext()" disabled>Siguiente paso →</button>
       </div>
-    </div>
+      <!-- Estado completado (dentro del mismo panel) -->
+      <div id="kitComplete" style="display:none;text-align:center;padding:40px 28px">
+        <div style="font-size:64px;margin-bottom:16px">🎉</div>
+        <div style="font-family:var(--font-display);font-size:26px;font-weight:300;color:var(--sand-900);letter-spacing:-.02em;margin-bottom:8px">¡Kit completado!</div>
+        <div style="font-size:14px;color:var(--sand-400);line-height:1.6;margin-bottom:24px">Tienes todo lo que necesita tu mascota. Compra cada producto desde el panel lateral.</div>
+        <button class="kit-btn-back" style="width:100%" onclick="resetKit()">🔄 Crear un kit nuevo</button>
+      </div>
   </div>
 
   <!-- RIGHT: SUMMARY -->
@@ -212,12 +218,6 @@ nav{background:rgba(249,247,242,.95);backdrop-filter:blur(12px);border-bottom:1p
         <div style="font-size:11px;color:var(--sand-400);text-align:center;margin-bottom:4px">Ir a Amazon por cada producto:</div>
         <div id="kitAmazonBtns"></div>
         <button class="kit-share-btn" onclick="shareKit()">📤 Compartir mi kit por WhatsApp</button>
-      </div>
-      <div class="kit-complete" id="kitComplete">
-        <div class="kit-complete-icon">🎉</div>
-        <div class="kit-complete-title">¡Kit completado!</div>
-        <div class="kit-complete-desc">Tienes todo lo que necesita tu mascota. Haz clic en cada producto para comprarlo en Amazon.</div>
-        <button class="kit-btn-back" style="width:100%;margin-top:8px" onclick="resetKit()">🔄 Crear un kit nuevo</button>
       </div>
     </div>
   </div>
@@ -414,14 +414,22 @@ function kitNext(){
     renderStep();
     window.scrollTo({top:0, behavior:'smooth'});
   } else {
-    // Complete
-    document.getElementById('kitPanel').style.display = 'none';
-    document.getElementById('kitComplete').classList.add('show');
+    // Complete — hide selector, show complete message inside same panel
+    document.getElementById('kitProducts').style.display = 'none';
+    document.getElementById('petToggle').style.display = 'none';
+    document.getElementById('kitNavBtns').style.display = 'none';
+    document.getElementById('kitPanelHeader').style.display = 'none';
+    document.querySelector('.affil-notice').style.display = 'none';
+    var complete = document.getElementById('kitComplete');
+    complete.style.display = 'block';
+    complete.style.animation = 'fadeUp .4s ease both';
     steps.forEach(function(_,i){
       var el = document.getElementById('step-ind-'+i);
+      if(!el) return;
       el.classList.remove('active');
       el.classList.add('done');
-      el.querySelector('.kit-step-num').textContent = '';
+      var num = el.querySelector('.kit-step-num');
+      if(num) num.textContent = '';
     });
   }
 }
@@ -436,8 +444,12 @@ function kitBack(){
 
 function resetKit(){
   state = { step:0, pet:'dog', kit:{} };
-  document.getElementById('kitPanel').style.display = '';
-  document.getElementById('kitComplete').classList.remove('show');
+  document.getElementById('kitProducts').style.display = '';
+  document.getElementById('petToggle').style.display = '';
+  document.getElementById('kitNavBtns').style.display = '';
+  document.getElementById('kitPanelHeader').style.display = '';
+  document.querySelector('.affil-notice').style.display = '';
+  document.getElementById('kitComplete').style.display = 'none';
   renderStep();
   renderSummary();
 }
