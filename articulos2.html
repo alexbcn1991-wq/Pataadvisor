@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guías PataAdvisor — Antiparasitarios, Cachorros y Cepillos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green-50:#E1F5EE;--green-100:#9FE1CB;--green-300:#1D9E75;--green-500:#0F6E56;--green-900:#04342C;
+  --amber-300:#EF9F27;--amber-50:#FAEEDA;--amber-600:#854F0B;
+  --sand-50:#F9F7F2;--sand-100:#F0EDE4;--sand-200:#E2DDD1;--sand-400:#A89F8E;--sand-600:#6B6358;--sand-800:#2E2A24;--sand-900:#1A1714;
+  --white:#FFFFFF;
+  --font-display:'Fraunces',serif;--font-body:'DM Sans',sans-serif;
+  --r-md:10px;--r-lg:16px;--r-xl:24px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--sand-50);color:var(--sand-800);font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased}
+
+.article-nav{background:rgba(249,247,242,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--sand-200);padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:68px;position:sticky;top:0;z-index:100}
+.nav-back{font-size:13px;color:var(--sand-400);text-decoration:none;display:flex;align-items:center;gap:6px;transition:color .2s}
+.nav-back:hover{color:var(--sand-800)}
+
+.article-wrap{max-width:760px;margin:0 auto;padding:48px 32px 80px}
+.article-header{margin-bottom:40px}
+.article-category{font-size:11px;font-weight:500;color:var(--green-300);text-transform:uppercase;letter-spacing:.12em;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.article-category::before{content:'';width:20px;height:1px;background:var(--green-300)}
+.article-title{font-family:var(--font-display);font-size:clamp(28px,4vw,42px);font-weight:300;line-height:1.15;color:var(--sand-900);letter-spacing:-.02em;margin-bottom:16px}
+.article-title em{font-style:italic;color:var(--green-500)}
+.article-intro{font-size:18px;color:var(--sand-600);line-height:1.7;font-weight:300;border-left:3px solid var(--green-300);padding-left:20px;margin-bottom:28px}
+.article-meta-row{display:flex;align-items:center;gap:20px;font-size:12px;color:var(--sand-400);padding-bottom:24px;border-bottom:1px solid var(--sand-200);flex-wrap:wrap}
+.meta-badge{background:var(--green-50);color:var(--green-500);padding:3px 10px;border-radius:100px;font-weight:500;font-size:11px;letter-spacing:.04em}
+
+.article-body h2{font-family:var(--font-display);font-size:26px;font-weight:400;color:var(--sand-900);letter-spacing:-.02em;margin:44px 0 16px;line-height:1.2}
+.article-body h3{font-family:var(--font-display);font-size:20px;font-weight:400;color:var(--sand-900);letter-spacing:-.01em;margin:32px 0 12px;font-style:italic}
+.article-body p{margin-bottom:18px;color:var(--sand-700,#4A4540)}
+.article-body ul,.article-body ol{padding-left:22px;margin-bottom:18px}
+.article-body li{margin-bottom:8px;color:var(--sand-700,#4A4540)}
+.article-body strong{color:var(--sand-900);font-weight:500}
+
+.winner-box{background:var(--green-900);border-radius:var(--r-lg);padding:28px 32px;margin:32px 0;display:flex;gap:20px;align-items:flex-start}
+.winner-icon{font-size:32px;flex-shrink:0}
+.winner-label{font-size:10px;font-weight:500;color:var(--green-100);text-transform:uppercase;letter-spacing:.14em;margin-bottom:6px}
+.winner-title{font-family:var(--font-display);font-size:20px;font-weight:400;color:var(--white);letter-spacing:-.01em;font-style:italic;margin-bottom:8px}
+.winner-desc{font-size:13px;color:rgba(255,255,255,.6);line-height:1.6;margin-bottom:16px}
+.winner-btn{display:inline-block;font-family:var(--font-body);font-size:13px;font-weight:500;background:var(--green-300);color:var(--white);border-radius:100px;padding:10px 22px;text-decoration:none;transition:background .2s}
+.winner-btn:hover{background:#25B888}
+
+.product-list{display:flex;flex-direction:column;gap:20px;margin:28px 0}
+.prod-item{background:var(--white);border:1px solid var(--sand-200);border-radius:var(--r-lg);padding:24px;display:grid;grid-template-columns:auto 1fr auto;gap:20px;align-items:start}
+.prod-item.top-pick{border-color:var(--green-300);border-width:2px}
+.prod-rank{font-family:var(--font-display);font-size:36px;font-weight:300;color:var(--sand-200);line-height:1;min-width:40px}
+.prod-item.top-pick .prod-rank{color:var(--green-100)}
+.prod-badge-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}
+.prod-badge{font-size:10px;font-weight:500;padding:3px 10px;border-radius:100px;letter-spacing:.04em}
+.badge-green{background:var(--green-50);color:var(--green-500)}
+.badge-amber{background:var(--amber-50);color:var(--amber-600)}
+.badge-blue{background:#E6F1FB;color:#185FA5}
+.prod-name{font-family:var(--font-display);font-size:19px;font-weight:400;color:var(--sand-900);letter-spacing:-.01em;margin-bottom:6px;line-height:1.3}
+.prod-desc-short{font-size:14px;color:var(--sand-600);line-height:1.6;margin-bottom:10px}
+.prod-stars{color:var(--amber-300);font-size:13px;letter-spacing:1px}
+.prod-price-col{text-align:right;min-width:120px}
+.prod-price{font-family:var(--font-display);font-size:24px;font-weight:300;color:var(--sand-900);letter-spacing:-.02em;display:block;white-space:nowrap}
+.prod-price small{font-family:var(--font-body);font-size:11px;color:var(--sand-400)}
+.prod-buy-btn{display:inline-block;font-family:var(--font-body);font-size:12px;font-weight:500;background:var(--green-50);color:var(--green-500);border:1px solid var(--green-100);border-radius:100px;padding:8px 16px;text-decoration:none;margin-top:10px;transition:all .2s;white-space:nowrap}
+.prod-buy-btn:hover{background:var(--green-100);border-color:var(--green-300)}
+
+.compare-section{margin:36px 0}
+.compare-section h2{font-family:var(--font-display);font-size:22px;font-weight:300;color:var(--sand-900);letter-spacing:-.02em;margin-bottom:20px}
+.compare-wrap{background:var(--white);border:1px solid var(--sand-200);border-radius:var(--r-lg);overflow:hidden}
+.compare-table{width:100%;border-collapse:collapse;font-size:14px}
+.compare-table th{padding:14px 18px;background:var(--sand-100);font-size:11px;font-weight:500;color:var(--sand-600);text-transform:uppercase;letter-spacing:.08em;text-align:left;border-bottom:1px solid var(--sand-200)}
+.compare-table th.winner-col{background:var(--green-50);color:var(--green-500)}
+.compare-table th .w-badge{display:block;font-size:9px;color:var(--green-300);margin-top:2px;text-transform:uppercase;letter-spacing:.1em}
+.compare-table td{padding:13px 18px;border-bottom:1px solid var(--sand-100);color:var(--sand-800)}
+.compare-table tr:last-child td{border-bottom:none}
+.compare-table td:first-child{font-size:12px;font-weight:500;color:var(--sand-400);text-transform:uppercase;letter-spacing:.06em}
+.compare-table td.winner-col{background:rgba(29,158,117,.05)}
+.cy{display:inline-flex;width:20px;height:20px;background:var(--green-50);border-radius:50%;align-items:center;justify-content:center;color:var(--green-500);font-size:10px;font-weight:700}
+.cn{display:inline-flex;width:20px;height:20px;background:var(--sand-100);border-radius:50%;align-items:center;justify-content:center;color:var(--sand-400);font-size:10px}
+.affil-link{font-size:12px;color:var(--green-300);font-weight:500;text-decoration:none}
+.affil-link:hover{color:var(--green-500)}
+
+.info-box{background:var(--sand-100);border-left:3px solid var(--sand-400);border-radius:0 var(--r-md) var(--r-md) 0;padding:18px 22px;margin:24px 0}
+.info-box p{font-size:14px;color:var(--sand-600);line-height:1.7;margin:0}
+.info-box strong{color:var(--sand-800)}
+
+.warning-box{background:#FEF9EC;border-left:3px solid var(--amber-300);border-radius:0 var(--r-md) var(--r-md) 0;padding:18px 22px;margin:24px 0}
+.warning-box p{font-size:14px;color:#7A5A00;line-height:1.7;margin:0}
+
+.affil-notice{background:var(--amber-50);border:1px solid #FAC775;border-radius:var(--r-md);padding:14px 18px;margin:24px 0;font-size:13px;color:#633806;line-height:1.6}
+
+.checklist{list-style:none;padding:0;margin-bottom:18px}
+.checklist li{padding:10px 0 10px 32px;border-bottom:1px solid var(--sand-100);position:relative;font-size:15px;color:var(--sand-800)}
+.checklist li:last-child{border-bottom:none}
+.checklist li::before{content:'✓';position:absolute;left:0;color:var(--green-300);font-weight:700;font-size:16px}
+
+.conclusion-box{background:var(--green-50);border:1px solid var(--green-100);border-radius:var(--r-lg);padding:28px 32px;margin:36px 0}
+.conclusion-box h3{font-family:var(--font-display);font-size:20px;font-weight:400;color:var(--green-900);letter-spacing:-.01em;margin-bottom:12px}
+.conclusion-box p{font-size:15px;color:var(--green-700,#085041);line-height:1.7;margin-bottom:0}
+
+.article-separator{border:none;border-top:2px dashed var(--sand-200);margin:80px 0 60px}
+
+@media(max-width:640px){
+  .article-wrap{padding:32px 20px 60px}
+  .article-nav{padding:0 20px}
+  .prod-item{grid-template-columns:auto 1fr;grid-template-rows:auto auto}
+  .prod-price-col{grid-column:2;text-align:left}
+  .winner-box{flex-direction:column}
+  .compare-wrap{overflow-x:auto}
+}
+</style>
+</head>
+<body>
+
+<nav class="article-nav">
+  <a href="index.html" style="text-decoration:none;display:flex;align-items:center;gap:8px">
+    <svg width="110" height="30" viewBox="0 0 280 72" xmlns="http://www.w3.org/2000/svg">
+      <g fill="#1D9E75"><ellipse cx="28" cy="46" rx="14" ry="10"/><circle cx="28" cy="29" r="11"/><ellipse cx="18" cy="25" rx="5" ry="8" transform="rotate(-10 18 25)"/><ellipse cx="38" cy="25" rx="5" ry="8" transform="rotate(10 38 25)"/><path d="M42 42 Q54 32 51 22" stroke="#1D9E75" stroke-width="5" fill="none" stroke-linecap="round"/></g>
+      <circle cx="24" cy="27" r="2" fill="white"/><circle cx="32" cy="27" r="2" fill="white"/>
+      <ellipse cx="28" cy="33" rx="3" ry="2" fill="#0F6E56"/>
+      <rect x="18" y="54" width="6" height="8" rx="3" fill="#1D9E75"/><rect x="27" y="55" width="6" height="7" rx="3" fill="#1D9E75"/>
+      <line x1="60" y1="20" x2="60" y2="58" stroke="#E2DDD1" stroke-width="1.5"/>
+      <g fill="#0F6E56"><ellipse cx="80" cy="46" rx="12" ry="9"/><circle cx="80" cy="30" r="10"/><polygon points="71,24 74,12 80,23"/><polygon points="80,23 86,12 89,24"/><path d="M92 44 Q104 36 100 24" stroke="#0F6E56" stroke-width="4.5" fill="none" stroke-linecap="round"/></g>
+      <ellipse cx="76" cy="29" rx="2" ry="2.5" fill="white"/><ellipse cx="84" cy="29" rx="2" ry="2.5" fill="white"/>
+      <polygon points="80,34 78,32 82,32" fill="#085041"/>
+      <rect x="72" y="53" width="6" height="7" rx="3" fill="#0F6E56"/><rect x="81" y="54" width="6" height="6" rx="3" fill="#0F6E56"/>
+      <text x="116" y="35" font-family="'Fraunces',Georgia,serif" font-size="24" font-weight="400" font-style="italic" fill="#1A1714">Pata</text>
+      <text x="163" y="35" font-family="'Fraunces',Georgia,serif" font-size="24" font-weight="300" font-style="italic" fill="#1D9E75">Advisor</text>
+    </svg>
+  </a>
+  <a href="index.html" class="nav-back">← Volver al inicio</a>
+</nav>
+
+
+<!-- ══════════════════════════════════════
+     ARTÍCULO 1: ANTIPARASITARIOS
+══════════════════════════════════════════ -->
+<article class="article-wrap" id="antiparasitarios">
+
+  <div class="article-header">
+    <div class="article-category">Salud · Perros y Gatos</div>
+    <h1 class="article-title">Los 7 mejores <em>antiparasitarios</em> de 2026 según veterinarios</h1>
+    <p class="article-intro">Pipetas, collares o comprimidos: qué formato funciona mejor según la época del año, dónde vives y el tamaño de tu perro. Guía completa y honesta.</p>
+    <div class="article-meta-row">
+      <span>Actualizado: abril 2026</span>
+      <span>·</span>
+      <span>8 min de lectura</span>
+      <span>·</span>
+      <span class="meta-badge">Revisado por veterinario</span>
+    </div>
+  </div>
+
+  <div class="article-body">
+
+    <div class="affil-notice">
+      <strong>Transparencia:</strong> algunos enlaces son de afiliado (Amazon Associates, tag: primepick03f9-21). Si compras a través de ellos recibimos una pequeña comisión sin coste adicional para ti. No condiciona nuestras recomendaciones.
+    </div>
+
+    <p>Elegir un antiparasitario puede parecer sencillo pero hay decisiones importantes que tomar: ¿pipeta o collar? ¿cuántos meses de protección necesita tu perro? ¿vives en zona de riesgo de leishmaniosis? Las respuestas cambian completamente el producto que debes usar.</p>
+
+    <p>Hemos consultado con veterinarios y analizado los productos más vendidos y valorados en España para darte una guía práctica y sin rodeos.</p>
+
+    <div class="warning-box">
+      <p><strong>Importante:</strong> los antiparasitarios con principios activos como fipronil, permetrina, imidacloprid o deltametrina son medicamentos veterinarios. Consulta siempre a tu veterinario antes de cambiar el protocolo antiparasitario de tu mascota, especialmente si tiene enfermedades previas, es cachorro o está gestante.</p>
+    </div>
+
+    <h2>¿Qué formato elegir?</h2>
+    <p>Antes de ver los productos, entiende qué hace cada formato:</p>
+    <ul>
+      <li><strong>Pipetas spot-on:</strong> se aplican en la nuca, se distribuyen por la piel. Efecto 4-6 semanas. Ideales para protección mensual rápida y efectiva. Algunas repelen, otras solo matan.</li>
+      <li><strong>Collares:</strong> liberan activo lentamente durante meses (4-8 meses según marca). Comodidad máxima, protección continua. Mejor para perros que van mucho al campo.</li>
+      <li><strong>Comprimidos masticables:</strong> eliminan pulgas y garrapatas en 24-48h. Sin restricción de baño. Ideales como tratamiento de choque o para perros que se bañan mucho.</li>
+    </ul>
+
+    <h2>Nuestro top 7</h2>
+
+    <div class="winner-box">
+      <div class="winner-icon">🏆</div>
+      <div>
+        <div class="winner-label">Mejor valorado 2026 · Pipeta</div>
+        <div class="winner-title">Frontline Tri-Act — protección total de amplio espectro</div>
+        <div class="winner-desc">La pipeta más recomendada por veterinarios en España. Triple acción: mata pulgas y garrapatas, repele mosquitos, flebótomos y moscas picadoras. Clave para zonas con riesgo de leishmaniosis.</div>
+        <a href="https://www.amazon.es/s?k=Frontline+Tri-Act+pipetas+perro&tag=primepick03f9-21" target="_blank" rel="nofollow sponsored" class="winner-btn">Ver en Amazon →</a>
+      </div>
+    </div>
+
+    <div class="product-list">
+
+      <div class="prod-item top-pick">
+        <div class="prod-rank">01</div>
+        <div class="prod-info">
+          <div class="prod-badge-row">
+            <span class="prod-badge badge-green">Mejor pipeta 2026</span>
+            <span class="prod-badge badge-green">Repele + mata</span>
+          </div>
+          <div class="prod-name">Frontline Tri-Act Pipetas</div>
+          <div class="prod-desc-short">Doble activo (fipronil + permetrina). Protege contra pulgas, garrapatas, mosquitos, flebótomos y moscas picadoras. Disponible para todos los tamaños de perro. Efecto 4 semanas. No apto para gatos.</div>
+          <div><span class="prod-stars">★★★★★</span> <span style="font-size:13px;color:var(--sand-400)">4.8 · +8.000 valoraciones</span></div>
+        </div>
+        <div class="prod-price-col">
+          <span class="prod-price">desde 19€ <small>/ 3 pipetas</small></span>
+          <a href="https://www.amazon.es/s?k=Frontline+Tri-Act+pipetas+perro&tag=primepick03f9-21" target="_blank" rel="nofollow sponsored" class="prod-buy-btn">Ver en Amazon →</a>
+        </div>
+      </div>
+
+      <div class="prod-item">
+        <div class="prod-rank">02</div>
+        <div class="prod-info">
+          <div class="prod-badge-row">
+            <span class="prod-badge badge-blue">Mejor collar · 8 meses</span>
+          </div>
+          <div class="prod-name">Seresto Collar Antiparasitario</div>
+          <div class="prod-desc-short">8 meses de protección continua contra pulgas, garrapatas y piojos. Sin necesidad de acordarse de aplicar nada cada mes. Resistente al agua. Disponible para perros grandes y pequeños, y también para gatos.</div>
+          <div><span class="prod-stars">★★★★★</span> <span style="font-size:13px;color:var(--sand-400)">4.7 · +12.000 valoraciones</span></div>
+        </div>
+        <div class="prod-price-col">
+          <span class="prod-price">desde 31€</span>
+          <a href="https://www.amazon.es/s?k=Seresto+collar+antiparasitario+perro&tag=primepick03f9-21" target="_blank" rel="nofollow sponsored" class="prod-buy-btn">Ver en Amazon →</a>
+        </div>
+      </div>
+
+      <div class="prod-item">
+        <div class="prod-rank">03</div>
+        <div class="prod-info">
+          <div class="prod-badge-row">
+            <span class="prod-badge badge-amber">Mejor contra leishmaniosis</span>
+          </div>
+          <div class="prod-name">Scalibor Collar 65cm</div>
+          <div class="prod-desc-short">El collar con mayor eficacia comprobada contra flebótomos (transmisores de la leishmaniosis). 6 meses de protección. Especialmente recomendado en zonas costeras mediterráneas y del sur de España donde la leishmaniosis es endémica.</div>
+          <div><span class="prod-stars">★★★★★</span> <span style="font-size:13px;color:var(--sand-400)">4.8 · +6.000 valoraciones</span></div>
+        </div>
+        <div class="prod-price-col">
+          <span class="prod-price">desde 21€</span>
+          <a href="https://www.amazon.es/s?k=Scalibor+collar+antiparasitario+perro+65cm&tag=primepick03f9-21" target="_blank" rel="nofollow sponsored" class="prod-buy-btn">Ver en Amazon →</a>
+        </div>
+      </div>
+
+      <div class="prod-item">
+        <div class="prod-rank">04</div>
+        <div class="prod-info">
+          <div class="prod-badge-row">
+            <span class="prod-badge badge-green">Pipeta repelente</span>
+          </div>
+          <div class="prod-name">Advantix Pipetas</div>
+          <div class="prod-desc-short">Triple protección: mata pulgas y garrapatas y repele mosquitos y flebótomos. Efecto 4 semanas. Resistente al agua. Muy popular por su relación calidad-precio. Importante: NO apto para gatos.</div>
+          <div><span class="prod-stars">★★★★☆</span> <span style="font-size:13px;color:var(--sand-400)">4.6 · +9.000 valoraciones</span></div>
+        </div>
+        <div class="prod-price-col">
+          <span class="prod-price">desde 8€ <small>/ pipeta</small></span>
+          <a href="https://www.amazon.es/s?k=Advantix+pipetas+antiparasitario+perro&tag=primepick03f9-21" target="_blank" rel="nofollow sponsored" class="prod-buy-btn">Ver en Amazon →</a>
+        </div>
+      </div>
+
+      <div class="prod-item">
+        <div class="prod-rank">05</div>
+        <div class="prod-info">
+          <div class="prod-badge-row">
+            <span class="prod-badge badge-green">Mejor comprimido</span>
+          </div>
+          <div class="prod-name">Frontpro Comprimidos Masticables</div>
+          <div class="prod-desc-short">Comprimido mensual con sabor a carne que los perros aceptan sin problema. Elimina pulgas en 6 horas y garrapatas en 24h. Sin restricción de baño tras la administración. Ideal como tratamiento de choque o para perros que nadan.</div>
+          <div><span class="prod-stars">★★★★★</span> <span style="font-size:13px;color:var(--sand-400)">4.8 · +4.500 valoraciones</span></div>
+        </div>
+        <div class="prod-price-col">
+          <span class="prod-price">desde 23€ <small>/ 3 comp.</small></span>
+          <a href="https://www.amazon.es/s?k=Frontpro+comprimidos+masticables+perro&tag=primepick03f9-21" target="_blank" rel="nofollow sponsored" class="prod-buy-btn">Ver en Amazon →</a>
+        </div>
+      </div>
+
+      <div class="prod-item">
+        <div class="prod-rank">06</div>
+        <div class="prod-info">
+          <div class="prod-badge-row">
+            <span class="prod-badge badge-amber">Gatos</span>
+          </div>
+          <div class="prod-name">Frontline Combo para Gatos</div>
+          <div class="prod-desc-short">La pipeta más vendida para gatos. Elimina pulgas adultas, huevos, larvas y piojos. Corta el ciclo de vida de la pulga en el hogar. Efecto 4-5 semanas. Segura para gatos a partir de 8 semanas de edad.</div>
+          <div><span class="prod-stars">★★★★★</span> <span style="font-size:13px;color:var(--sand-400)">4.7 · +7.000 valoraciones</span></div>
+        </div>
+        <div class="prod-price-col">
+          <span class="prod-price">desde 8€ <small>/ pipeta</small></span>
+          <a href="https://www.amazon.es/s?k=Frontline+Combo+pipetas+gato&tag=primepick03f9-21" target="_blank" rel="nofollow sponsored" class="prod-buy-btn">Ver en Amazon →</a>
+        </div>
+      </div>
+
+      <div class="prod-item">
+        <div class="prod-rank">07</div>
+        <div class="prod-info">
+          <div class="prod-badge-row">
+            <span class="prod-badge badge-blue">Natural · Económico</span>
+          </div>
+          <div class="prod-name">Virbac Prevendog Collar</div>
+          <div class="prod-desc-short">Collar con deltametrina de efecto repelente durante 5-6 meses. Alternativa más económica al Scalibor con protección similar frente a pulgas, garrapatas y flebótomos. Muy usado en protocolos combinados con pipetas.</div>
+          <div><span class="prod-stars">★★★★☆</span> <span style="font-size:13px;color:var(--sand-400)">4.5 · +2.800 valoraciones</span></div>
+        </div>
+        <div class="prod-price-col">
+          <span class="prod-price">desde 17€</span>
+          <a href="https://www.amazon.es/s?k=Virbac+Prevendog+collar+antiparasitario+perro&tag=primepick03f9-21" target="_blank" rel="nofollow sponsored" class="prod-buy-btn">Ver en Amazon →</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="compare-section">
+      <h2>Tabla comparativa rápida</h2>
+      <div class="compare-wrap">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>Producto</th>
+              <th>Formato</th>
+              <th>Duración</th>
+              <th>Repele mosquitos</th>
+              <th>Apto gatos</th>
+              <th>Amazon</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="winner-col">Frontline Tri-Act</td><td class="winner-col">Pipeta</td><td class="winner-col">4 semanas</td><td class="winner-col"><span class="cy">✓</span></td><td class="winner-col"><span class="cn">—</span></td><td class="winner-col"><a href="https://www.amazon.es/s?k=Frontline+Tri-Act+perro&tag=primepick03f9-21" target="_blank" rel="nofollow sponsored" class="affil-link">Ver →</a></td></tr>
+            <tr><td>Seresto</td><td>Collar</td><td>8 meses</td><td><span class="cn">—</span></td><td><span class="cy">✓</span></td><td><a href="https://www.amazon.es/s?k=Seresto+collar+perro&tag=primepick03f9-21" target="_blank" rel="nofollow sponsored" class="affil-link">Ver →</a></td></tr>
+            <tr><td>Scalibor 65cm</td><td>Collar</td><td>6 meses</td><td><span class="cy">✓</span></td><td><span class="cn">—</span></td><td><a href="https://www.amazon.es/s?k=Scalibor+collar+65cm&tag=primepick03f9-21" target="_blank" rel="nofollow sponsored" class="affil-link">Ver →</a></td></tr>
+            <tr><td>Advantix</td><td>Pipeta</td><td>4 semanas</td><td><span class="cy">✓</span></td><td><span class="cn">—</span></td><td><a href="https://www.amazon.es/s?k=Advantix+pipetas+perro&tag=primepick03f9-21" target="_blank" rel="nofollow sponsored" class="affil-link">Ver →</a></td></tr>
+            <tr><td>Frontpro</td><td>Comprimido</td><td>4 semanas</td><td><span class="cn">—</span></td><td><span class="cn">—</span></td><td><a href="https://www.amazon.es/s?k=Frontpro+comprimidos+perro&tag=primepick03f9-21" target="_blank" rel="nofollow sponsored" class="affil-link">Ver →</a></td></tr>
+            <tr><td>Frontline Combo Gato</td><td>Pipeta</td><td>5 semanas</td><td><span class="cn">—</span></td><td><span class="cy">✓</span></td><td><a href="https://www.amazon.es/s?k=Frontline+Combo+gato&tag=primepick03f9-21" target="_blank" rel="nofollow sponsored" class="affil-link">Ver →</a></td></tr>
+            <tr><td>Prevendog</td><td>Collar</td><td>5-6 meses</td><td><span class="cy">✓</span></td><td><span class="cn">—</span></td><td><a href="https://www.amazon.es/s?k=Virbac+Prevendog+perro&tag=primepick03f9-21" target="_blank" rel="nofollow sponsored" class="affil-link">Ver →</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <h2>¿Combinar collar + pipeta?</h2>
+    <p>En zonas de alto riesgo (costa mediterránea, Andalucía, Canarias) muchos veterinarios recomiendan combinar un collar que repela flebótomos (Scalibor o Seresto) con una pipeta mensual que elimine lo que ya ha picado (Frontline Combo o Advantix). Esta combinación es la más completa.</p>
+
+    <div class="info-box">
+      <p><strong>¿Cuándo desparasitar?</strong> En España el protocolo recomendado es tratamiento externo todo el año en zonas cálidas, y de marzo a noviembre en zonas frías. La desparasitación interna (lombrices, tenia) se suele hacer cada 3-6 meses con comprimidos o pasta. Consulta siempre a tu veterinario para ajustarlo a tu zona y estilo de vida.</p>
+    </div>
+
+    <div class="conclusion-box">
+      <h3>Nuestra recomendación final</h3>
+      <p>Para la mayoría de perros en España: <strong>Frontline Tri-Act</strong> como pipeta mensual (cubre pulgas, garrapatas y mosquitos) más <strong>Scalibor</strong> si vives en zona de riesgo de leishmaniosis. Para gatos: <strong>Frontline Combo</strong> sin dudarlo. Si quieres olvidarte de aplicar nada cada mes, <strong>Seresto</strong> es la opción más cómoda del mercado.</p>
+    </div>
+
+  </div>
+</article>
+
+<hr class="article-separator">
+
+
+<!-- ══════════════════════════════════════
+     ARTÍCULO 2: GUÍA CACHORRO
+══════════════════════════════════════════ -->
+<article class="article-wrap" id="guia-cachorro">
+
+  <div class="article-header">
+    <div class="article-category">Cachorros · Perros</div>
+    <h1 class="article-title">Guía completa para el <em>primer mes con un cachorro</em>: todo lo que necesitas</h1>
+    <p class="article-intro">Desde que llega a casa hasta las primeras semanas: qué comprar, qué no comprar todavía y cómo organizarte para que la adaptación sea lo más tranquila posible.</p>
+    <div class="article-meta-row">
+      <span>Actualizado: abril 2026</span>
+      <span>·</span>
+      <span>12 min de lectura</span>
+      <span>·</span>
+      <span class="meta-badge">Guía completa</span>
+    </div>
+  </div>
+
+  <div class="article-body">
+
+    <div class="affil-notice">
+      <strong>Transparencia:</strong> algunos enlaces son de afiliado (Amazon Associates, tag: primepick03f9-21). Si compras a través de ellos recibimos una pequeña comisión sin coste adicional para ti. No condiciona nuestras recomendaciones.
+    </div>
+
+    <p>Antes de que llegue tu cachorro a casa conviene tener todo listo. Un cachorro en un entorno preparado se adapta mucho más rápido, duerme mejor y tiene menos episodios de estrés. Esta guía te dice exactamente qué necesitas, qué puedes esperar y en qué orden comprarlo.</p>
+
+    <h2>Lo que necesitas tener el día 1</h2>
+    <p>Estas son las cosas imprescindibles que deben estar en casa cuando llega tu cachorro:</p>
+
+    <ul class="checklist">
+      <li>Cama o manta con olor a su camada anterior (pídela a la criadora)</li>
+      <li>Comedero y bebedero de acero inoxidable o cerámica</li>
+      <li>Pienso para cachorros de su raza o tamaño</li>
+      <li>Collar ajustable de tela o nylon (sin hebilla metálica pesada)</li>
+      <li>Correa de 1.5-2m para los primeros paseos</li>
+      <li>Empapadores para accidentes en casa</li>
+      <li>Al menos 2-3 juguetes seguros y masticables</li>
+    </ul>
+
+    <h2>Pienso: el producto más importante</h2>
+
+    <div class="winner-box">
+      <div class="winner-icon">🐾</div>
+      <div>
+        <div class="winner-label">Nuestra elección · Cachorros</div>
+        <div class="winner-title">Royal Canin Medium Puppy — el más recomendado para razas medianas</div>
+        <div class="winner-desc">Formulado específicamente para cachorros de razas medianas hasta los 12 meses. Alta digestibilidad, DHA para el desarrollo cerebral y sistema inmune reforzado.</div>
+        <a href="https://www.amazon.es/s?k=Royal+Canin+Medium+Puppy+cachorro&tag=primepick03f9-21" target="_blank" rel="nofollow sponsored" class="winner-btn">Ver en Amazon →</a>
+      </div>
+    </div>
+
+    <p>El pienso de cachorro tiene más proteína, más calcio y más energía por gramo que el de adulto. Darlo desde el principio marca la diferencia en el desarrollo óseo, muscular y cognitivo. Las razas pequeñas (menos de 10 kg adulto) necesitan una fórmula específica — las croquetas de razas medianas son demasiado grandes para su mandíbula.</p>
+
+    <div class="product-list">
+
+      <div class="prod-item top-pick">
+        <div class="prod-rank">01</div>
+        <div class="prod-info">
+          <div class="prod-badge-row">
+            <span class="prod-badge badge-green">Razas medianas</span>
+            <span class="prod-badge badge-green">Más vendido</span>
+          </div>
+          <div class="prod-name">Royal Canin Medium Puppy</div>
+          <div class="prod-desc-short">El pienso de cachorro más vendido en España para razas medianas (adulto 11-25 kg). Croqueta adaptada al tamaño de mandíbula, alta digestibilidad y DHA de aceite de pescado para el desarrollo cognitivo.</div>
+          <div><span class="prod-stars">★★★★★</span> <span style="font-size:13px;color:var(--sand-400)">4.8 · +3.500 valoraciones</span></div>
+        </div>
+        <div class="prod-price-col">
+          <span class="prod-price">desde 39€ <small>/ 4kg</small></span>
+          <a href="https://www.amazon.es/s?k=Royal+Canin+Medium+Puppy+4kg&tag=primepick03f9-21" target="_blank" rel="nofollow sponsored" class="prod-buy-btn">Ver en Amazon →</a>
+        </div>
+      </div>
+
+      <div class="prod-item">
+        <div class="prod-rank">02</div>
+        <div class="prod-info">
+          <div class="prod-badge-row"><span class="prod-badge badge-green">Razas pequeñas</span></div>
+          <div class="prod-name">Royal Canin Mini Puppy</div>
+          <div class="prod-desc-short">Para razas pequeñas (adulto hasta 10 kg). Croqueta pequeña adaptada, fórmula que refuerza las defensas naturales. La elección para Chihuahua, Yorkshire, Pomerania, Maltés...</div>
+          <div><span class="prod-stars">★★★★★</span> <span style="font-size:13px;color:var(--sand-400)">4.8 · +2.800 valoraciones</span></div>
+        </div>
+        <div class="prod-price-col">
+          <span class="prod-price">desde 29€ <small>/ 2kg</small></span>
+          <a href="https://www.amazon.es/s?k=Royal+Canin+Mini+Puppy&tag=primepick03f9-21" target="_blank" rel="nofollow sponsored" class="prod-buy-btn">Ver en Amazon →</a>
+        </div>
+      </div>
+
+      <div class="prod-item">
+        <div class="prod-rank">03</div>
+        <div class="prod-info">
+          <div class="prod-badge-row"><span class="prod-badge badge-amber">Premium · Sin cereales</span></div>
+          <div class="prod-name">Purina Pro Plan Puppy</div>
+          <div class="prod-desc-short">Alto porcentaje de pollo como primer ingrediente. Sin colorantes ni aromas artificiales. Muy buena aceptación palatabilidad. Lo mejor del mercado si buscas calidad máxima para el cachorro.</div>
+          <div><span class="prod-stars">★★★★★</span> <span style="font-size:13px;color:var(--sand-400)">4.9 · +2.200 valoraciones</span></div>
+        </div>
+        <div class="prod-price-col">
+          <span class="prod-price">desde 44€ <small>/ 3kg</small></span>
+          <a href="https://www.amazon.es/s?k=Purina+Pro+Plan+Puppy+cachorro&tag=primepick03f9-21" target="_blank" rel="nofollow sponsored" class="prod-buy-btn">Ver en Amazon →</a>
+        </div>
+      </div>
+
+    </div>
+
+    <h2>Accesorios esenciales</h2>
+
+    <div class="product-list">
+
+      <div class="prod-item top-pick">
+        <div class="prod-rank">—</div>
+        <div class="prod-info">
+          <div class="prod-badge-row"><span class="prod-badge badge-green">Cama imprescindible</span></div>
+          <div class="prod-name">Cama con bordes altos y lavable</div>
+          <div class="prod-desc-short">Los cachorros necesitan sentir que están "dentro" de algo — los bordes altos dan sensación de seguridad y reducen la ansiedad nocturna. Busca una con funda lavable a 40°C. Los primeros meses habrá accidentes.</div>
+          <div><span class="prod-stars">★★★★★</span></div>
+        </div>
+        <div class="prod-price-col">
+          <span class="prod-price">desde 25€</span>
+          <a href="https://www.amazon.es/s?k=cama+cachorro+bordes+altos+lavable&tag=primepick03f9-21" target="_blank" rel="nofollow sponsored" class="prod-buy-btn">Ver en Amazon →</a>
+        </div>
+      </div>
+
+      <div class="prod-item">
+        <div class="prod-rank">—</div>
+        <div class="prod-info">
+          <div class="prod-badge-row"><span class="prod-badge badge-green">Juguete indispensable</span></div>
+          <div class="prod-name">Kong Puppy (talla S o M)</div>
+          <div class="prod-desc-short">El Kong es el mejor aliado contra la destrucción. Rellénalo con pienso húmedo o mantequilla de cacahuete sin azúcar y congélalo — el cachorro estará entretenido 30-45 minutos. La goma rosa es más blanda que la roja y apta para dientes de leche.</div>
+          <div><span class="prod-stars">★★★★★</span> <span style="font-size:13px;color:var(--sand-400)">4.8 · +5.000 valoraciones</span></div>
+        </div>
+        <div class="prod-price-col">
+          <span class="prod-price">desde 10€</span>
+          <a href="https://www.amazon.es/s?k=Kong+Puppy+cachorro+juguete&tag=primepick03f9-21" target="_blank" rel="nofollow sponsored" class="prod-buy-btn">Ver en Amazon →</a>
+        </div>
+      </div>
+
+      <div class="prod-item">
+        <div class="prod-rank">—</div>
+        <div class="prod-info">
+          <div class="prod-badge-row"><span class="prod-badge badge-blue">Higiénico</span></div>
+          <div class="prod-name">Empapadores absorbentes (paquete grande)</div>
+          <div class="prod-desc-short">Los cachorros no controlan el esfínter hasta los 3-4 meses. Necesitarás muchos empapadores. Compra el paquete grande directamente — la diferencia de precio por unidad es significativa. Los de carbón activo eliminan mejor los olores.</div>
+          <div><span class="prod-stars">★★★★☆</span></div>
+        </div>
+        <div class="prod-price-col">
+          <span class="prod-price">desde 18€ <small>/ 100 uds</small></span>
+          <a href="https://www.amazon.es/s?k=empapadores+cachorro+perro+absorb&tag=primepick03f9-21" target="_blank" rel="nofollow sponsored" class="prod-buy-btn">Ver en Amazon →</a>
+        </div>
+      </div>
+
+      <div class="prod-item">
+        <div class="prod-rank">—</div>
+        <div class="prod-info">
+          <div class="prod-badge-row"><span class="prod-badge badge-amber">Higiene</span></div>
+          <div class="prod-name">Champú para cachorros sin lágrimas</div>
+          <div class="prod-desc-short">Los cachorros necesitan un champú más suave que los adultos, sin sulfatos agresivos y con pH neutro. "Sin lágrimas" significa que si entra en los ojos no irrita. Los primeros baños deben ser experiencias positivas.</div>
+          <div><span class="prod-stars">★★★★☆</span></div>
+        </div>
+        <div class="prod-price-col">
+          <span class="prod-price">desde 9€</span>
+          <a href="https://www.amazon.es/s?k=champu+cachorro+sin+lagrimas+perro&tag=primepick03f9-21" target="_blank" rel="nofollow sponsored" class="prod-buy-btn">Ver en Amazon →</a>
+        </div>
+      </div>
+
+    </div>
+
+    <h2>Lo que NO necesitas comprar el primer mes</h2>
+    <ul>
+      <li><strong>Correa extensible:</strong> no permiten el control necesario cuando el cachorro todavía no sabe caminar con correa. Espera al menos 3 meses.</li>
+      <li><strong>Arnés de paseo:</strong> útil a partir de los 2-3 meses cuando ya sale a la calle. Antes no tiene sentido.</li>
+      <li><strong>Snacks o premios:</strong> el pienso de cachorros ya tiene todos los nutrientes. Los premios se introducen cuando empiece el adiestramiento, no antes.</li>
+      <li><strong>Ropa:</strong> los cachorros regulan bien la temperatura. Solo necesitan ropa en razas de pelo muy corto en invierno.</li>
+    </ul>
+
+    <h2>El calendario del primer mes</h2>
+    <ul>
+      <li><strong>Semana 1:</strong> adaptación, no invitados en casa, mucho descanso. Visita al veterinario para revisión inicial y plan de vacunación.</li>
+      <li><strong>Semana 2:</strong> empezar a establecer rutinas de comida y salidas para hacer pis. No todavía paseos en la calle (sin vacunas completas).</li>
+      <li><strong>Semana 3-4:</strong> comenzar con socialización controlada en casa. Acostumbrarle al cepillo, al ruido del aspirador, a diferentes personas.</li>
+    </ul>
+
+    <div class="conclusion-box">
+      <h3>Resumen: lo imprescindible</h3>
+      <p>Pienso específico de cachorro (ajustado a su tamaño adulto), cama con bordes, comedero y bebedero de acero, Kong Puppy, empapadores y collar + correa. Con eso tienes el 90% de lo que necesitas el primer mes. Lo demás puede esperar.</p>
+    </div>
+
+  </div>
+</article>
+
+<hr class="article-separator">
+
+
+<!-- ══════════════════════════════════════
+     ARTÍCULO 3: CEPILLOS PELO LARGO
+══════════════════════════════════════════ -->
+<article class="article-wrap" id="cepillos-perro">
+
+  <div class="article-header">
+    <div class="article-category">Higiene · Perros</div>
+    <h1 class="article-title">Los mejores cepillos para perros de <em>pelo largo</em>: análisis de 12 modelos</h1>
+    <p class="article-intro">No todos los cepillos valen para todas las razas. Te explicamos qué tipo necesita tu perro y cuál es el mejor del mercado para cada caso.</p>
+    <div class="article-meta-row">
+      <span>Actualizado: abril 2026</span>
+      <span>·</span>
+      <span>6 min de lectura</span>
+      <span>·</span>
+      <span class="meta-badge">12 modelos analizados</span>
+    </div>
+  </div>
+
+  <div class="article-body">
+
+    <div class="affil-notice">
+      <strong>Transparencia:</strong> algunos enlaces son de afiliado (Amazon Associates, tag: primepick03f9-21). Si compras a través de ellos recibimos una pequeña comisión sin coste adicional para ti. No condiciona nuestras recomendaciones.
+    </div>
+
+    <p>Un perro de pelo largo sin cepillado regular acaba con nudos que pueden convertirse en un problema serio de salud cutánea. Pero usar el cepillo equivocado puede hacerle daño o simplemente no servir de nada. Hay tres tipos de pelo largo con necesidades muy distintas: doble capa (como el Golden o el Husky), pelo liso largo (como el Setter) y pelo rizado o lana (como el Caniche o el Labradoodle).</p>
+
+    <h2>Qué cepillo necesita tu perro</h2>
+    <ul>
+      <li><strong>Perros de doble capa (Golden, Husky, Border Collie):</strong> necesitan un cepillo de cerdas largas o una herramienta deslanadora para quitar el subpelo muerto sin dañar la capa exterior.</li>
+      <li><strong>Perros de pelo liso largo (Setter, Spaniel, Afghan Hound):</strong> cepillo de cerdas naturales o mixto (cerdas + púas metálicas). El objetivo es alisar y desenredar sin romper el pelo.</li>
+      <li><strong>Perros de pelo rizado o tipo lana (Caniche, Cockapoo, Labradoodle):</strong> peine de púas largas y cepillo tipo "slicker" (cerdas metálicas inclinadas). El rizado se enreda fácilmente y necesita trabajo diario.</li>
+    </ul>
+
+    <div class="winner-box">
+      <div class="winner-icon">🏆</div>
+      <div>
+        <div class="winner-label">Mejor valorado 2026 · Pelo largo</div>
+        <div class="winner-title">FURminator de subpelo para perros de pelo largo</div>
+        <div class="winner-desc">La herramienta de deslanado más vendida del mundo. Reduce el pelo suelto hasta un 90% en perros con doble capa. Una sesión semanal elimina el subpelo muerto sin dañar la capa exterior.</div>
+        <a href="https://www.amazon.es/s?k=FURminator+pelo+largo+perro+deslanado&tag=primepick03f9-21" target="_blank" rel="nofollow sponsored" class="winner-btn">Ver en Amazon →</a>
+      </div>
+    </div>
+
+    <div class="product-list">
+
+      <div class="prod-item top-pick">
+        <div class="prod-rank">01</div>
+        <div class="prod-info">
+          <div class="prod-badge-row">
+            <span class="prod-badge badge-green">Mejor para doble capa</span>
+            <span class="prod-badge badge-green">Más vendido</span>
+          </div>
+          <div class="prod-name">FURminator Deslanador pelo largo</div>
+          <div class="prod-desc-short">La referencia absoluta para Goldens, Huskies, Border Collies y similares. Hoja de acero inoxidable con bordes curvados que llega al subpelo sin cortar la capa exterior. Botón de eyección para limpiar la hoja. Disponible en 4 tamaños.</div>
+          <div><span class="prod-stars">★★★★★</span> <span style="font-size:13px;color:var(--sand-400)">4.7 · +25.000 valoraciones</span></div>
+        </div>
+        <div class="prod-price-col">
+          <span class="prod-price">desde 28€</span>
+          <a href="https://www.amazon.es/s?k=FURminator+deslanador+pelo+largo+perro&tag=primepick03f9-21" target="_blank" rel="nofollow sponsored" class="prod-buy-btn">Ver en Amazon →</a>
+        </div>
+      </div>
+
+      <div class="prod-item">
+        <div class="prod-rank">02</div>
+        <div class="prod-info">
+          <div class="prod-badge-row">
+            <span class="prod-badge badge-green">Mejor slicker</span>
+          </div>
+          <div class="prod-name">Chris Christensen Big G Slicker</div>
+          <div class="prod-desc-short">El cepillo slicker profesional más valorado para perros de pelo largo fino o rizado. Cerdas metálicas con puntas redondeadas que desenredan sin romper el pelo ni irritar la piel. El favorito de los peluqueros caninos profesionales.</div>
+          <div><span class="prod-stars">★★★★★</span> <span style="font-size:13px;color:var(--sand-400)">4.9 · +3.200 valoraciones</span></div>
+        </div>
+        <div class="prod-price-col">
+          <span class="prod-price">desde 24€</span>
+          <a href="https://www.amazon.es/s?k=Chris+Christensen+Big+G+slicker+perro&tag=primepick03f9-21" target="_blank" rel="nofollow sponsored" class="prod-buy-btn">Ver en Amazon →</a>
+        </div>
+      </div>
+
+      <div class="prod-item">
+        <div class="prod-rank">03</div>
+        <div class="prod-info">
+          <div class="prod-badge-row"><span class="prod-badge badge-amber">Calidad/precio</span></div>
+          <div class="prod-name">Andis Premium Large Slicker Brush</div>
+          <div class="prod-desc-short">La alternativa económica de calidad al Chris Christensen. Cerdas finas con puntas redondeadas, mango ergonómico antideslizante. Muy buena opción para uso doméstico diario en razas de pelo largo.</div>
+          <div><span class="prod-stars">★★★★☆</span> <span style="font-size:13px;color:var(--sand-400)">4.6 · +1.800 valoraciones</span></div>
+        </div>
+        <div class="prod-price-col">
+          <span class="prod-price">desde 15€</span>
+          <a href="https://www.amazon.es/s?k=cepillo+slicker+pelo+largo+perro+calidad&tag=primepick03f9-21" target="_blank" rel="nofollow sponsored" class="prod-buy-btn">Ver en Amazon →</a>
+        </div>
+      </div>
+
+      <div class="prod-item">
+        <div class="prod-rank">04</div>
+        <div class="prod-info">
+          <div class="prod-badge-row"><span class="prod-badge badge-blue">Para nudos y rizos</span></div>
+          <div class="prod-name">Peine metálico de doble paso (dientes anchos + finos)</div>
+          <div class="prod-desc-short">Imprescindible para perros con rizos o pelo muy fino que se enreda (Caniche, Bichón, Maltés). Se usa después del slicker para comprobar que no quedan nudos. Los dientes anchos para deshacer y los finos para el acabado.</div>
+          <div><span class="prod-stars">★★★★☆</span></div>
+        </div>
+        <div class="prod-price-col">
+          <span class="prod-price">desde 8€</span>
+          <a href="https://www.amazon.es/s?k=peine+metalico+doble+paso+perro+pelo+largo&tag=primepick03f9-21" target="_blank" rel="nofollow sponsored" class="prod-buy-btn">Ver en Amazon →</a>
+        </div>
+      </div>
+
+    </div>
+
+    <h2>Cómo usar el cepillo correctamente</h2>
+    <ul>
+      <li><strong>Siempre en sentido del pelo</strong>, nunca a contrapelo salvo en perros acostumbrados con experiencia.</li>
+      <li><strong>Empieza por las puntas</strong>, deshacer los nudos desde abajo hacia arriba, no desde la raíz. Tirar desde la raíz duele y el perro aprenderá a odiar el cepillado.</li>
+      <li><strong>Secciona el pelo:</strong> en perros de doble capa o pelo muy abundante, trabaja por secciones levantando una capa con una mano y cepillando la de abajo.</li>
+      <li><strong>Frecuencia:</strong> doble capa 2-3 veces/semana (diario en época de muda), pelo liso largo 3-4 veces/semana, pelo rizado diario.</li>
+    </ul>
+
+    <div class="info-box">
+      <p><strong>Evita:</strong> los cepillos con bolas de plástico en las puntas de las cerdas. Son inútiles para pelo largo — las bolas impiden que las cerdas lleguen al pelo. Son aptos solo para pelo corto o cachorros.</p>
+    </div>
+
+    <div class="conclusion-box">
+      <h3>Nuestra recomendación final</h3>
+      <p>Para perros con doble capa (Golden, Husky, Collie): <strong>FURminator</strong> una vez por semana más un slicker para el acabado diario. Para pelo liso largo o rizado: <strong>Chris Christensen Big G</strong> como herramienta principal y un peine metálico de doble paso para comprobar que no quedan nudos. Ambos productos son una inversión que se amortiza en las primeras semanas ahorrando visitas a la peluquería canina.</p>
+    </div>
+
+  </div>
+</article>
+
+</body>
+</html>
