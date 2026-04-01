@@ -208,11 +208,17 @@
   .footer-bottom{border-top:1px solid var(--sand-200);padding:20px 32px;max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;font-size:14px;color:var(--sand-400)}
 
   /* NAV TOOLS */
-  .nav-tools{display:flex;align-items:center;gap:8px}
-  .nav-calc-btn{background:var(--sand-100);border-color:var(--sand-200);color:var(--sand-700,#4A4540)}
-  .nav-calc-btn:hover{background:var(--sand-200);border-color:var(--sand-400);color:var(--sand-900)}
-  html.dark .nav-calc-btn{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.1);color:var(--sand-400)}
-  @media(max-width:900px){.nav-tools{display:none}}
+  .nav-tools{display:flex;align-items:center;gap:6px}
+  .nav-tool-btn{font-family:var(--font-body);font-size:12px;font-weight:500;border-radius:100px;padding:6px 14px;cursor:pointer;transition:all .2s;white-space:nowrap;display:inline-flex;align-items:center;gap:5px;letter-spacing:.01em;text-decoration:none;line-height:1}
+  .nav-tool-btn:hover{transform:translateY(-1px)}
+  .ntb-quiz{color:var(--green-500);background:var(--green-50);border:1px solid var(--green-100)}
+  .ntb-quiz:hover{background:var(--green-100);border-color:var(--green-300)}
+  .ntb-calc{color:var(--sand-600);background:transparent;border:1px solid var(--sand-200)}
+  .ntb-calc:hover{border-color:var(--sand-400);color:var(--sand-800)}
+  html.dark .ntb-quiz{background:rgba(29,158,117,.1);border-color:rgba(29,158,117,.25);color:var(--green-100)}
+  html.dark .ntb-calc{border-color:rgba(255,255,255,.1);color:var(--sand-400)}
+  html.dark .ntb-calc:hover{border-color:rgba(255,255,255,.25);color:var(--sand-600)}
+  @media(max-width:1000px){.nav-tools{display:none}}
 
   /* NAV positioning fix for mascots */
   nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 32px;height:68px;background:rgba(249,247,242,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--sand-200)}
@@ -645,8 +651,8 @@
     <li><a onclick="showPage('como-analizamos')">Cómo analizamos</a></li>
   </ul>
   <div class="nav-tools">
-    <button class="nav-quiz-btn" onclick="document.querySelector('.quiz-section').scrollIntoView({behavior:'smooth'})">🎯 Test pienso</button>
-    <button class="nav-quiz-btn nav-calc-btn" onclick="document.querySelector('.calc-section').scrollIntoView({behavior:'smooth'})">🧮 ¿Cuánto gasto?</button>
+    <button class="nav-tool-btn ntb-quiz" onclick="document.querySelector('.quiz-section').scrollIntoView({behavior:'smooth'})">🎯 ¿Qué pienso le va mejor?</button>
+    <button class="nav-tool-btn ntb-calc" onclick="document.querySelector('.calc-section').scrollIntoView({behavior:'smooth'})">🧮 Coste mensual del pienso</button>
   </div>
   <div class="dark-toggle-wrap" title="Modo oscuro">
     <span>🌙</span>
