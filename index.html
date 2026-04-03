@@ -2153,32 +2153,73 @@
     btn.disabled=true;
     loading.classList.add('visible');
     result.classList.remove('visible');
-    try{
-      var response=await fetch('https://api.anthropic.com/v1/messages',{
-        method:'POST',
-        headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({
-          model:'claude-sonnet-4-20250514',
-          max_tokens:1000,
-          system:'Eres un asistente veterinario de PataAdvisor, web española de mascotas. El usuario describe un síntoma de su '+currentPet+'. Responde SOLO con este JSON exacto sin markdown:\n{"urgencia":"verde|amarillo|rojo","urgencia_texto":"Sin urgencia inmediata|Observar con atención|Veterinario hoy","causas":"2-3 causas probables en 2-3 frases claras","que_hacer":"qué hacer ahora en 1-2 frases"}\nverde=leve, amarillo=observar, rojo=urgencia hoy. Responde en español.',
-          messages:[{role:'user',content:'Mi '+currentPet+' tiene este síntoma: '+input}]
-        })
-      });
-      var data=await response.json();
-      var text=data.content.map(function(i){return i.text||'';}).join('');
-      var parsed=JSON.parse(text.replace(/```json|```/g,'').trim());
-      var emoji=parsed.urgencia==='rojo'?'🔴':parsed.urgencia==='amarillo'?'🟡':'🟢';
-      document.getElementById('symptom-urgency').innerHTML='<span class="urgency-badge urgency-'+parsed.urgencia+'">'+emoji+' '+parsed.urgencia_texto+'</span>';
-      document.getElementById('symptom-text').innerHTML='<strong>Causas más probables:</strong> '+parsed.causas+'<br><br><strong>Qué hacer:</strong> '+parsed.que_hacer;
-      var links=getRelatedLinks(input+' '+parsed.causas);
-      document.getElementById('symptom-links').innerHTML=links.map(function(l){return '<a class="symptom-result-link" href="'+l.href+'">📖 '+l.text+'</a>';}).join('');
-      result.classList.add('visible');
-    }catch(e){
-      document.getElementById('symptom-urgency').innerHTML='';
-      document.getElementById('symptom-text').innerHTML='No hemos podido analizar el síntoma ahora mismo. Por favor inténtalo de nuevo o consulta a tu veterinario.';
-      document.getElementById('symptom-links').innerHTML='';
-      result.classList.add('visible');
+
+    // Pequeña pausa para simular análisis
+    await new Promise(function(r){setTimeout(r,800);});
+
+    var t=input.toLowerCase();
+    var pet=currentPet==='gato'?'gato':'perro';
+
+    // Base de conocimiento de síntomas
+    var respuestas=[
+      {keys:['no come','no quiere comer','rechaza','inapetente','sin apetito'],urgencia:'amarillo',urgencia_texto:'Observar con atención',causas:'Las causas más frecuentes son aburrimiento con el pienso, estrés por algún cambio en el entorno, o un malestar digestivo leve. Si lleva más de 48 horas sin comer o tiene otros síntomas, puede ser señal de algo más serio.',que_hacer:'Prueba a calentar ligeramente la comida o añade un chorrito de caldo sin sal. Si no come en 48 horas, consulta a tu veterinario.',links:['perro-no-come-pienso.html']},
+      {keys:['vomit','vómito','vomita','arcada','náusea'],urgencia:'amarillo',urgencia_texto:'Observar con atención',causas:'Los vómitos ocasionales pueden deberse a comer demasiado rápido, ingestión de hierba, cambio de dieta o gastritis leve. Si vomita más de 3 veces al día, hay sangre o está muy decaído, es urgente.',que_hacer:'Retira la comida 4-6 horas y ofrece agua en pequeñas cantidades. Si persiste más de 24h o aparece sangre, ve al veterinario.',links:['alimentos-prohibidos-perros.html']},
+      {keys:['bilis','amarillo','vomita amarillo','vomita por la mañana'],urgencia:'amarillo',urgencia_texto:'Observar con atención',causas:'El vómito amarillo o bilioso por las mañanas suele ocurrir cuando el estómago lleva muchas horas vacío. Es el síndrome del vómito biliar, muy frecuente y con solución sencilla.',que_hacer:'Divide la ración diaria en 3 tomas en vez de 2, o da un pequeño tentempié antes de dormir. Si se repite más de 3 veces por semana, consulta al veterinario.',links:['perro-no-come-pienso.html']},
+      {keys:['rasca','picor','pica','se lame','se muerde'],urgencia:'amarillo',urgencia_texto:'Observar con atención',causas:'El rascado excesivo puede deberse a parásitos (pulgas, ácaros), alergia alimentaria, dermatitis atópica o alergia ambiental (polen, ácaros del polvo). Revisar si hay pulgas en la piel.',que_hacer:'Revisa la piel buscando pulgas o rojeces. Si no hay parásitos visibles y persiste más de una semana, consulta al veterinario para descartar alergias.',links:['articulos2.html#antiparasitarios','pienso-perro-alergia.html']},
+      {keys:['diarrea','heces blandas','deposición','caca blanda','colitis'],urgencia:'amarillo',urgencia_texto:'Observar con atención',causas:'La diarrea ocasional suele deberse a cambio brusco de dieta, ingestión de algo en mal estado, estrés o parásitos intestinales. Si hay sangre o dura más de 48 horas es más preocupante.',que_hacer:'Ofrece solo agua durante 12h y luego dieta blanda (arroz blanco con pollo hervido sin sal). Si hay sangre o dura más de 48h, ve al veterinario.',links:['alimentos-prohibidos-perros.html']},
+      {keys:['cojea','cojera','pata','no apoya','renquea'],urgencia:'amarillo',urgencia_texto:'Observar con atención',causas:'La cojera puede deberse a una pequeña herida en la almohadilla, una uña rota, un esguince leve o dolor articular. En razas condrodistróficas como el Teckel puede indicar problemas de columna.',que_hacer:'Revisa la pata buscando heridas, cuerpos extraños o inflamación. Si no mejora en 24h o el dolor es intenso, visita al veterinario.',links:['teckel.html']},
+      {keys:['bebe mucho','mucha sed','polidipsia','mucha agua'],urgencia:'rojo',urgencia_texto:'Veterinario hoy',causas:'El aumento de sed repentino puede ser señal de diabetes, enfermedad renal, síndrome de Cushing o piometra en hembras no esterilizadas. Es un síntoma que siempre requiere evaluación veterinaria.',que_hacer:'Anota cuánta agua bebe al día y lleva esa información al veterinario. No restrinjas el agua. Solicita cita lo antes posible.',links:[]},
+      {keys:['convuls','epileps','temblor','ataque','se cae'],urgencia:'rojo',urgencia_texto:'Veterinario hoy',causas:'Las convulsiones pueden deberse a epilepsia, intoxicación, hipoglucemia, problemas neurológicos o cardíacos. Son siempre una emergencia, especialmente si duran más de 2-3 minutos.',que_hacer:'No metas la mano en la boca. Aparta objetos peligrosos. Graba un vídeo si puedes. Ve a urgencias veterinarias inmediatamente.',links:['alimentos-prohibidos-perros.html']},
+      {keys:['chocolate','uva','cebolla','ajo','xilitol','tóxico','veneno','intoxic'],urgencia:'rojo',urgencia_texto:'Veterinario hoy',causas:'Has mencionado un posible tóxico. Algunos alimentos comunes son extremadamente peligrosos para mascotas: chocolate, uvas, pasas, cebolla, ajo y xilitol pueden ser mortales.',que_hacer:'Ve a urgencias veterinarias AHORA. No induzcas el vómito sin indicación veterinaria. Lleva el envase del producto si lo tienes.',links:['alimentos-prohibidos-perros.html']},
+      {keys:['no duerme','maúlla','llora','vocali','maull','noche'],urgencia:'verde',urgencia_texto:'Sin urgencia inmediata',causas:'En gatos, el comportamiento nocturno activo es muy frecuente. Suele deberse al ciclo natural de caza-come-juega-duerme, celo no resuelto o estimulación insuficiente durante el día.',que_hacer:'Establece una rutina de juego activo antes de dormir y da la cena principal por la noche. Si es un gato sin castrar, consulta la esterilización.',links:['gato-no-deja-dormir.html']},
+      {keys:['oreja','sacude la cabeza','otitis','mal olor oído'],urgencia:'amarillo',urgencia_texto:'Observar con atención',causas:'La otitis es muy frecuente en perros con orejas caídas. Causas habituales: infección bacteriana, hongos, ácaros o cuerpo extraño. El mal olor y el rascado de oídos son señales claras.',que_hacer:'No introduzcas nada en el oído. Limpia solo la parte externa con una gasa. Consulta al veterinario en los próximos 2-3 días para diagnóstico y tratamiento.',links:['articulos2.html#antiparasitarios']},
+      {keys:['pelo','pierde pelo','alopecia','calvo','muda'],urgencia:'verde',urgencia_texto:'Sin urgencia inmediata',causas:'La pérdida de pelo puede ser estacional (muda normal), por estrés, alergia alimentaria o dermatitis. Si aparecen zonas sin pelo con piel irritada o el animal se rasca mucho, puede ser patológica.',que_hacer:'Aumenta el cepillado durante la muda. Si aparecen zonas peladas con piel rojiza o costras, consulta al veterinario.',links:['pienso-perro-alergia.html','articulos2.html#antiparasitarios']},
+      {keys:['decaído','triste','letargia','sin energía','apático','no juega'],urgencia:'amarillo',urgencia_texto:'Observar con atención',causas:'La letargia puede acompañar a cualquier proceso: desde un cansancio puntual hasta una infección, anemia o problema interno. Si dura más de 24h o se acompaña de otros síntomas, es significativa.',que_hacer:'Observa si hay otros síntomas (fiebre, vómitos, falta de apetito). Si la letargia persiste más de 24-48 horas, consulta al veterinario.',links:[]},
+    ];
+
+    // Buscar coincidencia
+    var encontrado=null;
+    for(var i=0;i<respuestas.length;i++){
+      for(var j=0;j<respuestas[i].keys.length;j++){
+        if(t.indexOf(respuestas[i].keys[j])>-1){
+          encontrado=respuestas[i];
+          break;
+        }
+      }
+      if(encontrado) break;
     }
+
+    // Respuesta genérica si no hay coincidencia
+    if(!encontrado){
+      encontrado={
+        urgencia:'amarillo',
+        urgencia_texto:'Observar con atención',
+        causas:'No hemos encontrado ese síntoma específico en nuestra base de datos. Puede deberse a múltiples causas — algunas leves y otras que requieren atención. Lo mejor es observar durante 24-48 horas si el '+pet+' está activo y come con normalidad.',
+        que_hacer:'Si el síntoma persiste más de 48 horas, empeora o aparecen otros síntomas (vómitos, letargia, falta de apetito), consulta a tu veterinario. Ante la duda, siempre es mejor llamar.',
+        links:[]
+      };
+    }
+
+    var emoji=encontrado.urgencia==='rojo'?'🔴':encontrado.urgencia==='amarillo'?'🟡':'🟢';
+    document.getElementById('symptom-urgency').innerHTML='<span class="urgency-badge urgency-'+encontrado.urgencia+'">'+emoji+' '+encontrado.urgencia_texto+'</span>';
+    document.getElementById('symptom-text').innerHTML='<strong>Causas más probables:</strong> '+encontrado.causas+'<br><br><strong>Qué hacer:</strong> '+encontrado.que_hacer;
+
+    // Links relacionados
+    var linksArr=encontrado.links||[];
+    var allLinks={
+      'perro-no-come-pienso.html':{text:'¿Por qué mi perro no quiere comer?',href:'perro-no-come-pienso.html'},
+      'alimentos-prohibidos-perros.html':{text:'Alimentos prohibidos para perros',href:'alimentos-prohibidos-perros.html'},
+      'pienso-perro-alergia.html':{text:'Piensos para perros con alergia',href:'pienso-perro-alergia.html'},
+      'articulos2.html#antiparasitarios':{text:'Antiparasitarios 2026',href:'articulos2.html#antiparasitarios'},
+      'gato-no-deja-dormir.html':{text:'Gato que no deja dormir',href:'gato-no-deja-dormir.html'},
+      'teckel.html':{text:'Guía del Teckel',href:'teckel.html'},
+    };
+    var linksHtml=linksArr.map(function(l){
+      var link=allLinks[l];
+      return link?'<a class="symptom-result-link" href="'+link.href+'">📖 '+link.text+'</a>':'';
+    }).join('');
+    document.getElementById('symptom-links').innerHTML=linksHtml;
+    result.classList.add('visible');
     loading.classList.remove('visible');
     btn.disabled=false;
   }
