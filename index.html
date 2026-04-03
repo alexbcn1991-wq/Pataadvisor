@@ -784,6 +784,8 @@
   <a onclick="showPage('home');closeMob()">Perros</a>
   <a onclick="showPage('home');closeMob()">Gatos</a>
   <a onclick="showPage('como-analizamos');closeMob()">Cómo analizamos</a>
+  <a onclick="showPage('quienes-somos');closeMob()">Quiénes somos</a>
+  <a onclick="showPage('contacto');closeMob()">Contacto</a>
   <a onclick="showPage('home');closeMob();setTimeout(()=>document.getElementById('nl').scrollIntoView({behavior:'smooth'}),100)">Newsletter</a>
 </div>
 
@@ -1683,8 +1685,131 @@
   </div>
 </div>
 
-<!-- FOOTER -->
-<footer>
+<!-- QUIÉNES SOMOS -->
+<div id="page-quienes-somos" class="page">
+  <div class="legal-page" style="max-width:800px">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+      <span style="font-size:11px;font-weight:500;color:var(--green-300);text-transform:uppercase;letter-spacing:.12em">Sobre nosotros</span>
+    </div>
+    <h1 style="font-family:'Fraunces',serif;font-size:clamp(28px,4vw,42px);font-weight:300;letter-spacing:-.02em;margin-bottom:24px;line-height:1.1">La historia detrás de <em style="font-style:italic;color:var(--green-500)">PataAdvisor</em></h1>
+
+    <div style="display:grid;grid-template-columns:1fr 200px;gap:40px;align-items:start;margin-bottom:40px">
+      <div>
+        <p style="font-size:18px;color:var(--sand-600);line-height:1.75;font-weight:300;border-left:3px solid var(--green-300);padding-left:20px;margin-bottom:28px">PataAdvisor nació de una pregunta sencilla: ¿por qué es tan difícil encontrar información honesta sobre productos para mascotas?</p>
+        <p>Todo empezó con una perra Golden Retriever llamada <strong>Luna</strong> y demasiadas horas perdidas comparando piensos en foros llenos de opiniones contradictorias, webs llenas de publicidad y recomendaciones que parecían más interesadas en vender que en ayudar.</p>
+        <p>Decidimos hacer algo diferente: analizar los productos de verdad, comparar ingredientes, leer estudios veterinarios y ser completamente transparentes sobre cómo ganamos dinero (sí, somos afiliados de Amazon — lo explicamos abiertamente en cada página).</p>
+      </div>
+      <div style="background:var(--green-50);border-radius:var(--r-xl);padding:24px;text-align:center">
+        <div style="font-size:56px;margin-bottom:12px">🐾</div>
+        <div style="font-family:'Fraunces',serif;font-size:18px;font-weight:300;font-style:italic;color:var(--sand-900);margin-bottom:4px">Luna & equipo</div>
+        <div style="font-size:13px;color:var(--sand-400)">Desde Barcelona, 2026</div>
+      </div>
+    </div>
+
+    <h2>Cómo trabajamos</h2>
+    <p>Cada artículo de PataAdvisor sigue el mismo proceso: investigamos los productos disponibles en el mercado español, analizamos sus ingredientes y especificaciones, consultamos fuentes veterinarias y nos fijamos en miles de valoraciones reales de compradores. No aceptamos productos gratis a cambio de reseñas positivas.</p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin:28px 0">
+      <div style="background:var(--white);border:1px solid var(--sand-200);border-radius:var(--r-lg);padding:20px;text-align:center">
+        <div style="font-size:28px;margin-bottom:8px">🔬</div>
+        <div style="font-weight:500;color:var(--sand-900);font-size:14px;margin-bottom:4px">Análisis de ingredientes</div>
+        <div style="font-size:13px;color:var(--sand-400);line-height:1.5">Revisamos cada composición nutricional y la comparamos con estándares veterinarios</div>
+      </div>
+      <div style="background:var(--white);border:1px solid var(--sand-200);border-radius:var(--r-lg);padding:20px;text-align:center">
+        <div style="font-size:28px;margin-bottom:8px">⭐</div>
+        <div style="font-weight:500;color:var(--sand-900);font-size:14px;margin-bottom:4px">Miles de opiniones</div>
+        <div style="font-size:13px;color:var(--sand-400);line-height:1.5">Analizamos patrones en valoraciones reales de compradores verificados</div>
+      </div>
+      <div style="background:var(--white);border:1px solid var(--sand-200);border-radius:var(--r-lg);padding:20px;text-align:center">
+        <div style="font-size:28px;margin-bottom:8px">💚</div>
+        <div style="font-weight:500;color:var(--sand-900);font-size:14px;margin-bottom:4px">Sin conflictos</div>
+        <div style="font-size:13px;color:var(--sand-400);line-height:1.5">Nuestras comisiones de afiliado son iguales para todos los productos que analizamos</div>
+      </div>
+    </div>
+
+    <h2>Nuestro compromiso</h2>
+    <p>Si recomendamos un producto es porque creemos que es bueno para tu mascota — no porque nos paguen más por él. Actualizamos nuestros análisis regularmente y corregimos cualquier información que deje de ser precisa. Si detectas un error o tienes una pregunta, escríbenos.</p>
+
+    <div style="background:var(--green-900);border-radius:var(--r-xl);padding:28px 32px;margin-top:32px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
+      <div>
+        <div style="font-family:'Fraunces',serif;font-size:18px;font-weight:300;color:white;font-style:italic;margin-bottom:6px">¿Tienes alguna pregunta o sugerencia?</div>
+        <div style="font-size:14px;color:rgba(255,255,255,.5)">Nos encanta saber de los dueños de mascotas que nos leen</div>
+      </div>
+      <a onclick="showPage('contacto')" style="background:var(--green-300);color:white;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;padding:12px 24px;border-radius:100px;text-decoration:none;cursor:pointer;white-space:nowrap;transition:background .2s" onmouseover="this.style.background='#25B888'" onmouseout="this.style.background='var(--green-300)'">Escribirnos →</a>
+    </div>
+
+    <p style="margin-top:32px"><a onclick="showPage('home')" style="color:var(--green-500);text-decoration:none">← Volver al inicio</a></p>
+  </div>
+</div>
+
+<!-- CONTACTO -->
+<div id="page-contacto" class="page">
+  <div class="legal-page" style="max-width:680px">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+      <span style="font-size:11px;font-weight:500;color:var(--green-300);text-transform:uppercase;letter-spacing:.12em">Contacto</span>
+    </div>
+    <h1 style="font-family:'Fraunces',serif;font-size:clamp(28px,4vw,42px);font-weight:300;letter-spacing:-.02em;margin-bottom:12px;line-height:1.1">Escríbenos</h1>
+    <p style="font-size:17px;color:var(--sand-600);margin-bottom:36px;font-weight:300">Respondemos todos los mensajes en un plazo de 24-48 horas. Para consultas sobre productos, análisis o colaboraciones — estamos aquí.</p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:32px">
+      <div style="background:var(--white);border:1px solid var(--sand-200);border-radius:var(--r-lg);padding:20px;display:flex;gap:14px;align-items:flex-start">
+        <span style="font-size:24px;flex-shrink:0">📧</span>
+        <div>
+          <div style="font-weight:500;color:var(--sand-900);font-size:14px;margin-bottom:4px">Email general</div>
+          <div style="font-size:13px;color:var(--sand-400)">Consultas, sugerencias y correcciones</div>
+          <a href="mailto:hola@pataadvisor.es" style="font-size:14px;color:var(--green-500);text-decoration:none;margin-top:6px;display:block">hola@pataadvisor.es</a>
+        </div>
+      </div>
+      <div style="background:var(--white);border:1px solid var(--sand-200);border-radius:var(--r-lg);padding:20px;display:flex;gap:14px;align-items:flex-start">
+        <span style="font-size:24px;flex-shrink:0">🤝</span>
+        <div>
+          <div style="font-weight:500;color:var(--sand-900);font-size:14px;margin-bottom:4px">Colaboraciones</div>
+          <div style="font-size:13px;color:var(--sand-400)">Marcas y proyectos editoriales</div>
+          <a href="mailto:colaboraciones@pataadvisor.es" style="font-size:14px;color:var(--green-500);text-decoration:none;margin-top:6px;display:block">colaboraciones@pataadvisor.es</a>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:var(--white);border:1px solid var(--sand-200);border-radius:var(--r-xl);padding:32px">
+      <h2 style="font-family:'Fraunces',serif;font-size:20px;font-weight:400;color:var(--sand-900);margin-bottom:24px;font-style:italic">Envíanos un mensaje</h2>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div>
+          <label style="font-size:13px;font-weight:500;color:var(--sand-700);display:block;margin-bottom:6px">Tu nombre</label>
+          <input type="text" placeholder="María García" id="contact-name" style="width:100%;padding:12px 16px;border:1.5px solid var(--sand-200);border-radius:var(--r-md);font-family:'DM Sans',sans-serif;font-size:15px;color:var(--sand-900);background:var(--sand-50);outline:none;transition:border-color .2s" onfocus="this.style.borderColor='var(--green-300)'" onblur="this.style.borderColor='var(--sand-200)'">
+        </div>
+        <div>
+          <label style="font-size:13px;font-weight:500;color:var(--sand-700);display:block;margin-bottom:6px">Tu email</label>
+          <input type="email" placeholder="maria@email.com" id="contact-email" style="width:100%;padding:12px 16px;border:1.5px solid var(--sand-200);border-radius:var(--r-md);font-family:'DM Sans',sans-serif;font-size:15px;color:var(--sand-900);background:var(--sand-50);outline:none;transition:border-color .2s" onfocus="this.style.borderColor='var(--green-300)'" onblur="this.style.borderColor='var(--sand-200)'">
+        </div>
+        <div>
+          <label style="font-size:13px;font-weight:500;color:var(--sand-700);display:block;margin-bottom:6px">Asunto</label>
+          <select id="contact-subject" style="width:100%;padding:12px 16px;border:1.5px solid var(--sand-200);border-radius:var(--r-md);font-family:'DM Sans',sans-serif;font-size:15px;color:var(--sand-900);background:var(--sand-50);outline:none;appearance:none;transition:border-color .2s" onfocus="this.style.borderColor='var(--green-300)'" onblur="this.style.borderColor='var(--sand-200)'">
+            <option value="">Selecciona un asunto...</option>
+            <option>Consulta sobre un producto</option>
+            <option>Corrección de información</option>
+            <option>Sugerencia de artículo</option>
+            <option>Colaboración o publicidad</option>
+            <option>Otro</option>
+          </select>
+        </div>
+        <div>
+          <label style="font-size:13px;font-weight:500;color:var(--sand-700);display:block;margin-bottom:6px">Mensaje</label>
+          <textarea id="contact-msg" placeholder="Cuéntanos en qué podemos ayudarte..." rows="5" style="width:100%;padding:12px 16px;border:1.5px solid var(--sand-200);border-radius:var(--r-md);font-family:'DM Sans',sans-serif;font-size:15px;color:var(--sand-900);background:var(--sand-50);outline:none;resize:vertical;transition:border-color .2s" onfocus="this.style.borderColor='var(--green-300)'" onblur="this.style.borderColor='var(--sand-200)'"></textarea>
+        </div>
+        <button onclick="sendContact()" style="background:var(--green-300);color:white;border:none;padding:14px 28px;border-radius:100px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;cursor:pointer;transition:background .2s;align-self:flex-start" onmouseover="this.style.background='var(--green-500)'" onmouseout="this.style.background='var(--green-300)'">Enviar mensaje →</button>
+        <div id="contact-ok" style="display:none;background:var(--green-50);border:1px solid var(--green-100);border-radius:var(--r-md);padding:14px 18px;font-size:14px;color:var(--green-700)">✅ Mensaje enviado. Te respondemos en 24-48h.</div>
+      </div>
+    </div>
+
+    <div style="background:var(--sand-100);border-radius:var(--r-lg);padding:18px 22px;margin-top:24px;font-size:14px;color:var(--sand-600);line-height:1.6">
+      <strong style="color:var(--sand-900)">Nota:</strong> No revisamos productos a cambio de reseñas positivas ni aceptamos contenido patrocinado no identificado. Nuestras recomendaciones son siempre editorialmente independientes.
+    </div>
+
+    <p style="margin-top:32px"><a onclick="showPage('home')" style="color:var(--green-500);text-decoration:none">← Volver al inicio</a></p>
+  </div>
+</div>
+
+
   <div>
     <span class="footer-logo" onclick="showPage('home')">
       <svg width="380" height="80" viewBox="0 0 360 88" xmlns="http://www.w3.org/2000/svg">
@@ -1716,9 +1841,10 @@
     <h4>Legal</h4>
     <ul>
       <li><a onclick="showPage('como-analizamos')">Cómo analizamos</a></li>
+      <li><a onclick="showPage('quienes-somos')">Quiénes somos</a></li>
+      <li><a onclick="showPage('contacto')">Contacto</a></li>
       <li><a onclick="showPage('privacidad')">Política de privacidad</a></li>
       <li><a onclick="showPage('aviso-legal')">Aviso legal</a></li>
-      <li><a href="/cdn-cgi/l/email-protection#e0888f8c81a09081948181849689938f92ce8593">Contacto</a></li>
     </ul>
   </div>
 </footer>
@@ -2127,6 +2253,17 @@
     document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
     var t=document.getElementById('page-'+id);
     if(t){t.classList.add('active');window.scrollTo({top:0,behavior:'smooth'});}
+  }
+  function sendContact(){
+    var name=document.getElementById('contact-name').value.trim();
+    var email=document.getElementById('contact-email').value.trim();
+    var msg=document.getElementById('contact-msg').value.trim();
+    if(!name||!email||!msg){alert('Por favor rellena al menos tu nombre, email y mensaje.');return;}
+    document.getElementById('contact-ok').style.display='block';
+    document.getElementById('contact-name').value='';
+    document.getElementById('contact-email').value='';
+    document.getElementById('contact-msg').value='';
+    document.getElementById('contact-subject').value='';
   }
   function hideCookie(){
     document.getElementById('cookieBanner').style.display='none';
