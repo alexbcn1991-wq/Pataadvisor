@@ -545,7 +545,7 @@
 
   /* MAGAZINE ARTICLE CARDS */
   .articles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-  .article-card{border-radius:var(--r-lg);cursor:pointer;transition:transform .25s,box-shadow .25s;text-decoration:none;overflow:hidden;display:flex;flex-direction:column;min-height:220px;position:relative;background:var(--sand-800)}
+  .article-card{border-radius:var(--r-lg);cursor:pointer;transition:transform .25s,box-shadow .25s;text-decoration:none;overflow:hidden;display:flex;flex-direction:column;min-height:180px;position:relative;background:var(--sand-800)}
   .article-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.15)}
   .article-card-bg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:80px;background:linear-gradient(135deg,var(--sand-800) 0%,var(--sand-600) 100%);opacity:.9}
   .article-card-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,8,6,.92) 0%,rgba(10,8,6,.4) 60%,rgba(10,8,6,.1) 100%)}
@@ -1436,7 +1436,7 @@
   </section>
 
   <section class="section">
-    <div class="sec-header"><h2 class="sec-title">Últimas guías</h2><span class="sec-link">Ver todas →</span></div>
+    <div class="sec-header"><h2 class="sec-title">Últimas guías</h2><a href="articulos.html" class="sec-link">Ver todas →</a></div>
     <div class="articles-grid">
       <a href="teckel.html" class="article-card">
         <div class="article-card-bg" style="background:url('teckel-perro-salchicha-ficha-expres-pataadvisor.png') center/cover no-repeat;opacity:1;font-size:0"></div><div class="article-card-overlay"></div>
@@ -1462,32 +1462,40 @@
         <div class="article-card-bg" style="background:url('article-juguetes.jpg') center/cover no-repeat;opacity:1;font-size:0"></div><div class="article-card-overlay"></div>
         <div class="article-card-body"><div class="article-tag">Juguetes · Perros</div><div class="article-title">Mejor juguete para perro que se queda solo en casa</div><div class="article-meta"><span>hoy</span><span class="article-meta-dot"></span><span>9 min</span></div></div>
       </a>
-      <a href="articulos.html#pienso-perro" class="article-card">
+
+      <!-- OCULTAS — se muestran al pulsar el botón -->
+      <a href="articulos.html#pienso-perro" class="article-card article-card-hidden" style="display:none">
         <div class="article-card-bg" style="background:url('article-pienso-perro.jpg') center/cover no-repeat;opacity:1;font-size:0"></div><div class="article-card-overlay"></div>
         <div class="article-card-body"><div class="article-tag">Alimentación · Perros</div><div class="article-title">El mejor pienso para perro adulto en 2026</div><div class="article-meta"><span>hace 1 semana</span><span class="article-meta-dot"></span><span>8 min</span></div></div>
       </a>
-      <a href="articulos2.html#tecnologia-mascotas" class="article-card">
+      <a href="articulos2.html#tecnologia-mascotas" class="article-card article-card-hidden" style="display:none">
         <div class="article-card-bg" style="background:url('article-tech.jpg') center/cover no-repeat;opacity:1;font-size:0"></div><div class="article-card-overlay"></div>
         <div class="article-card-body"><div class="article-tag">Tecnología</div><div class="article-title">Tech para mascotas: comederos WiFi, GPS y más</div><div class="article-meta"><span>hace 2 días</span><span class="article-meta-dot"></span><span>9 min</span></div></div>
       </a>
-      <a href="articulos2.html#gadgets-mascotas" class="article-card">
+      <a href="articulos2.html#gadgets-mascotas" class="article-card article-card-hidden" style="display:none">
         <div class="article-card-bg" style="background:url('article-gadgets.jpg') center/cover no-repeat;opacity:1;font-size:0"></div><div class="article-card-overlay"></div>
         <div class="article-card-body"><div class="article-tag">Gadgets · Top 10</div><div class="article-title">10 gadgets que no sabías que necesitabas</div><div class="article-meta"><span>hace 3 días</span><span class="article-meta-dot"></span><span>7 min</span></div></div>
       </a>
-      <a href="articulos2.html#antiparasitarios" class="article-card">
+      <a href="articulos2.html#antiparasitarios" class="article-card article-card-hidden" style="display:none">
         <div class="article-card-bg" style="background:url('article-antiparasitarios.jpg') center/cover no-repeat;opacity:1;font-size:0"></div><div class="article-card-overlay"></div>
         <div class="article-card-body"><div class="article-tag">Salud · Perros</div><div class="article-title">Los 7 mejores antiparasitarios de 2026</div><div class="article-meta"><span>hace 2 días</span><span class="article-meta-dot"></span><span>8 min</span></div></div>
       </a>
-      <a href="articulos2.html#guia-cachorro" class="article-card">
+      <a href="articulos2.html#guia-cachorro" class="article-card article-card-hidden" style="display:none">
         <div class="article-card-bg" style="background:url('article-cachorro.jpg') center/cover no-repeat;opacity:1;font-size:0"></div><div class="article-card-overlay"></div>
         <div class="article-card-body"><div class="article-tag">Cachorros</div><div class="article-title">Guía completa para el primer mes con un cachorro</div><div class="article-meta"><span>hace 3 días</span><span class="article-meta-dot"></span><span>12 min</span></div></div>
       </a>
-      <a href="articulos.html#transportines" class="article-card">
+      <a href="articulos.html#transportines" class="article-card article-card-hidden" style="display:none">
         <div class="article-card-bg" style="background:url('article-transportines.jpg') center/cover no-repeat;opacity:1;font-size:0"></div><div class="article-card-overlay"></div>
         <div class="article-card-body"><div class="article-tag">Viajes</div><div class="article-title">Transportines homologados IATA para volar</div><div class="article-meta"><span>hace 1 semana</span><span class="article-meta-dot"></span><span>10 min</span></div></div>
       </a>
     </div>
-  </section>
+
+    <!-- BOTÓN VER MÁS -->
+    <div style="text-align:center;margin-top:20px" id="ver-mas-wrap">
+      <button onclick="mostrarTodos()" style="font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;color:var(--green-500);background:var(--green-50);border:1.5px solid var(--green-100);border-radius:100px;padding:12px 28px;cursor:pointer;transition:all .2s" onmouseover="this.style.background='var(--green-100)'" onmouseout="this.style.background='var(--green-50)'">
+        Ver todos los artículos ↓
+      </button>
+    </div>
 
   <!-- RANKING MENSUAL -->
   <section class="ranking-section">
@@ -2175,6 +2183,10 @@
     btn.disabled=false;
   }
 
+  function mostrarTodos(){
+    document.querySelectorAll('.article-card-hidden').forEach(function(c){c.style.display='flex';});
+    document.getElementById('ver-mas-wrap').style.display='none';
+  }
   function toggleDark(){
     var isDark = document.documentElement.classList.toggle('dark');
     localStorage.setItem('pa_dark', isDark ? '1' : '0');
