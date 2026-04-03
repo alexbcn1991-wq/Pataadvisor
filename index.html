@@ -1025,7 +1025,24 @@
   </div>
 </div>
 
-<!-- TICKER -->
+<!-- BANNER CALCULADORA EDAD -->
+<div style="background:linear-gradient(135deg,#085041 0%,#0F6E56 100%);padding:0 32px;cursor:pointer" onclick="showPage('home');setTimeout(function(){document.getElementById('age-calc').scrollIntoView({behavior:'smooth',block:'center'})},100)">
+  <div style="max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:20px;flex-wrap:wrap">
+    <div style="display:flex;align-items:center;gap:16px">
+      <span style="font-size:28px">🐾</span>
+      <div>
+        <div style="font-size:11px;font-weight:500;color:var(--green-100);text-transform:uppercase;letter-spacing:.14em;margin-bottom:2px">Curiosidad del día</div>
+        <div style="font-family:'Fraunces',serif;font-size:18px;font-weight:300;color:white;font-style:italic;letter-spacing:-.01em">¿Sabes cuántos años tiene tu perro <em style="color:var(--green-100)">en años humanos?</em></div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:100px;padding:10px 20px;white-space:nowrap;transition:background .2s" onmouseover="this.style.background='rgba(255,255,255,.18)'" onmouseout="this.style.background='rgba(255,255,255,.1)'">
+      <span style="font-size:14px;font-weight:500;color:white">Calcular ahora</span>
+      <span style="color:var(--green-100);font-size:16px">→</span>
+    </div>
+  </div>
+</div>
+
+
 <div class="ticker-wrap">
   <div class="ticker-inner">
     <div class="ticker-label">Recién actualizado</div>
@@ -1442,7 +1459,7 @@
   </section>
 
   <!-- CALCULADORA EDAD PERRO -->
-  <section class="age-calc-section">
+  <section class="age-calc-section" id="age-calc">
     <div class="age-calc-box">
       <div>
         <div class="age-eyebrow">Calculadora gratuita</div>
