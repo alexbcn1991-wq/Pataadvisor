@@ -277,7 +277,7 @@
   html.dark .nav-dd-sep{background:#2A2520}
 
   /* NAV TOOLS */
-  .nav-tools{display:flex;align-items:center;gap:6px}
+  .nav-tools{display:flex;align-items:center;gap:10px}
   .nav-tool-btn{font-family:var(--font-body);font-size:12px;font-weight:500;border-radius:100px;padding:6px 14px;cursor:pointer;transition:all .2s;white-space:nowrap;display:inline-flex;align-items:center;gap:5px;letter-spacing:.01em;text-decoration:none;line-height:1}
   .nav-tool-btn:hover{transform:translateY(-1px)}
   .ntb-quiz{color:var(--green-500);background:var(--green-50);border:1px solid var(--green-100)}
@@ -1098,9 +1098,14 @@
     </li>
 
   </ul>
+
+  <!-- GUÍAS -->
+  <a href="guias.html" style="font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;color:var(--sand-700);text-decoration:none;display:flex;align-items:center;gap:6px;padding:0 8px;white-space:nowrap;transition:color .2s" onmouseover="this.style.color='var(--green-500)'" onmouseout="this.style.color='var(--sand-700)'">
+    Guías
+    <span style="font-size:10px;font-weight:700;background:var(--green-300);color:white;padding:2px 7px;border-radius:100px;letter-spacing:.04em">NEW</span>
+  </a>
   <div class="nav-tools">
     <button class="nav-tool-btn ntb-quiz" onclick="document.querySelector('.quiz-section').scrollIntoView({behavior:'smooth'})">🎯 ¿Qué pienso le va mejor?</button>
-    <button class="nav-tool-btn ntb-calc" onclick="document.querySelector('.calc-section').scrollIntoView({behavior:'smooth'})">🧮 Coste mensual del pienso</button>
     <button class="nav-tool-btn" style="background:rgba(29,158,117,.1);color:var(--green-500);border-color:rgba(29,158,117,.2)" onclick="showPage('home');setTimeout(function(){document.getElementById('age-calc').scrollIntoView({behavior:'smooth',block:'center'})},100)">🐾 ¿Cuántos años tiene tu perro?</button>
     <button class="nav-tool-btn" style="background:rgba(220,38,38,.1);color:#DC2626;border-color:rgba(220,38,38,.2)" onclick="showPage('home');setTimeout(function(){document.getElementById('symptom-checker').scrollIntoView({behavior:'smooth',block:'center'})},100)">🏥 Síntoma checker</button>
   </div>
