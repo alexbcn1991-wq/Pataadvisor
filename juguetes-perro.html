@@ -152,6 +152,20 @@ body{font-family:var(--font-body);background:var(--sand-50);color:var(--sand-800
   .winner-box{position:relative}
   .sello-pa{position:absolute;top:-18px;right:-18px;width:90px;height:90px;object-fit:contain;filter:drop-shadow(0 4px 8px rgba(0,0,0,.3));z-index:10}
 
+
+  .related-section{margin:48px 0 0;padding-top:40px;border-top:1px solid var(--sand-200)}
+  .related-title{font-family:'Fraunces',serif;font-size:22px;font-weight:300;color:var(--sand-900);letter-spacing:-.02em;margin-bottom:20px;font-style:italic}
+  .related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .related-card{background:var(--white);border:1px solid var(--sand-200);border-radius:var(--r-lg);overflow:hidden;text-decoration:none;transition:box-shadow .2s,transform .2s;display:flex;flex-direction:column}
+  .related-card:hover{box-shadow:0 8px 24px rgba(0,0,0,.08);transform:translateY(-3px)}
+  .related-card-img{height:120px;overflow:hidden;background:var(--sand-100)}
+  .related-card-img img{width:100%;height:100%;object-fit:cover;object-position:center}
+  .related-card-body{padding:14px 16px;flex:1;display:flex;flex-direction:column}
+  .related-card-tag{font-size:10px;font-weight:500;color:var(--green-300);text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px}
+  .related-card-title{font-family:'Fraunces',serif;font-size:15px;font-weight:300;color:var(--sand-900);line-height:1.4;flex:1}
+  .related-card-cta{font-size:12px;font-weight:500;color:var(--green-500);margin-top:10px}
+  @media(max-width:700px){.related-grid{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
@@ -477,6 +491,36 @@ body{font-family:var(--font-body);background:var(--sand-50);color:var(--sand-800
     </div>
 
   </div>
+
+    <div class="related-section">
+      <div class="related-title">También te puede interesar</div>
+      <div class="related-grid">
+        <a href="gps.html" class="related-card">
+          <div class="related-card-img"><img src="hero-dog.jpg" alt="GPS perros"></div>
+          <div class="related-card-body">
+            <div class="related-card-tag">Tecnología · Perros</div>
+            <div class="related-card-title">Mejor GPS para perros 2026: Tractive, PAJ, Weenect</div>
+            <div class="related-card-cta">Leer artículo →</div>
+          </div>
+        </a>
+        <a href="perro-no-come-pienso.html" class="related-card">
+          <div class="related-card-img"><img src="perro-no-come.jpg" alt="Perro no come"></div>
+          <div class="related-card-body">
+            <div class="related-card-tag">Alimentación · Perros</div>
+            <div class="related-card-title">¿Por qué mi perro no quiere comer el pienso?</div>
+            <div class="related-card-cta">Leer artículo →</div>
+          </div>
+        </a>
+        <a href="pienso-perro-alergia.html" class="related-card">
+          <div class="related-card-img"><img src="perro-alergia.jpg" alt="Pienso alergia"></div>
+          <div class="related-card-body">
+            <div class="related-card-tag">Alimentación · Perros</div>
+            <div class="related-card-title">Los 5 mejores piensos para perros con alergia</div>
+            <div class="related-card-cta">Leer artículo →</div>
+          </div>
+        </a>
+      </div>
+    </div>
 </article>
 
 <script type="application/ld+json">
