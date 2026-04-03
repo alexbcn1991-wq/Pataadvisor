@@ -1235,6 +1235,22 @@
         <input type="text" placeholder="Busca pienso, antiparasitarios, juguetes..." id="searchInput"/>
         <button onclick="handleSearch()">Buscar →</button>
       </div>
+
+      <!-- BARRA DE UTILIDADES -->
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px">
+        <button onclick="document.querySelector('.quiz-section').scrollIntoView({behavior:'smooth'})" style="display:flex;align-items:center;gap:7px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;color:var(--green-700);background:var(--green-50);border:1.5px solid var(--green-100);border-radius:100px;padding:9px 16px;cursor:pointer;transition:all .2s;white-space:nowrap" onmouseover="this.style.background='var(--green-100)'" onmouseout="this.style.background='var(--green-50)'">
+          🎯 <span>¿Qué pienso le va mejor?</span>
+        </button>
+        <button onclick="showPage('home');setTimeout(function(){document.getElementById('age-calc').scrollIntoView({behavior:'smooth',block:'center'})},100)" style="display:flex;align-items:center;gap:7px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;color:var(--sand-700);background:var(--sand-100);border:1.5px solid var(--sand-200);border-radius:100px;padding:9px 16px;cursor:pointer;transition:all .2s;white-space:nowrap" onmouseover="this.style.background='var(--sand-200)'" onmouseout="this.style.background='var(--sand-100)'">
+          🎂 <span>¿Cuántos años tiene tu perro?</span>
+        </button>
+        <button onclick="document.querySelector('.calc-section').scrollIntoView({behavior:'smooth'})" style="display:flex;align-items:center;gap:7px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;color:var(--sand-700);background:var(--sand-100);border:1.5px solid var(--sand-200);border-radius:100px;padding:9px 16px;cursor:pointer;transition:all .2s;white-space:nowrap" onmouseover="this.style.background='var(--sand-200)'" onmouseout="this.style.background='var(--sand-100)'">
+          🧮 <span>Coste mensual del pienso</span>
+        </button>
+        <button onclick="showPage('home');setTimeout(function(){document.getElementById('symptom-checker').scrollIntoView({behavior:'smooth',block:'center'})},100)" style="display:flex;align-items:center;gap:7px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;color:#B91C1C;background:#FFF5F5;border:1.5px solid #FCA5A5;border-radius:100px;padding:9px 16px;cursor:pointer;transition:all .2s;white-space:nowrap" onmouseover="this.style.background='#FEE2E2'" onmouseout="this.style.background='#FFF5F5'">
+          🏥 <span>Síntoma checker</span>
+        </button>
+      </div>
       <div class="hero-stats a4">
         <div class="hero-stat">
           <div class="stat-num" data-count="400">0</div>
