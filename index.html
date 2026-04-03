@@ -904,6 +904,7 @@
             <a href="gps.html" class="mega-popular-item">🟡 GPS para perros</a>
             <a href="articulos2.html#guia-cachorro" class="mega-popular-item">🟡 Cachorro primer mes</a>
             <a href="razas.html#labrador" class="mega-popular-item">🟡 Labrador que engorda</a>
+            <a onclick="showPage('home');setTimeout(function(){document.getElementById('age-calc').scrollIntoView({behavior:'smooth',block:'center'})},100)" class="mega-popular-item" style="cursor:pointer">🐾 ¿Cuántos años tiene tu perro?</a>
           </div>
         </div>
       </div>
@@ -1065,22 +1066,6 @@
   </div>
 </div>
 
-<!-- BANNER CALCULADORA EDAD -->
-<div style="background:linear-gradient(135deg,#085041 0%,#0F6E56 100%);padding:0 32px;cursor:pointer" onclick="showPage('home');setTimeout(function(){document.getElementById('age-calc').scrollIntoView({behavior:'smooth',block:'center'})},100)">
-  <div style="max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:20px;flex-wrap:wrap">
-    <div style="display:flex;align-items:center;gap:16px">
-      <span style="font-size:28px">🐾</span>
-      <div>
-        <div style="font-size:11px;font-weight:500;color:var(--green-100);text-transform:uppercase;letter-spacing:.14em;margin-bottom:2px">Curiosidad del día</div>
-        <div style="font-family:'Fraunces',serif;font-size:18px;font-weight:300;color:white;font-style:italic;letter-spacing:-.01em">¿Sabes cuántos años tiene tu perro <em style="color:var(--green-100)">en años humanos?</em></div>
-      </div>
-    </div>
-    <div style="display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:100px;padding:10px 20px;white-space:nowrap;transition:background .2s" onmouseover="this.style.background='rgba(255,255,255,.18)'" onmouseout="this.style.background='rgba(255,255,255,.1)'">
-      <span style="font-size:14px;font-weight:500;color:white">Calcular ahora</span>
-      <span style="color:var(--green-100);font-size:16px">→</span>
-    </div>
-  </div>
-</div>
 
 
 <div class="ticker-wrap">
@@ -1108,32 +1093,6 @@
 
 <!-- BANNER TEMPORADA -->
 <div class="season-banner" id="seasonBanner"></div>
-
-<!-- BANNERS ARTÍCULOS DESTACADOS -->
-<div class="season-banner">
-  <div class="season-inner">
-    <a class="season-strip" href="gato-no-deja-dormir.html" style="background:linear-gradient(135deg,#1A0A2E,#2D1B4E)">
-      <span class="season-emoji">🌙</span>
-      <span class="season-text" style="color:#C8A8F0">Mi gato no me deja dormir por la noche — causas reales y qué funciona de verdad para que los dos podáis descansar</span>
-      <span class="season-cta" style="color:#C8A8F0">Leer guía →</span>
-    </a>
-    <a class="season-strip" href="articulos2.html#tecnologia-mascotas" style="background:linear-gradient(135deg,#0A2540,#1A3A5C)">
-      <span class="season-emoji">📱</span>
-      <span class="season-text" style="color:#A8D0F0">Tecnología para mascotas: comederos WiFi con cámara, GPS Tractive y bebederos inteligentes — comparativa completa 2026</span>
-      <span class="season-cta" style="color:#A8D0F0">Ver comparativa →</span>
-    </a>
-    <a class="season-strip" href="gps.html" style="background:linear-gradient(135deg,#1A1A2E,#16213E)">
-      <span class="season-emoji">📍</span>
-      <span class="season-text" style="color:#A8C0FF">Mejor GPS para perros 2026: Tractive DOG 6 vs XL vs PAJ vs Weenect — comparativa honesta con precios reales</span>
-      <span class="season-cta" style="color:#A8C0FF">Leer análisis →</span>
-    </a>
-    <a class="season-strip" href="articulos2.html#gadgets-mascotas" style="background:linear-gradient(135deg,#2D1B4E,#4A2D7A)">
-      <span class="season-emoji">🧩</span>
-      <span class="season-text" style="color:#C8A8F0">10 gadgets para mascotas que no sabías que necesitabas — lick mats, slow feeders, limpiapatas y más</span>
-      <span class="season-cta" style="color:#C8A8F0">Ver los 10 →</span>
-    </a>
-  </div>
-</div>
 
 <!-- ═══ HOME ═══ -->
 <div id="page-home" class="page active">
