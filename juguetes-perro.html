@@ -139,9 +139,26 @@ body{font-family:var(--font-body);background:var(--sand-50);color:var(--sand-800
   .price-col{flex-direction:row;align-items:center;grid-column:1/-1}
   .winner-box{flex-direction:column;gap:14px;padding:24px}
 }
+
+  /* BARRA DE PROGRESO */
+  .read-progress{position:fixed;top:0;left:0;width:0%;height:3px;background:var(--green-300);z-index:9999;transition:width .1s linear;border-radius:0 2px 2px 0}
+  /* BOTÓN VOLVER ARRIBA */
+  .back-top{position:fixed;bottom:32px;right:32px;width:44px;height:44px;background:var(--green-300);border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(29,158,117,.4);opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;z-index:500;transform:translateY(8px)}
+  .back-top.visible{opacity:1;pointer-events:all;transform:translateY(0)}
+  .back-top:hover{background:var(--green-500);transform:translateY(-2px)}
+  .back-top svg{width:18px;height:18px;fill:none;stroke:white;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+
 </style>
 </head>
 <body>
+
+<!-- BARRA DE PROGRESO -->
+<div class="read-progress" id="readProgress"></div>
+<!-- BOTÓN VOLVER ARRIBA -->
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Volver arriba">
+  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg>
+</button>
+
 
 <div class="toc-wrap">
   <div class="toc-inner">
@@ -511,6 +528,17 @@ window.addEventListener('scroll', function(){
   sections.forEach(function(s){ if(s && s.offsetTop <= pos) active = s; });
   tocLinks.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href') === '#' + (active ? active.id : '')); });
 });
+
+  // BARRA DE PROGRESO + BOTÓN ARRIBA
+  var prog = document.getElementById('readProgress');
+  var backTop = document.getElementById('backTop');
+  window.addEventListener('scroll', function(){
+    var scrollTop = window.scrollY;
+    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    if(prog) prog.style.width = (docHeight > 0 ? (scrollTop/docHeight)*100 : 0) + '%';
+    if(backTop) backTop.classList.toggle('visible', scrollTop > 400);
+  });
+
 </script>
 </body>
 </html>
