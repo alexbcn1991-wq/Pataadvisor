@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Todas las guías — PataAdvisor</title>
+<meta name="description" content="Todas las guías y artículos de PataAdvisor: alimentación, salud, razas, juguetes, viajes y más. Consejos verificados para el bienestar de tu mascota.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green-50:#E1F5EE;--green-100:#9FE1CB;--green-300:#1D9E75;--green-500:#0F6E56;--green-900:#04342C;
+  --sand-50:#F9F7F2;--sand-100:#F0EDE4;--sand-200:#E2DDD1;--sand-400:#A89F8E;--sand-600:#6B6358;--sand-700:#4A4540;--sand-800:#2E2A24;--sand-900:#1A1714;
+  --white:#FFFFFF;
+  --font-display:'Fraunces',serif;--font-body:'DM Sans',sans-serif;
+  --r-lg:16px;--r-xl:24px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-body);background:var(--sand-50);color:var(--sand-800);-webkit-font-smoothing:antialiased}
+.page-nav{background:rgba(249,247,242,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--sand-200);padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:68px;position:sticky;top:0;z-index:100}
+.nav-back{font-size:13px;color:var(--sand-400);text-decoration:none}
+.nav-back:hover{color:var(--sand-800)}
+.page-wrap{max-width:1100px;margin:0 auto;padding:48px 32px 80px}
+.page-header{margin-bottom:40px}
+.page-tag{font-size:11px;font-weight:500;color:var(--green-300);text-transform:uppercase;letter-spacing:.12em;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.page-tag::before{content:'';width:20px;height:1px;background:var(--green-300)}
+.page-title{font-family:var(--font-display);font-size:clamp(28px,4vw,44px);font-weight:300;color:var(--sand-900);letter-spacing:-.02em;margin-bottom:8px}
+.page-title em{font-style:italic;color:var(--green-500)}
+.page-desc{font-size:16px;color:var(--sand-400)}
+
+/* FILTROS */
+.filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px}
+.filter-btn{font-family:var(--font-body);font-size:13px;font-weight:500;padding:8px 18px;border-radius:100px;border:1.5px solid var(--sand-200);background:var(--white);color:var(--sand-600);cursor:pointer;transition:all .2s}
+.filter-btn:hover{border-color:var(--green-100);color:var(--green-500)}
+.filter-btn.active{background:var(--green-300);border-color:var(--green-300);color:white}
+
+/* GRID */
+.guias-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.guia-card{background:var(--white);border:1px solid var(--sand-200);border-radius:var(--r-xl);overflow:hidden;text-decoration:none;transition:box-shadow .2s,transform .2s;display:flex;flex-direction:column}
+.guia-card:hover{box-shadow:0 8px 28px rgba(0,0,0,.08);transform:translateY(-3px)}
+.guia-card-img{height:160px;overflow:hidden;background:var(--sand-100);position:relative}
+.guia-card-img img{width:100%;height:100%;object-fit:cover;object-position:center}
+.guia-card-img-fallback{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:48px;background:linear-gradient(135deg,var(--sand-800),var(--sand-600))}
+.guia-card-body{padding:18px 20px;flex:1;display:flex;flex-direction:column}
+.guia-card-tag{font-size:10px;font-weight:500;color:var(--green-300);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px}
+.guia-card-title{font-family:var(--font-display);font-size:17px;font-weight:300;color:var(--sand-900);line-height:1.35;flex:1;margin-bottom:12px}
+.guia-card-meta{display:flex;align-items:center;justify-content:space-between;font-size:12px;color:var(--sand-400)}
+.guia-card-cta{font-size:12px;font-weight:500;color:var(--green-500)}
+
+/* CATEGORÍA HEADER */
+.cat-header{margin:40px 0 16px;display:flex;align-items:center;gap:12px}
+.cat-header:first-child{margin-top:0}
+.cat-title{font-family:var(--font-display);font-size:20px;font-weight:400;color:var(--sand-900);font-style:italic}
+.cat-line{flex:1;height:1px;background:var(--sand-200)}
+.cat-count{font-size:12px;color:var(--sand-400)}
+
+@media(max-width:900px){.guias-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.guias-grid{grid-template-columns:1fr}.page-wrap{padding:32px 20px 60px}.page-nav{padding:0 20px}}
+</style>
+</head>
+<body>
+
+<nav class="page-nav">
+  <a href="index.html" style="text-decoration:none;display:flex;align-items:center">
+    <svg width="220" height="56" viewBox="0 0 360 88" xmlns="http://www.w3.org/2000/svg">
+      <g transform="translate(36,44)">
+        <ellipse cx="0" cy="8" rx="18" ry="14" fill="none" stroke="#1D9E75" stroke-width="2.5"/>
+        <ellipse cx="-16" cy="-8" rx="8" ry="10" fill="none" stroke="#1D9E75" stroke-width="2.5"/>
+        <ellipse cx="-5" cy="-16" rx="8" ry="10" fill="none" stroke="#1D9E75" stroke-width="2.5"/>
+        <ellipse cx="7" cy="-16" rx="8" ry="10" fill="none" stroke="#1D9E75" stroke-width="2.5"/>
+        <ellipse cx="17" cy="-8" rx="8" ry="10" fill="none" stroke="#1D9E75" stroke-width="2.5"/>
+        <line x1="32" y1="-22" x2="32" y2="22" stroke="#E2DDD1" stroke-width="1.5"/>
+        <text x="44" y="-4" font-family="'DM Sans',sans-serif" font-size="28" font-weight="500" fill="#1A1714">Pata</text>
+        <text x="110" y="-4" font-family="'DM Sans',sans-serif" font-size="28" font-weight="300" fill="#1D9E75">Advisor</text>
+        <text x="44" y="18" font-family="'DM Sans',sans-serif" font-size="9" font-weight="700" fill="#1A1714" letter-spacing="3">BIENESTAR ANIMAL</text>
+      </g>
+    </svg>
+  </a>
+  <a href="index.html" class="nav-back">← Inicio</a>
+</nav>
+
+<div class="page-wrap">
+
+  <div class="page-header">
+    <div class="page-tag">Contenido</div>
+    <h1 class="page-title">Todas las <em>guías</em></h1>
+    <p class="page-desc">14 guías publicadas · Actualizadas abril 2026</p>
+  </div>
+
+  <!-- FILTROS -->
+  <div class="filter-bar">
+    <button class="filter-btn active" onclick="filtrar('todo',this)">Todo</button>
+    <button class="filter-btn" onclick="filtrar('perros',this)">🐕 Perros</button>
+    <button class="filter-btn" onclick="filtrar('gatos',this)">🐱 Gatos</button>
+    <button class="filter-btn" onclick="filtrar('razas',this)">🏅 Razas</button>
+    <button class="filter-btn" onclick="filtrar('viajes',this)">✈️ Viajes</button>
+    <button class="filter-btn" onclick="filtrar('salud',this)">🏥 Salud</button>
+  </div>
+
+  <!-- RAZAS -->
+  <div class="cat-header" data-cat="razas">
+    <div class="cat-title">Razas</div>
+    <div class="cat-line"></div>
+    <div class="cat-count">2 guías</div>
+  </div>
+  <div class="guias-grid">
+    <a href="teckel.html" class="guia-card" data-cat="razas perros">
+      <div class="guia-card-img"><img src="teckel-perro-salchicha-ficha-expres-pataadvisor.png" alt="Teckel ficha express"></div>
+      <div class="guia-card-body">
+        <div class="guia-card-tag">Razas · Perros</div>
+        <div class="guia-card-title">Teckel — el perro salchicha de un vistazo</div>
+        <div class="guia-card-meta"><span>Abril 2026 · 8 min</span><span class="guia-card-cta">Leer →</span></div>
+      </div>
+    </a>
+    <a href="border-collie.html" class="guia-card" data-cat="razas perros">
+      <div class="guia-card-img"><img src="ficha-raza-border-collie-caracteristicas-consejos-pataadvisor.png" alt="Border Collie ficha express"></div>
+      <div class="guia-card-body">
+        <div class="guia-card-tag">Razas · Perros</div>
+        <div class="guia-card-title">Border Collie — el perro más inteligente del mundo</div>
+        <div class="guia-card-meta"><span>Abril 2026 · 9 min</span><span class="guia-card-cta">Leer →</span></div>
+      </div>
+    </a>
+  </div>
+
+  <!-- PERROS -->
+  <div class="cat-header" data-cat="perros">
+    <div class="cat-title">Perros</div>
+    <div class="cat-line"></div>
+    <div class="cat-count">5 guías</div>
+  </div>
+  <div class="guias-grid">
+    <a href="perro-no-come-pienso.html" class="guia-card" data-cat="perros salud">
+      <div class="guia-card-img"><img src="perro-no-come.jpg" alt="Perro no come pienso"></div>
+      <div class="guia-card-body">
+        <div class="guia-card-tag">Alimentación · Perros</div>
+        <div class="guia-card-title">¿Por qué mi perro no quiere comer el pienso? 7 causas</div>
+        <div class="guia-card-meta"><span>Abril 2026 · 8 min</span><span class="guia-card-cta">Leer →</span></div>
+      </div>
+    </a>
+    <a href="alimentos-prohibidos-perros.html" class="guia-card" data-cat="perros salud">
+      <div class="guia-card-img"><img src="alimentos-prohibidos-perro.jpg" alt="Alimentos prohibidos perros"></div>
+      <div class="guia-card-body">
+        <div class="guia-card-tag">Salud · Perros</div>
+        <div class="guia-card-title">Alimentos prohibidos para perros — lista completa</div>
+        <div class="guia-card-meta"><span>Abril 2026 · 9 min</span><span class="guia-card-cta">Leer →</span></div>
+      </div>
+    </a>
+    <a href="pienso-perro-alergia.html" class="guia-card" data-cat="perros salud">
+      <div class="guia-card-img"><img src="article-alergia-perro.jpg" alt="Pienso perro alergia"></div>
+      <div class="guia-card-body">
+        <div class="guia-card-tag">Alimentación · Salud</div>
+        <div class="guia-card-title">Los 5 mejores piensos para perros con alergia 2026</div>
+        <div class="guia-card-meta"><span>Abril 2026 · 10 min</span><span class="guia-card-cta">Leer →</span></div>
+      </div>
+    </a>
+    <a href="juguetes-perro.html" class="guia-card" data-cat="perros">
+      <div class="guia-card-img"><img src="article-juguetes.jpg" alt="Juguetes perro solo"></div>
+      <div class="guia-card-body">
+        <div class="guia-card-tag">Juguetes · Perros</div>
+        <div class="guia-card-title">Mejor juguete para perro que se queda solo en casa</div>
+        <div class="guia-card-meta"><span>Abril 2026 · 9 min</span><span class="guia-card-cta">Leer →</span></div>
+      </div>
+    </a>
+    <a href="gps.html" class="guia-card" data-cat="perros">
+      <div class="guia-card-img"><img src="hero-dog.jpg" alt="GPS perros"></div>
+      <div class="guia-card-body">
+        <div class="guia-card-tag">Tecnología · Perros</div>
+        <div class="guia-card-title">Mejor GPS para perros 2026 — Tractive, PAJ, Weenect</div>
+        <div class="guia-card-meta"><span>Abril 2026 · 11 min</span><span class="guia-card-cta">Leer →</span></div>
+      </div>
+    </a>
+  </div>
+
+  <!-- GATOS -->
+  <div class="cat-header" data-cat="gatos">
+    <div class="cat-title">Gatos</div>
+    <div class="cat-line"></div>
+    <div class="cat-count">1 guía</div>
+  </div>
+  <div class="guias-grid">
+    <a href="gato-no-deja-dormir.html" class="guia-card" data-cat="gatos">
+      <div class="guia-card-img"><img src="article-gato-noche.jpg" alt="Gato nocturno"></div>
+      <div class="guia-card-body">
+        <div class="guia-card-tag">Comportamiento · Gatos</div>
+        <div class="guia-card-title">Mi gato no me deja dormir — causas reales y soluciones</div>
+        <div class="guia-card-meta"><span>Abril 2026 · 10 min</span><span class="guia-card-cta">Leer →</span></div>
+      </div>
+    </a>
+  </div>
+
+  <!-- VIAJES -->
+  <div class="cat-header" data-cat="viajes">
+    <div class="cat-title">Viajes con mascotas</div>
+    <div class="cat-line"></div>
+    <div class="cat-count">1 guía</div>
+  </div>
+  <div class="guias-grid">
+    <a href="transportines-cabina-avion.html" class="guia-card" data-cat="viajes perros gatos">
+      <div class="guia-card-img"><img src="article-transportin.jpg" alt="Transportines cabina avión"></div>
+      <div class="guia-card-body">
+        <div class="guia-card-tag">Viajes · Perros y Gatos</div>
+        <div class="guia-card-title">Transportines homologados cabina avión 2026 — por aerolínea</div>
+        <div class="guia-card-meta"><span>Abril 2026 · 12 min</span><span class="guia-card-cta">Leer →</span></div>
+      </div>
+    </a>
+  </div>
+
+  <!-- COMPARATIVAS -->
+  <div class="cat-header" data-cat="perros gatos">
+    <div class="cat-title">Comparativas</div>
+    <div class="cat-line"></div>
+    <div class="cat-count">5 guías</div>
+  </div>
+  <div class="guias-grid">
+    <a href="articulos.html#pienso-perro" class="guia-card" data-cat="perros">
+      <div class="guia-card-img"><img src="article-pienso-perro.jpg" alt="Pienso perro adulto"></div>
+      <div class="guia-card-body">
+        <div class="guia-card-tag">Alimentación · Perros</div>
+        <div class="guia-card-title">El mejor pienso para perro adulto en 2026</div>
+        <div class="guia-card-meta"><span>Abril 2026 · 8 min</span><span class="guia-card-cta">Leer →</span></div>
+      </div>
+    </a>
+    <a href="articulos.html#pienso-gato" class="guia-card" data-cat="gatos">
+      <div class="guia-card-img"><img src="prod-purina.jpg" alt="Pienso gato"></div>
+      <div class="guia-card-body">
+        <div class="guia-card-tag">Alimentación · Gatos</div>
+        <div class="guia-card-title">Mejor pienso para gato 2026 — esterilizados y adultos</div>
+        <div class="guia-card-meta"><span>Abril 2026 · 8 min</span><span class="guia-card-cta">Leer →</span></div>
+      </div>
+    </a>
+    <a href="articulos2.html#antiparasitarios" class="guia-card" data-cat="perros gatos salud">
+      <div class="guia-card-img"><img src="article-antiparasitarios.jpg" alt="Antiparasitarios"></div>
+      <div class="guia-card-body">
+        <div class="guia-card-tag">Salud · Perros y Gatos</div>
+        <div class="guia-card-title">Los 7 mejores antiparasitarios 2026</div>
+        <div class="guia-card-meta"><span>Abril 2026 · 8 min</span><span class="guia-card-cta">Leer →</span></div>
+      </div>
+    </a>
+    <a href="articulos2.html#tecnologia-mascotas" class="guia-card" data-cat="perros gatos">
+      <div class="guia-card-img"><img src="article-tech.jpg" alt="Tech mascotas"></div>
+      <div class="guia-card-body">
+        <div class="guia-card-tag">Tecnología · Mascotas</div>
+        <div class="guia-card-title">Tech para mascotas: comederos WiFi, GPS y bebederos smart</div>
+        <div class="guia-card-meta"><span>Abril 2026 · 9 min</span><span class="guia-card-cta">Leer →</span></div>
+      </div>
+    </a>
+    <a href="articulos2.html#guia-cachorro" class="guia-card" data-cat="perros">
+      <div class="guia-card-img"><img src="article-cachorro.jpg" alt="Guía cachorro"></div>
+      <div class="guia-card-body">
+        <div class="guia-card-tag">Cachorros · Perros</div>
+        <div class="guia-card-title">Guía completa para el primer mes con un cachorro</div>
+        <div class="guia-card-meta"><span>Abril 2026 · 12 min</span><span class="guia-card-cta">Leer →</span></div>
+      </div>
+    </a>
+  </div>
+
+</div>
+
+<script>
+function filtrar(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active');});
+  btn.classList.add('active');
+  var cards = document.querySelectorAll('.guia-card');
+  var headers = document.querySelectorAll('.cat-header');
+  cards.forEach(function(c){
+    if(cat==='todo' || c.dataset.cat.indexOf(cat)>-1){
+      c.style.display='flex';
+    } else {
+      c.style.display='none';
+    }
+  });
+  headers.forEach(function(h){
+    if(cat==='todo'){
+      h.style.display='flex';
+      h.nextElementSibling.style.display='grid';
+    } else {
+      var grid = h.nextElementSibling;
+      var visible = Array.from(grid.querySelectorAll('.guia-card')).filter(function(c){return c.style.display!=='none';});
+      h.style.display = visible.length>0 ? 'flex' : 'none';
+      grid.style.display = visible.length>0 ? 'grid' : 'none';
+    }
+  });
+}
+</script>
+</body>
+</html>
