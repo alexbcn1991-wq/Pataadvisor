@@ -377,6 +377,43 @@
   .rk-new-badge{font-size:9px;font-weight:600;color:white;background:var(--green-300);padding:2px 7px;border-radius:100px;text-transform:uppercase;letter-spacing:.08em;margin-left:8px;vertical-align:middle}
 
   /* ── CALCULADORA EDAD PERRO ─────────────── */
+  /* SÍNTOMA CHECKER */
+  .symptom-section{padding:0 32px 56px;max-width:1100px;margin:0 auto}
+  .symptom-box{background:var(--green-900);border-radius:var(--r-xl);padding:48px 56px;position:relative;overflow:hidden}
+  .symptom-box::before{content:'🔍';font-size:140px;position:absolute;right:-10px;top:-20px;opacity:.04;pointer-events:none;line-height:1}
+  .symptom-eyebrow{font-size:11px;font-weight:500;color:var(--green-100);text-transform:uppercase;letter-spacing:.16em;margin-bottom:10px}
+  .symptom-title{font-family:var(--font-display);font-size:clamp(22px,3vw,34px);font-weight:300;color:var(--white);letter-spacing:-.02em;font-style:italic;margin-bottom:8px}
+  .symptom-title em{color:var(--green-100)}
+  .symptom-subtitle{font-size:15px;color:rgba(255,255,255,.45);margin-bottom:28px;line-height:1.6}
+  .symptom-pet-toggle{display:flex;gap:8px;margin-bottom:20px}
+  .symptom-pet-btn{font-family:var(--font-body);font-size:13px;font-weight:500;padding:8px 18px;border-radius:100px;border:1.5px solid rgba(255,255,255,.2);background:transparent;color:rgba(255,255,255,.6);cursor:pointer;transition:all .2s}
+  .symptom-pet-btn.active{background:var(--green-300);border-color:var(--green-300);color:white}
+  .symptom-input-row{display:flex;gap:12px;margin-bottom:16px}
+  .symptom-input{flex:1;padding:14px 20px;border-radius:var(--r-lg);border:1.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.08);color:white;font-family:var(--font-body);font-size:15px;outline:none;transition:border-color .2s}
+  .symptom-input::placeholder{color:rgba(255,255,255,.35)}
+  .symptom-input:focus{border-color:var(--green-300)}
+  .symptom-btn{padding:14px 28px;border-radius:var(--r-lg);background:var(--green-300);border:none;color:white;font-family:var(--font-body);font-size:15px;font-weight:500;cursor:pointer;transition:background .2s;white-space:nowrap}
+  .symptom-btn:hover{background:#25B888}
+  .symptom-btn:disabled{background:rgba(255,255,255,.15);cursor:not-allowed}
+  .symptom-examples{display:flex;flex-wrap:wrap;gap:8px}
+  .symptom-example{font-size:12px;color:rgba(255,255,255,.4);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:100px;padding:5px 12px;cursor:pointer;transition:all .2s}
+  .symptom-example:hover{background:rgba(255,255,255,.12);color:rgba(255,255,255,.8)}
+  .symptom-result{margin-top:24px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--r-lg);padding:24px;display:none}
+  .symptom-result.visible{display:block}
+  .urgency-badge{font-size:12px;font-weight:600;padding:5px 14px;border-radius:100px;text-transform:uppercase;letter-spacing:.06em;display:inline-block;margin-bottom:14px}
+  .urgency-verde{background:rgba(29,158,117,.3);color:#9FE1CB}
+  .urgency-amarillo{background:rgba(239,159,39,.25);color:#FAEEDA}
+  .urgency-rojo{background:rgba(220,38,38,.25);color:#FCA5A5}
+  .symptom-result-text{font-size:15px;color:rgba(255,255,255,.78);line-height:1.85}
+  .symptom-result-text strong{color:white}
+  .symptom-result-links{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px}
+  .symptom-result-link{font-size:13px;color:var(--green-100);background:rgba(29,158,117,.2);border:1px solid rgba(29,158,117,.3);border-radius:100px;padding:6px 14px;text-decoration:none;transition:all .2s;cursor:pointer}
+  .symptom-result-link:hover{background:rgba(29,158,117,.35)}
+  .symptom-loading{display:none;text-align:center;padding:20px;color:rgba(255,255,255,.5);font-size:14px}
+  .symptom-loading.visible{display:block}
+  @keyframes dot-bounce{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-6px)}}
+  @media(max-width:700px){.symptom-box{padding:32px 24px}.symptom-input-row{flex-direction:column}}
+
   .age-calc-section{padding:0 32px 56px;max-width:1100px;margin:0 auto}
   .age-calc-box{background:var(--green-900);border-radius:var(--r-xl);padding:48px 56px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;position:relative;overflow:hidden}
   .age-calc-box::before{content:'🐾';font-size:120px;position:absolute;right:40%;top:-10px;opacity:.04;pointer-events:none;line-height:1}
@@ -997,6 +1034,7 @@
   <div class="nav-tools">
     <button class="nav-tool-btn ntb-quiz" onclick="document.querySelector('.quiz-section').scrollIntoView({behavior:'smooth'})">🎯 ¿Qué pienso le va mejor?</button>
     <button class="nav-tool-btn ntb-calc" onclick="document.querySelector('.calc-section').scrollIntoView({behavior:'smooth'})">🧮 Coste mensual del pienso</button>
+    <button class="nav-tool-btn" style="background:rgba(220,38,38,.1);color:#DC2626;border-color:rgba(220,38,38,.2)" onclick="showPage('home');setTimeout(function(){document.getElementById('symptom-checker').scrollIntoView({behavior:'smooth',block:'center'})},100)">🏥 Síntoma checker</button>
   </div>
   <div class="dark-toggle-wrap" title="Modo oscuro">
     <span>🌙</span>
@@ -1460,6 +1498,52 @@
     </div>
   </section>
 
+  <!-- SÍNTOMA CHECKER -->
+  <section class="symptom-section" id="symptom-checker">
+    <div class="symptom-box">
+      <div class="symptom-eyebrow">Herramienta gratuita · Powered by IA</div>
+      <div class="symptom-title">¿Qué le pasa a tu <em>mascota?</em></div>
+      <p class="symptom-subtitle">Describe el síntoma en tus propias palabras y te explicamos las causas más probables, el nivel de urgencia y qué hacer.</p>
+
+      <div class="symptom-pet-toggle">
+        <button class="symptom-pet-btn active" id="btn-perro" onclick="setPet('perro',this)">🐕 Mi perro</button>
+        <button class="symptom-pet-btn" id="btn-gato" onclick="setPet('gato',this)">🐱 Mi gato</button>
+      </div>
+
+      <div class="symptom-input-row">
+        <input type="text" class="symptom-input" id="symptom-input" placeholder="Ej: vomita por las mañanas, no quiere comer, se rasca mucho..." maxlength="200" onkeydown="if(event.key==='Enter')checkSymptom()">
+        <button class="symptom-btn" id="symptom-submit-btn" onclick="checkSymptom()">Consultar →</button>
+      </div>
+
+      <div class="symptom-examples">
+        <span class="symptom-example" onclick="setExample(this)">no quiere comer</span>
+        <span class="symptom-example" onclick="setExample(this)">vomita bilis amarilla</span>
+        <span class="symptom-example" onclick="setExample(this)">se rasca mucho las orejas</span>
+        <span class="symptom-example" onclick="setExample(this)">bebe mucha agua</span>
+        <span class="symptom-example" onclick="setExample(this)">cojea de una pata</span>
+        <span class="symptom-example" onclick="setExample(this)">maúlla mucho de noche</span>
+        <span class="symptom-example" onclick="setExample(this)">tiene diarrea</span>
+        <span class="symptom-example" onclick="setExample(this)">está muy decaído</span>
+      </div>
+
+      <div class="symptom-loading" id="symptom-loading">
+        <span style="letter-spacing:.05em">Analizando síntoma</span>
+        <span style="margin-left:4px">
+          <span style="display:inline-block;animation:dot-bounce .8s ease-in-out infinite">.</span>
+          <span style="display:inline-block;animation:dot-bounce .8s ease-in-out .15s infinite">.</span>
+          <span style="display:inline-block;animation:dot-bounce .8s ease-in-out .3s infinite">.</span>
+        </span>
+      </div>
+
+      <div class="symptom-result" id="symptom-result">
+        <div id="symptom-urgency"></div>
+        <div class="symptom-result-text" id="symptom-text"></div>
+        <div class="symptom-result-links" id="symptom-links"></div>
+        <div style="margin-top:16px;font-size:12px;color:rgba(255,255,255,.3);line-height:1.5">⚠️ Esta herramienta es orientativa y no sustituye el diagnóstico veterinario. Ante cualquier duda, consulta a tu veterinario.</div>
+      </div>
+    </div>
+  </section>
+
   <!-- CALCULADORA EDAD PERRO -->
   <section class="age-calc-section" id="age-calc">
     <div class="age-calc-box">
@@ -1633,34 +1717,56 @@
   <div class="legal-page">
     <h1>Política de privacidad</h1>
     <span class="updated">Última actualización: abril de 2026</span>
-    <p>En PataAdvisor nos tomamos muy en serio la privacidad de nuestros usuarios. Esta política explica qué datos recopilamos, cómo los usamos y qué derechos tienes, de conformidad con el RGPD y la LOPDGDD.</p>
+
+    <p>En PataAdvisor nos tomamos muy en serio la privacidad de nuestros usuarios. Esta política explica qué datos recopilamos, cómo los usamos y qué derechos tienes sobre ellos, de conformidad con el <strong>Reglamento (UE) 2016/679 (RGPD)</strong> y la <strong>Ley Orgánica 3/2018 (LOPDGDD)</strong>.</p>
+
     <h2>1. Responsable del tratamiento</h2>
-    <p>El responsable del tratamiento es el titular de PataAdvisor. Contacto de privacidad: <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b8c8cad1ced9dbd1dcd9dcf8c8d9ccd9d9dcced1cbd7ca96ddcb">[email&#160;protected]</a></strong> (sustituye por tu email real).</p>
-    <h2>2. Datos que recopilamos</h2>
+    <p>El responsable del tratamiento de los datos es el titular de <strong>PataAdvisor</strong>, con domicilio en Barcelona (España). Para cualquier cuestión relacionada con la privacidad, puedes contactar en: <strong><a href="mailto:privacidad@pataadvisor.es">privacidad@pataadvisor.es</a></strong></p>
+
+    <h2>2. Datos que recopilamos y por qué</h2>
     <ul>
-      <li><strong>Newsletter:</strong> nombre y email, facilitados voluntariamente al suscribirse.</li>
-      <li><strong>Navegación:</strong> IP, navegador y páginas visitadas mediante cookies analíticas, solo con consentimiento.</li>
-      <li><strong>Afiliados:</strong> cuando haces clic en un enlace de afiliado, Amazon registra esa interacción. No tenemos acceso a tus datos de compra.</li>
+      <li><strong>Newsletter:</strong> nombre y dirección de email, facilitados voluntariamente al suscribirse. Finalidad: envío de recomendaciones, artículos nuevos y contenido editorial. Base legal: consentimiento expreso (art. 6.1.a RGPD). Puedes darte de baja en cualquier momento desde el enlace incluido en cada email.</li>
+      <li><strong>Formulario de contacto:</strong> nombre, email y contenido del mensaje. Finalidad: atender tu consulta o solicitud. Base legal: consentimiento (art. 6.1.a RGPD). Los datos se eliminan una vez resuelta la comunicación.</li>
+      <li><strong>Datos de navegación:</strong> dirección IP, tipo de navegador, páginas visitadas y tiempo de permanencia, recogidos mediante cookies analíticas. Finalidad: mejorar el servicio y entender cómo se usa el sitio. Base legal: consentimiento previo (banner de cookies). Solo se activan si aceptas las cookies analíticas.</li>
+      <li><strong>Programa de afiliados:</strong> cuando haces clic en un enlace de afiliado de Amazon, Amazon registra esa interacción en sus propios sistemas. PataAdvisor no recibe ni procesa datos personales de los compradores. Consulta la política de privacidad de Amazon para más información.</li>
     </ul>
-    <h2>3. Finalidad y base legal</h2>
+
+    <h2>3. Conservación de datos</h2>
     <ul>
-      <li><strong>Newsletter:</strong> envío de recomendaciones. Base legal: consentimiento expreso (art. 6.1.a RGPD).</li>
-      <li><strong>Análisis web:</strong> mejora del servicio. Base legal: consentimiento (cookies analíticas).</li>
-      <li><strong>Afiliados:</strong> monetización. Base legal: interés legítimo (art. 6.1.f RGPD).</li>
+      <li><strong>Newsletter:</strong> mientras la suscripción esté activa. Se eliminan automáticamente tras la baja.</li>
+      <li><strong>Formulario de contacto:</strong> máximo 12 meses desde la última comunicación.</li>
+      <li><strong>Datos de navegación (cookies analíticas):</strong> máximo 14 meses según las directrices de la AEPD.</li>
     </ul>
-    <h2>4. Conservación de datos</h2>
-    <p>Los datos de suscripción se conservan mientras la suscripción esté activa. Los datos de navegación un máximo de 14 meses. Puedes darte de baja en cualquier momento desde cualquier email.</p>
-    <h2>5. Tus derechos</h2>
-    <p>Tienes derecho a acceder, rectificar, suprimir, limitar, oponerte y a la portabilidad de tus datos. Escríbenos a <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="19696b706f787a707d787d5969786d78787d6f706a766b377c6a">[email&#160;protected]</a></strong> o presenta una reclamación ante la AEPD (aepd.es).</p>
-    <h2>6. Cookies</h2>
-    <p>Usamos cookies técnicas (necesarias) y analíticas (Google Analytics, solo con consentimiento). Puedes gestionar tu elección desde el aviso de cookies.</p>
-    <h2>7. Terceros</h2>
+
+    <h2>4. Tus derechos</h2>
+    <p>En virtud del RGPD, tienes derecho a:</p>
     <ul>
-      <li><strong>Google Analytics:</strong> análisis de tráfico (solo con consentimiento).</li>
-      <li><strong>Amazon EU:</strong> programa de afiliados.</li>
-      <li><strong>Proveedor de email marketing</strong> (MailerLite / Mailchimp): gestión de newsletter.</li>
+      <li><strong>Acceso:</strong> saber qué datos tuyos tratamos.</li>
+      <li><strong>Rectificación:</strong> corregir datos inexactos.</li>
+      <li><strong>Supresión:</strong> solicitar que eliminemos tus datos ("derecho al olvido").</li>
+      <li><strong>Limitación:</strong> solicitar que pausemos el tratamiento.</li>
+      <li><strong>Portabilidad:</strong> recibir tus datos en formato estructurado.</li>
+      <li><strong>Oposición:</strong> oponerte al tratamiento basado en interés legítimo.</li>
     </ul>
-    <p style="margin-top:32px"><a onclick="showPage('home')">← Volver al inicio</a></p>
+    <p>Para ejercer cualquiera de estos derechos, escríbenos a <strong><a href="mailto:privacidad@pataadvisor.es">privacidad@pataadvisor.es</a></strong>. Si consideras que no hemos atendido correctamente tu solicitud, puedes presentar una reclamación ante la <strong>Agencia Española de Protección de Datos</strong> en <a href="https://www.aepd.es" target="_blank" rel="noopener">aepd.es</a>.</p>
+
+    <h2>5. Cookies</h2>
+    <p>Este sitio web utiliza los siguientes tipos de cookies:</p>
+    <ul>
+      <li><strong>Cookies técnicas o necesarias:</strong> imprescindibles para el funcionamiento del sitio (preferencia de modo oscuro, aceptación del banner de cookies). No requieren consentimiento.</li>
+      <li><strong>Cookies analíticas (Google Analytics):</strong> recogen información anónima sobre el uso del sitio para mejorar su funcionamiento. Solo se activan si das tu consentimiento expreso. Puedes revocar tu consentimiento en cualquier momento borrando las cookies del navegador.</li>
+    </ul>
+
+    <h2>6. Transferencias internacionales</h2>
+    <p>Google Analytics implica la transferencia de datos a servidores de Google LLC en EE.UU. Esta transferencia está amparada por las Cláusulas Contractuales Estándar aprobadas por la Comisión Europea. Amazon EU opera desde Luxemburgo, dentro del Espacio Económico Europeo.</p>
+
+    <h2>7. Menores de edad</h2>
+    <p>PataAdvisor no está dirigido a menores de 14 años ni recopila conscientemente datos de menores. Si eres padre o tutor y crees que tu hijo nos ha facilitado datos personales, contáctanos para eliminarlos.</p>
+
+    <h2>8. Cambios en esta política</h2>
+    <p>Podemos actualizar esta política ocasionalmente. La fecha de "Última actualización" en la parte superior indica cuándo se realizó el último cambio. Te recomendamos revisarla periódicamente.</p>
+
+    <p style="margin-top:32px"><a onclick="showPage('home')" style="color:var(--green-500);text-decoration:none">← Volver al inicio</a></p>
   </div>
 </div>
 
@@ -1669,19 +1775,40 @@
   <div class="legal-page">
     <h1>Aviso legal</h1>
     <span class="updated">Última actualización: abril de 2026</span>
-    <h2>Titular del sitio web</h2>
-    <p>El presente sitio web es titularidad de su propietario/a (introduce aquí tu nombre o razón social, NIF/CIF y domicilio). Email: <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="aec6c1c2cfeedecfdacfcfcad8c7ddc1dc80cbdd">[email&#160;protected]</a></strong></p>
-    <h2>Objeto y condiciones de uso</h2>
-    <p>PataAdvisor es un sitio web editorial que ofrece recomendaciones, comparativas y análisis de productos para mascotas. El acceso es gratuito y está sujeto a estas condiciones.</p>
-    <h2>Propiedad intelectual</h2>
-    <p>Todos los contenidos (textos, diseño, código) son propiedad del titular y están protegidos por la legislación de propiedad intelectual. Queda prohibida su reproducción sin autorización expresa.</p>
-    <h2>Programa de Afiliados Amazon</h2>
-    <p>PataAdvisor es participante del Programa de Afiliados de Amazon EU, un programa de publicidad para afiliados diseñado para ofrecer a sitios web un modo de obtener comisiones por publicidad, publicitando e incluyendo enlaces a amazon.es.</p>
-    <h2>Limitación de responsabilidad</h2>
-    <p>Las recomendaciones de PataAdvisor tienen carácter informativo y no sustituyen el consejo veterinario profesional. Los precios y disponibilidad son orientativos y pueden variar.</p>
-    <h2>Legislación aplicable</h2>
-    <p>Estas condiciones se rigen por la legislación española. Para cualquier controversia, las partes se someten a los juzgados del domicilio del usuario.</p>
-    <p style="margin-top:32px"><a onclick="showPage('home')">← Volver al inicio</a></p>
+
+    <h2>1. Titular del sitio web</h2>
+    <p>En cumplimiento del artículo 10 de la <strong>Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE)</strong>, se informa:</p>
+    <ul>
+      <li><strong>Denominación:</strong> PataAdvisor</li>
+      <li><strong>Domicilio:</strong> Barcelona, España</li>
+      <li><strong>Email de contacto:</strong> <a href="mailto:hola@pataadvisor.es">hola@pataadvisor.es</a></li>
+      <li><strong>Sitio web:</strong> https://pataadvisor.es</li>
+      <li><strong>NIF/DNI:</strong> <em>(introduce aquí tu NIF o NIE)</em></li>
+    </ul>
+
+    <h2>2. Objeto y condiciones de uso</h2>
+    <p>PataAdvisor es un sitio web editorial independiente que ofrece recomendaciones, comparativas y análisis de productos para mascotas. El acceso al sitio es gratuito y está condicionado a la aceptación de las presentes condiciones. El uso del sitio implica la aceptación plena de las mismas.</p>
+
+    <h2>3. Propiedad intelectual e industrial</h2>
+    <p>Todos los contenidos del sitio web — incluyendo textos, artículos, diseño gráfico, logotipo, código fuente, imágenes de elaboración propia y estructura — son propiedad del titular de PataAdvisor o de sus legítimos cedentes, y están protegidos por la legislación española e internacional sobre propiedad intelectual e industrial.</p>
+    <p>Queda expresamente prohibida su reproducción total o parcial, distribución, comunicación pública o transformación sin autorización previa y por escrito del titular. Las imágenes de productos de terceros (Amazon, fabricantes) son propiedad de sus respectivos titulares.</p>
+
+    <h2>4. Programa de Afiliados Amazon</h2>
+    <p>PataAdvisor es participante del <strong>Programa de Afiliados de Amazon EU</strong>, un programa de publicidad para afiliados diseñado para ofrecer a sitios web un modo de obtener comisiones por publicidad, publicitando e incluyendo enlaces a amazon.es.</p>
+    <p>Los enlaces señalados con "Ver en Amazon →" o similar son enlaces de afiliado. Si realizas una compra a través de ellos, PataAdvisor recibe una comisión de entre el 1% y el 10% del precio de venta, sin coste adicional para ti. Esta relación comercial no influye en nuestras recomendaciones editoriales.</p>
+
+    <h2>5. Limitación de responsabilidad</h2>
+    <p>Los contenidos de PataAdvisor tienen carácter exclusivamente informativo y no sustituyen en ningún caso el consejo veterinario profesional. Para cualquier problema de salud de tu mascota, consulta siempre a un veterinario colegiado.</p>
+    <p>Los precios, disponibilidad y características de los productos son orientativos y pueden variar. PataAdvisor no asume responsabilidad por cambios en los productos, errores en precios ni por las transacciones realizadas en sitios de terceros (Amazon u otros).</p>
+    <p>PataAdvisor no se hace responsable de los contenidos enlazados en sitios de terceros ni de posibles daños derivados del uso de la información contenida en este sitio.</p>
+
+    <h2>6. Política de enlaces</h2>
+    <p>Cualquier sitio web puede enlazar a PataAdvisor siempre que no lo haga de forma engañosa, que no atente contra la imagen o reputación del sitio y que no infrinja derechos de terceros. PataAdvisor se reserva el derecho de retirar su consentimiento si considera que el enlace no cumple estas condiciones.</p>
+
+    <h2>7. Legislación aplicable y jurisdicción</h2>
+    <p>Las presentes condiciones legales se rigen en su totalidad por la legislación española. Para la resolución de cualquier controversia derivada del uso de este sitio web, las partes se someten, con renuncia expresa a cualquier otro fuero, a los Juzgados y Tribunales competentes según la legislación española vigente.</p>
+
+    <p style="margin-top:32px"><a onclick="showPage('home')" style="color:var(--green-500);text-decoration:none">← Volver al inicio</a></p>
   </div>
 </div>
 
@@ -1926,6 +2053,77 @@
   if(heroStats) heroObs.observe(heroStats);
 
   // ── MODO OSCURO ──────────────────────────────────────────
+  // SÍNTOMA CHECKER
+  var currentPet = 'perro';
+  function setPet(pet, btn){
+    currentPet = pet;
+    document.querySelectorAll('.symptom-pet-btn').forEach(function(b){b.classList.remove('active');});
+    btn.classList.add('active');
+  }
+  function setExample(el){
+    document.getElementById('symptom-input').value = el.textContent;
+    document.getElementById('symptom-input').focus();
+  }
+  var articleLinks = {
+    'comer':[{text:'¿Por qué mi perro no quiere comer?',href:'perro-no-come-pienso.html'}],
+    'pienso':[{text:'¿Por qué mi perro no quiere comer?',href:'perro-no-come-pienso.html'},{text:'Mejor pienso para perro adulto',href:'articulos.html#pienso-perro'}],
+    'vomit':[{text:'Alimentos prohibidos para perros',href:'alimentos-prohibidos-perros.html'}],
+    'toxic':[{text:'Alimentos prohibidos para perros',href:'alimentos-prohibidos-perros.html'}],
+    'rasca':[{text:'Antiparasitarios 2026',href:'articulos2.html#antiparasitarios'}],
+    'juguete':[{text:'Mejores juguetes para perro solo',href:'juguetes-perro.html'}],
+    'aburrido':[{text:'Mejores juguetes para perro solo',href:'juguetes-perro.html'}],
+    'duerme':[{text:'Gato que no deja dormir',href:'gato-no-deja-dormir.html'}],
+    'noche':[{text:'Gato que no deja dormir',href:'gato-no-deja-dormir.html'}],
+  };
+  function getRelatedLinks(text){
+    var found=[];
+    var t=text.toLowerCase();
+    Object.keys(articleLinks).forEach(function(key){
+      if(t.indexOf(key)>-1) articleLinks[key].forEach(function(link){
+        if(!found.find(function(f){return f.href===link.href;})) found.push(link);
+      });
+    });
+    return found.slice(0,3);
+  }
+  async function checkSymptom(){
+    var input=document.getElementById('symptom-input').value.trim();
+    if(!input) return;
+    var btn=document.getElementById('symptom-submit-btn');
+    var loading=document.getElementById('symptom-loading');
+    var result=document.getElementById('symptom-result');
+    btn.disabled=true;
+    loading.classList.add('visible');
+    result.classList.remove('visible');
+    try{
+      var response=await fetch('https://api.anthropic.com/v1/messages',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({
+          model:'claude-sonnet-4-20250514',
+          max_tokens:1000,
+          system:'Eres un asistente veterinario de PataAdvisor, web española de mascotas. El usuario describe un síntoma de su '+currentPet+'. Responde SOLO con este JSON exacto sin markdown:\n{"urgencia":"verde|amarillo|rojo","urgencia_texto":"Sin urgencia inmediata|Observar con atención|Veterinario hoy","causas":"2-3 causas probables en 2-3 frases claras","que_hacer":"qué hacer ahora en 1-2 frases"}\nverde=leve, amarillo=observar, rojo=urgencia hoy. Responde en español.',
+          messages:[{role:'user',content:'Mi '+currentPet+' tiene este síntoma: '+input}]
+        })
+      });
+      var data=await response.json();
+      var text=data.content.map(function(i){return i.text||'';}).join('');
+      var parsed=JSON.parse(text.replace(/```json|```/g,'').trim());
+      var emoji=parsed.urgencia==='rojo'?'🔴':parsed.urgencia==='amarillo'?'🟡':'🟢';
+      document.getElementById('symptom-urgency').innerHTML='<span class="urgency-badge urgency-'+parsed.urgencia+'">'+emoji+' '+parsed.urgencia_texto+'</span>';
+      document.getElementById('symptom-text').innerHTML='<strong>Causas más probables:</strong> '+parsed.causas+'<br><br><strong>Qué hacer:</strong> '+parsed.que_hacer;
+      var links=getRelatedLinks(input+' '+parsed.causas);
+      document.getElementById('symptom-links').innerHTML=links.map(function(l){return '<a class="symptom-result-link" href="'+l.href+'">📖 '+l.text+'</a>';}).join('');
+      result.classList.add('visible');
+    }catch(e){
+      document.getElementById('symptom-urgency').innerHTML='';
+      document.getElementById('symptom-text').innerHTML='No hemos podido analizar el síntoma ahora mismo. Por favor inténtalo de nuevo o consulta a tu veterinario.';
+      document.getElementById('symptom-links').innerHTML='';
+      result.classList.add('visible');
+    }
+    loading.classList.remove('visible');
+    btn.disabled=false;
+  }
+
   function toggleDark(){
     var isDark = document.documentElement.classList.toggle('dark');
     localStorage.setItem('pa_dark', isDark ? '1' : '0');
