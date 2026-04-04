@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pata-Diccionario — Conceptos claros para dueños inteligentes | PataAdvisor</title>
+<meta name="description" content="Definiciones honestas de los términos y productos que todo dueño de mascota debe conocer. Sin marketing, sin letra pequeña.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"></noscript>
+<meta property="og:title" content="Pata-Diccionario | PataAdvisor">
+<meta property="og:description" content="Definiciones honestas de los términos que todo dueño de mascota debe conocer.">
+<meta property="og:image" content="https://pataadvisor.es/og_image.png">
+<style>
+:root{
+  --green-50:#E1F5EE;--green-100:#9FE1CB;--green-300:#1D9E75;--green-500:#0F6E56;--green-700:#085041;--green-900:#04342C;
+  --amber-50:#FAEEDA;--amber-100:#FAC775;--amber-600:#854F0B;
+  --sand-50:#F9F7F2;--sand-100:#F0EDE4;--sand-200:#E2DDD1;--sand-400:#A89F8E;--sand-600:#6B6358;--sand-700:#4A4540;--sand-800:#2E2A24;--sand-900:#1A1714;
+  --white:#FFFFFF;
+  --font-display:'Fraunces',serif;--font-body:'DM Sans',sans-serif;
+  --r-md:10px;--r-lg:16px;--r-xl:24px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--sand-50);color:var(--sand-800);-webkit-font-smoothing:antialiased}
+
+/* NAV */
+.page-nav{background:rgba(249,247,242,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--sand-200);padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:68px;position:sticky;top:0;z-index:100}
+.nav-back{font-size:13px;color:var(--sand-400);text-decoration:none;transition:color .2s}
+.nav-back:hover{color:var(--sand-800)}
+
+/* HERO */
+.dict-hero{background:var(--green-900);padding:56px 32px 48px;text-align:center;position:relative;overflow:hidden}
+.dict-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(29,158,117,.15),transparent 60%),radial-gradient(ellipse at 70% 50%,rgba(29,158,117,.1),transparent 60%)}
+.dict-hero-eyebrow{font-size:11px;font-weight:500;color:var(--green-100);text-transform:uppercase;letter-spacing:.16em;margin-bottom:12px;position:relative}
+.dict-hero-title{font-family:var(--font-display);font-size:clamp(28px,4vw,48px);font-weight:300;color:white;letter-spacing:-.02em;line-height:1.1;margin-bottom:10px;position:relative}
+.dict-hero-title em{font-style:italic;color:var(--green-100)}
+.dict-hero-tagline{font-size:16px;color:rgba(255,255,255,.5);margin-bottom:28px;position:relative;font-style:italic}
+.dict-search{display:flex;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:100px;overflow:hidden;max-width:420px;margin:0 auto;position:relative}
+.dict-search input{flex:1;border:none;outline:none;padding:12px 20px;font-family:var(--font-body);font-size:14px;color:white;background:transparent}
+.dict-search input::placeholder{color:rgba(255,255,255,.4)}
+.dict-search-btn{background:var(--green-300);color:white;border:none;padding:12px 20px;font-family:var(--font-body);font-size:13px;font-weight:500;cursor:pointer;white-space:nowrap}
+
+/* WRAP */
+.dict-wrap{max-width:860px;margin:0 auto;padding:48px 32px 80px}
+
+/* FILTROS */
+.dict-filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:36px}
+.dict-filter{font-family:var(--font-body);font-size:13px;font-weight:500;color:var(--sand-600);background:var(--white);border:1.5px solid var(--sand-200);border-radius:100px;padding:7px 16px;cursor:pointer;transition:all .2s}
+.dict-filter:hover,.dict-filter.active{background:var(--green-50);border-color:var(--green-300);color:var(--green-500)}
+
+/* LETRAS ÍNDICE */
+.dict-index{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:32px}
+.dict-index a{font-family:var(--font-display);font-size:14px;font-weight:400;color:var(--sand-400);text-decoration:none;width:28px;height:28px;display:flex;align-items:center;justify-content:center;border-radius:6px;transition:all .2s}
+.dict-index a:hover,.dict-index a.has-entries{color:var(--green-500);background:var(--green-50)}
+
+/* ENTRADA */
+.dict-entry{background:var(--white);border:1px solid var(--sand-200);border-radius:var(--r-xl);margin-bottom:16px;overflow:hidden;transition:box-shadow .2s}
+.dict-entry:hover{box-shadow:0 4px 20px rgba(0,0,0,.06)}
+.dict-entry-header{padding:20px 24px;cursor:pointer;display:flex;align-items:flex-start;gap:16px}
+.dict-entry-letter{width:40px;height:40px;border-radius:var(--r-md);background:var(--green-50);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:18px;font-weight:400;color:var(--green-500);flex-shrink:0}
+.dict-entry-meta{flex:1;min-width:0}
+.dict-entry-cats{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px}
+.dict-cat{font-size:10px;font-weight:600;color:var(--green-500);background:var(--green-50);padding:2px 8px;border-radius:100px;letter-spacing:.06em;text-transform:uppercase}
+.dict-entry-term{font-family:var(--font-display);font-size:22px;font-weight:300;color:var(--sand-900);letter-spacing:-.02em;line-height:1.2;margin-bottom:4px}
+.dict-entry-short{font-size:14px;color:var(--sand-400);line-height:1.5}
+.dict-expand-icon{font-size:20px;color:var(--sand-400);flex-shrink:0;transition:transform .25s;margin-top:4px}
+.dict-entry.open .dict-expand-icon{transform:rotate(45deg)}
+
+.dict-entry-body{display:none;padding:0 24px 24px;border-top:1px solid var(--sand-100)}
+.dict-entry.open .dict-entry-body{display:block}
+
+.dict-entry-body h3{font-family:var(--font-display);font-size:17px;font-weight:400;color:var(--sand-900);margin:20px 0 8px;font-style:italic}
+.dict-entry-body p{font-size:15px;color:var(--sand-700);line-height:1.8;margin-bottom:12px}
+.dict-entry-body ul{padding-left:20px;margin-bottom:14px}
+.dict-entry-body li{font-size:15px;color:var(--sand-700);line-height:1.75;margin-bottom:6px}
+.dict-entry-body strong{color:var(--sand-900);font-weight:500}
+
+/* VEREDICTO */
+.dict-veredicto{background:var(--green-50);border:1px solid var(--green-100);border-radius:var(--r-lg);padding:16px 20px;margin:16px 0}
+.dict-veredicto-label{font-size:10px;font-weight:700;color:var(--green-500);text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px}
+.dict-veredicto p{font-size:14px;color:var(--green-700);line-height:1.7;margin:0}
+
+/* MITO */
+.dict-mito{background:#FFF5F5;border:1px solid #FCA5A5;border-radius:var(--r-lg);padding:16px 20px;margin:16px 0}
+.dict-mito-label{font-size:10px;font-weight:700;color:#DC2626;text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px}
+.dict-mito p{font-size:14px;color:#7F1D1D;line-height:1.7;margin:0}
+
+/* RELATED TERMS */
+.dict-related{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;padding-top:16px;border-top:1px solid var(--sand-100)}
+.dict-related-label{font-size:12px;color:var(--sand-400);margin-right:4px}
+.dict-related a{font-size:12px;font-weight:500;color:var(--green-500);text-decoration:none;background:var(--green-50);padding:4px 10px;border-radius:100px;transition:background .2s}
+.dict-related a:hover{background:var(--green-100)}
+
+/* PROD LINK */
+.dict-prod-link{display:flex;align-items:center;justify-content:space-between;background:var(--sand-50);border:1px solid var(--sand-200);border-radius:var(--r-lg);padding:14px 18px;margin-top:16px;text-decoration:none;transition:background .2s}
+.dict-prod-link:hover{background:var(--sand-100)}
+.dict-prod-info{min-width:0}
+.dict-prod-tag{font-size:10px;font-weight:600;color:var(--sand-400);text-transform:uppercase;letter-spacing:.08em;margin-bottom:3px}
+.dict-prod-name{font-size:14px;font-weight:500;color:var(--sand-900)}
+.dict-prod-btn{background:#FF9900;color:#111;font-family:var(--font-body);font-size:12px;font-weight:700;padding:8px 14px;border-radius:8px;white-space:nowrap;flex-shrink:0}
+
+/* PROGRESS */
+.read-progress{position:fixed;top:0;left:0;width:0%;height:3px;background:var(--green-300);z-index:9999;transition:width .1s linear}
+
+@media(max-width:700px){
+  .dict-wrap{padding:32px 20px 60px}
+  .page-nav{padding:0 20px}
+  .dict-hero{padding:40px 20px 36px}
+  .dict-entry-term{font-size:18px}
+}
+</style>
+</head>
+<body>
+
+<div class="read-progress" id="readProgress"></div>
+
+<nav class="page-nav">
+  <a href="index.html" style="text-decoration:none;display:flex;align-items:center">
+    <svg width="220" height="56" viewBox="0 0 360 88" xmlns="http://www.w3.org/2000/svg">
+      <g transform="translate(36,44)">
+        <ellipse cx="0" cy="8" rx="18" ry="14" fill="none" stroke="#1D9E75" stroke-width="2.5"/>
+        <ellipse cx="-16" cy="-8" rx="8" ry="10" fill="none" stroke="#1D9E75" stroke-width="2.5"/>
+        <ellipse cx="-5" cy="-16" rx="8" ry="10" fill="none" stroke="#1D9E75" stroke-width="2.5"/>
+        <ellipse cx="7" cy="-16" rx="8" ry="10" fill="none" stroke="#1D9E75" stroke-width="2.5"/>
+        <ellipse cx="17" cy="-8" rx="8" ry="10" fill="none" stroke="#1D9E75" stroke-width="2.5"/>
+        <line x1="32" y1="-22" x2="32" y2="22" stroke="#E2DDD1" stroke-width="1.5"/>
+        <text x="44" y="-4" font-family="'DM Sans',sans-serif" font-size="28" font-weight="500" fill="#1A1714">Pata</text>
+        <text x="110" y="-4" font-family="'DM Sans',sans-serif" font-size="28" font-weight="300" fill="#1D9E75">Advisor</text>
+        <text x="44" y="18" font-family="'DM Sans',sans-serif" font-size="9" font-weight="700" fill="#1A1714" letter-spacing="3">BIENESTAR ANIMAL</text>
+      </g>
+    </svg>
+  </a>
+  <a href="consejos.html" class="nav-back">← Consejos</a>
+</nav>
+
+<!-- HERO -->
+<div class="dict-hero">
+  <div class="dict-hero-eyebrow">Pata-Diccionario · PataAdvisor</div>
+  <h1 class="dict-hero-title">Conceptos claros para <em>dueños inteligentes</em></h1>
+  <p class="dict-hero-tagline">Sin marketing, sin letra pequeña. Solo lo que necesitas saber.</p>
+  <div class="dict-search">
+    <input type="text" placeholder="Busca un término..." id="dictSearch" oninput="filterDict(this.value)">
+    <button class="dict-search-btn">Buscar</button>
+  </div>
+</div>
+
+<div class="dict-wrap">
+
+  <!-- FILTROS -->
+  <div class="dict-filters">
+    <button class="dict-filter active" onclick="filterCat('todo',this)">Todos</button>
+    <button class="dict-filter" onclick="filterCat('accesorios',this)">Accesorios</button>
+    <button class="dict-filter" onclick="filterCat('alimentacion',this)">Alimentación</button>
+    <button class="dict-filter" onclick="filterCat('adiestramiento',this)">Adiestramiento</button>
+  </div>
+
+  <!-- ENTRADAS -->
+
+  <!-- ARNÉS EN Y -->
+  <div class="dict-entry" id="entry-arnes" data-cats="accesorios" data-term="arnés en y arnes">
+    <div class="dict-entry-header" onclick="toggleEntry(this.parentElement)">
+      <div class="dict-entry-letter">A</div>
+      <div class="dict-entry-meta">
+        <div class="dict-entry-cats"><span class="dict-cat">Accesorios</span><span class="dict-cat">Perros</span></div>
+        <div class="dict-entry-term">Arnés en Y</div>
+        <div class="dict-entry-short">El tipo de arnés que respeta la biomecánica natural del perro. No todos los arneses son iguales.</div>
+      </div>
+      <span class="dict-expand-icon">+</span>
+    </div>
+    <div class="dict-entry-body">
+      <h3>¿Qué es exactamente?</h3>
+      <p>Un arnés en Y es aquel cuya pieza frontal forma una Y sobre el pecho del perro, dejando libre la articulación del hombro. Esto permite que el perro mueva las patas delanteras con total libertad y sin rozamientos que puedan causar lesiones a largo plazo.</p>
+
+      <h3>¿Por qué importa la forma?</h3>
+      <p>Los arneses con una tira horizontal que cruza el pecho (llamados arneses en H o en T) bloquean parcialmente el movimiento de la escápula. En paseos cortos no se nota, pero en perros activos o de trabajo puede provocar acortamiento muscular y problemas de movilidad con el tiempo.</p>
+      <ul>
+        <li><strong>Arnés en Y:</strong> tira frontal en forma de Y, hombro libre, movimiento natural</li>
+        <li><strong>Arnés en H:</strong> tira horizontal cruzando el pecho, puede rozar la escápula</li>
+        <li><strong>Arnés en T:</strong> similar al H, común en modelos baratos</li>
+      </ul>
+
+      <div class="dict-veredicto">
+        <div class="dict-veredicto-label">✓ Veredicto PataAdvisor</div>
+        <p>Para paseos diarios y perros activos, el arnés en Y es la opción más recomendada por fisioterapeutas caninos. Busca que el punto de enganche esté en el lomo (no en el pecho) para mayor control sin tirar del cuello.</p>
+      </div>
+
+      <div class="dict-mito">
+        <div class="dict-mito-label">✗ Mito frecuente</div>
+        <p>"Si el arnés tiene muchas correas y hebillas es mejor." Falso — más complejidad no significa mejor diseño. Lo que importa es la forma de la pieza frontal, no el número de ajustes.</p>
+      </div>
+
+      <a href="https://www.amazon.es/s?k=arnes+en+Y+perro+julius+k9&tag=primepick03f9-21" target="_blank" rel="nofollow sponsored" class="dict-prod-link">
+        <div class="dict-prod-info">
+          <div class="dict-prod-tag">Producto recomendado</div>
+          <div class="dict-prod-name">Julius-K9 — el arnés en Y más vendido en España</div>
+        </div>
+        <span class="dict-prod-btn">🛒 Ver en Amazon</span>
+      </a>
+
+      <div class="dict-related">
+        <span class="dict-related-label">Ver también:</span>
+        <a href="#entry-correa">Correa de multiposición</a>
+        <a href="#entry-kong">Kong</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- CORREA DE MULTIPOSICIÓN -->
+  <div class="dict-entry" id="entry-correa" data-cats="accesorios" data-term="correa multiposicion multiposición">
+    <div class="dict-entry-header" onclick="toggleEntry(this.parentElement)">
+      <div class="dict-entry-letter">C</div>
+      <div class="dict-entry-meta">
+        <div class="dict-entry-cats"><span class="dict-cat">Accesorios</span><span class="dict-cat">Perros</span></div>
+        <div class="dict-entry-term">Correa de multiposición</div>
+        <div class="dict-entry-short">Una sola correa que se convierte en 5 o 6 posiciones distintas. La navaja suiza del paseo.</div>
+      </div>
+      <span class="dict-expand-icon">+</span>
+    </div>
+    <div class="dict-entry-body">
+      <h3>¿Qué es?</h3>
+      <p>Una correa de multiposición es una correa larga (generalmente 2 metros) con múltiples mosquetones y anillas que permiten usarla de distintas formas según la situación: correa estándar, correa doble para dos perros, correa cruzada al cuerpo, arnés improvisado para emergencias o correa atada a la cintura.</p>
+
+      <h3>Posiciones más comunes</h3>
+      <ul>
+        <li><strong>Correa normal:</strong> enganche simple al collar o arnés</li>
+        <li><strong>Correa corta de control:</strong> para zonas concurridas o veterinario</li>
+        <li><strong>Correa al cuerpo:</strong> manos libres para correr o hacer senderismo</li>
+        <li><strong>Correa doble:</strong> para pasear dos perros a la vez</li>
+        <li><strong>Arnés de emergencia:</strong> si el arnés se rompe o lo olvidas</li>
+      </ul>
+
+      <div class="dict-veredicto">
+        <div class="dict-veredicto-label">✓ Veredicto PataAdvisor</div>
+        <p>Ideal para dueños activos que hacen senderismo, running o viajan con su perro. Una sola correa reemplaza a tres. Busca materiales resistentes al agua y mosquetones metálicos — los plásticos fallan con el uso.</p>
+      </div>
+
+      <a href="https://www.amazon.es/s?k=correa+multiposicion+perro+neopreno&tag=primepick03f9-21" target="_blank" rel="nofollow sponsored" class="dict-prod-link">
+        <div class="dict-prod-info">
+          <div class="dict-prod-tag">Producto recomendado</div>
+          <div class="dict-prod-name">Correa multiposición neopreno — resistente al agua</div>
+        </div>
+        <span class="dict-prod-btn">🛒 Ver en Amazon</span>
+      </a>
+
+      <div class="dict-related">
+        <span class="dict-related-label">Ver también:</span>
+        <a href="#entry-arnes">Arnés en Y</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- GRAIN FREE -->
+  <div class="dict-entry" id="entry-grainfree" data-cats="alimentacion" data-term="grain free sin cereales grainfree">
+    <div class="dict-entry-header" onclick="toggleEntry(this.parentElement)">
+      <div class="dict-entry-letter">G</div>
+      <div class="dict-entry-meta">
+        <div class="dict-entry-cats"><span class="dict-cat">Alimentación</span><span class="dict-cat">Perros y Gatos</span></div>
+        <div class="dict-entry-term">Grain Free (Sin cereales)</div>
+        <div class="dict-entry-short">El término más malinterpretado del mundo de las mascotas. ¿Es realmente mejor?</div>
+      </div>
+      <span class="dict-expand-icon">+</span>
+    </div>
+    <div class="dict-entry-body">
+      <h3>¿Qué significa exactamente?</h3>
+      <p>Un pienso "grain free" o "sin cereales" no contiene trigo, maíz, arroz, cebada ni avena. Sin embargo, esto no significa que sea bajo en hidratos — muchos grain free sustituyen los cereales por legumbres (guisantes, lentejas) o patata, que también son fuentes de carbohidratos.</p>
+
+      <h3>¿Para quién es realmente necesario?</h3>
+      <ul>
+        <li><strong>Perros con alergia o intolerancia al gluten:</strong> sí tiene sentido</li>
+        <li><strong>Perros con dermatitis atópica diagnosticada:</strong> puede ayudar si el cereal es el alérgeno</li>
+        <li><strong>Perros sanos sin problemas:</strong> no hay evidencia de que sea mejor</li>
+        <li><strong>Todos los gatos:</strong> los gatos son carnívoros estrictos, los cereales no son su alimento natural, pero los grain free tampoco son imprescindibles si el pienso es de calidad</li>
+      </ul>
+
+      <div class="dict-mito">
+        <div class="dict-mito-label">✗ Mito frecuente</div>
+        <p>"Grain free = más proteína = mejor pienso." Completamente falso. Un pienso puede ser grain free y tener baja calidad proteica. Mira siempre el % de proteína animal, no solo si lleva cereales o no.</p>
+      </div>
+
+      <div class="dict-veredicto">
+        <div class="dict-veredicto-label">✓ Veredicto PataAdvisor</div>
+        <p>El grain free está sobrevalorado para perros sanos. Si tu perro no tiene alergias diagnosticadas, elige por calidad de ingredientes — no por la etiqueta grain free. Además, la FDA americana ha investigado una posible relación entre dietas grain free con legumbres y miocardiopatía dilatada en perros.</p>
+      </div>
+
+      <div class="dict-related">
+        <span class="dict-related-label">Ver también:</span>
+        <a href="#entry-kong">Kong</a>
+        <a href="#entry-lickmat">Lick Mat</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- KONG -->
+  <div class="dict-entry" id="entry-kong" data-cats="accesorios adiestramiento" data-term="kong juguete rellenable">
+    <div class="dict-entry-header" onclick="toggleEntry(this.parentElement)">
+      <div class="dict-entry-letter">K</div>
+      <div class="dict-entry-meta">
+        <div class="dict-entry-cats"><span class="dict-cat">Accesorios</span><span class="dict-cat">Adiestramiento</span></div>
+        <div class="dict-entry-term">Kong</div>
+        <div class="dict-entry-short">El juguete rellenable más famoso del mundo canino. Una herramienta de enriquecimiento, no solo un juguete.</div>
+      </div>
+      <span class="dict-expand-icon">+</span>
+    </div>
+    <div class="dict-entry-body">
+      <h3>¿Qué es un Kong?</h3>
+      <p>El Kong es un juguete de goma resistente con forma cónica y hueco en el interior. Se rellena con comida, premios o pasta y el perro tiene que trabajar para sacarla. Lo que parece un simple juguete es en realidad una de las mejores herramientas de enriquecimiento cognitivo disponibles.</p>
+
+      <h3>Para qué sirve realmente</h3>
+      <ul>
+        <li><strong>Ansiedad por separación:</strong> ocupa al perro cuando te vas y crea una asociación positiva con tu ausencia</li>
+        <li><strong>Aburrimiento:</strong> un perro que trabaja por su comida está mentalmente estimulado</li>
+        <li><strong>Cachorros en dentición:</strong> el Kong Puppy (goma rosa más blanda) alivia el dolor de las encías</li>
+        <li><strong>Calmar en situaciones de estrés:</strong> veterinario, tormenta, visitas en casa</li>
+      </ul>
+
+      <h3>Cómo rellenarlo bien</h3>
+      <p>La clave está en la dificultad progresiva. Empieza fácil (premios sueltos) y ve aumentando: pasta de cacahuete sin xilitol, queso crema, puré de zanahoria, caldo de pollo sin sal congelado. El truco del Kong congelado — rellenarlo y meterlo al congelador — puede durar 20-30 minutos.</p>
+
+      <div class="dict-veredicto">
+        <div class="dict-veredicto-label">✓ Veredicto PataAdvisor</div>
+        <p>Uno de los mejores 10€ que puedes gastar en tu perro. Ideal para combinar con técnicas de <strong>Refuerzo Positivo</strong> — el Kong convierte el aprendizaje en algo que el perro busca activamente.</p>
+      </div>
+
+      <a href="https://www.amazon.es/dp/B0002AR0I8?tag=primepick03f9-21" target="_blank" rel="nofollow sponsored" class="dict-prod-link">
+        <div class="dict-prod-info">
+          <div class="dict-prod-tag">Producto original</div>
+          <div class="dict-prod-name">Kong Classic talla L — el original, el mejor</div>
+        </div>
+        <span class="dict-prod-btn">🛒 Ver en Amazon</span>
+      </a>
+
+      <div class="dict-related">
+        <span class="dict-related-label">Ver también:</span>
+        <a href="#entry-lickmat">Lick Mat</a>
+        <a href="#entry-arnes">Arnés en Y</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- LICK MAT -->
+  <div class="dict-entry" id="entry-lickmat" data-cats="accesorios adiestramiento" data-term="lick mat alfombra lamer tapete">
+    <div class="dict-entry-header" onclick="toggleEntry(this.parentElement)">
+      <div class="dict-entry-letter">L</div>
+      <div class="dict-entry-meta">
+        <div class="dict-entry-cats"><span class="dict-cat">Accesorios</span><span class="dict-cat">Adiestramiento</span></div>
+        <div class="dict-entry-term">Lick Mat</div>
+        <div class="dict-entry-short">La alfombra de lamer que calma, estimula y entretiene. Más potente de lo que parece.</div>
+      </div>
+      <span class="dict-expand-icon">+</span>
+    </div>
+    <div class="dict-entry-body">
+      <h3>¿Qué es un Lick Mat?</h3>
+      <p>Un Lick Mat (literalmente "alfombra de lamer") es una superficie de silicona o goma con textura irregular donde se extiende comida blanda. El perro o gato tiene que lamear repetidamente para sacarla. La acción de lamer de forma repetitiva tiene un efecto calmante demostrado en perros y gatos.</p>
+
+      <h3>¿Por qué calma el lamer?</h3>
+      <p>El lamido repetitivo activa el sistema nervioso parasimpático — el mismo que se activa cuando estamos relajados. Estimula la producción de saliva y libera endorfinas. Por eso los perros ansiosos lamen sus patas compulsivamente — es un mecanismo natural de autorregulación.</p>
+
+      <h3>Usos prácticos</h3>
+      <ul>
+        <li><strong>Baños:</strong> pega el Lick Mat a la pared de la ducha con ventosa y tu perro no notará que le estás bañando</li>
+        <li><strong>Visita al veterinario:</strong> llévalo relleno en la bolsa — distrae durante la exploración</li>
+        <li><strong>Tormentas y fuegos artificiales:</strong> activa el modo calma antes de que empiece el estrés</li>
+        <li><strong>Gatos:</strong> funcionan igual de bien, especialmente con comida húmeda o pasta de atún</li>
+      </ul>
+
+      <div class="dict-veredicto">
+        <div class="dict-veredicto-label">✓ Veredicto PataAdvisor</div>
+        <p>Una de las herramientas más versátiles y baratas del enriquecimiento ambiental. Ideal para combinar con el <a href="#entry-kong" style="color:var(--green-500)">Kong</a> en rutinas de estimulación mental. Los modelos con ventosa son los más prácticos.</p>
+      </div>
+
+      <a href="https://www.amazon.es/s?k=lick+mat+perro+ventosa+silicona&tag=primepick03f9-21" target="_blank" rel="nofollow sponsored" class="dict-prod-link">
+        <div class="dict-prod-info">
+          <div class="dict-prod-tag">Producto recomendado</div>
+          <div class="dict-prod-name">Lick Mat con ventosa — silicona apta para lavavajillas</div>
+        </div>
+        <span class="dict-prod-btn">🛒 Ver en Amazon</span>
+      </a>
+
+      <div class="dict-related">
+        <span class="dict-related-label">Ver también:</span>
+        <a href="#entry-kong">Kong</a>
+        <a href="#entry-grainfree">Grain Free</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRÓXIMAMENTE -->
+  <div style="background:var(--sand-100);border:1.5px dashed var(--sand-200);border-radius:var(--r-xl);padding:28px;text-align:center;margin-top:8px">
+    <div style="font-size:24px;margin-bottom:8px">📖</div>
+    <div style="font-family:var(--font-display);font-size:18px;font-weight:300;color:var(--sand-600);margin-bottom:4px">Más términos próximamente</div>
+    <div style="font-size:13px;color:var(--sand-400)">BARF · Refuerzo Positivo · Clicker · Sociabilización · Score corporal · Taurina...</div>
+  </div>
+
+</div>
+
+<script>
+function toggleEntry(entry){
+  var isOpen = entry.classList.contains('open');
+  document.querySelectorAll('.dict-entry.open').forEach(function(e){ e.classList.remove('open'); });
+  if(!isOpen) entry.classList.add('open');
+}
+
+function filterDict(q){
+  q = q.toLowerCase().trim();
+  document.querySelectorAll('.dict-entry').forEach(function(e){
+    var term = e.dataset.term || '';
+    e.style.display = (!q || term.includes(q)) ? '' : 'none';
+  });
+}
+
+function filterCat(cat, btn){
+  document.querySelectorAll('.dict-filter').forEach(function(b){ b.classList.remove('active'); });
+  btn.classList.add('active');
+  document.querySelectorAll('.dict-entry').forEach(function(e){
+    var cats = e.dataset.cats || '';
+    e.style.display = (cat === 'todo' || cats.includes(cat)) ? '' : 'none';
+  });
+}
+
+var prog = document.getElementById('readProgress');
+window.addEventListener('scroll', function(){
+  var s = window.scrollY;
+  var d = document.documentElement.scrollHeight - window.innerHeight;
+  if(prog) prog.style.width = (d > 0 ? (s/d)*100 : 0) + '%';
+});
+
+if(window.location.hash){
+  var target = document.querySelector(window.location.hash);
+  if(target){ setTimeout(function(){ target.classList.add('open'); target.scrollIntoView({behavior:'smooth',block:'start'}); }, 300); }
+}
+</script>
+</body>
+</html>
