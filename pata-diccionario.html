@@ -149,9 +149,10 @@ body{font-family:var(--font-body);background:var(--sand-50);color:var(--sand-800
 
   <div class="dict-filters">
     <button class="dict-filter active" onclick="filterCat('todo',this)">Todos</button>
-    <button class="dict-filter" onclick="filterCat('accesorios',this)">Accesorios</button>
-    <button class="dict-filter" onclick="filterCat('alimentacion',this)">Alimentación</button>
-    <button class="dict-filter" onclick="filterCat('adiestramiento',this)">Adiestramiento</button>
+    <button class="dict-filter" onclick="filterCat('accesorios',this)">🦺 Accesorios</button>
+    <button class="dict-filter" onclick="filterCat('alimentacion',this)">🥣 Alimentación</button>
+    <button class="dict-filter" onclick="filterCat('adiestramiento',this)">🎯 Adiestramiento</button>
+    <button class="dict-filter" onclick="filterCat('ley',this)">⚖️ Bienestar y Ley</button>
   </div>
 
   <div class="dict-alphabet">
@@ -167,13 +168,13 @@ body{font-family:var(--font-body);background:var(--sand-50);color:var(--sand-800
     <button class="dict-alpha-btn">J</button>
     <button class="dict-alpha-btn has-entries" onclick="scrollToEntry('entry-kong')">K</button>
     <button class="dict-alpha-btn has-entries" onclick="scrollToEntry('entry-lickmat')">L</button>
-    <button class="dict-alpha-btn">M</button>
+    <button class="dict-alpha-btn has-entries" onclick="scrollToEntry('entry-microchip')">M</button>
     <button class="dict-alpha-btn">N</button>
     <button class="dict-alpha-btn">O</button>
-    <button class="dict-alpha-btn">P</button>
+    <button class="dict-alpha-btn has-entries" onclick="scrollToEntry('entry-pasaporte')">P</button>
     <button class="dict-alpha-btn">Q</button>
     <button class="dict-alpha-btn">R</button>
-    <button class="dict-alpha-btn">S</button>
+    <button class="dict-alpha-btn has-entries" onclick="scrollToEntry('entry-seguro')">S</button>
     <button class="dict-alpha-btn">T</button>
     <button class="dict-alpha-btn">U</button>
     <button class="dict-alpha-btn">V</button>
@@ -421,6 +422,153 @@ body{font-family:var(--font-body);background:var(--sand-50);color:var(--sand-800
         <span class="dict-related-label">Ver también:</span>
         <a href="#entry-kong" onclick="openAndScroll('entry-kong')">Kong</a>
         <a href="#entry-grainfree" onclick="openAndScroll('entry-grainfree')">Grain Free</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MICROCHIP -->
+  <div class="dict-entry" id="entry-microchip" data-cats="ley" data-term="microchip identificacion chip perro">
+    <div class="dict-entry-header" onclick="toggleEntry(this.parentElement)">
+      <div class="dict-icon">
+        <svg viewBox="0 0 24 24"><rect x="7" y="7" width="10" height="10" rx="1"/><path d="M7 10H4M7 14H4M17 10h3M17 14h3M10 7V4M14 7V4M10 17v3M14 17v3"/></svg>
+      </div>
+      <div class="dict-entry-meta">
+        <div class="dict-entry-cats"><span class="dict-cat">⚖️ Bienestar y Ley</span><span class="dict-cat">Perros y Gatos</span></div>
+        <div class="dict-entry-term">Microchip de Identificación</div>
+      </div>
+      <span class="dict-expand-icon">+</span>
+    </div>
+    <div class="dict-def-pro" style="display:none">
+      <div class="dict-def-pro-label">Definición en 3 segundos</div>
+      <div class="dict-def-pro-text">Un transpondedor del tamaño de un grano de arroz implantado bajo la piel. Es la única forma legal y definitiva de demostrar que un animal es tuyo si se pierde.</div>
+    </div>
+    <div class="dict-entry-body">
+      <h3>¿Qué es exactamente?</h3>
+      <p>El microchip es un transpondedor pasivo de radiofrecuencia (RFID) de 15 dígitos que se implanta con una jeringa entre los omóplatos del animal. No necesita batería — se activa al acercar un lector. En España es obligatorio para todos los perros desde los 3 meses de edad y en muchas comunidades también para gatos.</p>
+      <h3>¿Por qué es tan importante?</h3>
+      <ul>
+        <li><strong>Propiedad legal:</strong> es el único documento que acredita oficialmente que el animal es tuyo</li>
+        <li><strong>Recuperación:</strong> cualquier veterinario o perrera puede leerlo y localizar al propietario en el RIAC</li>
+        <li><strong>Viajes internacionales:</strong> obligatorio para el <a href="#entry-pasaporte" onclick="openAndScroll('entry-pasaporte')">Pasaporte Europeo</a></li>
+        <li><strong>Adopciones ilegales:</strong> sin microchip, un animal puede haber sido robado o vendido ilegalmente</li>
+      </ul>
+      <div class="dict-veredicto">
+        <div class="dict-veredicto-label">✓ Veredicto PataAdvisor</div>
+        <p>Obligatorio por ley, irreversible y esencial. Si adoptas o compras un animal, lo primero es verificar que tiene microchip y que está a tu nombre en el registro. Sin eso, legalmente no puedes demostrar que es tuyo.</p>
+      </div>
+      <div class="dict-mito">
+        <div class="dict-mito-label">✗ Mito frecuente</div>
+        <p>"Con el microchip sé dónde está mi perro en tiempo real." Falso — el microchip no es un GPS. Solo emite un número de identificación cuando se acerca un lector. Para localización en tiempo real necesitas un <a href="gps.html">GPS para perros</a>.</p>
+      </div>
+      <div class="dict-tip">
+        <span class="dict-tip-icon">💡</span>
+        <div>
+          <div class="dict-tip-label">El Consejo de PataAdvisor</div>
+          <p class="dict-tip-text">"Cuando te mudes o cambies de teléfono, <strong>actualiza los datos del microchip</strong> en el RIAC (Registro de Identificación de Animales de Compañía). Si tu perro se pierde y tus datos están desactualizados, el microchip no sirve de nada."</p>
+        </div>
+      </div>
+      <div class="dict-related">
+        <span class="dict-related-label">Ver también:</span>
+        <a href="#entry-pasaporte" onclick="openAndScroll('entry-pasaporte')">Pasaporte Europeo</a>
+        <a href="#entry-seguro" onclick="openAndScroll('entry-seguro')">Seguro RC</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- PASAPORTE EUROPEO -->
+  <div class="dict-entry" id="entry-pasaporte" data-cats="ley" data-term="pasaporte europeo mascotas viaje ue">
+    <div class="dict-entry-header" onclick="toggleEntry(this.parentElement)">
+      <div class="dict-icon">
+        <svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h8M8 15h5"/><circle cx="15" cy="15" r="3"/><path d="M17.5 17.5l2 2"/></svg>
+      </div>
+      <div class="dict-entry-meta">
+        <div class="dict-entry-cats"><span class="dict-cat">⚖️ Bienestar y Ley</span><span class="dict-cat">Perros y Gatos</span></div>
+        <div class="dict-entry-term">Pasaporte Europeo para Mascotas</div>
+      </div>
+      <span class="dict-expand-icon">+</span>
+    </div>
+    <div class="dict-def-pro" style="display:none">
+      <div class="dict-def-pro-label">Definición en 3 segundos</div>
+      <div class="dict-def-pro-text">Documento oficial de la UE que permite viajar con tu perro, gato o hurón por Europa. Desde 2026 es imprescindible y solo lo emite tu veterinario.</div>
+    </div>
+    <div class="dict-entry-body">
+      <h3>¿Qué contiene y quién lo emite?</h3>
+      <p>El Pasaporte Europeo de Animales de Compañía es un documento azul estandarizado en toda la UE que recoge el <a href="#entry-microchip" onclick="openAndScroll('entry-microchip')">microchip</a>, la vacuna antirrábica, los tratamientos antiparasitarios y los datos del propietario. Solo puede emitirlo un veterinario habilitado, después de verificar que el animal está correctamente identificado y vacunado.</p>
+      <h3>Requisitos en 2026</h3>
+      <ul>
+        <li><strong>Microchip:</strong> obligatorio y debe estar registrado antes de la vacuna de rabia</li>
+        <li><strong>Vacuna antirrábica:</strong> debe estar en vigor (caducidad según fabricante, generalmente 1-3 años)</li>
+        <li><strong>Tiempo de espera:</strong> para entrar en algunos países (UK, Irlanda, Malta, Finlandia, Noruega) se requieren entre 21 días y 3 meses de espera tras la vacuna</li>
+        <li><strong>Tratamiento antiparasitario:</strong> obligatorio para entrar en algunos países, especialmente contra la tenia</li>
+      </ul>
+      <div class="dict-veredicto">
+        <div class="dict-veredicto-label">✓ Veredicto PataAdvisor</div>
+        <p>Tramítalo con al menos 3 meses de antelación si vas a viajar a UK o Irlanda. Para el resto de la UE, con 3 semanas es suficiente. Sin pasaporte, tu mascota puede ser retenida en frontera o incluso devuelta al país de origen.</p>
+      </div>
+      <div class="dict-tip">
+        <span class="dict-tip-icon">💡</span>
+        <div>
+          <div class="dict-tip-label">El Consejo de PataAdvisor</div>
+          <p class="dict-tip-text">"Guarda siempre el pasaporte <strong>en papel físico</strong>, no en el móvil. En fronteras terrestres o controles de aduanas, el documento digital no siempre es aceptado. Una funda de plástico plastificada en tu maleta puede salvarte el viaje."</p>
+        </div>
+      </div>
+      <div class="dict-related">
+        <span class="dict-related-label">Ver también:</span>
+        <a href="#entry-microchip" onclick="openAndScroll('entry-microchip')">Microchip</a>
+        <a href="transportines-cabina-avion.html">Transportines para volar</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEGURO RC -->
+  <div class="dict-entry" id="entry-seguro" data-cats="ley" data-term="seguro responsabilidad civil rc perro obligatorio">
+    <div class="dict-entry-header" onclick="toggleEntry(this.parentElement)">
+      <div class="dict-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 9.5-8 11C7.5 21.5 4 17 4 12V7l8-4z"/><path d="M9 12l2 2 4-4"/></svg>
+      </div>
+      <div class="dict-entry-meta">
+        <div class="dict-entry-cats"><span class="dict-cat">⚖️ Bienestar y Ley</span><span class="dict-cat">Perros</span></div>
+        <div class="dict-entry-term">Seguro de Responsabilidad Civil (RC)</div>
+      </div>
+      <span class="dict-expand-icon">+</span>
+    </div>
+    <div class="dict-def-pro" style="display:none">
+      <div class="dict-def-pro-label">Definición en 3 segundos</div>
+      <div class="dict-def-pro-text">Seguro obligatorio para todos los perros en España desde 2023. Cubre los daños que tu perro cause a terceras personas, animales o propiedades.</div>
+    </div>
+    <div class="dict-entry-body">
+      <h3>¿Es realmente obligatorio?</h3>
+      <p>Sí. La Ley de Bienestar Animal (Ley 7/2023) establece que todos los perros deben contar con un seguro de Responsabilidad Civil. No hay excepciones por raza ni tamaño. La obligatoriedad entró en vigor en septiembre de 2023.</p>
+      <h3>¿Qué cubre exactamente?</h3>
+      <ul>
+        <li><strong>Daños a personas:</strong> si tu perro muerde o lesiona a alguien</li>
+        <li><strong>Daños a otros animales:</strong> peleas con otros perros u otros animales</li>
+        <li><strong>Daños materiales:</strong> si tu perro destroza algo de un tercero</li>
+        <li><strong>Gastos médicos y legales:</strong> según la póliza contratada</li>
+      </ul>
+      <h3>Multas por no tenerlo</h3>
+      <p>No tener el seguro RC puede suponer una multa de entre <strong>500€ y 10.000€</strong> según la comunidad autónoma. Además, en caso de accidente, serías personalmente responsable de todos los daños causados.</p>
+      <h3>¿Lo cubre mi seguro de hogar?</h3>
+      <p>Muchas pólizas de hogar incluyen RC para mascotas, pero no siempre con la cobertura suficiente exigida por la ley. Revisa tu póliza actual — puede que ya estés cubierto sin saberlo. Llama a tu aseguradora y pregunta específicamente por "RC de animales de compañía".</p>
+      <div class="dict-veredicto">
+        <div class="dict-veredicto-label">✓ Veredicto PataAdvisor</div>
+        <p>Antes de contratar un seguro específico, revisa tu seguro de hogar. En muchos casos ya incluye la cobertura necesaria. Si no, los seguros de RC para mascotas son económicos — desde 30-60€ al año — y es la única forma de estar legalmente protegido.</p>
+      </div>
+      <div class="dict-tip">
+        <span class="dict-tip-icon">💡</span>
+        <div>
+          <div class="dict-tip-label">El Consejo de PataAdvisor</div>
+          <p class="dict-tip-text">"Llama a tu aseguradora y pregunta: <strong>'¿Mi póliza de hogar cubre RC de animales de compañía?'</strong> Muchos dueños pagan por un seguro extra sin saber que ya estaban cubiertos. Ahorra ese dinero o amplía la cobertura veterinaria."</p>
+        </div>
+      </div>
+      <div style="background:var(--sand-100);border:1px solid var(--sand-200);border-radius:var(--r-lg);padding:16px 20px;margin:16px 0">
+        <div style="font-size:10px;font-weight:700;color:var(--sand-400);text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px">🔜 Próximamente en PataAdvisor</div>
+        <p style="font-size:14px;color:var(--sand-600);line-height:1.7;margin:0">Estamos analizando las mejores pólizas de seguro para mascotas de 2026 para traerte pronto <strong style="color:var(--sand-800)">la comparativa definitiva</strong>. Guarda esta página en favoritos para no perdértela.</p>
+      </div>
+      <div class="dict-related">
+        <span class="dict-related-label">Ver también:</span>
+        <a href="#entry-microchip" onclick="openAndScroll('entry-microchip')">Microchip</a>
+        <a href="#entry-pasaporte" onclick="openAndScroll('entry-pasaporte')">Pasaporte Europeo</a>
       </div>
     </div>
   </div>
