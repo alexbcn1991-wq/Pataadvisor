@@ -1104,11 +1104,7 @@
     Guías
     <span style="font-size:10px;font-weight:700;background:var(--green-300);color:white;padding:2px 7px;border-radius:100px;letter-spacing:.04em">NEW</span>
   </a>
-  <div class="nav-tools">
-    <button class="nav-tool-btn ntb-quiz" onclick="document.querySelector('.quiz-section').scrollIntoView({behavior:'smooth'})">🎯 ¿Qué pienso le va mejor?</button>
-    <button class="nav-tool-btn" style="background:rgba(29,158,117,.1);color:var(--green-500);border-color:rgba(29,158,117,.2)" onclick="showPage('home');setTimeout(function(){document.getElementById('age-calc').scrollIntoView({behavior:'smooth',block:'center'})},100)">🐾 ¿Cuántos años tiene tu perro?</button>
-    <button class="nav-tool-btn" style="background:rgba(220,38,38,.1);color:#DC2626;border-color:rgba(220,38,38,.2)" onclick="showPage('home');setTimeout(function(){document.getElementById('symptom-checker').scrollIntoView({behavior:'smooth',block:'center'})},100)">🏥 Síntoma checker</button>
-  </div>
+  <div class="nav-tools"></div>
   <div class="dark-toggle-wrap" title="Modo oscuro">
     <span>🌙</span>
     <button class="dark-toggle" id="darkToggle" onclick="toggleDark()" aria-label="Modo oscuro"></button>
@@ -1232,18 +1228,26 @@
       <p class="hero-desc a3">Analizamos a fondo accesorios, salud y alimentación sin filtros ni patrocinios. Usa nuestras herramientas exclusivas para elegir siempre lo mejor al precio justo.</p>
 
       <!-- BARRA DE UTILIDADES -->
-      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px">
-        <button onclick="document.querySelector('.quiz-section').scrollIntoView({behavior:'smooth'})" style="display:flex;align-items:center;gap:7px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;color:var(--green-700);background:var(--green-50);border:1.5px solid var(--green-100);border-radius:100px;padding:9px 16px;cursor:pointer;transition:all .2s;white-space:nowrap" onmouseover="this.style.background='var(--green-100)'" onmouseout="this.style.background='var(--green-50)'">
-          🎯 <span>¿Qué pienso le va mejor?</span>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:16px">
+        <button onclick="document.querySelector('.quiz-section').scrollIntoView({behavior:'smooth'})" style="background:#04342C;border:none;border-radius:12px;padding:12px 14px;cursor:pointer;text-align:left;transition:opacity .2s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+          <div style="font-size:18px;margin-bottom:5px">🎯</div>
+          <div style="font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;color:white;margin-bottom:2px">¿Qué pienso le va mejor?</div>
+          <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:#9FE1CB">Test de 5 preguntas →</div>
         </button>
-        <button onclick="showPage('home');setTimeout(function(){document.getElementById('age-calc').scrollIntoView({behavior:'smooth',block:'center'})},100)" style="display:flex;align-items:center;gap:7px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;color:var(--sand-700);background:var(--sand-100);border:1.5px solid var(--sand-200);border-radius:100px;padding:9px 16px;cursor:pointer;transition:all .2s;white-space:nowrap" onmouseover="this.style.background='var(--sand-200)'" onmouseout="this.style.background='var(--sand-100)'">
-          🎂 <span>¿Cuántos años tiene tu perro?</span>
+        <button onclick="showPage('home');setTimeout(function(){document.getElementById('age-calc').scrollIntoView({behavior:'smooth',block:'center'})},100)" style="background:#04342C;border:none;border-radius:12px;padding:12px 14px;cursor:pointer;text-align:left;transition:opacity .2s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+          <div style="font-size:18px;margin-bottom:5px">🎂</div>
+          <div style="font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;color:white;margin-bottom:2px">¿Cuántos años tiene tu perro?</div>
+          <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:#9FE1CB">Algoritmo por raza →</div>
         </button>
-        <button onclick="document.querySelector('.calc-section').scrollIntoView({behavior:'smooth'})" style="display:flex;align-items:center;gap:7px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;color:var(--sand-700);background:var(--sand-100);border:1.5px solid var(--sand-200);border-radius:100px;padding:9px 16px;cursor:pointer;transition:all .2s;white-space:nowrap" onmouseover="this.style.background='var(--sand-200)'" onmouseout="this.style.background='var(--sand-100)'">
-          🧮 <span>Coste mensual del pienso</span>
+        <button onclick="document.querySelector('.calc-section').scrollIntoView({behavior:'smooth'})" style="background:#04342C;border:none;border-radius:12px;padding:12px 14px;cursor:pointer;text-align:left;transition:opacity .2s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+          <div style="font-size:18px;margin-bottom:5px">🧮</div>
+          <div style="font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;color:white;margin-bottom:2px">Coste mensual del pienso</div>
+          <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:#9FE1CB">Calcula tu gasto real →</div>
         </button>
-        <button onclick="showPage('home');setTimeout(function(){document.getElementById('symptom-checker').scrollIntoView({behavior:'smooth',block:'center'})},100)" style="display:flex;align-items:center;gap:7px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;color:#B91C1C;background:#FFF5F5;border:1.5px solid #FCA5A5;border-radius:100px;padding:9px 16px;cursor:pointer;transition:all .2s;white-space:nowrap" onmouseover="this.style.background='#FEE2E2'" onmouseout="this.style.background='#FFF5F5'">
-          🏥 <span>Síntoma checker</span>
+        <button onclick="showPage('home');setTimeout(function(){document.getElementById('symptom-checker').scrollIntoView({behavior:'smooth',block:'center'})},100)" style="background:#04342C;border:none;border-radius:12px;padding:12px 14px;cursor:pointer;text-align:left;transition:opacity .2s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+          <div style="font-size:18px;margin-bottom:5px">🏥</div>
+          <div style="font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;color:white;margin-bottom:2px">Síntoma checker</div>
+          <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:#9FE1CB">Consulta rápida →</div>
         </button>
       </div>
 
