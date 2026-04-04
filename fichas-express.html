@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fichas Express de Razas — PataAdvisor</title>
+<meta name="description" content="Fichas express visuales de razas de perros y gatos. Todo lo que necesitas saber de un vistazo: espacio, energía, higiene y entrenamiento.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green-50:#E1F5EE;--green-100:#9FE1CB;--green-300:#1D9E75;--green-500:#0F6E56;--green-900:#04342C;
+  --sand-50:#F9F7F2;--sand-100:#F0EDE4;--sand-200:#E2DDD1;--sand-400:#A89F8E;--sand-600:#6B6358;--sand-700:#4A4540;--sand-800:#2E2A24;--sand-900:#1A1714;
+  --white:#FFFFFF;
+  --font-display:'Fraunces',serif;--font-body:'DM Sans',sans-serif;
+  --r-lg:16px;--r-xl:24px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-body);background:var(--sand-50);color:var(--sand-800);-webkit-font-smoothing:antialiased}
+
+.page-nav{background:rgba(249,247,242,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--sand-200);padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:68px;position:sticky;top:0;z-index:100}
+.nav-back{font-size:13px;color:var(--sand-400);text-decoration:none;transition:color .2s}
+.nav-back:hover{color:var(--sand-800)}
+
+.page-wrap{max-width:1100px;margin:0 auto;padding:48px 32px 80px}
+.page-header{margin-bottom:40px}
+.page-tag{font-size:11px;font-weight:500;color:var(--green-300);text-transform:uppercase;letter-spacing:.12em;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.page-tag::before{content:'';width:20px;height:1px;background:var(--green-300)}
+.page-title{font-family:var(--font-display);font-size:clamp(28px,4vw,44px);font-weight:300;color:var(--sand-900);letter-spacing:-.02em;margin-bottom:8px}
+.page-title em{font-style:italic;color:var(--green-500)}
+.page-desc{font-size:16px;color:var(--sand-400);max-width:600px;line-height:1.6}
+
+.cat-header{margin:40px 0 16px;display:flex;align-items:center;gap:12px}
+.cat-header:first-of-type{margin-top:0}
+.cat-title{font-family:var(--font-display);font-size:20px;font-weight:400;color:var(--sand-900);font-style:italic}
+.cat-line{flex:1;height:1px;background:var(--sand-200)}
+
+.fichas-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.ficha-card{background:var(--white);border:1px solid var(--sand-200);border-radius:var(--r-xl);overflow:hidden;text-decoration:none;transition:box-shadow .2s,transform .2s}
+.ficha-card:hover{box-shadow:0 8px 28px rgba(0,0,0,.08);transform:translateY(-3px)}
+.ficha-card-img{height:180px;overflow:hidden;background:var(--sand-100)}
+.ficha-card-img img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.ficha-card-body{padding:18px 20px}
+.ficha-card-tag{font-size:10px;font-weight:500;color:var(--green-300);text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px}
+.ficha-card-title{font-family:var(--font-display);font-size:18px;font-weight:300;color:var(--sand-900);line-height:1.3;margin-bottom:8px}
+.ficha-card-desc{font-size:13px;color:var(--sand-400);line-height:1.5;margin-bottom:12px}
+.ficha-card-cta{font-size:12px;font-weight:500;color:var(--green-500)}
+
+.coming-soon{background:var(--sand-100);border:1.5px dashed var(--sand-200);border-radius:var(--r-xl);padding:32px;text-align:center;color:var(--sand-400);font-size:14px;font-style:italic}
+
+@media(max-width:900px){.fichas-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.fichas-grid{grid-template-columns:1fr}.page-wrap{padding:32px 20px 60px}.page-nav{padding:0 20px}}
+</style>
+</head>
+<body>
+
+<nav class="page-nav">
+  <a href="index.html" style="text-decoration:none;display:flex;align-items:center">
+    <svg width="220" height="56" viewBox="0 0 360 88" xmlns="http://www.w3.org/2000/svg">
+      <g transform="translate(36,44)">
+        <ellipse cx="0" cy="8" rx="18" ry="14" fill="none" stroke="#1D9E75" stroke-width="2.5"/>
+        <ellipse cx="-16" cy="-8" rx="8" ry="10" fill="none" stroke="#1D9E75" stroke-width="2.5"/>
+        <ellipse cx="-5" cy="-16" rx="8" ry="10" fill="none" stroke="#1D9E75" stroke-width="2.5"/>
+        <ellipse cx="7" cy="-16" rx="8" ry="10" fill="none" stroke="#1D9E75" stroke-width="2.5"/>
+        <ellipse cx="17" cy="-8" rx="8" ry="10" fill="none" stroke="#1D9E75" stroke-width="2.5"/>
+        <line x1="32" y1="-22" x2="32" y2="22" stroke="#E2DDD1" stroke-width="1.5"/>
+        <text x="44" y="-4" font-family="'DM Sans',sans-serif" font-size="28" font-weight="500" fill="#1A1714">Pata</text>
+        <text x="110" y="-4" font-family="'DM Sans',sans-serif" font-size="28" font-weight="300" fill="#1D9E75">Advisor</text>
+        <text x="44" y="18" font-family="'DM Sans',sans-serif" font-size="9" font-weight="700" fill="#1A1714" letter-spacing="3">BIENESTAR ANIMAL</text>
+      </g>
+    </svg>
+  </a>
+  <a href="index.html" class="nav-back">← Inicio</a>
+</nav>
+
+<div class="page-wrap">
+
+  <div class="page-header">
+    <div class="page-tag">Fichas Express</div>
+    <h1 class="page-title">Todo sobre tu raza, <em>de un vistazo</em></h1>
+    <p class="page-desc">Espacio, energía, higiene y entrenamiento resumidos en una ficha visual. Perfectas para decidir si una raza encaja con tu estilo de vida.</p>
+  </div>
+
+  <!-- PERROS -->
+  <div class="cat-header">
+    <div class="cat-title">🐕 Perros</div>
+    <div class="cat-line"></div>
+  </div>
+  <div class="fichas-grid">
+    <a href="teckel.html" class="ficha-card">
+      <div class="ficha-card-img"><img src="teckel-perro-salchicha-ficha-expres-pataadvisor.png" alt="Ficha express Teckel"></div>
+      <div class="ficha-card-body">
+        <div class="ficha-card-tag">Raza · Perros pequeños</div>
+        <div class="ficha-card-title">Teckel — el perro salchicha</div>
+        <div class="ficha-card-desc">Valiente, curioso y con más carácter del que cabe en su cuerpo. ¿Es para ti?</div>
+        <div class="ficha-card-cta">Ver ficha express →</div>
+      </div>
+    </a>
+    <a href="border-collie.html" class="ficha-card">
+      <div class="ficha-card-img"><img src="ficha-raza-border-collie-caracteristicas-consejos-pataadvisor.png" alt="Ficha express Border Collie"></div>
+      <div class="ficha-card-body">
+        <div class="ficha-card-tag">Raza · Perros medianos</div>
+        <div class="ficha-card-title">Border Collie — el más inteligente</div>
+        <div class="ficha-card-desc">El perro más inteligente del mundo necesita mucho más que cariño.</div>
+        <div class="ficha-card-cta">Ver ficha express →</div>
+      </div>
+    </a>
+    <div class="coming-soon">Más fichas de perros próximamente...<br><br>Golden Retriever · Labrador · Pastor Alemán · Bulldog</div>
+  </div>
+
+  <!-- GATOS -->
+  <div class="cat-header">
+    <div class="cat-title">🐱 Gatos</div>
+    <div class="cat-line"></div>
+  </div>
+  <div class="fichas-grid">
+    <div class="coming-soon">Fichas de gatos próximamente...<br><br>Maine Coon · Persa · Siamés · Ragdoll</div>
+  </div>
+
+</div>
+</body>
+</html>
