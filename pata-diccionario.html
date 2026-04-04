@@ -170,7 +170,7 @@ body{font-family:var(--font-body);background:var(--sand-50);color:var(--sand-800
     <button class="dict-alpha-btn has-entries" onclick="scrollToEntry('entry-lickmat')">L</button>
     <button class="dict-alpha-btn has-entries" onclick="scrollToEntry('entry-microchip')">M</button>
     <button class="dict-alpha-btn">N</button>
-    <button class="dict-alpha-btn">O</button>
+    <button class="dict-alpha-btn has-entries" onclick="scrollToEntry('entry-oruga')">O</button>
     <button class="dict-alpha-btn has-entries" onclick="scrollToEntry('entry-pasaporte')">P</button>
     <button class="dict-alpha-btn">Q</button>
     <button class="dict-alpha-btn">R</button>
@@ -620,6 +620,91 @@ body{font-family:var(--font-body);background:var(--sand-50);color:var(--sand-800
     </div>
   </div>
 
+  <!-- ORUGA PROCESIONARIA -->
+  <div class="dict-entry" id="entry-oruga" data-cats="ley" data-term="oruga procesionaria pino perro toxica primavera taumetopeina">
+    <div class="dict-entry-header" onclick="toggleEntry(this.parentElement)">
+      <div class="dict-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6 2 3 6 3 10c0 2 1 4 3 5l1 5h10l1-5c2-1 3-3 3-5 0-4-3-8-9-8z"/><path d="M9 10h.01M15 10h.01M9 14s1 2 3 2 3-2 3-2"/></svg>
+      </div>
+      <div class="dict-entry-meta">
+        <div class="dict-entry-cats"><span class="dict-cat">⚖️ Bienestar y Ley</span><span class="dict-cat">🚨 Emergencia</span><span class="dict-cat">Perros</span></div>
+        <div class="dict-entry-term">Oruga Procesionaria del Pino</div>
+      </div>
+      <span class="dict-expand-icon">+</span>
+    </div>
+    <div class="dict-def-pro" style="display:none">
+      <div class="dict-def-pro-label">Definición en 3 segundos</div>
+      <div class="dict-def-pro-text">Larva del lepidóptero <em>Thaumetopoea pityocampa</em> que desciende de los pinos en primavera. Sus pelos contienen taumetopeína, una toxina que puede causar necrosis severa en la lengua del perro con solo el contacto.</div>
+    </div>
+    <div class="dict-entry-body">
+
+      <div style="background:#FFF5F5;border:2px solid #E24B4A;border-radius:var(--r-lg);padding:18px 22px;margin:16px 0">
+        <div style="font-size:11px;font-weight:700;color:#DC2626;text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px">🚨 Protocolo de emergencia — 3 pasos vitales</div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;gap:12px;align-items:flex-start">
+            <div style="width:28px;height:28px;border-radius:50%;background:#DC2626;color:white;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">1</div>
+            <div>
+              <div style="font-size:14px;font-weight:500;color:#7F1D1D;margin-bottom:2px">LAVADO INMEDIATO</div>
+              <div style="font-size:13px;color:#991B1B;line-height:1.6">Lava la zona afectada (boca, lengua, hocico) con <strong>agua templada abundante</strong>. El calor ayuda a degradar la toxina. <strong style="color:#DC2626">¡No frotes jamás!</strong> Si frotas, rompes los pelos y liberas más veneno.</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start">
+            <div style="width:28px;height:28px;border-radius:50%;background:#DC2626;color:white;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">2</div>
+            <div>
+              <div style="font-size:14px;font-weight:500;color:#7F1D1D;margin-bottom:2px">SUERO FISIOLÓGICO</div>
+              <div style="font-size:13px;color:#991B1B;line-height:1.6">Si tienes a mano, usa suero fisiológico para arrastrar los pelos sin presión mecánica.</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start">
+            <div style="width:28px;height:28px;border-radius:50%;background:#DC2626;color:white;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">3</div>
+            <div>
+              <div style="font-size:14px;font-weight:500;color:#7F1D1D;margin-bottom:2px">VETERINARIO URGENTE</div>
+              <div style="font-size:13px;color:#991B1B;line-height:1.6">Tienes un margen de <strong>30 a 60 minutos</strong> para evitar secuelas graves o asfixia por inflamación de la glotis.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h3>Cómo identificar el contacto — síntomas</h3>
+      <ul>
+        <li>Inflamación exagerada de la lengua (se pone <strong>roja o morada</strong>)</li>
+        <li><strong>Hipersalivación</strong> — el perro babea mucho y de forma espesa</li>
+        <li>El perro <strong>se rasca la boca</strong> con las patas desesperadamente</li>
+        <li>Dificultad para cerrar la boca o tragar</li>
+      </ul>
+
+      <h3>¿Dónde y cuándo aparecen?</h3>
+      <p>Las orugas procesionarias descienden de los pinos en fila india (de ahí su nombre) principalmente entre <strong>enero y abril</strong>, con el pico en marzo y abril en España. Busca las "bolsas" blancas de seda en las ramas de los pinos — es la señal de que hay procesionaria en ese árbol.</p>
+
+      <div class="dict-veredicto">
+        <div class="dict-veredicto-label">✓ Veredicto PataAdvisor</div>
+        <p>Es una de las emergencias veterinarias más comunes en primavera en España y una de las más infraestimadas. La rapidez lo es todo — cada minuto cuenta para evitar la necrosis de la lengua.</p>
+      </div>
+
+      <div class="dict-tip">
+        <span class="dict-tip-icon">💡</span>
+        <div>
+          <div class="dict-tip-label">El Consejo de PataAdvisor</div>
+          <p class="dict-tip-text">"En abril, <strong>evita pasear por zonas de pinos</strong>, especialmente en días soleados. Si ves las 'bolsas' blancas en las ramas, da media vuelta. Llevar una pequeña botella de <strong>agua templada</strong> en el kit de paseo puede salvarle la lengua a tu perro antes de llegar al hospital."</p>
+        </div>
+      </div>
+
+      <div style="margin:16px 0">
+        <div style="font-size:12px;font-weight:600;color:var(--sand-400);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px">🛒 Kit de prevención recomendado</div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <a href="https://www.amazon.es/s?k=kit+primeros+auxilios+perro+botiquin&tag=primepick03f9-21" target="_blank" rel="nofollow sponsored" style="display:inline-flex;align-items:center;gap:8px;background:#FF9900;color:#111;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;padding:10px 16px;border-radius:8px;text-decoration:none">🛒 Pack Primeros Auxilios</a>
+          <a href="https://www.amazon.es/s?k=collar+antiparasitario+perro+seresto&tag=primepick03f9-21" target="_blank" rel="nofollow sponsored" style="display:inline-flex;align-items:center;gap:8px;background:#FF9900;color:#111;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;padding:10px 16px;border-radius:8px;text-decoration:none">🛒 Collar Antiparasitario</a>
+        </div>
+      </div>
+
+      <div class="dict-related">
+        <span class="dict-related-label">Ver también:</span>
+        <a href="#entry-seguro" onclick="openAndScroll('entry-seguro')">Seguro RC</a>
+        <a href="#entry-microchip" onclick="openAndScroll('entry-microchip')">Microchip</a>
+      </div>
+    </div>
+  </div>
+
   <!-- PRÓXIMAMENTE -->
   <div style="background:var(--sand-100);border:1.5px dashed var(--sand-200);border-radius:var(--r-xl);padding:28px;text-align:center;margin-top:8px">
     <div style="font-size:24px;margin-bottom:8px">📖</div>
@@ -683,6 +768,11 @@ window.addEventListener('scroll',function(){
 if(window.location.hash){
   var target=document.querySelector(window.location.hash);
   if(target)setTimeout(function(){openAndScroll(target.id);},300);
+}
+var urlCat=new URLSearchParams(window.location.search).get('cat');
+if(urlCat){
+  var btn=document.querySelector('.dict-filter[onclick*="\''+urlCat+'\'"]');
+  if(btn)filterCat(urlCat,btn);
 }
 </script>
 </body>
