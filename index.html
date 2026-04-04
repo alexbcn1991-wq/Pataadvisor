@@ -267,6 +267,10 @@
   .nav-dd-group{font-size:10px;font-weight:600;color:var(--sand-400);text-transform:uppercase;letter-spacing:.1em;padding:6px 10px 4px}
   .nav-dd-item{display:block;font-size:14px;color:var(--sand-700,#4A4540);padding:7px 10px;border-radius:var(--r-md);text-decoration:none;transition:background .15s,color .15s}
   .nav-dd-item:hover{background:var(--green-50);color:var(--green-500)}
+  .nav-dd-title{display:block;font-size:13px;font-weight:500;color:var(--sand-800)}
+  .nav-dd-sub{display:block;font-size:11px;color:var(--sand-400);margin-top:1px}
+  .nav-dd-item:hover .nav-dd-title{color:var(--green-500)}
+  .nav-dd-item:hover .nav-dd-sub{color:var(--green-300)}
   .nav-dd-soon{color:var(--sand-400) !important;font-style:italic;cursor:default;pointer-events:none}
   .nav-dd-sep{height:1px;background:var(--sand-100);margin:6px 4px}
   .nav-dd-all{display:block;font-size:13px;font-weight:500;color:var(--green-500);padding:7px 10px;border-radius:var(--r-md);text-decoration:none;transition:background .15s}
@@ -1003,7 +1007,27 @@
     </li>
 
     <!-- ARTÍCULOS -->
-    <li><a href="razas.html" style="font-family:'DM Sans',sans-serif;font-size:14px;font-weight:400;color:var(--sand-800);text-decoration:none;padding:6px 4px;transition:color .2s" onmouseover="this.style.color='var(--green-500)'" onmouseout="this.style.color='var(--sand-800)'">Razas</a></li>
+    <li class="nav-dropdown">
+      <a class="nav-dropdown-toggle">Fichas Express <span class="nav-dd-arrow">▾</span></a>
+      <div class="nav-dropdown-menu" style="min-width:240px">
+        <div style="padding:8px 0">
+          <div style="font-size:10px;font-weight:600;color:var(--sand-400);text-transform:uppercase;letter-spacing:.1em;padding:6px 20px 4px">🐕 Perros</div>
+          <a href="teckel.html" class="nav-dd-item">
+            <span class="nav-dd-title">Teckel</span>
+            <span class="nav-dd-sub">El perro salchicha</span>
+          </a>
+          <a href="border-collie.html" class="nav-dd-item">
+            <span class="nav-dd-title">Border Collie</span>
+            <span class="nav-dd-sub">El más inteligente</span>
+          </a>
+          <a href="razas.html" class="nav-dd-item">
+            <span class="nav-dd-title">Ver todas las razas →</span>
+          </a>
+          <div style="font-size:10px;font-weight:600;color:var(--sand-400);text-transform:uppercase;letter-spacing:.1em;padding:10px 20px 4px;border-top:1px solid var(--sand-100);margin-top:4px">🐱 Gatos</div>
+          <div style="padding:8px 20px;font-size:13px;color:var(--sand-400);font-style:italic">Próximamente...</div>
+        </div>
+      </div>
+    </li>
 
     <li class="nav-dropdown nav-mega">
       <a class="nav-dropdown-toggle">Artículos <span class="nav-dd-arrow">▾</span></a>
