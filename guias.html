@@ -39,8 +39,8 @@ body{font-family:var(--font-body);background:var(--sand-50);color:var(--sand-800
 .filter-btn.active{background:var(--green-300);border-color:var(--green-300);color:white}
 
 /* GRID */
-.guias-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.guia-card{background:var(--white);border:1px solid var(--sand-200);border-radius:var(--r-xl);overflow:hidden;text-decoration:none;transition:box-shadow .2s,transform .2s;display:flex;flex-direction:column}
+.guias-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.guia-card{background:var(--white);border:1px solid var(--sand-200);border-radius:var(--r-xl);overflow:hidden;text-decoration:none;transition:box-shadow .2s,transform .2s;display:flex;flex-direction:column;min-width:0}
 .guia-card:hover{box-shadow:0 8px 28px rgba(0,0,0,.08);transform:translateY(-3px)}
 .guia-card-img{height:160px;overflow:hidden;background:var(--sand-100);position:relative}
 .guia-card-img img{width:100%;height:100%;object-fit:cover;object-position:center}
@@ -107,7 +107,7 @@ body{font-family:var(--font-body);background:var(--sand-50);color:var(--sand-800
     <div class="cat-line"></div>
     <div class="cat-count">2 guías</div>
   </div>
-  <div class="guias-grid" style="grid-template-columns:repeat(3,1fr)">
+  <div class="guias-grid" style="grid-template-columns:repeat(3,minmax(0,1fr))">
     <a href="teckel.html" class="guia-card" data-cat="razas perros">
       <div class="guia-card-img"><img src="teckel-perro-salchicha-ficha-expres-pataadvisor.png" alt="Teckel ficha express"></div>
       <div class="guia-card-body">
@@ -132,7 +132,7 @@ body{font-family:var(--font-body);background:var(--sand-50);color:var(--sand-800
     <div class="cat-line"></div>
     <div class="cat-count">6 guías</div>
   </div>
-  <div class="guias-grid" style="grid-template-columns:repeat(3,1fr)">
+  <div class="guias-grid" style="grid-template-columns:repeat(3,minmax(0,1fr))">
     <a href="kit-bienvenida-cachorro.html" class="guia-card" data-cat="perros">
       <div class="guia-card-img"><img src="Gemini_Generated_Image_yin9ebyin9ebyin9.png" alt="Kit bienvenida cachorro"></div>
       <div class="guia-card-body">
@@ -189,7 +189,7 @@ body{font-family:var(--font-body);background:var(--sand-50);color:var(--sand-800
     <div class="cat-line"></div>
     <div class="cat-count">2 guías</div>
   </div>
-  <div class="guias-grid" style="grid-template-columns:repeat(3,1fr)">
+  <div class="guias-grid" style="grid-template-columns:repeat(3,minmax(0,1fr))">
     <a href="cuantas-veces-come-gato.html" class="guia-card" data-cat="gatos">
       <div class="guia-card-img"><img src="gato-comiendo-cuantas-veces-al-dia.jpg" alt="Gato comiendo"></div>
       <div class="guia-card-body">
@@ -214,7 +214,7 @@ body{font-family:var(--font-body);background:var(--sand-50);color:var(--sand-800
     <div class="cat-line"></div>
     <div class="cat-count">1 guía</div>
   </div>
-  <div class="guias-grid" style="grid-template-columns:repeat(3,1fr)">
+  <div class="guias-grid" style="grid-template-columns:repeat(3,minmax(0,1fr))">
     <a href="transportines-cabina-avion.html" class="guia-card" data-cat="viajes perros gatos">
       <div class="guia-card-img"><img src="article-transportin.jpg" alt="Transportines cabina avión"></div>
       <div class="guia-card-body">
@@ -231,7 +231,7 @@ body{font-family:var(--font-body);background:var(--sand-50);color:var(--sand-800
     <div class="cat-line"></div>
     <div class="cat-count">5 guías</div>
   </div>
-  <div class="guias-grid" style="grid-template-columns:repeat(3,1fr)">
+  <div class="guias-grid" style="grid-template-columns:repeat(3,minmax(0,1fr))">
     <a href="articulos.html#pienso-perro" class="guia-card" data-cat="perros">
       <div class="guia-card-img"><img src="article-pienso-perro.jpg" alt="Pienso perro adulto"></div>
       <div class="guia-card-body">
