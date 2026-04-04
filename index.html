@@ -69,6 +69,22 @@
   .hero-photo{border-radius:var(--r-xl);overflow:hidden;height:320px;margin-bottom:12px;position:relative}
   .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center}
 
+  /* HOTSPOTS */
+  .hotspot{position:absolute;z-index:10}
+  .hotspot-dot{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.85);border:2px solid white;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;color:#1D9E75;cursor:pointer;transition:transform .2s,background .2s;box-shadow:0 2px 12px rgba(0,0,0,.2);animation:hotpulse 2.5s ease infinite}
+  .hotspot-dot:hover{transform:scale(1.15);background:white}
+  @keyframes hotpulse{0%,100%{box-shadow:0 0 0 0 rgba(29,158,117,.4)}50%{box-shadow:0 0 0 8px rgba(29,158,117,0)}}
+  .hotspot-card{display:none;position:absolute;top:40px;left:0;background:white;border-radius:14px;box-shadow:0 8px 32px rgba(0,0,0,.18);width:210px;overflow:hidden;z-index:20}
+  .hotspot-card.hs-left{left:auto;right:0}
+  .hotspot-card.open{display:flex;flex-direction:column;animation:fadeUp .2s ease}
+  .hs-img{background:var(--sand-50);padding:16px;font-size:40px;text-align:center}
+  .hs-body{padding:12px 14px}
+  .hs-tag{font-size:10px;font-weight:600;color:var(--green-300);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+  .hs-name{font-family:var(--font-display);font-size:14px;font-weight:400;color:var(--sand-900);margin-bottom:4px;line-height:1.3}
+  .hs-price{font-size:13px;font-weight:500;color:var(--sand-600);margin-bottom:10px}
+  .hs-btn{display:block;background:#FF9900;color:#111;font-family:var(--font-body);font-size:12px;font-weight:700;padding:8px 12px;border-radius:8px;text-decoration:none;text-align:center;transition:background .2s}
+  .hs-btn:hover{background:#E68900}
+
   .hero{padding:80px 32px 64px;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
   .hero-badge{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:500;color:var(--green-500);background:var(--green-50);border:1px solid var(--green-100);border-radius:100px;padding:5px 14px;margin-bottom:20px;letter-spacing:.03em}
   .hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green-300);flex-shrink:0}
@@ -1309,6 +1325,35 @@
         <img src="foto-portada-perro-gato.png" alt="Soy de perros o soy de gatos — PataAdvisor" fetchpriority="high" style="width:100%;height:auto;display:block;border-radius:var(--r-xl)">
         <a href="#sec-dogs" style="position:absolute;top:0;left:0;width:50%;height:100%;z-index:2" onclick="document.getElementById('sec-dogs').scrollIntoView({behavior:'smooth'});return false;" title="Soy de perros"></a>
         <a href="#sec-cats" style="position:absolute;top:0;left:50%;width:50%;height:100%;z-index:2" onclick="document.getElementById('sec-cats').scrollIntoView({behavior:'smooth'});return false;" title="Soy de gatos"></a>
+
+        <!-- HOTSPOT PERRO -->
+        <div class="hotspot" style="position:absolute;top:62%;left:22%;z-index:10" onclick="event.stopPropagation();toggleHotspot('hs-perro')">
+          <div class="hotspot-dot">+</div>
+          <div class="hotspot-card" id="hs-perro">
+            <div class="hs-img">🦺</div>
+            <div class="hs-body">
+              <div class="hs-tag">Perros · Accesorios</div>
+              <div class="hs-name">Arnés Reflectante Ergonómico</div>
+              <div class="hs-price">desde 18,95€</div>
+              <a href="https://www.amazon.es/s?k=arnes+reflectante+ergonomico+perro&tag=primepick03f9-21" target="_blank" rel="nofollow sponsored" class="hs-btn" onclick="event.stopPropagation()">🛒 Ver en Amazon</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- HOTSPOT GATO -->
+        <div class="hotspot" style="position:absolute;top:55%;left:72%;z-index:10" onclick="event.stopPropagation();toggleHotspot('hs-gato')">
+          <div class="hotspot-dot">+</div>
+          <div class="hotspot-card hs-left" id="hs-gato">
+            <div class="hs-img">🪣</div>
+            <div class="hs-body">
+              <div class="hs-tag">Gatos · Higiene</div>
+              <div class="hs-name">Arena Catsan Hygiene Plus 20L</div>
+              <div class="hs-price">desde 18,70€</div>
+              <a href="https://www.amazon.es/s?k=catsan+hygiene+plus+20l&tag=primepick03f9-21" target="_blank" rel="nofollow sponsored" class="hs-btn" onclick="event.stopPropagation()">🛒 Ver en Amazon</a>
+            </div>
+          </div>
+        </div>
+
       </div>
       <!-- Badge actualizado hoy -->
       <div style="grid-column:1/-1;display:flex;align-items:center;justify-content:center;padding:10px 0 4px">
@@ -2410,6 +2455,15 @@
   window.calcRun = calcRun;
 
   // ── BOTÓN COMPARTIR ──────────────────────────────────────
+  function toggleHotspot(id){
+    var all = document.querySelectorAll('.hotspot-card');
+    all.forEach(function(c){ if(c.id !== id) c.classList.remove('open'); });
+    document.getElementById(id).classList.toggle('open');
+  }
+  document.addEventListener('click', function(e){
+    if(!e.target.closest('.hotspot')) document.querySelectorAll('.hotspot-card').forEach(function(c){ c.classList.remove('open'); });
+  });
+
   function copyLink(btn){
     navigator.clipboard.writeText(window.location.href).then(function(){
       var orig = btn.innerHTML;
