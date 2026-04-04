@@ -11,6 +11,7 @@
 <meta property="og:title" content="PataAdvisor — Recomendaciones honestas para tu mascota">
 <meta property="og:description" content="Comparativas reales y análisis de productos para mascotas. Más de 400 productos analizados.">
 <meta property="og:type" content="website">
+<link rel="preload" as="image" href="foto-portada-perro-gato.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap">
@@ -1289,7 +1290,7 @@
     <div class="hero-right">
       <!-- Foto hero -->
       <div class="hero-photo" style="grid-column:1/-1;position:relative;cursor:pointer;height:auto;background:transparent">
-        <img src="foto-portada-perro-gato.png" alt="Soy de perros o soy de gatos — PataAdvisor" loading="lazy" style="width:100%;height:auto;display:block;border-radius:var(--r-xl)">
+        <img src="foto-portada-perro-gato.png" alt="Soy de perros o soy de gatos — PataAdvisor" fetchpriority="high" style="width:100%;height:auto;display:block;border-radius:var(--r-xl)">
         <a href="#sec-dogs" style="position:absolute;top:0;left:0;width:50%;height:100%;z-index:2" onclick="document.getElementById('sec-dogs').scrollIntoView({behavior:'smooth'});return false;" title="Soy de perros"></a>
         <a href="#sec-cats" style="position:absolute;top:0;left:50%;width:50%;height:100%;z-index:2" onclick="document.getElementById('sec-cats').scrollIntoView({behavior:'smooth'});return false;" title="Soy de gatos"></a>
       </div>
