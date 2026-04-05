@@ -153,6 +153,7 @@ body{font-family:var(--font-body);background:var(--sand-50);color:var(--sand-800
     <button class="dict-filter" onclick="filterCat('alimentacion',this)">🥣 Alimentación</button>
     <button class="dict-filter" onclick="filterCat('adiestramiento',this)">🎯 Adiestramiento</button>
     <button class="dict-filter" onclick="filterCat('ley',this)">⚖️ Bienestar y Ley</button>
+    <button class="dict-filter" onclick="filterCat('temporada',this)">🌸 Temporada</button>
   </div>
 
   <div class="dict-alphabet">
@@ -161,7 +162,7 @@ body{font-family:var(--font-body);background:var(--sand-50);color:var(--sand-800
     <button class="dict-alpha-btn has-entries" onclick="scrollToEntry('entry-curso')">C</button>
     <button class="dict-alpha-btn">D</button>
     <button class="dict-alpha-btn">E</button>
-    <button class="dict-alpha-btn">F</button>
+    <button class="dict-alpha-btn has-entries" onclick="scrollToEntry('entry-frutas')">F</button>
     <button class="dict-alpha-btn has-entries" onclick="scrollToEntry('entry-grainfree')">G</button>
     <button class="dict-alpha-btn">H</button>
     <button class="dict-alpha-btn">I</button>
@@ -746,6 +747,21 @@ body{font-family:var(--font-body);background:var(--sand-50);color:var(--sand-800
         <div class="dict-entry-short">Comparativa de precios, coberturas y el truco del seguro de hogar. Todo lo que necesitas saber para cumplir la ley sin pagar de más.</div>
       </div>
       <span style="font-size:13px;font-weight:700;color:#FF9900;flex-shrink:0;margin-top:4px;white-space:nowrap">Leer →</span>
+    </div>
+  </div>
+
+  <!-- FRUTAS DE ABRIL -->
+  <div class="dict-entry" id="entry-frutas" data-cats="alimentacion temporada" data-term="frutas abril perros fresas arandanos nisperos platanos temporada" onclick="window.location='frutas-abril-perros.html'" style="cursor:pointer">
+    <div class="dict-entry-header">
+      <div class="dict-icon" style="background:#166534">
+        <svg viewBox="0 0 24 24"><path d="M12 2C9 2 6 4 6 8c0 3 2 5 4 6v6h4v-6c2-1 4-3 4-6 0-4-3-6-6-6z"/><path d="M9 8c0-1.5 1-3 3-3"/></svg>
+      </div>
+      <div class="dict-entry-meta">
+        <div class="dict-entry-cats"><span class="dict-cat">🥣 Alimentación</span><span class="dict-cat" style="background:#F0FDF4;color:#166534">🌸 Temporada</span><span class="dict-cat" style="background:#FFF3E0;color:#E65100">📄 Guía visual</span></div>
+        <div class="dict-entry-term">Frutas de Abril para Perros</div>
+        <div class="dict-entry-short">El semáforo de temporada — fresas, arándanos, nísperos y plátanos. ¿Cuáles puede comer y cuáles son peligrosas?</div>
+      </div>
+      <span style="font-size:13px;font-weight:700;color:#FF9900;flex-shrink:0;margin-top:4px;white-space:nowrap">Ver →</span>
     </div>
   </div>
 
