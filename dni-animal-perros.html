@@ -58,12 +58,10 @@ body{font-family:var(--font-body);background:var(--sand-50);color:var(--sand-800
 .article-body a{color:var(--green-500);text-decoration:none;border-bottom:1px solid var(--green-100)}
 
 /* VS BOX */
-.vs-box{display:grid;grid-template-columns:1fr auto 1fr;gap:0;background:var(--white);border:1.5px solid var(--sand-200);border-radius:var(--r-xl);overflow:hidden;margin:28px 0}
+.vs-box{display:grid;grid-template-columns:1fr 60px 1fr 60px 1fr;background:var(--white);border:1.5px solid var(--sand-200);border-radius:var(--r-xl);overflow:hidden;margin:28px 0}
 .vs-col{padding:24px 20px;text-align:center}
-.vs-col:first-child{border-right:1px solid var(--sand-200)}
-.vs-col:last-child{border-left:1px solid var(--sand-200)}
-.vs-sep{display:flex;align-items:center;justify-content:center;padding:0 16px;background:var(--sand-50)}
-.vs-sep-text{font-family:var(--font-display);font-size:18px;font-weight:400;color:var(--sand-400)}
+.vs-sep{display:flex;align-items:center;justify-content:center;background:var(--sand-50);border-left:1px solid var(--sand-200);border-right:1px solid var(--sand-200)}
+.vs-sep-text{font-family:var(--font-display);font-size:20px;font-weight:400;color:var(--sand-400)}
 .vs-icon{font-size:36px;margin-bottom:10px;display:block}
 .vs-title{font-family:var(--font-display);font-size:18px;font-weight:400;color:var(--sand-900);margin-bottom:6px}
 .vs-desc{font-size:13px;color:var(--sand-400);line-height:1.5}
@@ -121,7 +119,7 @@ body{font-family:var(--font-body);background:var(--sand-50);color:var(--sand-800
 .faq-a{display:none;padding:0 20px 18px;font-size:14px;color:var(--sand-600);line-height:1.75;background:var(--green-50)}
 .faq-a.open{display:block}
 
-@media(max-width:700px){.article-wrap{padding:32px 20px 60px}.article-nav{padding:0 20px}.vs-box{grid-template-columns:1fr;grid-template-rows:auto auto auto}.vs-sep{padding:12px;border-top:1px solid var(--sand-200);border-bottom:1px solid var(--sand-200)}.vs-col:first-child{border-right:none}.vs-col:last-child{border-left:none}}
+@media(max-width:700px){.article-wrap{padding:32px 20px 60px}.article-nav{padding:0 20px}.vs-box{grid-template-columns:1fr;}.vs-sep{padding:12px;border-top:1px solid var(--sand-200);border-bottom:1px solid var(--sand-200);border-left:none;border-right:none}}
 </style>
 </head>
 <body>
