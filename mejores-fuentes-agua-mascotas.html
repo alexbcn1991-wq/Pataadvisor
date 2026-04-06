@@ -88,10 +88,10 @@ body{font-family:var(--font-body);background:var(--sand-50);color:var(--sand-800
 .product-card-pros{list-style:none;padding:0;display:flex;flex-direction:column;gap:5px}
 .product-card-pros li{font-size:13px;color:var(--sand-600);display:flex;gap:6px;align-items:flex-start;line-height:1.5}
 .product-card-pros li::before{content:'✓';color:var(--green-300);font-weight:700;flex-shrink:0}
-.product-card-btn{display:block;background:#FF9900;color:#111;font-family:var(--font-body);font-size:13px;font-weight:700;padding:12px;border-radius:var(--r-md);text-align:center;text-decoration:none;margin-top:auto;transition:background .2s}
+.product-card-btn{display:block;background:#FF9900;color:#111 !important;font-family:var(--font-body);font-size:13px;font-weight:700;padding:12px;border-radius:var(--r-md);text-align:center;text-decoration:none;margin-top:auto;transition:background .2s;border-bottom:none !important}
 .product-card-btn:hover{background:#E68900}
-
-/* VERSUS */
+.cierre-box,.cierre-box *{color:white}
+.cierre-price span{color:rgba(255,255,255,.5) !important}/* VERSUS */
 .versus-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}
 .versus-col{border-radius:var(--r-lg);padding:20px}
 .versus-col.bad{background:#FFF5F5;border:1.5px solid #FCA5A5}
@@ -342,7 +342,7 @@ body{font-family:var(--font-body);background:var(--sand-50);color:var(--sand-800
       <div class="cierre-title">Una fuente de 40€ vs una cirugía de 600€</div>
       <p class="cierre-text">La obstrucción urinaria es la urgencia veterinaria más común en gatos en verano. Beber más agua — gracias a una fuente en movimiento — es la mejor prevención que existe. No es un capricho. Es medicina preventiva.</p>
       <div class="cierre-price">40€ <span>vs 600€</span></div>
-      <p style="font-size:13px;color:rgba(255,255,255,.5);margin-top:4px">Fuente recomendada vs coste medio de urgencia veterinaria por obstrucción</p>
+      <p style="font-size:13px;color:rgba(255,255,255,.6);margin-top:4px">Fuente recomendada vs coste medio de urgencia veterinaria por obstrucción</p>
     </div>
 
     <a href="sos-calor-perros-2026.html" class="internal-link" style="background:#FEE2E2;border:1.5px solid #FCA5A5">
