@@ -843,7 +843,7 @@
   <a onclick="showPage('como-analizamos');closeMob()">Cómo analizamos</a>
   <a onclick="showPage('quienes-somos');closeMob()">Quiénes somos</a>
   <a onclick="showPage('contacto');closeMob()">Contacto</a>
-  <a onclick="showPage('home');closeMob();setTimeout(()=>document.getElementById('nl').scrollIntoView({behavior:'smooth'}),100)">Newsletter</a>
+  <a onclick="showPage('home');closeMob();">Inicio</a>
 </div>
 
 <!-- NAVBAR -->
@@ -1151,12 +1151,7 @@
   </ul>
 
   <div class="nav-tools"></div>
-  <div class="dark-toggle-wrap" title="Modo oscuro">
-    <span>🌙</span>
-    <button class="dark-toggle" id="darkToggle" onclick="toggleDark()" aria-label="Modo oscuro"></button>
-  </div>
   <div class="nav-right">
-    <span class="btn-outline" onclick="showPage('home');setTimeout(()=>document.getElementById('nl').scrollIntoView({behavior:'smooth'}),100)">Newsletter</span>
     <button class="hamburger" onclick="document.getElementById('mobMenu').classList.add('open')"><span></span><span></span><span></span></button>
   </div>
 </nav>
@@ -1880,24 +1875,6 @@
       </button>
     </div>
   </div>
-
-  <section class="newsletter-section" id="nl">
-    <div class="newsletter-box">
-      <div>
-        <div class="nl-eyebrow">Newsletter semanal</div>
-        <h2 class="nl-title">Las mejores ofertas, <em>solo cuando importan</em></h2>
-        <p class="nl-desc">Cada semana seleccionamos las mejores bajadas de precio en productos que ya hemos analizado. Sin spam, sin patrocinios.</p>
-      </div>
-      <div>
-        <form class="nl-form" onsubmit="handleSubscribe(event)">
-          <input type="text" placeholder="Tu nombre" id="nlName"/>
-          <input type="email" placeholder="tu@email.com" id="nlEmail" required/>
-          <button type="submit" id="nlBtn">Suscribirme gratis →</button>
-          <div class="nl-trust">Sin spam. Baja cuando quieras. Cumplimos el RGPD.</div>
-        </form>
-      </div>
-    </div>
-  </section>
 
 </div><!-- /home -->
 
