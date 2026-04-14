@@ -94,6 +94,12 @@ body{font-family:var(--font-body);background:var(--sand-50);color:var(--sand-800
 .dict-tip-text{font-size:14px;color:#412402;line-height:1.7;font-style:italic}
 .dict-tip-text strong{color:#633806;font-style:normal}
 
+
+.page-with-sidebar{max-width:1100px;margin:0 auto;padding:48px 32px 80px;display:grid;grid-template-columns:1fr 300px;gap:48px;align-items:start}
+.sidebar-sticky{position:sticky;top:88px}
+.sidebar-label{font-size:10px;font-weight:700;color:var(--sand-400);text-transform:uppercase;letter-spacing:.12em;margin-bottom:8px;text-align:center}
+@media(max-width:900px){.page-with-sidebar{grid-template-columns:1fr}.sidebar-sticky{display:none}}
+
 .internal-link{border-radius:var(--r-lg);padding:16px 20px;margin:12px 0;display:flex;align-items:center;gap:14px;text-decoration:none;transition:opacity .2s}
 .internal-link:hover{opacity:.88}
 .internal-link-title{font-size:14px;font-weight:500}
@@ -117,7 +123,9 @@ body{font-family:var(--font-body);background:var(--sand-50);color:var(--sand-800
   <a href="pata-diccionario.html?cat=ley" class="nav-back">← Bienestar y Ley</a>
 </nav>
 
-<article class="article-wrap">
+<article>
+  <div class="page-with-sidebar">
+    <div class="article-wrap" style="padding:0;max-width:none">
 
   <div class="article-category">⚠️ Guías Legales · 2026</div>
   <h1 class="article-title">Las 5 multas de la Ley de Bienestar Animal 2026 que pueden <em>arruinarte</em></h1>
@@ -314,6 +322,18 @@ body{font-family:var(--font-body);background:var(--sand-50);color:var(--sand-800
       </div>
     </div>
 
+  </div>
+      <aside>
+        <div class="sidebar-sticky">
+          <div class="sidebar-label">⭐ Recomendado por PataAdvisor</div>
+          <!-- START ADVERTISER: Dogfy Diet ES from awin.com -->
+          <a rel="sponsored" href="https://www.awin1.com/cread.php?s=3626297&v=30121&q=444600&r=1331681" target="_blank">
+            <img src="https://www.awin1.com/cshow.php?s=3626297&v=30121&q=444600&r=1331681" border="0" alt="Dogfy Diet — Comida Casera para Perros" style="width:100%;height:auto;border-radius:var(--r-lg)">
+          </a>
+          <!-- END ADVERTISER: Dogfy Diet ES from awin.com -->
+        </div>
+      </aside>
+    </div>
   </div>
 </article>
 
