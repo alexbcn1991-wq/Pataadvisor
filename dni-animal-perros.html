@@ -101,10 +101,10 @@ body{font-family:var(--font-body);background:var(--sand-50);color:var(--sand-800
 
 /* INTERNAL LINKS */
 
-.page-with-sidebar{max-width:1100px;margin:0 auto;padding:48px 32px 80px;display:grid;grid-template-columns:1fr 300px;gap:48px;align-items:start}
-.sidebar-sticky{position:sticky;top:88px}
-.sidebar-label{font-size:10px;font-weight:700;color:var(--sand-400);text-transform:uppercase;letter-spacing:.12em;margin-bottom:8px;text-align:center}
-@media(max-width:900px){.page-with-sidebar{grid-template-columns:1fr}.sidebar-sticky{display:none}}
+
+
+
+@media(max-width:900px){}
 
 .internal-link{border-radius:var(--r-lg);padding:16px 20px;margin:12px 0;display:flex;align-items:center;gap:14px;text-decoration:none;transition:opacity .2s}
 .internal-link:hover{opacity:.88}
@@ -126,6 +126,12 @@ body{font-family:var(--font-body);background:var(--sand-50);color:var(--sand-800
 .faq-a.open{display:block}
 
 @media(max-width:700px){.article-wrap{padding:32px 20px 60px}.article-nav{padding:0 20px}.vs-box{grid-template-columns:1fr;}.vs-sep{padding:12px;border-top:1px solid var(--sand-200);border-bottom:1px solid var(--sand-200);border-left:none;border-right:none}}
+
+.sidebar-layout{max-width:1100px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:40px;align-items:start}
+.sidebar-col{position:sticky;top:88px;padding-top:48px}
+.sidebar-label{font-size:10px;font-weight:700;color:#A89F8E;text-transform:uppercase;letter-spacing:.12em;margin-bottom:8px;text-align:center}
+@media(max-width:960px){.sidebar-layout{grid-template-columns:1fr;padding:0 20px}.sidebar-col{display:none}}
+
 </style>
 </head>
 <body>
@@ -142,9 +148,8 @@ body{font-family:var(--font-body);background:var(--sand-50);color:var(--sand-800
   <a href="pata-diccionario.html" class="nav-back">← Pata-Diccionario</a>
 </nav>
 
-<article>
-  <div class="page-with-sidebar">
-    <div class="article-wrap" style="padding:0;max-width:none">
+<div class="sidebar-layout">
+<article class="article-wrap">
 
   <div class="article-category">⚖️ Bienestar y Ley · 2026</div>
   <h1 class="article-title">DNI Animal 2026 — <em>qué es y cómo se saca</em></h1>
@@ -317,19 +322,18 @@ body{font-family:var(--font-body);background:var(--sand-50);color:var(--sand-800
     </div>
 
   </div>
-      <aside>
-        <div class="sidebar-sticky">
-          <div class="sidebar-label">⭐ Recomendado por PataAdvisor</div>
-          <!-- START ADVERTISER: Dogfy Diet ES from awin.com -->
-          <a rel="sponsored" href="https://www.awin1.com/cread.php?s=3626297&v=30121&q=444600&r=1331681" target="_blank">
-            <img src="https://www.awin1.com/cshow.php?s=3626297&v=30121&q=444600&r=1331681" border="0" alt="Dogfy Diet — Comida Casera para Perros" style="width:100%;height:auto;border-radius:var(--r-lg)">
-          </a>
-          <!-- END ADVERTISER: Dogfy Diet ES from awin.com -->
-        </div>
-      </aside>
-    </div>
+      
+    </article>
+
+  <div class="sidebar-col">
+    <div class="sidebar-label">⭐ Recomendado por PataAdvisor</div>
+    <!-- START ADVERTISER: Dogfy Diet ES from awin.com -->
+    <a rel="sponsored" href="https://www.awin1.com/cread.php?s=3626297&v=30121&q=444600&r=1331681" target="_blank">
+      <img src="https://www.awin1.com/cshow.php?s=3626297&v=30121&q=444600&r=1331681" border="0" alt="Dogfy Diet comida natural para perros" style="width:100%;height:auto;border-radius:12px">
+    </a>
+    <!-- END ADVERTISER: Dogfy Diet ES from awin.com -->
   </div>
-</article>
+</div><!-- /sidebar-layout -->
 
 <script>
 function toggleFaq(btn){
