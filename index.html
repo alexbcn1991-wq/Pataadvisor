@@ -1433,45 +1433,55 @@
 </div>
 
 <!-- ACCESOS RÁPIDOS -->
-<div style="padding:28px 32px 8px">
+<div style="padding:32px 32px 0">
   <div style="max-width:1100px;margin:0 auto">
-    <div style="font-size:11px;font-weight:700;color:var(--sand-400);text-transform:uppercase;letter-spacing:.12em;margin-bottom:16px">⚡ Accesos rápidos · <a href="pata-diccionario.html" style="color:var(--green-300);text-decoration:none">Pata-Diccionario</a></div>
-    <div style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px">
 
-      <a href="dni-animal-perros.html" style="background:white;border:2px solid #1D9E75;border-radius:14px;padding:16px 10px;text-align:center;text-decoration:none;transition:background .2s" onmouseover="this.style.background='#E1F5EE'" onmouseout="this.style.background='white'">
-        <div style="font-size:28px;margin-bottom:6px">🆔</div>
-        <div style="font-size:13px;font-weight:700;color:#04342C;margin-bottom:3px">DNI Animal</div>
-        <div style="font-size:10px;color:#1D9E75">Obligatorio 2026</div>
+    <!-- Cabecera sección -->
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
+      <div>
+        <div style="font-family:'Fraunces',serif;font-size:22px;font-weight:300;color:var(--sand-900);font-style:italic">Guías esenciales</div>
+        <div style="font-size:12px;color:var(--sand-400);margin-top:2px">📚 32 guías publicadas · <span style="color:var(--green-300);font-weight:600">Actualizado hoy</span></div>
+      </div>
+      <a href="pata-diccionario.html" style="font-size:12px;color:var(--sand-400);text-decoration:none;border:1px solid var(--sand-200);padding:6px 14px;border-radius:100px;transition:all .2s" onmouseover="this.style.borderColor='var(--green-300)';this.style.color='var(--green-500)'" onmouseout="this.style.borderColor='var(--sand-200)';this.style.color='var(--sand-400)'">📖 Pata-Diccionario →</a>
+    </div>
+
+    <!-- Burbujas rediseñadas -->
+    <div style="display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px">
+
+      <a href="dni-animal-perros.html" style="background:linear-gradient(135deg,#E1F5EE,#9FE1CB20);border:2px solid #1D9E75;border-radius:20px;padding:20px 12px;text-align:center;text-decoration:none;transition:all .2s;display:flex;flex-direction:column;align-items:center;gap:8px" onmouseover="this.style.background='linear-gradient(135deg,#9FE1CB,#E1F5EE)';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 20px rgba(29,158,117,.2)'" onmouseout="this.style.background='linear-gradient(135deg,#E1F5EE,#9FE1CB20)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+        <div style="font-size:36px">🆔</div>
+        <div style="font-size:13px;font-weight:700;color:#04342C;line-height:1.2">DNI Animal</div>
+        <div style="font-size:10px;color:#1D9E75;background:white;padding:2px 8px;border-radius:100px;font-weight:600">Obligatorio 2026</div>
       </a>
 
-      <a href="seguro-rc-perros.html" style="background:white;border:2px solid #E24B4A;border-radius:14px;padding:16px 10px;text-align:center;text-decoration:none;transition:background .2s" onmouseover="this.style.background='#FEE2E2'" onmouseout="this.style.background='white'">
-        <div style="font-size:28px;margin-bottom:6px">🛡️</div>
-        <div style="font-size:13px;font-weight:700;color:#7F1D1D;margin-bottom:3px">Seguro RC</div>
-        <div style="font-size:10px;color:#E24B4A">Evita multas</div>
+      <a href="seguro-rc-perros.html" style="background:linear-gradient(135deg,#FFF5F5,#FCA5A520);border:2px solid #DC2626;border-radius:20px;padding:20px 12px;text-align:center;text-decoration:none;transition:all .2s;display:flex;flex-direction:column;align-items:center;gap:8px" onmouseover="this.style.background='linear-gradient(135deg,#FCA5A5,#FFF5F5)';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 20px rgba(220,38,38,.2)'" onmouseout="this.style.background='linear-gradient(135deg,#FFF5F5,#FCA5A520)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+        <div style="font-size:36px">🛡️</div>
+        <div style="font-size:13px;font-weight:700;color:#7F1D1D;line-height:1.2">Seguro RC</div>
+        <div style="font-size:10px;color:#DC2626;background:white;padding:2px 8px;border-radius:100px;font-weight:600">Evita 10.000€</div>
       </a>
 
-      <a href="pasaporte-europeo-mascotas-2026.html" style="background:white;border:2px solid #378ADD;border-radius:14px;padding:16px 10px;text-align:center;text-decoration:none;transition:background .2s" onmouseover="this.style.background='#DBEAFE'" onmouseout="this.style.background='white'">
-        <div style="font-size:28px;margin-bottom:6px">📘</div>
-        <div style="font-size:13px;font-weight:700;color:#1E40AF;margin-bottom:3px">Pasaportes</div>
-        <div style="font-size:10px;color:#378ADD">Viaja por la UE</div>
+      <a href="pasaporte-europeo-mascotas-2026.html" style="background:linear-gradient(135deg,#EFF6FF,#BFDBFE20);border:2px solid #2563EB;border-radius:20px;padding:20px 12px;text-align:center;text-decoration:none;transition:all .2s;display:flex;flex-direction:column;align-items:center;gap:8px" onmouseover="this.style.background='linear-gradient(135deg,#BFDBFE,#EFF6FF)';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 20px rgba(37,99,235,.2)'" onmouseout="this.style.background='linear-gradient(135deg,#EFF6FF,#BFDBFE20)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+        <div style="font-size:36px">📘</div>
+        <div style="font-size:13px;font-weight:700;color:#1E3A8A;line-height:1.2">Pasaportes</div>
+        <div style="font-size:10px;color:#2563EB;background:white;padding:2px 8px;border-radius:100px;font-weight:600">Viaja por la UE</div>
       </a>
 
-      <a href="frutas-abril-perros.html" style="background:white;border:2px solid #EF9F27;border-radius:14px;padding:16px 10px;text-align:center;text-decoration:none;transition:background .2s" onmouseover="this.style.background='#FEF9C3'" onmouseout="this.style.background='white'">
-        <div style="font-size:28px;margin-bottom:6px">🍓</div>
-        <div style="font-size:13px;font-weight:700;color:#854D0E;margin-bottom:3px">Alimentos</div>
-        <div style="font-size:10px;color:#EF9F27">Semáforo frutas</div>
+      <a href="frutas-abril-perros.html" style="background:linear-gradient(135deg,#FFFBEB,#FDE68A20);border:2px solid #F59E0B;border-radius:20px;padding:20px 12px;text-align:center;text-decoration:none;transition:all .2s;display:flex;flex-direction:column;align-items:center;gap:8px" onmouseover="this.style.background='linear-gradient(135deg,#FDE68A,#FFFBEB)';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 20px rgba(245,158,11,.2)'" onmouseout="this.style.background='linear-gradient(135deg,#FFFBEB,#FDE68A20)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+        <div style="font-size:36px">🍓</div>
+        <div style="font-size:13px;font-weight:700;color:#854D0E;line-height:1.2">Alimentos</div>
+        <div style="font-size:10px;color:#D97706;background:white;padding:2px 8px;border-radius:100px;font-weight:600">Semáforo frutas</div>
       </a>
 
-      <a href="sos-calor-perros-2026.html" style="background:white;border:2px solid #EF4444;border-radius:14px;padding:16px 10px;text-align:center;text-decoration:none;transition:background .2s" onmouseover="this.style.background='#FEE2E2'" onmouseout="this.style.background='white'">
-        <div style="font-size:28px;margin-bottom:6px">🌡️</div>
-        <div style="font-size:13px;font-weight:700;color:#7F1D1D;margin-bottom:3px">🔥 SOS Calor</div>
-        <div style="font-size:10px;color:#EF4444">Guía supervivencia</div>
+      <a href="sos-calor-perros-2026.html" style="background:linear-gradient(135deg,#FFF5F5,#FCA5A520);border:2px solid #EF4444;border-radius:20px;padding:20px 12px;text-align:center;text-decoration:none;transition:all .2s;display:flex;flex-direction:column;align-items:center;gap:8px" onmouseover="this.style.background='linear-gradient(135deg,#FCA5A5,#FFF5F5)';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 20px rgba(239,68,68,.2)'" onmouseout="this.style.background='linear-gradient(135deg,#FFF5F5,#FCA5A520)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+        <div style="font-size:36px">🌡️</div>
+        <div style="font-size:13px;font-weight:700;color:#7F1D1D;line-height:1.2">SOS Calor</div>
+        <div style="font-size:10px;color:#EF4444;background:white;padding:2px 8px;border-radius:100px;font-weight:600">Guía supervivencia</div>
       </a>
 
-      <a href="viajar-con-perro-2026.html" style="background:white;border:2px solid #2563EB;border-radius:14px;padding:16px 10px;text-align:center;text-decoration:none;transition:background .2s" onmouseover="this.style.background='#EFF6FF'" onmouseout="this.style.background='white'">
-        <div style="font-size:28px;margin-bottom:6px">✈️</div>
-        <div style="font-size:13px;font-weight:700;color:#1E3A8A;margin-bottom:3px">Guía de Viaje</div>
-        <div style="font-size:10px;color:#2563EB">Requisitos 2026</div>
+      <a href="viajar-con-perro-2026.html" style="background:linear-gradient(135deg,#EDE9FE,#C4B5FD20);border:2px solid #7C3AED;border-radius:20px;padding:20px 12px;text-align:center;text-decoration:none;transition:all .2s;display:flex;flex-direction:column;align-items:center;gap:8px" onmouseover="this.style.background='linear-gradient(135deg,#C4B5FD,#EDE9FE)';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 20px rgba(124,58,237,.2)'" onmouseout="this.style.background='linear-gradient(135deg,#EDE9FE,#C4B5FD20)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+        <div style="font-size:36px">✈️</div>
+        <div style="font-size:13px;font-weight:700;color:#4C1D95;line-height:1.2">Guía de Viaje</div>
+        <div style="font-size:10px;color:#7C3AED;background:white;padding:2px 8px;border-radius:100px;font-weight:600">Requisitos 2026</div>
       </a>
 
     </div>
@@ -1528,7 +1538,7 @@
 </div>
 
 <!-- ═══ HOME ═══ -->
-    <div class="sec-header"><h2 class="sec-title">Lo mejor para perros</h2><span class="sec-link" onclick="window.location='articulos.html#pienso-perro'">Ver análisis completo →</span></div>
+    <div class="sec-header"><h2 class="sec-title">Lo mejor para perros</h2><a href="articulos.html#pienso-perro" style="display:inline-flex;align-items:center;gap:6px;background:var(--green-900);color:var(--green-100);font-size:12px;font-weight:600;padding:7px 16px;border-radius:100px;text-decoration:none;transition:opacity .2s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">Ver análisis completo →</a></div>
     <!-- Foto ambiente perros -->
     <div style="border-radius:var(--r-xl);overflow:hidden;height:260px;margin-bottom:24px;position:relative">
       <img src="perros-seccion.jpg" alt="Perros al aire libre" width="1100" height="260" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center 30%">
@@ -1593,7 +1603,7 @@
   </section>
 
   <section class="section" data-pet="cat" id="sec-cats">
-    <div class="sec-header"><h2 class="sec-title">Lo mejor para gatos</h2><span class="sec-link" onclick="window.location='articulos.html#pienso-gato'">Ver análisis completo →</span></div>
+    <div class="sec-header"><h2 class="sec-title">Lo mejor para gatos</h2><a href="articulos.html#pienso-gato" style="display:inline-flex;align-items:center;gap:6px;background:var(--green-900);color:var(--green-100);font-size:12px;font-weight:600;padding:7px 16px;border-radius:100px;text-decoration:none;transition:opacity .2s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">Ver análisis completo →</a></div>
     <!-- Foto ambiente gatos -->
     <div style="border-radius:var(--r-xl);overflow:hidden;height:220px;margin-bottom:24px;position:relative">
       <img src="gatos-seccion.jpg" alt="Gatos en casa" width="1100" height="260" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center 40%">
