@@ -859,6 +859,54 @@
   <a onclick="showPage('home');closeMob();">Inicio</a>
 </div>
 
+  <!-- BARRA ANUNCIO ROTATIVA -->
+  <div style="background:#7F1D1D;padding:10px 32px;overflow:hidden;position:relative">
+    <div id="announce-bar" style="display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;transition:opacity .4s ease">
+      <div style="display:flex;align-items:center;gap:8px;flex-shrink:0">
+        <span style="width:8px;height:8px;border-radius:50%;background:#FCA5A5;flex-shrink:0;animation:pulse 2s infinite"></span>
+        <span id="announce-label" style="font-size:11px;font-weight:700;color:#FCA5A5;text-transform:uppercase;letter-spacing:.08em">Recién actualizado</span>
+      </div>
+      <span id="announce-text" style="font-size:13px;color:white;font-weight:500;text-align:center"></span>
+      <a id="announce-link" href="#" style="display:inline-flex;align-items:center;gap:6px;background:#FF9900;color:#111;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;padding:6px 14px;border-radius:100px;text-decoration:none;white-space:nowrap;flex-shrink:0"></a>
+    </div>
+  </div>
+  <script>
+  (function(){
+    var msgs = [
+      {label:'🔴 Recién actualizado', text:'Seguro RC obligatorio para todos los perros — ¿Ya tienes el tuyo?', btn:'Comparar precios →', url:'seguro-perro-obligatorio-precio.html'},
+      {label:'⚠️ Ley 2026', text:'Las 5 multas más comunes — desde 500€ hasta 50.000€', btn:'Ver multas →', url:'multas-ley-bienestar-animal-2026.html'},
+      {label:'🎓 Novedad', text:'Simulacro de examen del Curso de Tenencia — practica gratis', btn:'Hacer el test →', url:'examen-curso-tenencia-perros-preguntas.html'},
+      {label:'✈️ Viajes 2026', text:'¿Viajas con tu perro? Guía definitiva de requisitos y transporte', btn:'Ver guía →', url:'viajar-con-perro-2026.html'},
+      {label:'🍖 Oferta exclusiva', text:'30% de descuento en tu primer pedido de Dogfy Diet', btn:'Aprovechar →', url:'dogfy-diet-opinion-2026.html'},
+      {label:'🆔 DNI Animal', text:'¿Sabes qué es el DNI Animal y cómo tramitarlo gratis?', btn:'Ver guía →', url:'dni-animal-perros.html'},
+      {label:'🐕 Bozal obligatorio', text:'¿Tu perro debe llevar bozal en 2026? La respuesta según la ley', btn:'Leer ahora →', url:'bozal-perros-obligatorio-ley-2026.html'},
+      {label:'📘 Pasaporte Europeo', text:'Viajas fuera de España — nuevos requisitos del Pasaporte 2026', btn:'Ver requisitos →', url:'pasaporte-europeo-mascotas-2026.html'},
+      {label:'😾 Gatos', text:'¿Tu gato no quiere comer pienso? 7 causas reales y soluciones', btn:'Leer →', url:'gato-no-come-pienso.html'},
+      {label:'💧 Salud', text:'Las mejores fuentes de agua para gatos y perros 2026', btn:'Ver comparativa →', url:'mejores-fuentes-agua-mascotas.html'},
+    ];
+    var i = 0;
+    var bar = document.getElementById('announce-bar');
+    var lbl = document.getElementById('announce-label');
+    var txt = document.getElementById('announce-text');
+    var lnk = document.getElementById('announce-link');
+    function show(idx){
+      bar.style.opacity='0';
+      setTimeout(function(){
+        lbl.textContent = msgs[idx].label;
+        txt.textContent = msgs[idx].text;
+        lnk.textContent = msgs[idx].btn;
+        lnk.href = msgs[idx].url;
+        bar.style.opacity='1';
+      }, 400);
+    }
+    show(0);
+    setInterval(function(){
+      i = (i+1) % msgs.length;
+      show(i);
+    }, 6500);
+  })();
+  </script>
+
 <!-- NAVBAR -->
 <nav>
   <span class="logo" onclick="showPage('home')">
@@ -1187,73 +1235,144 @@
 
 <div id="page-home" class="page active">
 
-  <!-- BARRA ANUNCIO ROTATIVA -->
-  <div style="background:#7F1D1D;padding:10px 32px;overflow:hidden;position:relative">
-    <div id="announce-bar" style="display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;transition:opacity .4s ease">
-      <div style="display:flex;align-items:center;gap:8px;flex-shrink:0">
-        <span style="width:8px;height:8px;border-radius:50%;background:#FCA5A5;flex-shrink:0;animation:pulse 2s infinite"></span>
-        <span id="announce-label" style="font-size:11px;font-weight:700;color:#FCA5A5;text-transform:uppercase;letter-spacing:.08em">Recién actualizado</span>
+<!-- BANNER SELLO PATAADVISOR -->
+<div class="season-banner">
+  <div class="season-inner">
+    <div class="season-strip" style="background:linear-gradient(135deg,#1a1200,#3a2800);display:flex;align-items:center;gap:24px;justify-content:flex-start;flex-wrap:wrap">
+      <img src="sello-pataadvisor.png" alt="Sello PataAdvisor" style="width:56px;height:56px;object-fit:contain;filter:drop-shadow(0 2px 6px rgba(0,0,0,.4));flex-shrink:0">
+      <div style="display:flex;gap:24px;flex-wrap:wrap;align-items:center">
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="font-size:16px">✅</span>
+          <div>
+            <div style="font-size:11px;font-weight:600;color:#D4A820;letter-spacing:.06em">Verificado por expertos</div>
+            <div style="font-size:12px;color:rgba(255,255,255,.7);font-family:'DM Sans',sans-serif">No usamos IA para nuestras opiniones</div>
+          </div>
+        </div>
+        <div style="width:1px;height:32px;background:rgba(255,255,255,.15)"></div>
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="font-size:16px">📦</span>
+          <div>
+            <div style="font-size:11px;font-weight:600;color:#D4A820;letter-spacing:.06em">Precios de Amazon</div>
+            <div style="font-size:12px;color:rgba(255,255,255,.7);font-family:'DM Sans',sans-serif">Actualizados cada 24 horas</div>
+          </div>
+        </div>
+        <div style="width:1px;height:32px;background:rgba(255,255,255,.15)"></div>
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="font-size:16px">🐕</span>
+          <div>
+            <div style="font-size:11px;font-weight:600;color:#D4A820;letter-spacing:.06em">Probado en mascotas reales</div>
+            <div style="font-size:12px;color:rgba(255,255,255,.7);font-family:'DM Sans',sans-serif">0% stock, 100% experiencia</div>
+          </div>
+        </div>
       </div>
-      <span id="announce-text" style="font-size:13px;color:white;font-weight:500;text-align:center"></span>
-      <a id="announce-link" href="#" style="display:inline-flex;align-items:center;gap:6px;background:#FF9900;color:#111;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;padding:6px 14px;border-radius:100px;text-decoration:none;white-space:nowrap;flex-shrink:0"></a>
     </div>
   </div>
-  <script>
-  (function(){
-    var msgs = [
-      {label:'🔴 Recién actualizado', text:'Seguro RC obligatorio para todos los perros — ¿Ya tienes el tuyo?', btn:'Comparar precios →', url:'seguro-perro-obligatorio-precio.html'},
-      {label:'⚠️ Ley 2026', text:'Las 5 multas más comunes — desde 500€ hasta 50.000€', btn:'Ver multas →', url:'multas-ley-bienestar-animal-2026.html'},
-      {label:'🎓 Novedad', text:'Simulacro de examen del Curso de Tenencia — practica gratis', btn:'Hacer el test →', url:'examen-curso-tenencia-perros-preguntas.html'},
-      {label:'✈️ Viajes 2026', text:'¿Viajas con tu perro? Guía definitiva de requisitos y transporte', btn:'Ver guía →', url:'viajar-con-perro-2026.html'},
-      {label:'🍖 Oferta exclusiva', text:'30% de descuento en tu primer pedido de Dogfy Diet', btn:'Aprovechar →', url:'dogfy-diet-opinion-2026.html'},
-      {label:'🆔 DNI Animal', text:'¿Sabes qué es el DNI Animal y cómo tramitarlo gratis?', btn:'Ver guía →', url:'dni-animal-perros.html'},
-      {label:'🐕 Bozal obligatorio', text:'¿Tu perro debe llevar bozal en 2026? La respuesta según la ley', btn:'Leer ahora →', url:'bozal-perros-obligatorio-ley-2026.html'},
-      {label:'📘 Pasaporte Europeo', text:'Viajas fuera de España — nuevos requisitos del Pasaporte 2026', btn:'Ver requisitos →', url:'pasaporte-europeo-mascotas-2026.html'},
-      {label:'😾 Gatos', text:'¿Tu gato no quiere comer pienso? 7 causas reales y soluciones', btn:'Leer →', url:'gato-no-come-pienso.html'},
-      {label:'💧 Salud', text:'Las mejores fuentes de agua para gatos y perros 2026', btn:'Ver comparativa →', url:'mejores-fuentes-agua-mascotas.html'},
-    ];
-    var i = 0;
-    var bar = document.getElementById('announce-bar');
-    var lbl = document.getElementById('announce-label');
-    var txt = document.getElementById('announce-text');
-    var lnk = document.getElementById('announce-link');
-    function show(idx){
-      bar.style.opacity='0';
-      setTimeout(function(){
-        lbl.textContent = msgs[idx].label;
-        txt.textContent = msgs[idx].text;
-        lnk.textContent = msgs[idx].btn;
-        lnk.href = msgs[idx].url;
-        bar.style.opacity='1';
-      }, 400);
-    }
-    show(0);
-    setInterval(function(){
-      i = (i+1) % msgs.length;
-      show(i);
-    }, 6500);
-  })();
-  </script>
+</div>
 
-  <!-- BANNER DOGFY — justo debajo de la barra rotativa -->
-  <div style="background:linear-gradient(135deg,var(--green-900),#0a2218);padding:14px 32px;display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap">
-    <div style="display:flex;align-items:center;gap:10px;flex-shrink:0">
-      <span style="font-size:18px">🍖</span>
+<!-- ACCESOS RÁPIDOS -->
+<div style="padding:32px 32px 0">
+  <div style="max-width:1100px;margin:0 auto">
+
+    <!-- Cabecera sección -->
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
       <div>
-        <div style="font-size:10px;font-weight:700;color:var(--green-100);text-transform:uppercase;letter-spacing:.12em">⭐ La recomendación de PataAdvisor</div>
-        <div style="font-size:12px;color:rgba(255,255,255,.6)">Alimentación natural con <strong style="color:#FF9900">30% de descuento</strong></div>
+        <div style="font-family:'Fraunces',serif;font-size:22px;font-weight:300;color:var(--sand-900);font-style:italic">Guías esenciales</div>
+        <div style="font-size:12px;color:var(--sand-400);margin-top:2px">📚 32 guías publicadas · <span style="color:var(--green-300);font-weight:600">Actualizado hoy</span></div>
       </div>
+      <a href="pata-diccionario.html" style="font-size:12px;color:var(--sand-400);text-decoration:none;border:1px solid var(--sand-200);padding:6px 14px;border-radius:100px;transition:all .2s" onmouseover="this.style.borderColor='var(--green-300)';this.style.color='var(--green-500)'" onmouseout="this.style.borderColor='var(--sand-200)';this.style.color='var(--sand-400)'">📖 Pata-Diccionario →</a>
     </div>
-    <div style="width:1px;height:32px;background:rgba(255,255,255,.1);flex-shrink:0"></div>
-    <!-- START ADVERTISER: Dogfy Diet ES from awin.com -->
-    <a rel="sponsored" href="https://www.awin1.com/cread.php?s=3626323&v=30121&q=444600&r=1331681" target="_blank" style="flex-shrink:0">
-      <img src="https://www.awin1.com/cshow.php?s=3626323&v=30121&q=444600&r=1331681" border="0" alt="Dogfy Diet — Comida Casera para Perros" style="height:50px;width:auto;border-radius:6px;display:block">
-    </a>
-    <!-- END ADVERTISER: Dogfy Diet ES from awin.com -->
-    <a rel="sponsored" href="https://www.awin1.com/cread.php?s=3626323&v=30121&q=444600&r=1331681" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:#FF9900;color:#111;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;padding:8px 16px;border-radius:100px;text-decoration:none;white-space:nowrap;flex-shrink:0">
-      Conseguir 30% →
-    </a>
+
+    <!-- Burbujas rediseñadas -->
+    <div style="display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px">
+
+      <a href="dni-animal-perros.html" style="background:linear-gradient(135deg,#E1F5EE,#9FE1CB20);border:2px solid #1D9E75;border-radius:20px;padding:20px 12px;text-align:center;text-decoration:none;transition:all .2s;display:flex;flex-direction:column;align-items:center;gap:8px" onmouseover="this.style.background='linear-gradient(135deg,#9FE1CB,#E1F5EE)';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 20px rgba(29,158,117,.2)'" onmouseout="this.style.background='linear-gradient(135deg,#E1F5EE,#9FE1CB20)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+        <div style="font-size:36px">🆔</div>
+        <div style="font-size:13px;font-weight:700;color:#04342C;line-height:1.2">DNI Animal</div>
+        <div style="font-size:10px;color:#1D9E75;background:white;padding:2px 8px;border-radius:100px;font-weight:600">Obligatorio 2026</div>
+      </a>
+
+      <a href="seguro-rc-perros.html" style="background:linear-gradient(135deg,#FFF5F5,#FCA5A520);border:2px solid #DC2626;border-radius:20px;padding:20px 12px;text-align:center;text-decoration:none;transition:all .2s;display:flex;flex-direction:column;align-items:center;gap:8px" onmouseover="this.style.background='linear-gradient(135deg,#FCA5A5,#FFF5F5)';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 20px rgba(220,38,38,.2)'" onmouseout="this.style.background='linear-gradient(135deg,#FFF5F5,#FCA5A520)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+        <div style="font-size:36px">🛡️</div>
+        <div style="font-size:13px;font-weight:700;color:#7F1D1D;line-height:1.2">Seguro RC</div>
+        <div style="font-size:10px;color:#DC2626;background:white;padding:2px 8px;border-radius:100px;font-weight:600">Evita 10.000€</div>
+      </a>
+
+      <a href="pasaporte-europeo-mascotas-2026.html" style="background:linear-gradient(135deg,#EFF6FF,#BFDBFE20);border:2px solid #2563EB;border-radius:20px;padding:20px 12px;text-align:center;text-decoration:none;transition:all .2s;display:flex;flex-direction:column;align-items:center;gap:8px" onmouseover="this.style.background='linear-gradient(135deg,#BFDBFE,#EFF6FF)';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 20px rgba(37,99,235,.2)'" onmouseout="this.style.background='linear-gradient(135deg,#EFF6FF,#BFDBFE20)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+        <div style="font-size:36px">📘</div>
+        <div style="font-size:13px;font-weight:700;color:#1E3A8A;line-height:1.2">Pasaportes</div>
+        <div style="font-size:10px;color:#2563EB;background:white;padding:2px 8px;border-radius:100px;font-weight:600">Viaja por la UE</div>
+      </a>
+
+      <a href="frutas-abril-perros.html" style="background:linear-gradient(135deg,#FFFBEB,#FDE68A20);border:2px solid #F59E0B;border-radius:20px;padding:20px 12px;text-align:center;text-decoration:none;transition:all .2s;display:flex;flex-direction:column;align-items:center;gap:8px" onmouseover="this.style.background='linear-gradient(135deg,#FDE68A,#FFFBEB)';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 20px rgba(245,158,11,.2)'" onmouseout="this.style.background='linear-gradient(135deg,#FFFBEB,#FDE68A20)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+        <div style="font-size:36px">🍓</div>
+        <div style="font-size:13px;font-weight:700;color:#854D0E;line-height:1.2">Alimentos</div>
+        <div style="font-size:10px;color:#D97706;background:white;padding:2px 8px;border-radius:100px;font-weight:600">Semáforo frutas</div>
+      </a>
+
+      <a href="sos-calor-perros-2026.html" style="background:linear-gradient(135deg,#FFF5F5,#FCA5A520);border:2px solid #EF4444;border-radius:20px;padding:20px 12px;text-align:center;text-decoration:none;transition:all .2s;display:flex;flex-direction:column;align-items:center;gap:8px" onmouseover="this.style.background='linear-gradient(135deg,#FCA5A5,#FFF5F5)';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 20px rgba(239,68,68,.2)'" onmouseout="this.style.background='linear-gradient(135deg,#FFF5F5,#FCA5A520)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+        <div style="font-size:36px">🌡️</div>
+        <div style="font-size:13px;font-weight:700;color:#7F1D1D;line-height:1.2">SOS Calor</div>
+        <div style="font-size:10px;color:#EF4444;background:white;padding:2px 8px;border-radius:100px;font-weight:600">Guía supervivencia</div>
+      </a>
+
+      <a href="viajar-con-perro-2026.html" style="background:linear-gradient(135deg,#EDE9FE,#C4B5FD20);border:2px solid #7C3AED;border-radius:20px;padding:20px 12px;text-align:center;text-decoration:none;transition:all .2s;display:flex;flex-direction:column;align-items:center;gap:8px" onmouseover="this.style.background='linear-gradient(135deg,#C4B5FD,#EDE9FE)';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 20px rgba(124,58,237,.2)'" onmouseout="this.style.background='linear-gradient(135deg,#EDE9FE,#C4B5FD20)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+        <div style="font-size:36px">✈️</div>
+        <div style="font-size:13px;font-weight:700;color:#4C1D95;line-height:1.2">Guía de Viaje</div>
+        <div style="font-size:10px;color:#7C3AED;background:white;padding:2px 8px;border-radius:100px;font-weight:600">Requisitos 2026</div>
+      </a>
+
+    </div>
+
+    <!-- BARRA LEY 2026 -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;margin-top:24px;margin-bottom:8px;border-radius:var(--r-xl);overflow:visible;border:1.5px solid var(--sand-200);background:white;box-shadow:0 2px 12px rgba(0,0,0,.06)">
+
+      <!-- Mitad izquierda: Ver todo -->
+      <a href="pata-diccionario.html?cat=ley" style="display:flex;align-items:center;justify-content:center;gap:10px;padding:16px 24px;text-decoration:none;border-right:1px solid var(--sand-200);transition:background .2s" onmouseover="this.style.background='var(--green-50)'" onmouseout="this.style.background='white'">
+        <span style="font-size:20px">⚖️</span>
+        <div>
+          <div style="font-size:13px;font-weight:600;color:var(--green-700)">Ver todo sobre la Ley 2026</div>
+          <div style="font-size:11px;color:var(--sand-400)">DNI Animal, multas, bozal, curso →</div>
+        </div>
+      </a>
+
+      <!-- Mitad derecha: FAQ desplegable -->
+      <div style="position:relative">
+        <button onclick="var p=document.getElementById('faq-ley');var o=p.style.display==='block';p.style.display=o?'none':'block';this.querySelector('.faq-arrow').style.transform=o?'rotate(0deg)':'rotate(180deg)'" style="width:100%;display:flex;align-items:center;justify-content:center;gap:10px;padding:16px 24px;background:transparent;border:none;cursor:pointer;transition:background .2s" onmouseover="this.style.background='var(--amber-50)'" onmouseout="this.style.background='transparent'">
+          <span style="font-size:20px">❓</span>
+          <div style="text-align:left">
+            <div style="font-size:13px;font-weight:600;color:var(--amber-600)">Preguntas frecuentes Ley 2026</div>
+            <div style="font-size:11px;color:var(--sand-400)">Seguro, DNI, multas, bozal, curso</div>
+          </div>
+          <svg class="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A89F8E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left:auto;flex-shrink:0;transition:transform .3s"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div id="faq-ley" style="display:none;position:absolute;top:100%;right:0;width:380px;background:white;border:1px solid var(--sand-200);border-radius:0 0 var(--r-lg) var(--r-lg);box-shadow:0 8px 32px rgba(0,0,0,.1);z-index:200;overflow:hidden">
+          <div style="background:var(--green-900);padding:10px 16px;font-size:12px;font-weight:600;color:var(--green-100);letter-spacing:.04em">⚖️ Ley de Bienestar Animal 2026</div>
+          <details style="border-bottom:1px solid var(--sand-100)">
+            <summary style="padding:11px 16px;font-size:13px;font-weight:500;color:var(--sand-900);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center" onmouseover="this.style.background='var(--sand-50)'" onmouseout="this.style.background='white'">¿Es obligatorio el seguro para todos los perros?<span style="color:var(--green-300);flex-shrink:0">+</span></summary>
+            <div style="padding:8px 16px 12px;font-size:12px;color:var(--sand-600);line-height:1.65;background:var(--sand-50)">Sí, sin excepciones. El precio medio ronda los 25-50€/año. <a href="seguro-perro-obligatorio-precio.html" style="color:var(--green-500);font-weight:500">Ver comparativa →</a></div>
+          </details>
+          <details style="border-bottom:1px solid var(--sand-100)">
+            <summary style="padding:11px 16px;font-size:13px;font-weight:500;color:var(--sand-900);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center" onmouseover="this.style.background='var(--sand-50)'" onmouseout="this.style.background='white'">¿Qué pasa si no tengo el DNI Animal?<span style="color:var(--green-300);flex-shrink:0">+</span></summary>
+            <div style="padding:8px 16px 12px;font-size:12px;color:var(--sand-600);line-height:1.65;background:var(--sand-50)">Hay moratoria activa pero el microchip debe estar al día. Multas de hasta 50.000€. <a href="multa-dni-animal-2026.html" style="color:var(--green-500);font-weight:500">La respuesta real →</a></div>
+          </details>
+          <details style="border-bottom:1px solid var(--sand-100)">
+            <summary style="padding:11px 16px;font-size:13px;font-weight:500;color:var(--sand-900);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center" onmouseover="this.style.background='var(--sand-50)'" onmouseout="this.style.background='white'">¿Cuánto tiempo puede estar solo un perro?<span style="color:var(--green-300);flex-shrink:0">+</span></summary>
+            <div style="padding:8px 16px 12px;font-size:12px;color:var(--sand-600);line-height:1.65;background:var(--sand-50)">Máximo 24 horas. Superarlo puede ser abandono. <a href="multas-ley-bienestar-animal-2026.html" style="color:var(--green-500);font-weight:500">Ver multas →</a></div>
+          </details>
+          <details style="border-bottom:1px solid var(--sand-100)">
+            <summary style="padding:11px 16px;font-size:13px;font-weight:500;color:var(--sand-900);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center" onmouseover="this.style.background='var(--sand-50)'" onmouseout="this.style.background='white'">¿Me multan si mi perro no lleva bozal?<span style="color:var(--green-300);flex-shrink:0">+</span></summary>
+            <div style="padding:8px 16px 12px;font-size:12px;color:var(--sand-600);line-height:1.65;background:var(--sand-50)">Solo PPP o historial. En transporte público obligatorio para todos. <a href="bozal-perros-obligatorio-ley-2026.html" style="color:var(--green-500);font-weight:500">Guía bozal →</a></div>
+          </details>
+          <details>
+            <summary style="padding:11px 16px;font-size:13px;font-weight:500;color:var(--sand-900);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center" onmouseover="this.style.background='var(--sand-50)'" onmouseout="this.style.background='white'">¿Tengo que hacer el curso si ya tengo perro?<span style="color:var(--green-300);flex-shrink:0">+</span></summary>
+            <div style="padding:8px 16px 12px;font-size:12px;color:var(--sand-600);line-height:1.65;background:var(--sand-50)">Sí, tienes 2 años de plazo. Gratuito y online. <a href="examen-curso-tenencia-perros-preguntas.html" style="color:var(--green-500);font-weight:500">Simulacro gratis →</a></div>
+          </details>
+        </div>
+      </div>
+
+    </div>
   </div>
+</div>
 
   <section class="hero">
     <!-- SVG decorativo fondo hero -->
@@ -1406,144 +1525,35 @@
   </div>
 </div>
 
-<!-- BANNER SELLO PATAADVISOR -->
-<div class="season-banner">
-  <div class="season-inner">
-    <div class="season-strip" style="background:linear-gradient(135deg,#1a1200,#3a2800);display:flex;align-items:center;gap:24px;justify-content:flex-start;flex-wrap:wrap">
-      <img src="sello-pataadvisor.png" alt="Sello PataAdvisor" style="width:56px;height:56px;object-fit:contain;filter:drop-shadow(0 2px 6px rgba(0,0,0,.4));flex-shrink:0">
-      <div style="display:flex;gap:24px;flex-wrap:wrap;align-items:center">
-        <div style="display:flex;align-items:center;gap:8px">
-          <span style="font-size:16px">✅</span>
-          <div>
-            <div style="font-size:11px;font-weight:600;color:#D4A820;letter-spacing:.06em">Verificado por expertos</div>
-            <div style="font-size:12px;color:rgba(255,255,255,.7);font-family:'DM Sans',sans-serif">No usamos IA para nuestras opiniones</div>
-          </div>
-        </div>
-        <div style="width:1px;height:32px;background:rgba(255,255,255,.15)"></div>
-        <div style="display:flex;align-items:center;gap:8px">
-          <span style="font-size:16px">📦</span>
-          <div>
-            <div style="font-size:11px;font-weight:600;color:#D4A820;letter-spacing:.06em">Precios de Amazon</div>
-            <div style="font-size:12px;color:rgba(255,255,255,.7);font-family:'DM Sans',sans-serif">Actualizados cada 24 horas</div>
-          </div>
-        </div>
-        <div style="width:1px;height:32px;background:rgba(255,255,255,.15)"></div>
-        <div style="display:flex;align-items:center;gap:8px">
-          <span style="font-size:16px">🐕</span>
-          <div>
-            <div style="font-size:11px;font-weight:600;color:#D4A820;letter-spacing:.06em">Probado en mascotas reales</div>
-            <div style="font-size:12px;color:rgba(255,255,255,.7);font-family:'DM Sans',sans-serif">0% stock, 100% experiencia</div>
-          </div>
-        </div>
+  <!-- BANNER DOGFY — justo debajo de la barra rotativa -->
+  <div style="max-width:1100px;margin:0 auto;padding:40px 32px 0">
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:16px">
+      <div style="flex:1;height:1px;background:var(--sand-200)"></div>
+      <div style="display:flex;align-items:center;gap:8px;flex-shrink:0">
+        <span style="font-size:14px">🌿</span>
+        <span style="font-family:'Fraunces',serif;font-size:15px;font-weight:300;color:var(--sand-600);font-style:italic">Nuestra recomendación de salud del mes</span>
       </div>
+      <div style="flex:1;height:1px;background:var(--sand-200)"></div>
     </div>
   </div>
-</div>
-
-<!-- ACCESOS RÁPIDOS -->
-<div style="padding:32px 32px 0">
-  <div style="max-width:1100px;margin:0 auto">
-
-    <!-- Cabecera sección -->
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
+  <div style="background:linear-gradient(135deg,var(--green-900),#0a2218);padding:14px 32px;display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap">
+    <div style="display:flex;align-items:center;gap:10px;flex-shrink:0">
+      <span style="font-size:18px">🍖</span>
       <div>
-        <div style="font-family:'Fraunces',serif;font-size:22px;font-weight:300;color:var(--sand-900);font-style:italic">Guías esenciales</div>
-        <div style="font-size:12px;color:var(--sand-400);margin-top:2px">📚 32 guías publicadas · <span style="color:var(--green-300);font-weight:600">Actualizado hoy</span></div>
+        <div style="font-size:10px;font-weight:700;color:var(--green-100);text-transform:uppercase;letter-spacing:.12em">⭐ La recomendación de PataAdvisor</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.6)">Alimentación natural con <strong style="color:#FF9900">30% de descuento</strong></div>
       </div>
-      <a href="pata-diccionario.html" style="font-size:12px;color:var(--sand-400);text-decoration:none;border:1px solid var(--sand-200);padding:6px 14px;border-radius:100px;transition:all .2s" onmouseover="this.style.borderColor='var(--green-300)';this.style.color='var(--green-500)'" onmouseout="this.style.borderColor='var(--sand-200)';this.style.color='var(--sand-400)'">📖 Pata-Diccionario →</a>
     </div>
-
-    <!-- Burbujas rediseñadas -->
-    <div style="display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px">
-
-      <a href="dni-animal-perros.html" style="background:linear-gradient(135deg,#E1F5EE,#9FE1CB20);border:2px solid #1D9E75;border-radius:20px;padding:20px 12px;text-align:center;text-decoration:none;transition:all .2s;display:flex;flex-direction:column;align-items:center;gap:8px" onmouseover="this.style.background='linear-gradient(135deg,#9FE1CB,#E1F5EE)';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 20px rgba(29,158,117,.2)'" onmouseout="this.style.background='linear-gradient(135deg,#E1F5EE,#9FE1CB20)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
-        <div style="font-size:36px">🆔</div>
-        <div style="font-size:13px;font-weight:700;color:#04342C;line-height:1.2">DNI Animal</div>
-        <div style="font-size:10px;color:#1D9E75;background:white;padding:2px 8px;border-radius:100px;font-weight:600">Obligatorio 2026</div>
-      </a>
-
-      <a href="seguro-rc-perros.html" style="background:linear-gradient(135deg,#FFF5F5,#FCA5A520);border:2px solid #DC2626;border-radius:20px;padding:20px 12px;text-align:center;text-decoration:none;transition:all .2s;display:flex;flex-direction:column;align-items:center;gap:8px" onmouseover="this.style.background='linear-gradient(135deg,#FCA5A5,#FFF5F5)';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 20px rgba(220,38,38,.2)'" onmouseout="this.style.background='linear-gradient(135deg,#FFF5F5,#FCA5A520)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
-        <div style="font-size:36px">🛡️</div>
-        <div style="font-size:13px;font-weight:700;color:#7F1D1D;line-height:1.2">Seguro RC</div>
-        <div style="font-size:10px;color:#DC2626;background:white;padding:2px 8px;border-radius:100px;font-weight:600">Evita 10.000€</div>
-      </a>
-
-      <a href="pasaporte-europeo-mascotas-2026.html" style="background:linear-gradient(135deg,#EFF6FF,#BFDBFE20);border:2px solid #2563EB;border-radius:20px;padding:20px 12px;text-align:center;text-decoration:none;transition:all .2s;display:flex;flex-direction:column;align-items:center;gap:8px" onmouseover="this.style.background='linear-gradient(135deg,#BFDBFE,#EFF6FF)';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 20px rgba(37,99,235,.2)'" onmouseout="this.style.background='linear-gradient(135deg,#EFF6FF,#BFDBFE20)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
-        <div style="font-size:36px">📘</div>
-        <div style="font-size:13px;font-weight:700;color:#1E3A8A;line-height:1.2">Pasaportes</div>
-        <div style="font-size:10px;color:#2563EB;background:white;padding:2px 8px;border-radius:100px;font-weight:600">Viaja por la UE</div>
-      </a>
-
-      <a href="frutas-abril-perros.html" style="background:linear-gradient(135deg,#FFFBEB,#FDE68A20);border:2px solid #F59E0B;border-radius:20px;padding:20px 12px;text-align:center;text-decoration:none;transition:all .2s;display:flex;flex-direction:column;align-items:center;gap:8px" onmouseover="this.style.background='linear-gradient(135deg,#FDE68A,#FFFBEB)';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 20px rgba(245,158,11,.2)'" onmouseout="this.style.background='linear-gradient(135deg,#FFFBEB,#FDE68A20)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
-        <div style="font-size:36px">🍓</div>
-        <div style="font-size:13px;font-weight:700;color:#854D0E;line-height:1.2">Alimentos</div>
-        <div style="font-size:10px;color:#D97706;background:white;padding:2px 8px;border-radius:100px;font-weight:600">Semáforo frutas</div>
-      </a>
-
-      <a href="sos-calor-perros-2026.html" style="background:linear-gradient(135deg,#FFF5F5,#FCA5A520);border:2px solid #EF4444;border-radius:20px;padding:20px 12px;text-align:center;text-decoration:none;transition:all .2s;display:flex;flex-direction:column;align-items:center;gap:8px" onmouseover="this.style.background='linear-gradient(135deg,#FCA5A5,#FFF5F5)';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 20px rgba(239,68,68,.2)'" onmouseout="this.style.background='linear-gradient(135deg,#FFF5F5,#FCA5A520)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
-        <div style="font-size:36px">🌡️</div>
-        <div style="font-size:13px;font-weight:700;color:#7F1D1D;line-height:1.2">SOS Calor</div>
-        <div style="font-size:10px;color:#EF4444;background:white;padding:2px 8px;border-radius:100px;font-weight:600">Guía supervivencia</div>
-      </a>
-
-      <a href="viajar-con-perro-2026.html" style="background:linear-gradient(135deg,#EDE9FE,#C4B5FD20);border:2px solid #7C3AED;border-radius:20px;padding:20px 12px;text-align:center;text-decoration:none;transition:all .2s;display:flex;flex-direction:column;align-items:center;gap:8px" onmouseover="this.style.background='linear-gradient(135deg,#C4B5FD,#EDE9FE)';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 20px rgba(124,58,237,.2)'" onmouseout="this.style.background='linear-gradient(135deg,#EDE9FE,#C4B5FD20)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
-        <div style="font-size:36px">✈️</div>
-        <div style="font-size:13px;font-weight:700;color:#4C1D95;line-height:1.2">Guía de Viaje</div>
-        <div style="font-size:10px;color:#7C3AED;background:white;padding:2px 8px;border-radius:100px;font-weight:600">Requisitos 2026</div>
-      </a>
-
-    </div>
-
-    <!-- BARRA LEY 2026 -->
-    <div style="display:grid;grid-template-columns:1fr 1fr;margin-top:24px;margin-bottom:8px;border-radius:var(--r-xl);overflow:visible;border:1.5px solid var(--sand-200);background:white;box-shadow:0 2px 12px rgba(0,0,0,.06)">
-
-      <!-- Mitad izquierda: Ver todo -->
-      <a href="pata-diccionario.html?cat=ley" style="display:flex;align-items:center;justify-content:center;gap:10px;padding:16px 24px;text-decoration:none;border-right:1px solid var(--sand-200);transition:background .2s" onmouseover="this.style.background='var(--green-50)'" onmouseout="this.style.background='white'">
-        <span style="font-size:20px">⚖️</span>
-        <div>
-          <div style="font-size:13px;font-weight:600;color:var(--green-700)">Ver todo sobre la Ley 2026</div>
-          <div style="font-size:11px;color:var(--sand-400)">DNI Animal, multas, bozal, curso →</div>
-        </div>
-      </a>
-
-      <!-- Mitad derecha: FAQ desplegable -->
-      <div style="position:relative">
-        <button onclick="var p=document.getElementById('faq-ley');var o=p.style.display==='block';p.style.display=o?'none':'block';this.querySelector('.faq-arrow').style.transform=o?'rotate(0deg)':'rotate(180deg)'" style="width:100%;display:flex;align-items:center;justify-content:center;gap:10px;padding:16px 24px;background:transparent;border:none;cursor:pointer;transition:background .2s" onmouseover="this.style.background='var(--amber-50)'" onmouseout="this.style.background='transparent'">
-          <span style="font-size:20px">❓</span>
-          <div style="text-align:left">
-            <div style="font-size:13px;font-weight:600;color:var(--amber-600)">Preguntas frecuentes Ley 2026</div>
-            <div style="font-size:11px;color:var(--sand-400)">Seguro, DNI, multas, bozal, curso</div>
-          </div>
-          <svg class="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A89F8E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left:auto;flex-shrink:0;transition:transform .3s"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div id="faq-ley" style="display:none;position:absolute;top:100%;right:0;width:380px;background:white;border:1px solid var(--sand-200);border-radius:0 0 var(--r-lg) var(--r-lg);box-shadow:0 8px 32px rgba(0,0,0,.1);z-index:200;overflow:hidden">
-          <div style="background:var(--green-900);padding:10px 16px;font-size:12px;font-weight:600;color:var(--green-100);letter-spacing:.04em">⚖️ Ley de Bienestar Animal 2026</div>
-          <details style="border-bottom:1px solid var(--sand-100)">
-            <summary style="padding:11px 16px;font-size:13px;font-weight:500;color:var(--sand-900);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center" onmouseover="this.style.background='var(--sand-50)'" onmouseout="this.style.background='white'">¿Es obligatorio el seguro para todos los perros?<span style="color:var(--green-300);flex-shrink:0">+</span></summary>
-            <div style="padding:8px 16px 12px;font-size:12px;color:var(--sand-600);line-height:1.65;background:var(--sand-50)">Sí, sin excepciones. El precio medio ronda los 25-50€/año. <a href="seguro-perro-obligatorio-precio.html" style="color:var(--green-500);font-weight:500">Ver comparativa →</a></div>
-          </details>
-          <details style="border-bottom:1px solid var(--sand-100)">
-            <summary style="padding:11px 16px;font-size:13px;font-weight:500;color:var(--sand-900);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center" onmouseover="this.style.background='var(--sand-50)'" onmouseout="this.style.background='white'">¿Qué pasa si no tengo el DNI Animal?<span style="color:var(--green-300);flex-shrink:0">+</span></summary>
-            <div style="padding:8px 16px 12px;font-size:12px;color:var(--sand-600);line-height:1.65;background:var(--sand-50)">Hay moratoria activa pero el microchip debe estar al día. Multas de hasta 50.000€. <a href="multa-dni-animal-2026.html" style="color:var(--green-500);font-weight:500">La respuesta real →</a></div>
-          </details>
-          <details style="border-bottom:1px solid var(--sand-100)">
-            <summary style="padding:11px 16px;font-size:13px;font-weight:500;color:var(--sand-900);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center" onmouseover="this.style.background='var(--sand-50)'" onmouseout="this.style.background='white'">¿Cuánto tiempo puede estar solo un perro?<span style="color:var(--green-300);flex-shrink:0">+</span></summary>
-            <div style="padding:8px 16px 12px;font-size:12px;color:var(--sand-600);line-height:1.65;background:var(--sand-50)">Máximo 24 horas. Superarlo puede ser abandono. <a href="multas-ley-bienestar-animal-2026.html" style="color:var(--green-500);font-weight:500">Ver multas →</a></div>
-          </details>
-          <details style="border-bottom:1px solid var(--sand-100)">
-            <summary style="padding:11px 16px;font-size:13px;font-weight:500;color:var(--sand-900);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center" onmouseover="this.style.background='var(--sand-50)'" onmouseout="this.style.background='white'">¿Me multan si mi perro no lleva bozal?<span style="color:var(--green-300);flex-shrink:0">+</span></summary>
-            <div style="padding:8px 16px 12px;font-size:12px;color:var(--sand-600);line-height:1.65;background:var(--sand-50)">Solo PPP o historial. En transporte público obligatorio para todos. <a href="bozal-perros-obligatorio-ley-2026.html" style="color:var(--green-500);font-weight:500">Guía bozal →</a></div>
-          </details>
-          <details>
-            <summary style="padding:11px 16px;font-size:13px;font-weight:500;color:var(--sand-900);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center" onmouseover="this.style.background='var(--sand-50)'" onmouseout="this.style.background='white'">¿Tengo que hacer el curso si ya tengo perro?<span style="color:var(--green-300);flex-shrink:0">+</span></summary>
-            <div style="padding:8px 16px 12px;font-size:12px;color:var(--sand-600);line-height:1.65;background:var(--sand-50)">Sí, tienes 2 años de plazo. Gratuito y online. <a href="examen-curso-tenencia-perros-preguntas.html" style="color:var(--green-500);font-weight:500">Simulacro gratis →</a></div>
-          </details>
-        </div>
-      </div>
-
-    </div>
+    <div style="width:1px;height:32px;background:rgba(255,255,255,.1);flex-shrink:0"></div>
+    <!-- START ADVERTISER: Dogfy Diet ES from awin.com -->
+    <a rel="sponsored" href="https://www.awin1.com/cread.php?s=3626323&v=30121&q=444600&r=1331681" target="_blank" style="flex-shrink:0">
+      <img src="https://www.awin1.com/cshow.php?s=3626323&v=30121&q=444600&r=1331681" border="0" alt="Dogfy Diet — Comida Casera para Perros" style="height:50px;width:auto;border-radius:6px;display:block">
+    </a>
+    <!-- END ADVERTISER: Dogfy Diet ES from awin.com -->
+    <a rel="sponsored" href="https://www.awin1.com/cread.php?s=3626323&v=30121&q=444600&r=1331681" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:#FF9900;color:#111;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;padding:8px 16px;border-radius:100px;text-decoration:none;white-space:nowrap;flex-shrink:0">
+      Conseguir 30% →
+    </a>
   </div>
-</div>
 
 <!-- ═══ HOME ═══ -->
     <div class="sec-header"><h2 class="sec-title">Lo mejor para perros</h2><a href="articulos.html#pienso-perro" style="display:inline-flex;align-items:center;gap:6px;background:var(--green-900);color:var(--green-100);font-size:12px;font-weight:600;padding:7px 16px;border-radius:100px;text-decoration:none;transition:opacity .2s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">Ver análisis completo →</a></div>
