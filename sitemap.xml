@@ -112,6 +112,30 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://pataadvisor.es/seguro-perro-obligatorio-precio.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://pataadvisor.es/seguro-rc-perros.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- PERROS - Salud y temporada -->
+  <url>
+    <loc>https://pataadvisor.es/sos-calor-perros-2026.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- PERROS - Viajes -->
+  <url>
+    <loc>https://pataadvisor.es/viajar-con-perro-2026.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 
   <!-- GATOS -->
   <url>
